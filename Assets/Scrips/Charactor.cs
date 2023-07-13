@@ -6,6 +6,8 @@ using UnityEngine;
 public class Charactor : MonoBehaviour
 {
     [SerializeField] protected Healing healbar;
+
+
     public float hp;
     private float maxhp;
     public float mana;
@@ -17,7 +19,7 @@ public class Charactor : MonoBehaviour
         maxmana = 100f;
         onInit();
     }
-    public void FixedUpdate()
+    public void Update()
     {
         healingMana();
     }
@@ -26,15 +28,15 @@ public class Charactor : MonoBehaviour
     {
         hp = 100f;
         mana = 100f;
-        healbar.OnInit(100,100);
+        healbar.OnInit(maxhp, maxmana);
     }
-   
+
     public void onHit(float dame)
     {
         if (!isDead)
         {
             hp -= dame;
-            if(isDead)
+            if (isDead)
             {
                 hp = 0f;
             }
@@ -43,28 +45,19 @@ public class Charactor : MonoBehaviour
     }
     public void onSkill(float manax)
     {
-        if (mana >= 30)
-        {
-            Debug.Log(1);
-            mana -= manax;
-            healbar.SetNewMana(mana);
-        }
-        else
-        {
-            Debug.Log("Yếu Sinh lý");
-        }
+        mana -= manax;
+        healbar.SetNewMana(mana);
     }
-
-
     public void healingMana()
     {
-        if (mana < 100f)
+        if (mana < maxmana)
         {
             mana += 30f * Time.deltaTime;
             if (mana > maxmana)
             {
                 mana = maxmana;
             }
+            healbar.SetNewMana(mana);
         }
     }
 }

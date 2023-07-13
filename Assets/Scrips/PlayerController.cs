@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,7 +8,6 @@ public class PlayerController : Charactor
     [SerializeField] private GameObject[] skill1;
     [SerializeField] private Transform attack;
     [SerializeField] private Rigidbody2D rb;
-
 
     private Vector3 mousePos;
     public float speed;
@@ -21,7 +20,6 @@ public class PlayerController : Charactor
     void Start()
     {
         mousePos = transform.position;
-        
     }
 
     void Update()
@@ -52,50 +50,77 @@ public class PlayerController : Charactor
     }
     public void Skill1()
     {
-            GameObject newSkill = Instantiate(skill1[0], attack.position, transform.rotation);
-            Rigidbody2D skillRb = newSkill.GetComponent<Rigidbody2D>();
-            skillRb.velocity = transform.right * speed;
-            Destroy(newSkill, 4f);
-            GetComponent<Charactor>().onSkill(30);
+        if (mana >= 40)
+        {
+            Instantiate(skill1[0], attack.position, attack.rotation);
+            onSkill(40);
+        }
+        else
+        {
+            Debug.Log("Yếu Sinh Lý");
+        }
+        //healbar.onDame(15);
+        /*GameObject newSkill = Instantiate(skill1[0], attack.position, transform.rotation);
+        Rigidbody2D skillRb = newSkill.GetComponent<Rigidbody2D>();
+        skillRb.velocity = transform.right * speed;
+        Destroy(newSkill, 4f);*/
+
+
     }
 
     public void Skill2()
     {
-            GameObject newSkill = Instantiate(skill1[1], attack.position, transform.rotation);
-            Rigidbody2D skillRb = newSkill.GetComponent<Rigidbody2D>();
-            skillRb.velocity = transform.right * speed;
-            Destroy(newSkill, 4f);
+        if (mana >= 25)
+        {
+            Instantiate(skill1[1], attack.position, attack.rotation);
+            onSkill(25);
+        }
+        else
+        {
+            Debug.Log("Yếu Sinh Lý");
+        }
     }
     public void Skill3()
     {
-        GameObject newSkill = Instantiate(skill1[2], attack.position, transform.rotation);
-        Rigidbody2D skillRb = newSkill.GetComponent<Rigidbody2D>();
-        skillRb.velocity = transform.right * speed;
-        Destroy(newSkill, 4f);
+        if (mana >= 15)
+        {
+            Instantiate(skill1[2], attack.position, attack.rotation);
+            onSkill(15);
+        }
+        else
+        {
+            Debug.Log("Yếu Sinh Lý");
+        }
 
     }
     public void Skill4()
     {
-        GameObject newSkill = Instantiate(skill1[0], attack.position, transform.rotation);
-        Rigidbody2D skillRb = newSkill.GetComponent<Rigidbody2D>();
-        skillRb.velocity = transform.right * speed;
-        Destroy(newSkill, 4f);
-
+        if (mana >= 40)
+        {
+            Instantiate(skill1[3], attack.position, attack.rotation);
+            onSkill(40);
+        }
+        else
+        {
+            Debug.Log("Yếu Sinh Lý");
+        }
     }
     public void Skill5()
     {
-        GameObject newSkill = Instantiate(skill1[0], attack.position, transform.rotation);
-        Rigidbody2D skillRb = newSkill.GetComponent<Rigidbody2D>();
-        skillRb.velocity = transform.right * speed;
-        Destroy(newSkill, 4f);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "Bot")
+        if (mana >= 40)
         {
-            Debug.Log(1);
+            Instantiate(skill1[4], attack.position, attack.rotation);
+            onSkill(40);
+        }
+        else
+        {
+            Debug.Log("Yếu Sinh Lý");
         }
     }
 
+    public void ActiveSkill1()
+    {
+        
+    }
+    
 }

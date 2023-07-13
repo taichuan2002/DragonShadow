@@ -58,19 +58,56 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.4f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleEPOOutline.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\Plugins\Demigiant\DOTween\DOTween.XML" />
-    <None Include="Assets\Plugins\Demigiant\DOTween\DOTween.dll" />
-    <None Include="Assets\Plugins\Demigiant\DOTween\readme.txt" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\00-Common\Scripts\IntListBank.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\05-CustomContent\Scripts\SpriteStringListBank.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\IListMovementProcessor.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\IBoxTransformController.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\Linear\Controller\DistanceMovementCurve.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ContentManagement\IListContent.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListBank.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\00-Common\Scripts\IntListContent.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\05-CustomContent\Scripts\StringStarListBank.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\10-SelectionMovement\Scripts\ListIteration.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\Linear\Controller\IMovementCurve.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\InputProcessing\InputProcessor.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\Linear\ListMovementProcessor.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\Linear\FocusingBoxFinder.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\ListStateProcessorManager.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\Util\DeltaTimeCurve.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\08-ListRefreshing\Scripts\AdjustableStringListBank.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\Linear\Controller\IMovementCtrl.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListSetting.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\IListBank.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\00-Common\Scripts\FPSLimiter.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ContentManagement\ContentIDState.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\Linear\Controller\UnitMovementCtrl.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\05-CustomContent\Scripts\ColorStrListBox.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\ListFocusingState.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\07-LateInitialization\Scripts\LateInitialization.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\Util\FactorUtility.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\05-CustomContent\Scripts\StringStarListBox.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\BoxPositionState.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\Util\RangeMappingCurve.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListSetupData.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\Linear\Controller\VelocityMovementCurve.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\05-CustomContent\Scripts\ColorStrListBank.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\05-CustomContent\Scripts\SpriteStringListBox.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\Linear\ListBoxController.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\06-ListEvents\Scripts\ListEventDemo.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\CircularScrollingList.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListBoxSetting.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\IListBox.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\08-ListRefreshing\Scripts\StringListBox.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\IListBoxController.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\InputProcessing\InputInfo.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ContentManagement\ListContentProvider.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\00-Common\Scripts\IntListBox.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\Linear\Controller\MovementUtility.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListBox.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\11-InteractingByScript\Scripts\ListInteraction.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\Linear\Controller\FreeMovementCtrl.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\Linear\Controller\BoxTransformController.cs" />
+    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListEvent.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -324,9 +361,6 @@
     </Reference>
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
       <HintPath>Library\PackageCache\com.unity.collections@1.2.4\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween">
-      <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,8 +24,8 @@ public class Healing : MonoBehaviour
 
     private void Update()
     {
-        imgFillhp.fillAmount = Mathf.Lerp(imgFillhp.fillAmount, hp / maxHp, Time.deltaTime);
-        imgFillmana.fillAmount = Mathf.Lerp(imgFillmana.fillAmount, mana / maxMana, Time.deltaTime);
+        imgFillhp.fillAmount = Mathf.Lerp(imgFillhp.fillAmount, hp / maxHp, Time.deltaTime * 3);
+        imgFillmana.fillAmount = Mathf.Lerp(imgFillmana.fillAmount, mana / maxMana,Time.deltaTime *3);
         healingMana();
     }
     public void OnInit(float maxhp, float maxmana)
@@ -48,15 +48,22 @@ public class Healing : MonoBehaviour
     }
     private void healingMana()
     {
-        if(mana < 100)
+        if (mana < maxMana)
         {
-            
-            mana += 3f * Time.deltaTime;
-            
-            if(mana > maxMana)
+            mana += 30f * Time.deltaTime;
+            if (mana > maxMana)
             {
                 mana = 100;
             }
         }
+    }
+
+    public void onHp(float dame)
+    {
+        hp -= dame;
+    }
+    public void onMana(float manax)
+    {
+        mana -= manax;
     }
 }
