@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SpawnItem : MonoBehaviour
 {
-    [SerializeField] private GameObject[] listItem;
+    [SerializeField] private List<GameObject> listItem = new List<GameObject>();
 
     void Start()
     {
@@ -17,12 +17,13 @@ public class SpawnItem : MonoBehaviour
 
     private void SpawnPointItem()
     {
-        int randomItem = Random.Range(0,6);
-        Debug.Log(randomItem);
+        int randomItem = Random.Range(0,5);
         float randomY = Random.Range(-3.9f, 3.9f);
         Vector2 spawnItem = new Vector2(10, randomY);
-        GameObject newItem = Instantiate(listItem[randomItem], spawnItem, Quaternion.identity);
+        GameObject newItem = Instantiate(listItem[randomItem], spawnItem,transform.rotation);
         StartCoroutine(MoveItem(newItem));
+        Debug.Log(randomItem);
+
     }
     private IEnumerator SpawnListItem()
     {

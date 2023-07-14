@@ -19,7 +19,7 @@ public class Charactor : MonoBehaviour
         maxmana = 100;
         onInit();
     }
-    public void Update()
+    public void FixedUpdate()
     {
         healingMana();
         Debug.Log(mana);
@@ -63,6 +63,7 @@ public class Charactor : MonoBehaviour
     {
         if (mana < 100)
         {
+            Debug.Log(1);
             mana += 5f * Time.deltaTime;
             if (mana > 100)
             {

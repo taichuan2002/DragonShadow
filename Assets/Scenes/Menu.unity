@@ -5012,6 +5012,7 @@ GameObject:
   - component: {fileID: 634617236}
   - component: {fileID: 634617238}
   - component: {fileID: 634617237}
+  - component: {fileID: 634617239}
   m_Layer: 5
   m_Name: PanelFreeCoin
   m_TagString: Untagged
@@ -5084,6 +5085,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634617235}
   m_CullTransparentMesh: 1
+--- !u!114 &634617239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634617235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbe82ada2a71ca04ea7d7c83fc8d1001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txtCoin: {fileID: 1971963100}
 --- !u!1 &637725644
 GameObject:
   m_ObjectHideFlags: 0
@@ -5714,6 +5728,7 @@ GameObject:
   - component: {fileID: 760762898}
   - component: {fileID: 760762900}
   - component: {fileID: 760762899}
+  - component: {fileID: 760762901}
   m_Layer: 5
   m_Name: PanelCoins
   m_TagString: Untagged
@@ -5783,6 +5798,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 760762897}
   m_CullTransparentMesh: 1
+--- !u!114 &760762901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760762897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbe82ada2a71ca04ea7d7c83fc8d1001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txtCoin: {fileID: 1054519697}
 --- !u!1001 &775828388
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8306,6 +8334,7 @@ GameObject:
   - component: {fileID: 1134933691}
   - component: {fileID: 1134933693}
   - component: {fileID: 1134933692}
+  - component: {fileID: 1134933694}
   m_Layer: 5
   m_Name: txtPoint
   m_TagString: Untagged
@@ -8375,6 +8404,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1134933690}
   m_CullTransparentMesh: 1
+--- !u!114 &1134933694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134933690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbe82ada2a71ca04ea7d7c83fc8d1001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txtCoin: {fileID: 1134933692}
 --- !u!1 &1142601845
 GameObject:
   m_ObjectHideFlags: 0

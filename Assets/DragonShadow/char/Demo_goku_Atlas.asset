@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
   m_Name: Demo_goku_Atlas
   m_EditorClassIdentifier: 
-  atlasFile: {fileID: 4900000, guid: 5fd6c96d05fd101408e6145b5d59e779, type: 3}
+  atlasFile: {fileID: 4900000, guid: 45166385b238c0b489272c56fb9f8203, type: 3}
   materials:
-  - {fileID: 2100000, guid: f5950baece585be43a61dec45c3e1fa5, type: 2}
+  - {fileID: 2100000, guid: f372fbd13f2836848a763cfcf8358754, type: 2}

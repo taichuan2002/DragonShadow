@@ -55,6 +55,7 @@ public class Healing : MonoBehaviour
             {
                 mana = 100;
             }
+            SetNewMana(mana);
         }
     }
 
