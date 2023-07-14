@@ -50,7 +50,7 @@ public class Healing : MonoBehaviour
     {
         if (mana < maxMana)
         {
-            mana += 30f * Time.deltaTime;
+            mana += 5f * Time.deltaTime;
             if (mana > maxMana)
             {
                 mana = 100;

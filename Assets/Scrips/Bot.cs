@@ -1,3 +1,4 @@
+using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,16 +6,23 @@ using UnityEngine;
 public class Bot : Charactor
 {
     [SerializeField] private Vector2[] listPoint;
-    [SerializeField] private GameObject[] skill1;
+    [SerializeField] private GameObject[] Listskill;
     [SerializeField] private Transform attack;
     private float speed = 4f;
     private int random;
 
+    [SerializeField] private AnimationReferenceAsset[] enumSkill;
+    SkeletonAnimation skeletonAnimation;
 
 
 
     private void Start()
     {
+        skeletonAnimation = GetComponent<SkeletonAnimation>();
+        if (skeletonAnimation == null)
+        {
+            Debug.LogError("SkeletonAnimation component not found!");
+        }
         StartCoroutine(RunPoint());
         StartCoroutine(spamSkill());
     }
@@ -30,8 +38,7 @@ public class Bot : Charactor
         while (t < 1)
         {
             t += Time.deltaTime;
-            transform.position = Vector2.Lerp(listPoint[3], listPoint[1], t / 15);
-            
+            transform.position = Vector2.Lerp(listPoint[2], listPoint[1], t / 15);
             yield return null;
         }
         while (true)
@@ -53,7 +60,8 @@ public class Bot : Charactor
         while (true)
         {
             yield return new WaitForSeconds(3f);
-            Instantiate(skill1[random], attack.position, attack.rotation);
+            skeletonAnimation.AnimationState.SetAnimation(1, enumSkill[random], false);
+            Instantiate(Listskill[random], attack.position, attack.rotation);
         }
     }
 }

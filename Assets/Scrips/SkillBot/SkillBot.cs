@@ -14,7 +14,7 @@ public class SkillBot : MonoBehaviour
 
     public void OnInit()
     {
-        rb.velocity = -transform.right * 10f;
+        rb.velocity = transform.right * 10f;
         Invoke(nameof(OnDestroy), 4f);
     }
 
@@ -28,6 +28,10 @@ public class SkillBot : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             collision.GetComponent<Charactor>().onHit(15);
+            OnDestroy();
+        }
+        if (collision.CompareTag("skill"))
+        {
             OnDestroy();
         }
     }

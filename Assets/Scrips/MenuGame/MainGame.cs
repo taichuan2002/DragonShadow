@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainGame : MonoBehaviour
 {
@@ -9,15 +10,23 @@ public class MainGame : MonoBehaviour
     [SerializeField] private Transform Freegame;
     [SerializeField] private Transform Coingame;
     [SerializeField] private Transform Herogame;
-    
+    [SerializeField] private Transform Playgame;
 
+
+    public float delaySecond = 2;
+    public string sceneName = "MapBot";
+    public SpriteRenderer transitionRenderer;
+    public Color startColor = Color.black;
+    public Color endColor = Color.clear;
     private bool isCheck = false;
+
     void Start()
     {
         maingame.gameObject.SetActive(true);
         Coingame.gameObject.SetActive(false);
         Freegame.gameObject.SetActive(false);
         Herogame.gameObject.SetActive(false);
+        Playgame.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,10 +34,14 @@ public class MainGame : MonoBehaviour
     {
 
     }
-
+    public void OnInit()
+    {
+    }
     public void clickPlay()
     {
-        
+        maingame.gameObject.SetActive(false);
+        Playgame.gameObject.SetActive(true);
+        Invoke(nameof(NextMap), 3f);
     }
     public void clickSetting()
     {
@@ -59,4 +72,9 @@ public class MainGame : MonoBehaviour
         Freegame.gameObject.SetActive(false);
         maingame.gameObject.SetActive(true);
     }
+    public void NextMap()
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+    
 }

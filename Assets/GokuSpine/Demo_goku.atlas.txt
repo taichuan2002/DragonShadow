@@ -1,0 +1,1399 @@
+
+Demo_goku.png
+size: 1272,1272
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+_0001_L_hand_5
+  rotate: false
+  xy: 1156, 116
+  size: 35, 28
+  orig: 35, 28
+  offset: 0, 0
+  index: -1
+_0002_L_hand_6
+  rotate: false
+  xy: 903, 185
+  size: 41, 30
+  orig: 41, 30
+  offset: 0, 0
+  index: -1
+_0003_R_hand_6
+  rotate: false
+  xy: 946, 185
+  size: 41, 30
+  orig: 41, 30
+  offset: 0, 0
+  index: -1
+_0004_R_hand1_3
+  rotate: true
+  xy: 1200, 512
+  size: 36, 15
+  orig: 36, 15
+  offset: 0, 0
+  index: -1
+_0007_L_hand1_3
+  rotate: true
+  xy: 1111, 50
+  size: 32, 13
+  orig: 32, 13
+  offset: 0, 0
+  index: -1
+_0010_L_hand_7
+  rotate: true
+  xy: 1132, 169
+  size: 46, 22
+  orig: 46, 22
+  offset: 0, 0
+  index: -1
+_0011_R_hand_8
+  rotate: true
+  xy: 1132, 121
+  size: 46, 22
+  orig: 46, 22
+  offset: 0, 0
+  index: -1
+_0012_R_hand_4
+  rotate: false
+  xy: 1246, 239
+  size: 24, 32
+  orig: 24, 32
+  offset: 0, 0
+  index: -1
+them anh/_0000_L_hand_9
+  rotate: false
+  xy: 1246, 239
+  size: 24, 32
+  orig: 24, 32
+  offset: 0, 0
+  index: -1
+_0013_L_hand_2
+  rotate: true
+  xy: 1186, 550
+  size: 21, 30
+  orig: 21, 30
+  offset: 0, 0
+  index: -1
+_0014_L_Hand_4
+  rotate: true
+  xy: 1156, 30
+  size: 26, 31
+  orig: 26, 31
+  offset: 0, 0
+  index: -1
+them anh/_0001_r_Hand_9
+  rotate: true
+  xy: 1156, 30
+  size: 26, 31
+  orig: 26, 31
+  offset: 0, 0
+  index: -1
+_0015_L_hand_1
+  rotate: false
+  xy: 1186, 573
+  size: 30, 53
+  orig: 30, 53
+  offset: 0, 0
+  index: -1
+_0017_R_Leg_3
+  rotate: false
+  xy: 989, 234
+  size: 28, 38
+  orig: 28, 38
+  offset: 0, 0
+  index: -1
+_0018_L_leg_3
+  rotate: false
+  xy: 969, 233
+  size: 18, 39
+  orig: 18, 39
+  offset: 0, 0
+  index: -1
+_0019_R_Leg_2
+  rotate: false
+  xy: 1226, 983
+  size: 44, 69
+  orig: 44, 69
+  offset: 0, 0
+  index: -1
+_0020_L_Leg_2
+  rotate: false
+  xy: 1226, 907
+  size: 42, 74
+  orig: 42, 74
+  offset: 0, 0
+  index: -1
+_0021_R_Leg_1
+  rotate: true
+  xy: 976, 564
+  size: 58, 75
+  orig: 58, 75
+  offset: 0, 0
+  index: -1
+_0022_L_leg_1
+  rotate: false
+  xy: 775, 332
+  size: 61, 86
+  orig: 61, 86
+  offset: 0, 0
+  index: -1
+_0023_body
+  rotate: false
+  xy: 905, 596
+  size: 69, 88
+  orig: 69, 88
+  offset: 0, 0
+  index: -1
+_0024_R_hand_2
+  rotate: false
+  xy: 379, 2
+  size: 34, 21
+  orig: 34, 21
+  offset: 0, 0
+  index: -1
+_0025_R_hand_1
+  rotate: false
+  xy: 1016, 27
+  size: 34, 43
+  orig: 34, 43
+  offset: 0, 0
+  index: -1
+_0026_R_hand_5
+  rotate: false
+  xy: 415, 2
+  size: 23, 21
+  orig: 23, 21
+  offset: 0, 0
+  index: -1
+_0027_L_Hand_3
+  rotate: true
+  xy: 965, 890
+  size: 22, 18
+  orig: 22, 18
+  offset: 0, 0
+  index: -1
+dau
+  rotate: true
+  xy: 1133, 550
+  size: 73, 51
+  orig: 73, 51
+  offset: 0, 0
+  index: -1
+effec_1_skill_0.png
+  rotate: true
+  xy: 818, 1050
+  size: 220, 284
+  orig: 220, 284
+  offset: 0, 0
+  index: -1
+effec_1_skill_1.png
+  rotate: false
+  xy: 267, 706
+  size: 220, 284
+  orig: 220, 284
+  offset: 0, 0
+  index: -1
+effec_1_skill_2.png
+  rotate: false
+  xy: 240, 420
+  size: 220, 284
+  orig: 220, 284
+  offset: 0, 0
+  index: -1
+effec_kame_1.png
+  rotate: false
+  xy: 2, 992
+  size: 263, 278
+  orig: 263, 278
+  offset: 0, 0
+  index: -1
+effec_kame_2.png
+  rotate: false
+  xy: 2, 712
+  size: 263, 278
+  orig: 263, 278
+  offset: 0, 0
+  index: -1
+effec_kame_3.png
+  rotate: false
+  xy: 267, 992
+  size: 263, 278
+  orig: 263, 278
+  offset: 0, 0
+  index: -1
+effec_quacau_1.png
+  rotate: false
+  xy: 240, 112
+  size: 175, 306
+  orig: 175, 306
+  offset: 0, 0
+  index: -1
+effec_quacau_2.png
+  rotate: false
+  xy: 417, 112
+  size: 175, 306
+  orig: 175, 306
+  offset: 0, 0
+  index: -1
+effec_quacau_3.png
+  rotate: false
+  xy: 489, 684
+  size: 175, 306
+  orig: 175, 306
+  offset: 0, 0
+  index: -1
+effec_skill_2.4-Recovered
+  rotate: true
+  xy: 462, 429
+  size: 253, 179
+  orig: 253, 179
+  offset: 0, 0
+  index: -1
+effec_skill_2.5-Recovered
+  rotate: true
+  xy: 666, 779
+  size: 253, 179
+  orig: 253, 179
+  offset: 0, 0
+  index: -1
+goku_lv1-assets/L_leg_1
+  rotate: true
+  xy: 1122, 496
+  size: 52, 76
+  orig: 52, 76
+  offset: 0, 0
+  index: -1
+goku_lv1-assets/L_leg_2
+  rotate: true
+  xy: 766, 420
+  size: 45, 67
+  orig: 45, 67
+  offset: 0, 0
+  index: -1
+goku_lv1-assets/L_leg_3
+  rotate: true
+  xy: 1100, 771
+  size: 18, 35
+  orig: 18, 35
+  offset: 0, 0
+  index: -1
+goku_lv3-assets/L_leg_3
+  rotate: true
+  xy: 1100, 771
+  size: 18, 35
+  orig: 18, 35
+  offset: 0, 0
+  index: -1
+goku_lv1-assets/R_leg_1
+  rotate: true
+  xy: 532, 992
+  size: 40, 74
+  orig: 40, 74
+  offset: 0, 0
+  index: -1
+goku_lv1-assets/R_leg_2
+  rotate: true
+  xy: 1190, 381
+  size: 35, 57
+  orig: 35, 57
+  offset: 0, 0
+  index: -1
+goku_lv1-assets/R_leg_3
+  rotate: true
+  xy: 1126, 87
+  size: 32, 28
+  orig: 32, 28
+  offset: 0, 0
+  index: -1
+goku_lv3-assets/R_leg_3
+  rotate: true
+  xy: 1126, 87
+  size: 32, 28
+  orig: 32, 28
+  offset: 0, 0
+  index: -1
+goku_lv1-assets/body
+  rotate: false
+  xy: 1166, 786
+  size: 62, 74
+  orig: 62, 74
+  offset: 0, 0
+  index: -1
+goku_lv1-assets/lv_1
+  rotate: false
+  xy: 775, 263
+  size: 62, 67
+  orig: 62, 67
+  offset: 0, 0
+  index: -1
+goku_lv10-assets/body
+  rotate: true
+  xy: 1112, 431
+  size: 63, 76
+  orig: 63, 76
+  offset: 0, 0
+  index: -1
+goku_lv10-assets/duoi
+  rotate: true
+  xy: 1156, 205
+  size: 57, 40
+  orig: 57, 40
+  offset: 0, 0
+  index: -1
+goku_lv10-assets/head
+  rotate: false
+  xy: 976, 624
+  size: 67, 81
+  orig: 67, 81
+  offset: 0, 0
+  index: -1
+goku_lv11-assets/L_leg_1
+  rotate: false
+  xy: 914, 422
+  size: 52, 79
+  orig: 52, 79
+  offset: 0, 0
+  index: -1
+goku_lv11-assets/L_leg_2
+  rotate: true
+  xy: 1088, 217
+  size: 45, 66
+  orig: 45, 66
+  offset: 0, 0
+  index: -1
+goku_lv11-assets/L_leg_3
+  rotate: true
+  xy: 1012, 7
+  size: 18, 34
+  orig: 18, 34
+  offset: 0, 0
+  index: -1
+goku_lv11-assets/R_leg_1
+  rotate: false
+  xy: 1231, 1198
+  size: 39, 72
+  orig: 39, 72
+  offset: 0, 0
+  index: -1
+goku_lv11-assets/R_leg_2
+  rotate: true
+  xy: 1052, 12
+  size: 34, 56
+  orig: 34, 56
+  offset: 0, 0
+  index: -1
+goku_lv11-assets/R_leg_3
+  rotate: true
+  xy: 956, 2
+  size: 31, 27
+  orig: 31, 27
+  offset: 0, 0
+  index: -1
+goku_lv11-assets/body
+  rotate: true
+  xy: 1053, 562
+  size: 61, 78
+  orig: 61, 78
+  offset: 0, 0
+  index: -1
+goku_lv11-assets/duoi
+  rotate: true
+  xy: 1231, 273
+  size: 58, 39
+  orig: 58, 39
+  offset: 0, 0
+  index: -1
+goku_lv11-assets/head
+  rotate: false
+  xy: 643, 548
+  size: 120, 130
+  orig: 120, 130
+  offset: 0, 0
+  index: -1
+goku_lv12-assets/body
+  rotate: false
+  xy: 765, 571
+  size: 67, 107
+  orig: 67, 107
+  offset: 0, 0
+  index: -1
+goku_lv12-assets/head
+  rotate: false
+  xy: 1104, 921
+  size: 120, 134
+  orig: 120, 134
+  offset: 0, 0
+  index: -1
+goku_lv13-assets/L_leg_1
+  rotate: false
+  xy: 1045, 625
+  size: 59, 80
+  orig: 59, 80
+  offset: 0, 0
+  index: -1
+goku_lv14-assets/L_leg_1
+  rotate: false
+  xy: 1045, 625
+  size: 59, 80
+  orig: 59, 80
+  offset: 0, 0
+  index: -1
+goku_lv17-assets/L_leg_1
+  rotate: false
+  xy: 1045, 625
+  size: 59, 80
+  orig: 59, 80
+  offset: 0, 0
+  index: -1
+goku_lv13-assets/L_leg_2
+  rotate: true
+  xy: 706, 265
+  size: 47, 67
+  orig: 47, 67
+  offset: 0, 0
+  index: -1
+goku_lv13-assets/L_leg_3
+  rotate: true
+  xy: 440, 5
+  size: 18, 35
+  orig: 18, 35
+  offset: 0, 0
+  index: -1
+goku_lv17-assets/L_leg_3
+  rotate: true
+  xy: 440, 5
+  size: 18, 35
+  orig: 18, 35
+  offset: 0, 0
+  index: -1
+goku_lv13-assets/R_leg_1
+  rotate: true
+  xy: 1112, 382
+  size: 47, 76
+  orig: 47, 76
+  offset: 0, 0
+  index: -1
+goku_lv13-assets/R_leg_2
+  rotate: true
+  xy: 967, 345
+  size: 35, 57
+  orig: 35, 57
+  offset: 0, 0
+  index: -1
+goku_lv13-assets/R_leg_3
+  rotate: true
+  xy: 682, 2
+  size: 33, 28
+  orig: 33, 28
+  offset: 0, 0
+  index: -1
+goku_lv17-assets/R_leg_3
+  rotate: true
+  xy: 682, 2
+  size: 33, 28
+  orig: 33, 28
+  offset: 0, 0
+  index: -1
+goku_lv13-assets/body
+  rotate: false
+  xy: 706, 314
+  size: 67, 104
+  orig: 67, 104
+  offset: 0, 0
+  index: -1
+goku_lv13-assets/head
+  rotate: false
+  xy: 643, 420
+  size: 121, 126
+  orig: 121, 126
+  offset: 0, 0
+  index: -1
+goku_lv14-assets/L_leg_2
+  rotate: true
+  xy: 1042, 375
+  size: 47, 67
+  orig: 47, 67
+  offset: 0, 0
+  index: -1
+goku_lv14-assets/L_leg_3
+  rotate: true
+  xy: 166, 2
+  size: 26, 51
+  orig: 26, 51
+  offset: 0, 0
+  index: -1
+goku_lv14-assets/R_leg_1
+  rotate: false
+  xy: 1190, 418
+  size: 47, 76
+  orig: 47, 76
+  offset: 0, 0
+  index: -1
+goku_lv17-assets/R_leg_1
+  rotate: false
+  xy: 1190, 418
+  size: 47, 76
+  orig: 47, 76
+  offset: 0, 0
+  index: -1
+goku_lv14-assets/R_leg_2
+  rotate: true
+  xy: 1073, 180
+  size: 35, 57
+  orig: 35, 57
+  offset: 0, 0
+  index: -1
+goku_lv14-assets/R_leg_3
+  rotate: false
+  xy: 985, 6
+  size: 25, 41
+  orig: 25, 41
+  offset: 0, 0
+  index: -1
+goku_lv14-assets/body
+  rotate: false
+  xy: 834, 578
+  size: 69, 100
+  orig: 69, 100
+  offset: 0, 0
+  index: -1
+goku_lv14-assets/dai_
+  rotate: true
+  xy: 1231, 1126
+  size: 70, 39
+  orig: 70, 39
+  offset: 0, 0
+  index: -1
+goku_lv14-assets/duoi
+  rotate: true
+  xy: 969, 274
+  size: 69, 48
+  orig: 69, 48
+  offset: 0, 0
+  index: -1
+goku_lv14-assets/head
+  rotate: false
+  xy: 1106, 625
+  size: 57, 80
+  orig: 57, 80
+  offset: 0, 0
+  index: -1
+goku_lv15-assets/body
+  rotate: false
+  xy: 766, 467
+  size: 67, 102
+  orig: 67, 102
+  offset: 0, 0
+  index: -1
+goku_lv15-assets/day_dai
+  rotate: true
+  xy: 1231, 1054
+  size: 70, 39
+  orig: 70, 39
+  offset: 0, 0
+  index: -1
+goku_lv15-assets/duoi
+  rotate: false
+  xy: 379, 25
+  size: 117, 85
+  orig: 117, 85
+  offset: 0, 0
+  index: -1
+goku_lv15-assets/head
+  rotate: false
+  xy: 594, 193
+  size: 109, 111
+  orig: 109, 111
+  offset: 0, 0
+  index: -1
+goku_lv16-assets/L_leg_1
+  rotate: true
+  xy: 835, 423
+  size: 53, 77
+  orig: 53, 77
+  offset: 0, 0
+  index: -1
+goku_lv5-assets/Layer 162
+  rotate: true
+  xy: 835, 423
+  size: 53, 77
+  orig: 53, 77
+  offset: 0, 0
+  index: -1
+goku_lv16-assets/L_leg_2
+  rotate: false
+  xy: 1183, 265
+  size: 46, 66
+  orig: 46, 66
+  offset: 0, 0
+  index: -1
+goku_lv5-assets/L_leg_2
+  rotate: false
+  xy: 1183, 265
+  size: 46, 66
+  orig: 46, 66
+  offset: 0, 0
+  index: -1
+goku_lv16-assets/L_leg_3
+  rotate: false
+  xy: 1246, 202
+  size: 18, 35
+  orig: 18, 35
+  offset: 0, 0
+  index: -1
+goku_lv16-assets/R_leg_1
+  rotate: false
+  xy: 702, 119
+  size: 40, 72
+  orig: 40, 72
+  offset: 0, 0
+  index: -1
+goku_lv5-assets/R_leg_1
+  rotate: false
+  xy: 702, 119
+  size: 40, 72
+  orig: 40, 72
+  offset: 0, 0
+  index: -1
+goku_lv16-assets/R_leg_2
+  rotate: false
+  xy: 1016, 72
+  size: 34, 57
+  orig: 34, 57
+  offset: 0, 0
+  index: -1
+goku_lv5-assets/R_leg_2
+  rotate: false
+  xy: 1016, 72
+  size: 34, 57
+  orig: 34, 57
+  offset: 0, 0
+  index: -1
+goku_lv16-assets/R_leg_3
+  rotate: false
+  xy: 826, 2
+  size: 32, 27
+  orig: 32, 27
+  offset: 0, 0
+  index: -1
+goku_lv16-assets/body
+  rotate: false
+  xy: 166, 30
+  size: 72, 108
+  orig: 72, 108
+  offset: 0, 0
+  index: -1
+goku_lv16-assets/duoi
+  rotate: true
+  xy: 903, 342
+  size: 78, 62
+  orig: 78, 62
+  offset: 0, 0
+  index: -1
+goku_lv16-assets/head
+  rotate: false
+  xy: 594, 306
+  size: 110, 112
+  orig: 110, 112
+  offset: 0, 0
+  index: -1
+goku_lv17-assets/L_leg_2
+  rotate: true
+  xy: 1019, 284
+  size: 47, 67
+  orig: 47, 67
+  offset: 0, 0
+  index: -1
+goku_lv17-assets/R_leg_2
+  rotate: true
+  xy: 1073, 143
+  size: 35, 57
+  orig: 35, 57
+  offset: 0, 0
+  index: -1
+goku_lv17-assets/body
+  rotate: false
+  xy: 599, 14
+  size: 81, 103
+  orig: 81, 103
+  offset: 0, 0
+  index: -1
+goku_lv17-assets/duoi
+  rotate: false
+  xy: 1042, 498
+  size: 78, 62
+  orig: 78, 62
+  offset: 0, 0
+  index: -1
+goku_lv17-assets/head
+  rotate: false
+  xy: 968, 424
+  size: 69, 77
+  orig: 69, 77
+  offset: 0, 0
+  index: -1
+goku_lv18-assets/L_leg_1
+  rotate: false
+  xy: 736, 40
+  size: 51, 77
+  orig: 51, 77
+  offset: 0, 0
+  index: -1
+goku_lv8-assets/L_leg_1
+  rotate: false
+  xy: 736, 40
+  size: 51, 77
+  orig: 51, 77
+  offset: 0, 0
+  index: -1
+goku_lv18-assets/L_leg_2
+  rotate: false
+  xy: 1198, 197
+  size: 46, 66
+  orig: 46, 66
+  offset: 0, 0
+  index: -1
+goku_lv8-assets/L_leg_2
+  rotate: false
+  xy: 1198, 197
+  size: 46, 66
+  orig: 46, 66
+  offset: 0, 0
+  index: -1
+goku_lv18-assets/L_leg_3
+  rotate: false
+  xy: 805, 2
+  size: 19, 35
+  orig: 19, 35
+  offset: 0, 0
+  index: -1
+goku_lv19-assets/L_leg_3
+  rotate: false
+  xy: 805, 2
+  size: 19, 35
+  orig: 19, 35
+  offset: 0, 0
+  index: -1
+goku_lv20-assets/L_leg_3
+  rotate: false
+  xy: 805, 2
+  size: 19, 35
+  orig: 19, 35
+  offset: 0, 0
+  index: -1
+goku_lv8-assets/L_leg_3
+  rotate: false
+  xy: 805, 2
+  size: 19, 35
+  orig: 19, 35
+  offset: 0, 0
+  index: -1
+goku_lv18-assets/R_leg_1
+  rotate: false
+  xy: 793, 113
+  size: 40, 72
+  orig: 40, 72
+  offset: 0, 0
+  index: -1
+goku_lv8-assets/R_leg_1
+  rotate: false
+  xy: 793, 113
+  size: 40, 72
+  orig: 40, 72
+  offset: 0, 0
+  index: -1
+goku_lv18-assets/R_leg_2
+  rotate: true
+  xy: 1193, 124
+  size: 34, 57
+  orig: 34, 57
+  offset: 0, 0
+  index: -1
+goku_lv8-assets/R_leg_2
+  rotate: true
+  xy: 1193, 124
+  size: 34, 57
+  orig: 34, 57
+  offset: 0, 0
+  index: -1
+goku_lv18-assets/R_leg_3
+  rotate: false
+  xy: 1239, 491
+  size: 31, 28
+  orig: 31, 28
+  offset: 0, 0
+  index: -1
+goku_lv8-assets/R_leg_3
+  rotate: false
+  xy: 1239, 491
+  size: 31, 28
+  orig: 31, 28
+  offset: 0, 0
+  index: -1
+goku_lv18-assets/body
+  rotate: false
+  xy: 825, 680
+  size: 66, 97
+  orig: 66, 97
+  offset: 0, 0
+  index: -1
+goku_lv18-assets/duoi
+  rotate: true
+  xy: 905, 503
+  size: 91, 60
+  orig: 91, 60
+  offset: 0, 0
+  index: -1
+goku_lv18-assets/head
+  rotate: false
+  xy: 965, 914
+  size: 137, 134
+  orig: 137, 134
+  offset: 0, 0
+  index: -1
+goku_lv19-assets/L_leg_1
+  rotate: true
+  xy: 1104, 868
+  size: 51, 77
+  orig: 51, 77
+  offset: 0, 0
+  index: -1
+goku_lv19-assets/L_leg_2
+  rotate: false
+  xy: 941, 117
+  size: 46, 66
+  orig: 46, 66
+  offset: 0, 0
+  index: -1
+goku_lv19-assets/R_leg_1
+  rotate: false
+  xy: 789, 39
+  size: 40, 72
+  orig: 40, 72
+  offset: 0, 0
+  index: -1
+goku_lv19-assets/R_leg_2
+  rotate: true
+  xy: 1193, 88
+  size: 34, 57
+  orig: 34, 57
+  offset: 0, 0
+  index: -1
+goku_lv19-assets/R_leg_3
+  rotate: false
+  xy: 1239, 461
+  size: 31, 28
+  orig: 31, 28
+  offset: 0, 0
+  index: -1
+goku_lv20-assets/R_leg_3
+  rotate: false
+  xy: 1239, 461
+  size: 31, 28
+  orig: 31, 28
+  offset: 0, 0
+  index: -1
+goku_lv19-assets/body
+  rotate: false
+  xy: 835, 478
+  size: 68, 98
+  orig: 68, 98
+  offset: 0, 0
+  index: -1
+goku_lv19-assets/duoi
+  rotate: false
+  xy: 974, 707
+  size: 91, 60
+  orig: 91, 60
+  offset: 0, 0
+  index: -1
+goku_lv19-assets/head
+  rotate: false
+  xy: 240, 12
+  size: 137, 98
+  orig: 137, 98
+  offset: 0, 0
+  index: -1
+goku_lv2-assets/1head
+  rotate: false
+  xy: 1039, 424
+  size: 71, 72
+  orig: 71, 72
+  offset: 0, 0
+  index: -1
+goku_lv2-assets/2body
+  rotate: false
+  xy: 839, 261
+  size: 64, 74
+  orig: 64, 74
+  offset: 0, 0
+  index: -1
+goku_lv2-assets/leg_L_1
+  rotate: false
+  xy: 831, 31
+  size: 51, 76
+  orig: 51, 76
+  offset: 0, 0
+  index: -1
+goku_lv2-assets/leg_L_2
+  rotate: true
+  xy: 1019, 235
+  size: 47, 67
+  orig: 47, 67
+  offset: 0, 0
+  index: -1
+goku_lv2-assets/leg_L_3
+  rotate: false
+  xy: 1249, 395
+  size: 18, 34
+  orig: 18, 34
+  offset: 0, 0
+  index: -1
+goku_lv2-assets/leg_R_1
+  rotate: false
+  xy: 1230, 831
+  size: 40, 74
+  orig: 40, 74
+  offset: 0, 0
+  index: -1
+goku_lv2-assets/leg_R_2
+  rotate: true
+  xy: 742, 2
+  size: 35, 61
+  orig: 35, 61
+  offset: 0, 0
+  index: -1
+goku_lv2-assets/leg_R_3
+  rotate: false
+  xy: 1239, 431
+  size: 31, 28
+  orig: 31, 28
+  offset: 0, 0
+  index: -1
+goku_lv20-assets/L_leg_1
+  rotate: false
+  xy: 1165, 628
+  size: 51, 77
+  orig: 51, 77
+  offset: 0, 0
+  index: -1
+goku_lv20-assets/L_leg_2
+  rotate: false
+  xy: 968, 49
+  size: 46, 66
+  orig: 46, 66
+  offset: 0, 0
+  index: -1
+goku_lv20-assets/R_leg_1
+  rotate: false
+  xy: 926, 35
+  size: 40, 72
+  orig: 40, 72
+  offset: 0, 0
+  index: -1
+goku_lv20-assets/R_leg_2
+  rotate: true
+  xy: 1052, 48
+  size: 34, 57
+  orig: 34, 57
+  offset: 0, 0
+  index: -1
+goku_lv20-assets/body
+  rotate: true
+  xy: 594, 119
+  size: 72, 106
+  orig: 72, 106
+  offset: 0, 0
+  index: -1
+goku_lv20-assets/duoi
+  rotate: false
+  xy: 838, 337
+  size: 63, 84
+  orig: 63, 84
+  offset: 0, 0
+  index: -1
+goku_lv20-assets/head
+  rotate: false
+  xy: 666, 680
+  size: 157, 97
+  orig: 157, 97
+  offset: 0, 0
+  index: -1
+goku_lv3-assets/L_leg_1
+  rotate: false
+  xy: 1218, 598
+  size: 52, 76
+  orig: 52, 76
+  offset: 0, 0
+  index: -1
+goku_lv3-assets/L_leg_2
+  rotate: false
+  xy: 1088, 264
+  size: 45, 67
+  orig: 45, 67
+  offset: 0, 0
+  index: -1
+goku_lv3-assets/R_leg_1
+  rotate: false
+  xy: 1230, 755
+  size: 40, 74
+  orig: 40, 74
+  offset: 0, 0
+  index: -1
+goku_lv3-assets/R_leg_2
+  rotate: false
+  xy: 1156, 146
+  size: 35, 57
+  orig: 35, 57
+  offset: 0, 0
+  index: -1
+goku_lv3-assets/body
+  rotate: false
+  xy: 835, 109
+  size: 62, 74
+  orig: 62, 74
+  offset: 0, 0
+  index: -1
+goku_lv3-assets/head
+  rotate: false
+  xy: 893, 686
+  size: 79, 94
+  orig: 79, 94
+  offset: 0, 0
+  index: -1
+goku_lv4-assets/L_hand_3
+  rotate: false
+  xy: 1249, 359
+  size: 18, 34
+  orig: 18, 34
+  offset: 0, 0
+  index: -1
+goku_lv4-assets/L_leg_1
+  rotate: false
+  xy: 1218, 521
+  size: 52, 75
+  orig: 52, 75
+  offset: 0, 0
+  index: -1
+goku_lv4-assets/L_leg_2
+  rotate: false
+  xy: 1135, 264
+  size: 46, 67
+  orig: 46, 67
+  offset: 0, 0
+  index: -1
+goku_lv4-assets/R_leg_1
+  rotate: false
+  xy: 884, 33
+  size: 40, 74
+  orig: 40, 74
+  offset: 0, 0
+  index: -1
+goku_lv4-assets/R_leg_2
+  rotate: true
+  xy: 1193, 160
+  size: 35, 57
+  orig: 35, 57
+  offset: 0, 0
+  index: -1
+goku_lv4-assets/R_leg_3
+  rotate: true
+  xy: 926, 2
+  size: 31, 28
+  orig: 31, 28
+  offset: 0, 0
+  index: -1
+goku_lv4-assets/body
+  rotate: true
+  xy: 1067, 707
+  size: 60, 76
+  orig: 60, 76
+  offset: 0, 0
+  index: -1
+goku_lv4-assets/duoi
+  rotate: false
+  xy: 608, 992
+  size: 56, 40
+  orig: 56, 40
+  offset: 0, 0
+  index: -1
+goku_lv4-assets/head
+  rotate: true
+  xy: 847, 782
+  size: 106, 143
+  orig: 106, 143
+  offset: 0, 0
+  index: -1
+goku_lv5-assets/L_leg_3
+  rotate: false
+  xy: 1252, 165
+  size: 18, 35
+  orig: 18, 35
+  offset: 0, 0
+  index: -1
+goku_lv5-assets/R_leg_3
+  rotate: false
+  xy: 860, 2
+  size: 32, 27
+  orig: 32, 27
+  offset: 0, 0
+  index: -1
+goku_lv5-assets/body
+  rotate: false
+  xy: 838, 185
+  size: 63, 74
+  orig: 63, 74
+  offset: 0, 0
+  index: -1
+goku_lv5-assets/duoi
+  rotate: true
+  xy: 1183, 862
+  size: 57, 41
+  orig: 57, 41
+  offset: 0, 0
+  index: -1
+goku_lv5-assets/head
+  rotate: true
+  xy: 2, 6
+  size: 132, 162
+  orig: 132, 162
+  offset: 0, 0
+  index: -1
+goku_lv6-assets/L_leg_1
+  rotate: false
+  xy: 682, 37
+  size: 52, 80
+  orig: 52, 80
+  offset: 0, 0
+  index: -1
+goku_lv6-assets/L_leg_2
+  rotate: true
+  xy: 1111, 333
+  size: 47, 67
+  orig: 47, 67
+  offset: 0, 0
+  index: -1
+goku_lv6-assets/L_leg_3
+  rotate: false
+  xy: 1252, 128
+  size: 18, 35
+  orig: 18, 35
+  offset: 0, 0
+  index: -1
+goku_lv6-assets/R_leg_1
+  rotate: true
+  xy: 968, 382
+  size: 40, 72
+  orig: 40, 72
+  offset: 0, 0
+  index: -1
+goku_lv6-assets/R_leg_2
+  rotate: false
+  xy: 1052, 84
+  size: 35, 57
+  orig: 35, 57
+  offset: 0, 0
+  index: -1
+goku_lv6-assets/R_leg_3
+  rotate: true
+  xy: 712, 2
+  size: 33, 28
+  orig: 33, 28
+  offset: 0, 0
+  index: -1
+goku_lv6-assets/body
+  rotate: false
+  xy: 1100, 791
+  size: 64, 75
+  orig: 64, 75
+  offset: 0, 0
+  index: -1
+goku_lv6-assets/duoi
+  rotate: false
+  xy: 989, 131
+  size: 56, 41
+  orig: 56, 41
+  offset: 0, 0
+  index: -1
+goku_lv6-assets/head
+  rotate: false
+  xy: 847, 890
+  size: 116, 158
+  orig: 116, 158
+  offset: 0, 0
+  index: -1
+goku_lv7-assets/L_leg_1
+  rotate: false
+  xy: 1218, 676
+  size: 52, 77
+  orig: 52, 77
+  offset: 0, 0
+  index: -1
+goku_lv7-assets/L_leg_2
+  rotate: true
+  xy: 1180, 333
+  size: 46, 67
+  orig: 46, 67
+  offset: 0, 0
+  index: -1
+goku_lv7-assets/L_leg_3
+  rotate: false
+  xy: 1251, 51
+  size: 19, 35
+  orig: 19, 35
+  offset: 0, 0
+  index: -1
+goku_lv7-assets/R_leg_1
+  rotate: true
+  xy: 1026, 333
+  size: 40, 72
+  orig: 40, 72
+  offset: 0, 0
+  index: -1
+goku_lv7-assets/R_leg_2
+  rotate: false
+  xy: 1089, 84
+  size: 35, 57
+  orig: 35, 57
+  offset: 0, 0
+  index: -1
+goku_lv7-assets/R_leg_3
+  rotate: false
+  xy: 1189, 25
+  size: 31, 27
+  orig: 31, 27
+  offset: 0, 0
+  index: -1
+goku_lv7-assets/body
+  rotate: false
+  xy: 771, 187
+  size: 65, 74
+  orig: 65, 74
+  offset: 0, 0
+  index: -1
+goku_lv7-assets/duoi
+  rotate: true
+  xy: 989, 174
+  size: 58, 40
+  orig: 58, 40
+  offset: 0, 0
+  index: -1
+goku_lv7-assets/head
+  rotate: false
+  xy: 705, 194
+  size: 64, 69
+  orig: 64, 69
+  offset: 0, 0
+  index: -1
+goku_lv8-assets/body
+  rotate: false
+  xy: 905, 264
+  size: 62, 76
+  orig: 62, 76
+  offset: 0, 0
+  index: -1
+goku_lv8-assets/duoi
+  rotate: true
+  xy: 1031, 175
+  size: 58, 40
+  orig: 58, 40
+  offset: 0, 0
+  index: -1
+goku_lv8-assets/head
+  rotate: true
+  xy: 967, 503
+  size: 59, 73
+  orig: 59, 73
+  offset: 0, 0
+  index: -1
+goku_lv9-assets/L_leg_2
+  rotate: false
+  xy: 744, 119
+  size: 47, 66
+  orig: 47, 66
+  offset: 0, 0
+  index: -1
+goku_lv9-assets/L_leg_3
+  rotate: false
+  xy: 1252, 91
+  size: 18, 35
+  orig: 18, 35
+  offset: 0, 0
+  index: -1
+goku_lv9-assets/R_leg_1
+  rotate: false
+  xy: 899, 109
+  size: 40, 74
+  orig: 40, 74
+  offset: 0, 0
+  index: -1
+goku_lv9-assets/R_leg_2
+  rotate: false
+  xy: 1156, 58
+  size: 35, 56
+  orig: 35, 56
+  offset: 0, 0
+  index: -1
+goku_lv9-assets/R_leg_3
+  rotate: true
+  xy: 1126, 53
+  size: 32, 28
+  orig: 32, 28
+  offset: 0, 0
+  index: -1
+goku_lv9-assets/body
+  rotate: false
+  xy: 1145, 707
+  size: 62, 77
+  orig: 62, 77
+  offset: 0, 0
+  index: -1
+goku_lv9-assets/duoi
+  rotate: false
+  xy: 1193, 54
+  size: 56, 32
+  orig: 56, 32
+  offset: 0, 0
+  index: -1
+goku_lv9-assets/head1
+  rotate: false
+  xy: 992, 769
+  size: 106, 143
+  orig: 106, 143
+  offset: 0, 0
+  index: -1
+power2
+  rotate: false
+  xy: 1104, 1057
+  size: 125, 213
+  orig: 125, 213
+  offset: 0, 0
+  index: -1
+power5
+  rotate: false
+  xy: 498, 15
+  size: 99, 95
+  orig: 99, 95
+  offset: 0, 0
+  index: -1
+qua_cau_kinh_khi_1.png
+  rotate: true
+  xy: 532, 1034
+  size: 236, 284
+  orig: 236, 284
+  offset: 0, 0
+  index: -1
+qua_cau_kinh_khi_2.png
+  rotate: false
+  xy: 2, 140
+  size: 236, 284
+  orig: 236, 284
+  offset: 0, 0
+  index: -1
+qua_cau_kinh_khi_3.png
+  rotate: false
+  xy: 2, 426
+  size: 236, 284
+  orig: 236, 284
+  offset: 0, 0
+  index: -1

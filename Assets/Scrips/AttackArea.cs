@@ -30,5 +30,9 @@ public class AttackArea : MonoBehaviour
             collision.GetComponent<Charactor>().onHit(15);
             OnDestroy();
         }
+        if (collision.CompareTag("skill"))
+        {
+            OnDestroy();
+        }
     }
 }

@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 4712650106057787499}
   - component: {fileID: 9199289131145326638}
   - component: {fileID: 685380349935421271}
+  - component: {fileID: -3173465923257347845}
   m_Layer: 0
   m_Name: Skill_Kame_big1
-  m_TagString: Untagged
+  m_TagString: skill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,9 +143,22 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02687794, y: -0.0019198656}
+  m_Offset: {x: 0.029419959, y: -0.0019198656}
   serializedVersion: 2
-  m_Radius: 0.5540247
+  m_Radius: 0.5565668
+--- !u!114 &-3173465923257347845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5939223519511088215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcbf961d3ea5e7245b23ea0b3204e777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 9199289131145326638}

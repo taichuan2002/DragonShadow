@@ -9,19 +9,21 @@ public class Charactor : MonoBehaviour
 
 
     public float hp;
-    private float maxhp;
+    public float maxhp;
     public float mana;
-    private float maxmana;
+    public float maxmana;
     public bool isDead => hp <= 0f;
     private void Start()
     {
-        maxhp = 100f;
-        maxmana = 100f;
+        maxhp = 100;
+        maxmana = 100;
         onInit();
     }
     public void Update()
     {
         healingMana();
+        Debug.Log(mana);
+        OnDestroy();
     }
 
     public void onInit()
@@ -48,14 +50,23 @@ public class Charactor : MonoBehaviour
         mana -= manax;
         healbar.SetNewMana(mana);
     }
+
+    public void OnDestroy()
+    {
+        if(hp == 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void healingMana()
     {
-        if (mana < maxmana)
+        if (mana < 100)
         {
-            mana += 30f * Time.deltaTime;
-            if (mana > maxmana)
+            mana += 5f * Time.deltaTime;
+            if (mana > 100)
             {
-                mana = maxmana;
+                mana = 100;
             }
             healbar.SetNewMana(mana);
         }
