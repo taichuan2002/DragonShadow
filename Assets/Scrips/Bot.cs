@@ -11,14 +11,16 @@ public class Bot : Charactor
     private float speed = 4f;
     private int random;
 
-    [SerializeField] private AnimationReferenceAsset[] enumSkill;
+    [SerializeField] private AnimationReferenceAsset[] listEnim;
     SkeletonAnimation skeletonAnimation;
 
 
 
-    private void Start()
+    public void Start()
     {
+        maxhp = 100;
         skeletonAnimation = GetComponent<SkeletonAnimation>();
+        skeletonAnimation.AnimationState.SetAnimation(1, listEnim[4], false);
         if (skeletonAnimation == null)
         {
             Debug.LogError("SkeletonAnimation component not found!");
@@ -26,8 +28,10 @@ public class Bot : Charactor
         StartCoroutine(RunPoint());
         StartCoroutine(spamSkill());
     }
-    private void FixedUpdate()
+    public void Update()
     {
+        Debug.Log(maxhp);
+        Debug.Log(maxmana);
     }
 
 
@@ -54,14 +58,20 @@ public class Bot : Charactor
             }
         }
     }
+    IEnumerator DelayIdle()
+    {
+        yield return new WaitForSeconds(1f);
+        skeletonAnimation.AnimationState.SetAnimation(1, listEnim[4], false);
+    }
 
     IEnumerator spamSkill()
     {
         while (true)
         {
             yield return new WaitForSeconds(3f);
-            skeletonAnimation.AnimationState.SetAnimation(1, enumSkill[random], false);
+            skeletonAnimation.AnimationState.SetAnimation(1, listEnim[random], false);
             Instantiate(Listskill[random], attack.position, attack.rotation);
+            StartCoroutine(DelayIdle());
         }
     }
 }

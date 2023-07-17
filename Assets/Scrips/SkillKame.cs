@@ -1,22 +1,21 @@
-using Spine;
 using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class AttackArea : MonoBehaviour
+public class SkillKame : MonoBehaviour
 {
+    [SerializeField] private SkeletonAnimation targetBot;
     public Rigidbody2D rb;
-    private void Start()
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         OnInit();
     }
-
     public void OnInit()
     {
-        rb.velocity =  transform.right * 10f;
+        Vector2 targetPosition = (targetBot.transform.position - transform.position).normalized;
+        rb.velocity = targetPosition * 15f;
         Invoke(nameof(OnDestroy), 3f);
     }
 

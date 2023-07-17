@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2796292379861363493}
+  - component: {fileID: -3475075212191199340}
   - component: {fileID: 4712650106057787499}
   - component: {fileID: 9199289131145326638}
   - component: {fileID: 685380349935421271}
-  - component: {fileID: -3173465923257347845}
   m_Layer: 0
   m_Name: Skill_Kame_big1
   m_TagString: skill
@@ -29,12 +29,26 @@ Transform:
   m_GameObject: {fileID: 5939223519511088215}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-3475075212191199340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5939223519511088215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87194c8323b517045b26fe633728dba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetBot: {fileID: 4789902831009972837, guid: 4ca5cc70e5c7f034f999f0df7a4d5687, type: 3}
+  rb: {fileID: 9199289131145326638}
 --- !u!212 &4712650106057787499
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -149,16 +163,3 @@ CircleCollider2D:
   m_Offset: {x: 0.029419959, y: -0.0019198656}
   serializedVersion: 2
   m_Radius: 0.5565668
---- !u!114 &-3173465923257347845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5939223519511088215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcbf961d3ea5e7245b23ea0b3204e777, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 9199289131145326638}

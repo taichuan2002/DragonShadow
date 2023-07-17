@@ -16,7 +16,7 @@ public class Singletol<T> : MonoBehaviour where T : Component
             if(_instance == null)
             {
                 GameObject obj = new GameObject();
-                //_instance = obj.AddComponent();
+                _instance = obj.AddComponent<T>();
             }
             return _instance;
         }

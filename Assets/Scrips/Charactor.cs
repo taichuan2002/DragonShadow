@@ -22,7 +22,6 @@ public class Charactor : MonoBehaviour
     public void FixedUpdate()
     {
         healingMana();
-        Debug.Log(mana);
         OnDestroy();
     }
 
@@ -63,7 +62,6 @@ public class Charactor : MonoBehaviour
     {
         if (mana < 100)
         {
-            Debug.Log(1);
             mana += 5f * Time.deltaTime;
             if (mana > 100)
             {

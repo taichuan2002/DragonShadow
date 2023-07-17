@@ -22,7 +22,6 @@ public class SpawnItem : MonoBehaviour
         Vector2 spawnItem = new Vector2(10, randomY);
         GameObject newItem = Instantiate(listItem[randomItem], spawnItem,transform.rotation);
         StartCoroutine(MoveItem(newItem));
-        Debug.Log(randomItem);
 
     }
     private IEnumerator SpawnListItem()

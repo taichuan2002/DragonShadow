@@ -20,6 +20,8 @@ public class MainGame : MonoBehaviour
     public Color endColor = Color.clear;
     private bool isCheck = false;
 
+    private int Coin;
+
     void Start()
     {
         maingame.gameObject.SetActive(true);
@@ -32,14 +34,21 @@ public class MainGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        OnInit();
+        isCheck = true;
+    }
+    private void Awake()
+    {
+        Coin = PlayerPrefs.GetInt("Coin", 0);
     }
     public void OnInit()
     {
+        UIManager.Instance.SetCoin(Coin);
     }
     public void clickPlay()
     {
         maingame.gameObject.SetActive(false);
+        Herogame.gameObject.SetActive(false);
         Playgame.gameObject.SetActive(true);
         Invoke(nameof(NextMap), 3f);
     }

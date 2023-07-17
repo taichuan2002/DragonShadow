@@ -115,6 +115,7 @@
     <Compile Include="Assets\Spine\spine-unity\Mesh Generation\Unused\ArraysMeshGenerator.cs" />
     <Compile Include="Assets\Scrips\MenuGame\MainGame.cs" />
     <Compile Include="Assets\Spine Examples\Scripts\Sample Components\SkeletonColorInitialize.cs" />
+    <Compile Include="Assets\Scrips\SkillKame.cs" />
     <Compile Include="Assets\Spine\spine-unity\Modules\Timeline\SpineAnimationState\SpineAnimationStateClip.cs" />
     <Compile Include="Assets\Spine\spine-unity\Modules\SkeletonGraphic\BoneFollowerGraphic.cs" />
     <Compile Include="Assets\Spine\spine-unity\Modules\Timeline\SpineSkeletonFlip\SpineSkeletonFlipTrack.cs" />
@@ -135,7 +136,6 @@
     <Compile Include="Assets\Spine Examples\Scripts\Getting Started Scripts\SpineboyBeginnerInput.cs" />
     <Compile Include="Assets\Spine\spine-unity\Modules\Timeline\SpineSkeletonFlip\SpineSkeletonFlipBehaviour.cs" />
     <Compile Include="Assets\Spine\spine-unity\Asset Types\EventDataReferenceAsset.cs" />
-    <Compile Include="Assets\Scrips\SpaunItem.cs" />
     <Compile Include="Assets\Spine\spine-csharp\PathConstraintData.cs" />
     <Compile Include="Assets\Scrips\PlayerController.cs" />
     <Compile Include="Assets\Spine Examples\Scripts\HandleEventWithAudioExample.cs" />
