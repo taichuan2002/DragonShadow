@@ -8,6 +8,8 @@ using UnityEngine;
 public class AttackArea : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public GameObject hitVFXDead;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -34,6 +36,7 @@ public class AttackArea : MonoBehaviour
         }
         if (collision.CompareTag("skill"))
         {
+            GameObject hitvfx = Instantiate(hitVFXDead, transform.position, transform.rotation);
             OnDestroy();
         }
     }

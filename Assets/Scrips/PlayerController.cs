@@ -1,4 +1,5 @@
-﻿using Spine.Unity;
+﻿using Spine;
+using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,10 +13,10 @@ public class PlayerController : Charactor
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private AnimationReferenceAsset[] ListAnim;
     [SerializeField] private GameObject Bot;
+    [SerializeField] private DataPlayer playerData;
+    [SerializeField] private Healing healing;
 
-
-    public GameObject hitVFX;
-
+    public GameObject[] hitVFX;
     private Vector3 mousePos;
     public float speed;
     private float minX = -9f;
@@ -23,17 +24,27 @@ public class PlayerController : Charactor
     private float minY = -4.5f;
     private float maxY = 4.5f;
     private bool isCheck = false;
-    private bool isAttack = false;
+    private bool isAttack = true;
     private bool isSkillRunning = false;
 
     private int Coin = 0;
 
-    Animation nextAnim;
     SkeletonAnimation skeletonAnimation;
-
+    
+    
 
     private void Start()
     {
+        level = playerData.level;
+        hp = playerData.playerProperties.maxHp;
+        mana = playerData.playerProperties.maxMana;
+        maxhp = playerData.playerProperties.maxHp;
+        maxmana = playerData.playerProperties.maxMana;
+        healbar.SetNewHp(hp);
+        healbar.SetNewHp(maxhp);
+        healing.OnInit(maxhp, maxmana);
+
+        playerData.Initialize();
         rb = GetComponent<Rigidbody2D>();
         skeletonAnimation = GetComponent<SkeletonAnimation>();
         if (skeletonAnimation == null)
@@ -41,6 +52,11 @@ public class PlayerController : Charactor
             Debug.LogError("SkeletonAnimation component not found!");
         }
         mousePos = transform.position;
+
+        if(playerData.skin != null)
+        {
+            ApplySkin(playerData.skin);
+        }
     }
 
     private void Update()
@@ -73,6 +89,7 @@ public class PlayerController : Charactor
 
     public void OnInit()
     {
+        isAttack = false;
         UIManager.Instance.SetCoin(Coin);
     }
 
@@ -82,7 +99,10 @@ public class PlayerController : Charactor
     }
     public void Skill1()
     {
-        rb.velocity = Vector2.zero;
+       /* if (!isAttack) {
+            rb.velocity = Vector2.zero;
+            return;
+        }*/
 
         if (mana >= 40 && !isSkillRunning)
         {
@@ -174,18 +194,29 @@ public class PlayerController : Charactor
 
     }
 
+    public void ApplySkin(Skin skin)
+    {
+        if(skeletonAnimation != null)
+        {
+            skeletonAnimation.Skeleton.SetSkin(skin);
+            skeletonAnimation.Skeleton.SetSlotsToSetupPose();
+            skeletonAnimation.AnimationState.Apply(skeletonAnimation.Skeleton);
+        }
+    }
+
     IEnumerator DelaySkill1()
     {
         isSkillRunning = true;
-        isAttack = true;
         rb.velocity = Vector2.zero;
-        GameObject hitvfx = Instantiate(hitVFX, attack.position, transform.rotation);
+        GameObject hVFX = Instantiate(hitVFX[0], attack.position, transform.rotation);
+        GameObject hVFX2 =Instantiate(hitVFX[1], attack.position, transform.rotation);
         skeletonAnimation.AnimationState.SetAnimation(1, ListAnim[1], false);
         yield return new WaitForSeconds(1.5f);
-        Destroy(hitvfx);
+        Destroy(hVFX);
+        Destroy(hVFX2);
         GameObject newSkill = Instantiate(Listskill1[0], attack.position, attack.rotation);
         StartCoroutine(DelayIdle());
-        isAttack = false;
+        isAttack = true;
         isSkillRunning=false;
     }
     IEnumerator DelayIdle()

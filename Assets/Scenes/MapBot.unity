@@ -470,11 +470,6 @@ RectTransform:
   m_AnchoredPosition: {x: 429, y: 321}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &228259958 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8167854319240255332, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
-  m_PrefabInstance: {fileID: 2506715937421048564}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &242545321
 GameObject:
   m_ObjectHideFlags: 0
@@ -3127,6 +3122,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4491502475747672006, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
+      propertyPath: initialSkinName
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5217646913378359335, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3176,53 +3175,25 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8765534901761499427, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
-      propertyPath: rb
-      value: 
-      objectReference: {fileID: 2506715937421048575}
-    - target: {fileID: 8765534901761499427, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
       propertyPath: Bot
       value: 
       objectReference: {fileID: 1978237104}
-    - target: {fileID: 8765534901761499427, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
-      propertyPath: hitVFX
-      value: 
-      objectReference: {fileID: 534253543124306992, guid: 442e175363065cb4cabb778c7db55142, type: 3}
     - target: {fileID: 8765534901761499427, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
       propertyPath: healbar
       value: 
       objectReference: {fileID: 1723784725}
     - target: {fileID: 8765534901761499427, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
-      propertyPath: pointAttack
+      propertyPath: healing
       value: 
-      objectReference: {fileID: 228259958}
+      objectReference: {fileID: 1723784725}
     - target: {fileID: 8765534901761499427, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
-      propertyPath: ListAnim.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8765534901761499427, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
-      propertyPath: ListAnim.Array.data[0]
+      propertyPath: hitVFX.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 7687cc246b0e6e34da3be9b233a11d24, type: 2}
+      objectReference: {fileID: 534253543124306992, guid: 442e175363065cb4cabb778c7db55142, type: 3}
     - target: {fileID: 8765534901761499427, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
-      propertyPath: ListAnim.Array.data[1]
+      propertyPath: hitVFX.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: b86260ce7e0090c4ab9d99c63d86ab16, type: 2}
-    - target: {fileID: 8765534901761499427, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
-      propertyPath: ListAnim.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 882c7cc063e53d7418f257c3a00ac8e7, type: 2}
-    - target: {fileID: 8765534901761499427, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
-      propertyPath: ListAnim.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: c9eb4e9bb75358e4b9ffbbcbfc679022, type: 2}
-    - target: {fileID: 8765534901761499427, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
-      propertyPath: ListAnim.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: 59df716fe9b58b5479bf060a14ee9eae, type: 2}
-    - target: {fileID: 8765534901761499427, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
-      propertyPath: ListAnim.Array.data[5]
-      value: 
-      objectReference: {fileID: 11400000, guid: 9e5350659a0bc0540870a77067c64302, type: 2}
+      objectReference: {fileID: 206865772777619958, guid: 690f5f8f654ff0247be46d26da9dc24c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3239,11 +3210,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570088a779e045d46a749af4ab2b1a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &2506715937421048575 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 907942125218173252, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
-  m_PrefabInstance: {fileID: 2506715937421048564}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8211286653493388667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3324,6 +3290,10 @@ PrefabInstance:
       propertyPath: healbar
       value: 
       objectReference: {fileID: 2020678501}
+    - target: {fileID: 6229583517374866695, guid: 4ca5cc70e5c7f034f999f0df7a4d5687, type: 3}
+      propertyPath: hitVFXDead
+      value: 
+      objectReference: {fileID: 4203629870350764623, guid: 95c7e1dd858bb974696e894011eee16e, type: 3}
     - target: {fileID: 6229583517374866695, guid: 4ca5cc70e5c7f034f999f0df7a4d5687, type: 3}
       propertyPath: listEnim.Array.size
       value: 5

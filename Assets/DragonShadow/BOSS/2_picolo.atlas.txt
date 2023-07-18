@@ -1,0 +1,167 @@
+
+2_picolo.png
+size: 340,340
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+_0000_L_hand_4
+  rotate: true
+  xy: 199, 18
+  size: 56, 25
+  orig: 56, 25
+  offset: 0, 0
+  index: -1
+_0003_R_Leg_3
+  rotate: false
+  xy: 226, 29
+  size: 41, 45
+  orig: 41, 45
+  offset: 0, 0
+  index: -1
+_0004_R_Leg_2
+  rotate: false
+  xy: 159, 115
+  size: 75, 68
+  orig: 75, 68
+  offset: 0, 0
+  index: -1
+_0005_R_leg_1
+  rotate: false
+  xy: 174, 234
+  size: 90, 104
+  orig: 90, 104
+  offset: 0, 0
+  index: -1
+_0006_L_Leg_3
+  rotate: true
+  xy: 252, 86
+  size: 39, 36
+  orig: 39, 36
+  offset: 0, 0
+  index: -1
+_0007_L_leg_2
+  rotate: true
+  xy: 174, 185
+  size: 47, 77
+  orig: 47, 77
+  offset: 0, 0
+  index: -1
+_0008_L_Leg_1
+  rotate: true
+  xy: 2, 8
+  size: 81, 90
+  orig: 81, 90
+  offset: 0, 0
+  index: -1
+_0009_L_hand_3
+  rotate: true
+  xy: 269, 55
+  size: 29, 28
+  orig: 29, 28
+  offset: 0, 0
+  index: -1
+_0010_L_hand_2
+  rotate: true
+  xy: 309, 189
+  size: 50, 29
+  orig: 50, 29
+  offset: 0, 0
+  index: -1
+_0011_L_hand_1
+  rotate: true
+  xy: 99, 79
+  size: 42, 58
+  orig: 42, 58
+  offset: 0, 0
+  index: -1
+_0012_R_hand_3
+  rotate: false
+  xy: 220, 76
+  size: 30, 37
+  orig: 30, 37
+  offset: 0, 0
+  index: -1
+_0013_R_hand_2
+  rotate: false
+  xy: 290, 92
+  size: 35, 38
+  orig: 35, 38
+  offset: 0, 0
+  index: -1
+_0014_R_hand_1
+  rotate: true
+  xy: 159, 76
+  size: 37, 59
+  orig: 37, 59
+  offset: 0, 0
+  index: -1
+_0015_body
+  rotate: false
+  xy: 86, 214
+  size: 86, 124
+  orig: 86, 124
+  offset: 0, 0
+  index: -1
+_0016_head
+  rotate: false
+  xy: 146, 21
+  size: 51, 53
+  orig: 51, 53
+  offset: 0, 0
+  index: -1
+power2
+  rotate: false
+  xy: 2, 192
+  size: 82, 146
+  orig: 82, 146
+  offset: 0, 0
+  index: -1
+power3
+  rotate: false
+  xy: 266, 241
+  size: 70, 97
+  orig: 70, 97
+  offset: 0, 0
+  index: -1
+power4
+  rotate: false
+  xy: 99, 123
+  size: 58, 89
+  orig: 58, 89
+  offset: 0, 0
+  index: -1
+power5
+  rotate: true
+  xy: 2, 91
+  size: 99, 95
+  orig: 99, 95
+  offset: 0, 0
+  index: -1
+them tay/_0000_L_hand_5
+  rotate: true
+  xy: 253, 185
+  size: 47, 54
+  orig: 47, 54
+  offset: 0, 0
+  index: -1
+them tay/_0001_R_hand_6
+  rotate: true
+  xy: 285, 132
+  size: 51, 43
+  orig: 51, 43
+  offset: 0, 0
+  index: -1
+them tay/_0002_L_hand_7-
+  rotate: true
+  xy: 236, 127
+  size: 56, 47
+  orig: 56, 47
+  offset: 0, 0
+  index: -1
+them tay/_0003_R_hand_7
+  rotate: true
+  xy: 94, 12
+  size: 65, 50
+  orig: 65, 50
+  offset: 0, 0
+  index: -1

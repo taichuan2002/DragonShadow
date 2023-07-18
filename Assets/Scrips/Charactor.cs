@@ -6,8 +6,9 @@ using UnityEngine;
 public class Charactor : MonoBehaviour
 {
     [SerializeField] protected Healing healbar;
+    public GameObject hitVFXDead;
 
-
+    public int level;
     public float hp;
     public float maxhp;
     public float mana;
@@ -27,8 +28,8 @@ public class Charactor : MonoBehaviour
 
     public void onInit()
     {
-        hp = 100f;
-        mana = 100f;
+        hp = maxhp;
+        mana = maxmana;
         healbar.OnInit(maxhp, maxmana);
     }
 
@@ -54,18 +55,19 @@ public class Charactor : MonoBehaviour
     {
         if(hp == 0)
         {
+            GameObject hitvfx = Instantiate(hitVFXDead, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
 
     public void healingMana()
     {
-        if (mana < 100)
+        if (mana < maxmana)
         {
-            mana += 5f * Time.deltaTime;
-            if (mana > 100)
+            mana += 10f * Time.deltaTime;
+            if (mana > maxmana)
             {
-                mana = 100;
+                mana = maxmana;
             }
             healbar.SetNewMana(mana);
         }

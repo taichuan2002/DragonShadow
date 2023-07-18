@@ -18,8 +18,8 @@ public class Healing : MonoBehaviour
     {
         this.maxHp = 100;
         this.maxMana = 100;
-        this.hp = 100;
-        this.mana = 100;
+        this.hp = maxHp;
+        this.mana = maxMana;
     }
 
     private void Update()
@@ -53,7 +53,7 @@ public class Healing : MonoBehaviour
             mana += 5f * Time.deltaTime;
             if (mana > maxMana)
             {
-                mana = 100;
+                mana = maxMana;
             }
             SetNewMana(mana);
         }

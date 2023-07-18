@@ -30,12 +30,7 @@ public class Bot : Charactor
     }
     public void Update()
     {
-        Debug.Log(maxhp);
-        Debug.Log(maxmana);
     }
-
-
-
     IEnumerator RunPoint()
     {
         float t = 0;

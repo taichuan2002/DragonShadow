@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GoKu SkeletonData
   m_EditorClassIdentifier: 
   atlasAssets:
-  - {fileID: 11400000, guid: 6cc69d1438e381f449bc479a8a7ba571, type: 2}
+  - {fileID: 11400000, guid: 1b0b632b62a46ff4ea06d231f409dea8, type: 2}
   scale: 0.01
   skeletonJSON: {fileID: 4900000, guid: 235bb420b87b3204d8002fc2bb96b289, type: 3}
   fromAnimation: []

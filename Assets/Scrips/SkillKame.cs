@@ -7,6 +7,8 @@ public class SkillKame : MonoBehaviour
 {
     [SerializeField] private SkeletonAnimation targetBot;
     public Rigidbody2D rb;
+    public GameObject hitVFXDead;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -29,10 +31,12 @@ public class SkillKame : MonoBehaviour
         if (collision.CompareTag("Bot"))
         {
             collision.GetComponent<Charactor>().onHit(15);
+            GameObject hitvfx = Instantiate(hitVFXDead, transform.position, transform.rotation);
             OnDestroy();
         }
         if (collision.CompareTag("skill"))
         {
+            GameObject hitvfx = Instantiate(hitVFXDead, transform.position, transform.rotation);
             OnDestroy();
         }
     }

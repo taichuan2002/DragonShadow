@@ -1,0 +1,139 @@
+
+3_dr.gero.png
+size: 404,404
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+L_hand_1
+  rotate: true
+  xy: 257, 2
+  size: 55, 39
+  orig: 55, 39
+  offset: 0, 0
+  index: -1
+L_hand_2
+  rotate: true
+  xy: 376, 185
+  size: 41, 22
+  orig: 41, 22
+  offset: 0, 0
+  index: -1
+L_hand_3
+  rotate: false
+  xy: 339, 12
+  size: 27, 25
+  orig: 27, 25
+  offset: 0, 0
+  index: -1
+L_hand_4
+  rotate: false
+  xy: 198, 5
+  size: 35, 35
+  orig: 35, 35
+  offset: 0, 0
+  index: -1
+L_hand_7
+  rotate: false
+  xy: 2, 10
+  size: 62, 30
+  orig: 62, 30
+  offset: 0, 0
+  index: -1
+L_leg_1
+  rotate: false
+  xy: 326, 228
+  size: 61, 82
+  orig: 61, 82
+  offset: 0, 0
+  index: -1
+L_leg_2
+  rotate: false
+  xy: 257, 59
+  size: 63, 87
+  orig: 63, 87
+  offset: 0, 0
+  index: -1
+L_leg_3
+  rotate: false
+  xy: 298, 10
+  size: 39, 47
+  orig: 39, 47
+  offset: 0, 0
+  index: -1
+R_hand_1
+  rotate: false
+  xy: 322, 70
+  size: 59, 64
+  orig: 59, 64
+  offset: 0, 0
+  index: -1
+R_hand_2
+  rotate: true
+  xy: 112, 8
+  size: 32, 43
+  orig: 32, 43
+  offset: 0, 0
+  index: -1
+R_hand_3
+  rotate: false
+  xy: 339, 39
+  size: 32, 29
+  orig: 32, 29
+  offset: 0, 0
+  index: -1
+R_hand_4
+  rotate: true
+  xy: 157, 3
+  size: 37, 39
+  orig: 37, 39
+  offset: 0, 0
+  index: -1
+R_leg_1
+  rotate: false
+  xy: 326, 136
+  size: 48, 90
+  orig: 48, 90
+  offset: 0, 0
+  index: -1
+R_leg_2
+  rotate: false
+  xy: 257, 148
+  size: 67, 110
+  orig: 67, 110
+  offset: 0, 0
+  index: -1
+R_leg_3
+  rotate: false
+  xy: 66, 5
+  size: 44, 35
+  orig: 44, 35
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 326, 312
+  size: 61, 90
+  orig: 61, 90
+  offset: 0, 0
+  index: -1
+effec_skill_2.4
+  rotate: false
+  xy: 2, 42
+  size: 253, 179
+  orig: 253, 179
+  offset: 0, 0
+  index: -1
+effec_skill_2.5
+  rotate: false
+  xy: 2, 223
+  size: 253, 179
+  orig: 253, 179
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 257, 260
+  size: 67, 142
+  orig: 67, 142
+  offset: 0, 0
+  index: -1

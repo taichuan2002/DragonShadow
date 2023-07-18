@@ -1,0 +1,132 @@
+
+4_dodoria.png
+size: 340,340
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+L-hand_2
+  rotate: true
+  xy: 166, 69
+  size: 63, 54
+  orig: 63, 54
+  offset: 0, 0
+  index: -1
+L_hand_1
+  rotate: true
+  xy: 208, 137
+  size: 76, 48
+  orig: 76, 48
+  offset: 0, 0
+  index: -1
+L_hand_3
+  rotate: false
+  xy: 223, 30
+  size: 37, 42
+  orig: 37, 42
+  offset: 0, 0
+  index: -1
+L_hand_4
+  rotate: false
+  xy: 277, 80
+  size: 52, 58
+  orig: 52, 58
+  offset: 0, 0
+  index: -1
+L_leg_1
+  rotate: true
+  xy: 103, 51
+  size: 72, 61
+  orig: 72, 61
+  offset: 0, 0
+  index: -1
+L_leg_3
+  rotate: false
+  xy: 143, 2
+  size: 38, 20
+  orig: 38, 20
+  offset: 0, 0
+  index: -1
+R_hand_1
+  rotate: false
+  xy: 257, 251
+  size: 56, 87
+  orig: 56, 87
+  offset: 0, 0
+  index: -1
+R_hand_2
+  rotate: false
+  xy: 258, 190
+  size: 57, 59
+  orig: 57, 59
+  offset: 0, 0
+  index: -1
+R_hand_3
+  rotate: false
+  xy: 291, 45
+  size: 33, 33
+  orig: 33, 33
+  offset: 0, 0
+  index: -1
+R_hand_4
+  rotate: false
+  xy: 258, 140
+  size: 53, 48
+  orig: 53, 48
+  offset: 0, 0
+  index: -1
+R_leg_1
+  rotate: false
+  xy: 129, 134
+  size: 77, 79
+  orig: 77, 79
+  offset: 0, 0
+  index: -1
+R_leg_2
+  rotate: true
+  xy: 166, 24
+  size: 43, 55
+  orig: 43, 55
+  offset: 0, 0
+  index: -1
+R_leg_3
+  rotate: true
+  xy: 262, 38
+  size: 34, 27
+  orig: 34, 27
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 129, 215
+  size: 126, 123
+  orig: 126, 123
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 222, 74
+  size: 53, 61
+  orig: 53, 61
+  offset: 0, 0
+  index: -1
+l_leg_2
+  rotate: false
+  xy: 103, 2
+  size: 38, 47
+  orig: 38, 47
+  offset: 0, 0
+  index: -1
+power2
+  rotate: false
+  xy: 2, 125
+  size: 125, 213
+  orig: 125, 213
+  offset: 0, 0
+  index: -1
+power5
+  rotate: false
+  xy: 2, 28
+  size: 99, 95
+  orig: 99, 95
+  offset: 0, 0
+  index: -1
