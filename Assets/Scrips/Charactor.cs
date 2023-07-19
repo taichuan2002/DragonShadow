@@ -8,7 +8,7 @@ public class Charactor : MonoBehaviour
     [SerializeField] protected Healing healbar;
     public GameObject hitVFXDead;
 
-    public int level;
+    public string level;
     public float hp;
     public float maxhp;
     public float mana;

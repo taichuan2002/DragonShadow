@@ -51,6 +51,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healbar: {fileID: 0}
+  hitVFXDead: {fileID: 0}
+  level: 0
   hp: 100
   maxhp: 0
   mana: 100
@@ -66,11 +68,7 @@ MonoBehaviour:
   - {fileID: 4438878527630648041, guid: e558273158b577041a7f68459241dfaf, type: 3}
   - {fileID: 8908773258271208977, guid: 5efc42b1f3e9cbc4fb395f3c72e62749, type: 3}
   attack: {fileID: 2622457522968976437}
-  enumSkill:
-  - {fileID: 11400000, guid: c1e4fd9b0b29b5240a591ae4131c66cf, type: 2}
-  - {fileID: 11400000, guid: 5c4e369e13fb60844b2224d37758ae69, type: 2}
-  - {fileID: 11400000, guid: 832af90e4d77db44c9c0e156f7d92691, type: 2}
-  - {fileID: 11400000, guid: c39dcc938b92a2442973e1a9b6e65b91, type: 2}
+  listEnim: []
 --- !u!50 &4303125873064153718
 Rigidbody2D:
   serializedVersion: 4

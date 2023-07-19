@@ -52,6 +52,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _contentText: {fileID: 0}
+  _sprite:
+  - {fileID: 21300000, guid: 7f4e08aeb398e4435a1813b71271a95b, type: 3}
+  - {fileID: 21300000, guid: c20c5b0cc70704d0fab42d6163aa2993, type: 3}
+  - {fileID: 21300000, guid: 0e65eece6a180426dbaa44323b7d942c, type: 3}
+  - {fileID: 21300000, guid: f7308521fa5b74c6ab540fa1b3ebafdd, type: 3}
+  - {fileID: 21300000, guid: 55c76987742424d068f2c8eac7fee729, type: 3}
+  _img: {fileID: 4029379728297373094}
 --- !u!1 &2242400389562713743
 GameObject:
   m_ObjectHideFlags: 0

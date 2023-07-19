@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using AirFishLab.ScrollingList.ContentManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace AirFishLab.ScrollingList.Demo
 {
@@ -8,12 +9,12 @@ namespace AirFishLab.ScrollingList.Demo
     {
         [SerializeField]
         private int _numOfContents = 10;
-
         private readonly List<int> _contents = new List<int>();
         private readonly IntListContent _contentWrapper = new IntListContent();
 
         private void Awake()
         {
+            _contents.Add(0);
             for (var i = 0; i < _numOfContents; ++i)
                 _contents.Add(i + 1);
         }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec273706ef07fb4a9783b5e836917f3, type: 3}
   m_Name: DataPlayer1
   m_EditorClassIdentifier: 
-  level: 1
+  level: 20
   player: {fileID: 4491502475747672006, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
   playerProperties:
     maxHp: 222

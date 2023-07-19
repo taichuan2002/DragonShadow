@@ -37,7 +37,7 @@ Transform:
   m_Children:
   - {fileID: 3407477187005435147}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8765534901761499427
 MonoBehaviour:
@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healbar: {fileID: 0}
   hitVFXDead: {fileID: 4203629870350764623, guid: 95c7e1dd858bb974696e894011eee16e, type: 3}
-  level: 0
+  level: 4
   hp: 100
   maxhp: 100
   mana: 100
@@ -76,12 +76,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9e5350659a0bc0540870a77067c64302, type: 2}
   Bot: {fileID: 0}
   playerData: {fileID: 11400000, guid: 328717bfa2c33ee4b9ce022bd7646261, type: 2}
-  healing: {fileID: 0}
   hitVFX:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 534253543124306992, guid: 442e175363065cb4cabb778c7db55142, type: 3}
+  - {fileID: 206865772777619958, guid: 690f5f8f654ff0247be46d26da9dc24c, type: 3}
   speed: 10
+  skeletonAnimation: {fileID: 4491502475747672006}
 --- !u!50 &907942125218173252
 Rigidbody2D:
   serializedVersion: 4
