@@ -107,6 +107,7 @@
     <Compile Include="Assets\Spine\spine-csharp\Attachments\PointAttachment.cs" />
     <Compile Include="Assets\Spine Examples\Scripts\MixAndMatch.cs" />
     <Compile Include="Assets\Scrips\Singletol.cs" />
+    <Compile Include="Assets\Scrips\MenuGame\spinnerPlayer.cs" />
     <Compile Include="Assets\Spine\spine-unity\Mesh Generation\Unused\DoubleBufferedMesh.cs" />
     <Compile Include="Assets\Spine\spine-unity\Modules\SkeletonUtility Modules\SkeletonUtilityGroundConstraint.cs" />
     <Compile Include="Assets\Spine\spine-unity\Mesh Generation\Unused\ISimpleMeshGenerator.cs" />
@@ -531,6 +532,9 @@
     </Reference>
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
       <HintPath>Library\PackageCache\com.unity.collections@1.2.4\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>

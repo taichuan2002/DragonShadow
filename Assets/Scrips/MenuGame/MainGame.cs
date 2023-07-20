@@ -24,6 +24,7 @@ public class MainGame : MonoBehaviour
 
     void Start()
     {
+        Camera.main.orthographic = true;
         maingame.gameObject.SetActive(true);
         Coingame.gameObject.SetActive(false);
         Freegame.gameObject.SetActive(false);
@@ -47,6 +48,7 @@ public class MainGame : MonoBehaviour
     }
     public void clickPlay()
     {
+        Camera.main.orthographic = true;
         maingame.gameObject.SetActive(false);
         Herogame.gameObject.SetActive(false);
         Playgame.gameObject.SetActive(true);
@@ -54,35 +56,40 @@ public class MainGame : MonoBehaviour
     }
     public void clickSetting()
     {
-
+        Camera.main.orthographic = true;
     }
     public void clickSpinner()
     {
-
+        Camera.main.orthographic = true;
     }
     public void clickFree()
     {
+        Camera.main.orthographic = true;
         maingame.gameObject.SetActive(false);
         Freegame.gameObject.SetActive(true);
     }
     public void clickHero()
     {
+        Camera.main.orthographic = false;
         maingame.gameObject.SetActive(false);
         Herogame.gameObject.SetActive(true);
     }
     public void clickCoin()
     {
+        Camera.main.orthographic = true;
         maingame.gameObject.SetActive(false);
         Coingame.gameObject.SetActive(true);
     }
     public void clickBack()
     {
+        Camera.main.orthographic = true;
         Coingame.gameObject.SetActive(false);
         Freegame.gameObject.SetActive(false);
         maingame.gameObject.SetActive(true);
     }
     public void NextMap()
     {
+        Camera.main.orthographic = true;
         SceneManager.LoadScene(sceneName);
     }
     
