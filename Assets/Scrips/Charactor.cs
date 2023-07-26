@@ -57,6 +57,7 @@ public class Charactor : MonoBehaviour
         {
             GameObject hitvfx = Instantiate(hitVFXDead, transform.position, transform.rotation);
             Destroy(gameObject);
+
         }
     }
 

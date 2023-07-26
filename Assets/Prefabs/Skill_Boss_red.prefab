@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1895429142447469672}
   m_Layer: 0
   m_Name: Skill_Boss_red
-  m_TagString: skill
+  m_TagString: skillBot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

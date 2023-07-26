@@ -10,9 +10,23 @@ public class spinnerPlayer : MonoBehaviour
     public Sprite[] sprites;
     public Image[] _img;
     bool isCheck = true;
+    private int currentIndex = 0;
+    private Vector3 screenCenter;
+
+    public DataPlayer[] player;
 
     private Vector3[] initialPositions;
+    private Vector3 scrollViewCenterPosition;
     private void Start()
+    {
+        OnInit();
+        if (obj.Length > 0)
+        {
+            scrollViewCenterPosition = obj[0].parent.position;
+        }
+    }
+
+    public void OnInit()
     {
         _img[0].sprite = sprites[0];
         _img[1].sprite = sprites[1];
@@ -30,11 +44,14 @@ public class spinnerPlayer : MonoBehaviour
         if (isCheck)
         {
             isCheck = false;
+            float distanceToCenter = Vector3.Distance(
+                Camera.main.WorldToScreenPoint(obj[0].position), screenCenter);
             obj[0].DOMove(obj[4].position, 1).OnComplete(() => UpdateTransformOrder());
             obj[4].DOMove(obj[3].position, 1);
             obj[3].DOMove(obj[2].position, 1);
             obj[2].DOMove(obj[1].position, 1);
             obj[1].DOMove(obj[0].position, 1);
+            Debug.Log("Khoảng cách đến trung tâm: " + distanceToCenter);
         }
     }
     public void backPlayer()
@@ -42,11 +59,14 @@ public class spinnerPlayer : MonoBehaviour
         if (isCheck)
         {
             isCheck = false;
-            obj[0].DOMove(obj[1].position, 1);
+            float distanseToCenter = Vector3.Distance(
+                Camera.main.WorldToScreenPoint(obj[0].position), screenCenter);
+            obj[0].DOMove(obj[1].position, 1).OnComplete(() => UpdateTransformOrder());
             obj[1].DOMove(obj[2].position, 1);
             obj[2].DOMove(obj[3].position, 1);
             obj[3].DOMove(obj[4].position, 1);
-            obj[4].DOMove(obj[0].position, 1).OnComplete(() => UpdateTransformOrder());
+            obj[4].DOMove(obj[0].position, 1);
+            Debug.Log("Khoảng cách đến trung tâm: " + distanseToCenter);
         }
         
     }
@@ -60,11 +80,24 @@ public class spinnerPlayer : MonoBehaviour
         }
         obj[obj.Length - 1] = temp;
 
-        for (int i = 0; i < obj.Length; i++)
-        {
-            obj[i].SetSiblingIndex(i);
-        }
+        currentIndex  = (currentIndex + obj.Length -1) % obj.Length;
 
+        for(int i =0; i < obj.Length; i++)
+        {
+            if(i == currentIndex)
+            {
+                obj[i].SetSiblingIndex(0);
+            }
+            else
+            {
+                obj[i].SetSiblingIndex(i);
+            }
+
+        }
         isCheck = true;
+    }
+    private float GetDistanceToCenter(Transform targetTransform)
+    {
+        return Vector3.Distance(targetTransform.position, scrollViewCenterPosition);
     }
 }

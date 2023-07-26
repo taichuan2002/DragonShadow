@@ -12,9 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec273706ef07fb4a9783b5e836917f3, type: 3}
   m_Name: DataPlayer1
   m_EditorClassIdentifier: 
-  level: 20
   player: {fileID: 4491502475747672006, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
   playerProperties:
-    maxHp: 222
-    maxMana: 222
-    Damage: 20
+    Name: GOKUZ
+    level: 4
+    currentLevel: 0
+    maxHp: 50
+    maxMana: 100
+    Damage1: 20
+    Damage2: 3
+    Damage3: 10
+    Damage4: 25
+    Damage5: 20
+    active: 0

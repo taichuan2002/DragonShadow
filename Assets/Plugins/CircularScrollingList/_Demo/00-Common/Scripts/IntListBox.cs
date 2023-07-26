@@ -9,6 +9,7 @@ namespace AirFishLab.ScrollingList.Demo
         [SerializeField] private Text _contentText;
         [SerializeField] private Sprite[] _sprite;
         [SerializeField] private Image _img;
+
         public int Content { get; private set; }
 
         protected override void UpdateDisplayContent(IListContent listContent)
@@ -19,10 +20,6 @@ namespace AirFishLab.ScrollingList.Demo
             if(Content >= 0 && Content < _sprite.Length)
             {
                 _img.sprite = _sprite[Content];
-            }
-            else
-            {
-                Debug.LogError(1);
             }
         }
     }

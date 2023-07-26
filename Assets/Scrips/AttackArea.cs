@@ -19,10 +19,10 @@ public class AttackArea : MonoBehaviour
     public void OnInit()
     {
         rb.velocity =  transform.right * 10f;
-        Invoke(nameof(OnDestroy), 3f);
+        Invoke(nameof(onDead), 3f);
     }
 
-    public void OnDestroy()
+    public void onDead()
     {
         Destroy(gameObject);
     }
@@ -32,12 +32,12 @@ public class AttackArea : MonoBehaviour
         if (collision.CompareTag("Bot"))
         {
             collision.GetComponent<Charactor>().onHit(15);
-            OnDestroy();
+            onDead();
         }
         if (collision.CompareTag("skill"))
         {
             GameObject hitvfx = Instantiate(hitVFXDead, transform.position, transform.rotation);
-            OnDestroy();
+            onDead();
         }
     }
 }

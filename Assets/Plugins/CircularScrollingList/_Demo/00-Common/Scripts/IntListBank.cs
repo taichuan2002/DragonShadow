@@ -12,11 +12,12 @@ namespace AirFishLab.ScrollingList.Demo
         private readonly List<int> _contents = new List<int>();
         private readonly IntListContent _contentWrapper = new IntListContent();
 
+
         private void Awake()
         {
             _contents.Add(0);
             for (var i = 0; i < _numOfContents; ++i)
-                _contents.Add(i + 1);
+            _contents.Add(i + 1);
         }
 
         public override IListContent GetListContent(int index)

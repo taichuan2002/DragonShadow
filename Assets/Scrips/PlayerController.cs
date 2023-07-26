@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : Charactor
 {
@@ -14,23 +16,34 @@ public class PlayerController : Charactor
     [SerializeField] private AnimationReferenceAsset[] ListAnim;
     [SerializeField] private GameObject Bot;
     [SerializeField] private DataPlayer playerData;
+    [SerializeField] private Transform gameDead;
 
+
+    public Animator animator;
     public GameObject[] hitVFX;
-    private Vector3 mousePos;
     public float speed;
+    public Skin sk;
+    public SkeletonAnimation skeletonAnimation;
+    public Vector3[] v3;
+    public Button[] _btn;
+    public string sceneName = "Menu";
+
+
+    private Vector2 mousePos;
     private float minX = -10f;
-    private float maxX = 1;
+    private float maxX = 2.2f;
     private float minY = -4.5f;
     private float maxY = 4.5f;
     private bool isCheck = false;
     private bool isAttack = true;
     private bool isSkillRunning = false;
+    private int Coin;
+    private bool isImmortal = false;
+    private float invincibleTime = 5f;
+    private float invincibleTimer = 0f;
 
-    private int Coin = 0;
-    public Skin sk;
-    public SkeletonAnimation skeletonAnimation;
-    public Vector3[] v3;
-    
+
+
 
     private void Start()
     {
@@ -57,18 +70,31 @@ public class PlayerController : Charactor
     private void Update()
     {
         OnInit();
-        
         if (isAttack)
         {
             Control();
         }
+        if(hp == 0)
+        {
+            gameDead.gameObject.SetActive(true);
+            StartCoroutine(nextScene());
+        }
+        if (isImmortal)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if (invincibleTimer <= 0f)
+            {
+                isImmortal = false;
+            }
+        }
+
     }
 
     private void Awake()
     {
         Coin = PlayerPrefs.GetInt("Coin", 0);
     }
-    
+
     public  void Control()
     {
         
@@ -76,18 +102,25 @@ public class PlayerController : Charactor
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
-        if (!IsMouseOverButton())
+
+        if (mousePos.x >= minX && mousePos.x <= maxX && mousePos.y >= minY && mousePos.y <= maxY)
         {
-            float clampedX = Mathf.Clamp(mousePos.x, minX, maxX);
-            float clampedY = Mathf.Clamp(mousePos.y, minY, maxY);
-            Vector2 clampedMousePos = new Vector2(clampedX, clampedY);
-            transform.position = Vector2.Lerp(transform.position, clampedMousePos, 5f * Time.deltaTime);
+            if (!IsMouseOverButton())
+            { 
+                float clampedX = Mathf.Clamp(mousePos.x, minX, maxX);
+                float clampedY = Mathf.Clamp(mousePos.y, minY, maxY);
+                Vector2 clampedMousePos = new Vector2(clampedX, clampedY);
+                transform.position = Vector2.Lerp(transform.position, clampedMousePos, speed * Time.deltaTime);
+            }
         }
     }
 
     public void OnInit()
     {
+        Application.targetFrameRate = 60;
         UIManager.Instance.SetCoin(Coin);
+        PlayerPrefs.SetInt("Coin", Coin);
+        PlayerPrefs.Save();
     }
 
     private bool IsMouseOverButton()
@@ -112,27 +145,28 @@ public class PlayerController : Charactor
     }
     public void Skill2()
     {
-        if (isAttack)
+        if (mana >= 25)
         {
-            if (mana >= 25)
-            {
-                skeletonAnimation.AnimationState.SetAnimation(1, ListAnim[2], false);
-                Instantiate(Listskill1[1], attack.position, attack.rotation);
-                onSkill(25);
-                StartCoroutine(DelayIdle());
-            }
-            else
-            {
-                Debug.Log("Yếu Sinh Lý");
-            }
+            isAttack = false;
+            skeletonAnimation.AnimationState.SetAnimation(1, ListAnim[2], false);
+            Instantiate(Listskill1[1], attack.position, attack.rotation);
+            Instantiate(Listskill1[1], attack.position, attack.rotation);
+            Instantiate(Listskill1[1], attack.position, attack.rotation);
+            Instantiate(Listskill1[1], attack.position, attack.rotation);
+            Instantiate(Listskill1[1], attack.position, attack.rotation);
+            onSkill(25);
+            StartCoroutine(DelayIdle());
+        }
+        else
+        {
+            Debug.Log("Yếu Sinh Lý");
         }
     }
     public void Skill3()
     {
-        if (isAttack) 
-        {
         if (mana >= 15)
         {
+            isAttack=false;
             skeletonAnimation.AnimationState.SetAnimation(1, ListAnim[3], false);
             Instantiate(Listskill1[2], attack.position, attack.rotation);
             onSkill(15);
@@ -142,8 +176,6 @@ public class PlayerController : Charactor
         {
             Debug.Log("Yếu Sinh Lý");
         }
-        }
-
     }
     public void Skill4()
     {
@@ -151,6 +183,7 @@ public class PlayerController : Charactor
         {
             if (mana >= 40)
             {
+                isAttack = false;
                 skeletonAnimation.AnimationState.SetAnimation(1, ListAnim[8], false);
                 StartCoroutine(delaySkill4());
             }
@@ -166,6 +199,7 @@ public class PlayerController : Charactor
         {
             if (mana >= 40)
             {
+                isAttack = false;
                 skeletonAnimation.AnimationState.SetAnimation(1, ListAnim[5], false);
                 Instantiate(Listskill1[4], attack.position, attack.rotation);
                 onSkill(40);
@@ -179,12 +213,17 @@ public class PlayerController : Charactor
     }
     public void SieuSayya()
     {
-        hp = maxhp;
-        mana = maxmana;
-        healbar.SetNewHp(hp);
-        healbar.SetNewMana(mana);
-        skeletonAnimation.AnimationState.SetAnimation(1, ListAnim[6], false);
-        StartCoroutine(delayTransform());
+        if (isAttack)
+        {
+            StartCoroutine(delayTransform());
+            isAttack = false;
+        }
+    }
+
+    IEnumerator Immortal()
+    {
+        yield return new WaitForSeconds(invincibleTime);
+        isImmortal = false;
     }
     IEnumerator delaySkill4()
     {
@@ -197,31 +236,57 @@ public class PlayerController : Charactor
     }
     IEnumerator delayTransform()
     {
-        int levelValue2 = int.Parse(playerData.level);
+        int levelValue2 = int.Parse(playerData.playerProperties.level);
         int levelValue = int.Parse(level);
         yield return new WaitForSeconds(0.4f);
+
         if (levelValue < levelValue2)
         {
+            _btn[1].interactable = true;
+            hp = maxhp;
+            mana = maxmana;
+            healbar.SetNewHp(hp);
+            healbar.SetNewMana(mana);
+            skeletonAnimation.AnimationState.SetAnimation(1, ListAnim[6], false);
             levelValue++;
             level = levelValue.ToString();
             skeletonAnimation.skeleton.SetSkin(level);
             StartCoroutine(DelayIdle());
         }
+        if (levelValue >= levelValue2)
+        {
+            _btn[1].interactable = false;
+        }
+       
+        
     }
     public void eatBeans()
     {
-        if(Coin>= 500)
+        if(hp != maxhp || mana != maxmana)
         {
-            Coin -= 500;
-            UIManager.Instance.SetCoin(Coin);
-            hp = maxhp;
-            mana = maxmana;
-            healbar.SetNewHp(hp);
-            healbar.SetNewMana(mana);
+            if (Coin >= 500)
+            {
+                _btn[0].interactable = true;
+                Coin -= 500;
+                UIManager.Instance.SetCoin(Coin);
+                hp = maxhp;
+                mana = maxmana;
+                healbar.SetNewHp(hp);
+                healbar.SetNewMana(mana);
+            }
+            if(Coin < 500)
+            {
+                _btn[0].interactable = false;
+            }
         }
     }
 
-    
+    IEnumerator nextScene()
+    {
+        yield return new WaitForSeconds(2);
+        PlayerPrefs.SetInt("openPanel", 1);
+        SceneManager.LoadScene(sceneName);
+    }
     IEnumerator DelaySkill1()
     {
         isSkillRunning = true;
@@ -269,6 +334,12 @@ public class PlayerController : Charactor
         }
         if (collision.CompareTag("Armor"))
         {
+            if(!isImmortal)
+            {
+                isImmortal = true;
+                invincibleTimer = invincibleTime;
+                StartCoroutine(Immortal());
+            }
             Destroy(collision.gameObject);
         }
         if (collision.CompareTag("Coin"))

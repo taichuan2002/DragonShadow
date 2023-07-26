@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9199289131145326638}
   - component: {fileID: 685380349935421271}
   - component: {fileID: 6304662114234372051}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Skill_Kame_big1
   m_TagString: skill
   m_Icon: {fileID: 0}
@@ -53,6 +53,7 @@ MonoBehaviour:
   targetBot: {fileID: 4789902831009972837, guid: 4ca5cc70e5c7f034f999f0df7a4d5687, type: 3}
   rb: {fileID: 9199289131145326638}
   hitVFXDead: {fileID: 4203629870350764623, guid: 95c7e1dd858bb974696e894011eee16e, type: 3}
+  player: {fileID: 11400000, guid: 328717bfa2c33ee4b9ce022bd7646261, type: 2}
 --- !u!212 &4712650106057787499
 SpriteRenderer:
   m_ObjectHideFlags: 0

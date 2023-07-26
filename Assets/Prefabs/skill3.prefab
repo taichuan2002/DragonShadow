@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5025881088464607111}
-  - component: {fileID: 3960363090524593662}
   - component: {fileID: 1051127648514696135}
   - component: {fileID: 7431628345187972234}
-  m_Layer: 0
+  - component: {fileID: 8319474813761885605}
+  m_Layer: 6
   m_Name: skill3
   m_TagString: skill
   m_Icon: {fileID: 0}
@@ -35,20 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3960363090524593662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4735220195234345782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcbf961d3ea5e7245b23ea0b3204e777, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 1051127648514696135}
-  hitVFXDead: {fileID: 4203629870350764623, guid: 95c7e1dd858bb974696e894011eee16e, type: 3}
 --- !u!50 &1051127648514696135
 Rigidbody2D:
   serializedVersion: 4
@@ -111,6 +97,21 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0018424988, y: -0.011055827}
   m_Size: {x: 1.0269985, y: 1.034369}
   m_Direction: 0
+--- !u!114 &8319474813761885605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4735220195234345782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 574c3722764a7294cb4efcf3470bffc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1051127648514696135}
+  hitVFXDead: {fileID: 4203629870350764623, guid: 95c7e1dd858bb974696e894011eee16e, type: 3}
+  player: {fileID: 11400000, guid: 328717bfa2c33ee4b9ce022bd7646261, type: 2}
 --- !u!1 &8503208558307806344
 GameObject:
   m_ObjectHideFlags: 0
