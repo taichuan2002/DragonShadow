@@ -64,7 +64,7 @@ public class Skill2 : MonoBehaviour
     {
         if (collision.CompareTag("Bot"))
         {
-            collision.GetComponent<Charactor>().onHit(player.playerProperties.Damage2);
+            collision.GetComponent<Charactor>().onHit(player.Damage1);
             GameObject hitvfx = Instantiate(hitVFXDead, transform.position, transform.rotation);
             OnDead();
             Destroy(hitvfx, 2);

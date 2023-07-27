@@ -15,7 +15,7 @@ public class btnActiveCharacter : MonoBehaviour
     void Update()
     {
         string text = level.text;
-        int levelValue = int.Parse(player.playerProperties.level);
+        int levelValue = int.Parse(player.level);
         int levelData = int.Parse(text);
         if (levelData <= levelValue)
         {

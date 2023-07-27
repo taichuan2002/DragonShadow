@@ -23,7 +23,7 @@ public class Bot : Charactor
     {
         maxhp = 100;
         skeletonAnimation = GetComponent<SkeletonAnimation>();
-        skeletonAnimation.AnimationState.SetAnimation(1, listEnim[4], false);
+        skeletonAnimation.AnimationState.SetAnimation(1, listEnim[3], false);
         if (skeletonAnimation == null)
         {
             Debug.LogError("SkeletonAnimation component not found!");
@@ -48,7 +48,7 @@ public class Bot : Charactor
         }
         while (true)
         {
-            random = Random.Range(0, 4);
+            random = Random.Range(0, 3);
             Vector2 target = listPoint[random];
             t = 0;
             while (Vector2.Distance(transform.position, target) > 0.001f)
@@ -72,7 +72,7 @@ public class Bot : Charactor
     IEnumerator DelayIdle()
     {
         yield return new WaitForSeconds(1f);
-        skeletonAnimation.AnimationState.SetAnimation(1, listEnim[4], false);
+        skeletonAnimation.AnimationState.SetAnimation(1, listEnim[3], false);
     }
     public IEnumerator nextMap()
     {
@@ -86,6 +86,7 @@ public class Bot : Charactor
         {
             yield return new WaitForSeconds(3f);
             skeletonAnimation.AnimationState.SetAnimation(1, listEnim[random], false);
+            yield return new WaitForSeconds(1);
             Instantiate(Listskill[random], attack.position, attack.rotation);
             StartCoroutine(DelayIdle());
         }

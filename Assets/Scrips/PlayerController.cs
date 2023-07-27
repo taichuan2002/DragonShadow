@@ -47,10 +47,10 @@ public class PlayerController : Charactor
 
     private void Start()
     {
-        hp = playerData.playerProperties.maxHp;
-        mana = playerData.playerProperties.maxMana;
-        maxhp = playerData.playerProperties.maxHp;
-        maxmana = playerData.playerProperties.maxMana;
+        hp = playerData.maxHp;
+        mana = playerData.maxMana;
+        maxhp = playerData.maxHp;
+        maxmana = playerData.maxMana;
         
         healbar.SetNewHp(maxhp);
         healbar.SetNewMana(maxmana);
@@ -236,7 +236,7 @@ public class PlayerController : Charactor
     }
     IEnumerator delayTransform()
     {
-        int levelValue2 = int.Parse(playerData.playerProperties.level);
+        int levelValue2 = int.Parse(playerData.level);
         int levelValue = int.Parse(level);
         yield return new WaitForSeconds(0.4f);
 
