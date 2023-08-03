@@ -17,6 +17,9 @@ public class DataPlayer : MonoBehaviour
     public int prime;
     public float maxHp;
     public float maxMana;
-    public float Damage1;
+    public float DamageAttack1;
+    public float DamageAttack2;
+    public float DamageAttack3;
+    public float DamageAttack4;
     public bool active = false;
 }

@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5025881088464607111}
   - component: {fileID: 1051127648514696135}
-  - component: {fileID: 7431628345187972234}
   - component: {fileID: 8319474813761885605}
+  - component: {fileID: 3892484529479322689}
   m_Layer: 6
   m_Name: skill3
   m_TagString: skill
@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 274070409382663838}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1051127648514696135
 Rigidbody2D:
@@ -62,8 +62,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &7431628345187972234
-CapsuleCollider2D:
+--- !u!114 &8319474813761885605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4735220195234345782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 574c3722764a7294cb4efcf3470bffc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1051127648514696135}
+  hitVFXDead: {fileID: 4203629870350764623, guid: 95c7e1dd858bb974696e894011eee16e, type: 3}
+  player: {fileID: 11400000, guid: 328717bfa2c33ee4b9ce022bd7646261, type: 2}
+--- !u!58 &3892484529479322689
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,24 +109,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0018424988, y: -0.011055827}
-  m_Size: {x: 1.0269985, y: 1.034369}
-  m_Direction: 0
---- !u!114 &8319474813761885605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4735220195234345782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 574c3722764a7294cb4efcf3470bffc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 1051127648514696135}
-  hitVFXDead: {fileID: 4203629870350764623, guid: 95c7e1dd858bb974696e894011eee16e, type: 3}
-  player: {fileID: 11400000, guid: 328717bfa2c33ee4b9ce022bd7646261, type: 2}
+  m_Offset: {x: 0, y: -0.0051404834}
+  serializedVersion: 2
+  m_Radius: 0.3002789
 --- !u!1 &8503208558307806344
 GameObject:
   m_ObjectHideFlags: 0

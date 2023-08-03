@@ -31,16 +31,16 @@ public class SkillKame : MonoBehaviour
     {
         if (collision.CompareTag("Bot"))
         {
-            collision.GetComponent<Charactor>().onHit(player.Damage1);
+            collision.GetComponent<Charactor>().onHit(player.DamageAttack1);
             GameObject hitvfx = Instantiate(hitVFXDead, transform.position, transform.rotation);
-            Destroy(hitvfx,1);
+            Destroy(hitvfx, 1);
             onDead();
         }
         if (collision.CompareTag("skill"))
         {
             GameObject hitvfx = Instantiate(hitVFXDead, transform.position, transform.rotation);
             onDead();
-            Destroy(hitvfx,1);
+            Destroy(hitvfx, 1);
         }
     }
 }

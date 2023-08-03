@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MapBot.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 0
+    path: Assets/Scenes/Popup/WinGame/WinGame.unity
+    guid: 4fe4d081d1d37534a93b263f58ea1ee6
+  - enabled: 0
+    path: Assets/Scenes/Popup/HeroMain/HeroMain.unity
+    guid: 99df9526c4b23c84c865d4bf7f140bc5
+  - enabled: 0
+    path: Assets/Scenes/Popup/GamePlayMain/GamePlayMain.unity
+    guid: 1596580fa73b77c439f002c186e72cab
   m_configObjects: {}

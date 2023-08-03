@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 669219656667896370}
   - component: {fileID: 3846129007880064316}
   - component: {fileID: 4491502475747672006}
-  - component: {fileID: 1543390581369179596}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -38,7 +37,7 @@ Transform:
   m_Children:
   - {fileID: 3407477187005435147}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8765534901761499427
 MonoBehaviour:
@@ -54,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healbar: {fileID: 0}
   hitVFXDead: {fileID: 4203629870350764623, guid: 95c7e1dd858bb974696e894011eee16e, type: 3}
-  level: 4
+  level: 0
   hp: 100
   maxhp: 100
   mana: 100
@@ -70,11 +69,14 @@ MonoBehaviour:
   rb: {fileID: 907942125218173252}
   ListAnim:
   - {fileID: 11400000, guid: 7687cc246b0e6e34da3be9b233a11d24, type: 2}
+  - {fileID: 11400000, guid: 2cad2c69dc2ff324b9e1372f98d65a91, type: 2}
   - {fileID: 11400000, guid: b86260ce7e0090c4ab9d99c63d86ab16, type: 2}
   - {fileID: 11400000, guid: 882c7cc063e53d7418f257c3a00ac8e7, type: 2}
-  - {fileID: 11400000, guid: c9eb4e9bb75358e4b9ffbbcbfc679022, type: 2}
   - {fileID: 11400000, guid: 59df716fe9b58b5479bf060a14ee9eae, type: 2}
+  - {fileID: 11400000, guid: c9eb4e9bb75358e4b9ffbbcbfc679022, type: 2}
   - {fileID: 11400000, guid: 9e5350659a0bc0540870a77067c64302, type: 2}
+  - {fileID: 11400000, guid: c5a8cbab1b1ad264590f2d06d0f90f74, type: 2}
+  - {fileID: 11400000, guid: 655696941aaf419419a6ff875b518838, type: 2}
   Bot: {fileID: 0}
   playerData: {fileID: 11400000, guid: 328717bfa2c33ee4b9ce022bd7646261, type: 2}
   gameDead: {fileID: 0}
@@ -84,8 +86,12 @@ MonoBehaviour:
   - {fileID: 206865772777619958, guid: 690f5f8f654ff0247be46d26da9dc24c, type: 3}
   speed: 10
   skeletonAnimation: {fileID: 4491502475747672006}
-  v3: []
-  _btn: []
+  v3:
+  - {x: -9, y: -0.6, z: 0}
+  - {x: -4, y: -0.6, z: 0}
+  _btn:
+  - {fileID: 0}
+  - {fileID: 0}
   sceneName: Menu
 --- !u!50 &907942125218173252
 Rigidbody2D:
@@ -265,23 +271,9 @@ MonoBehaviour:
   calculateTangents: 0
   logErrors: 0
   disableRenderingOnOverride: 1
-  _animationName: skill_0
+  _animationName: id
   loop: 1
   timeScale: 1
---- !u!114 &1543390581369179596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6217702433326238047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f726fb798ad621458c431cb9966d91d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boneRoot: {fileID: 0}
-  skeletonRenderer: {fileID: 4491502475747672006}
 --- !u!1 &8167854319240255332
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,7 +300,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8167854319240255332}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.928, y: 0.313, z: 0}
+  m_LocalPosition: {x: 0.875, y: 0.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

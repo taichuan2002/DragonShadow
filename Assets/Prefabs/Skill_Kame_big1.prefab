@@ -165,9 +165,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.029419959, y: -0.0019198656}
+  m_Offset: {x: 0.03620588, y: 0.015044717}
   serializedVersion: 2
-  m_Radius: 0.5565668
+  m_Radius: 0.2953099
 --- !u!96 &6304662114234372051
 TrailRenderer:
   serializedVersion: 3
@@ -231,31 +231,31 @@ TrailRenderer:
       - serializedVersion: 3
         time: 1
         value: 1
-        inSlope: 0
-        outSlope: 0
+        inSlope: -0.018123781
+        outSlope: -0.018123781
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 0.13550198, g: 0.5568027, b: 0.990566, a: 1}
-      key2: {r: 0.9375457, g: 0.9686095, b: 0.9930801, a: 1}
-      key3: {r: 0, g: 0.5316784, b: 0.9150943, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
+      key1: {r: 0.33191937, g: 0.65895665, b: 0.99118483, a: 1}
+      key2: {r: 0.28502133, g: 0.63501596, b: 0.990566, a: 1}
+      key3: {r: 0, g: 0.46031004, b: 0.9339623, a: 0}
+      key4: {r: 0, g: 0.39821705, b: 0.8113208, a: 0}
+      key5: {r: 0, g: 0.39821705, b: 0.8113208, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 65535
-      ctime2: 65535
-      ctime3: 62644
-      ctime4: 0
-      ctime5: 0
+      ctime1: 10794
+      ctime2: 21781
+      ctime3: 37201
+      ctime4: 65535
+      ctime5: 65535
       ctime6: 0
       ctime7: 0
       atime0: 0
@@ -268,13 +268,13 @@ TrailRenderer:
       atime7: 0
       m_Mode: 0
       m_ColorSpace: 0
-      m_NumColorKeys: 2
+      m_NumColorKeys: 5
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 10
     alignment: 0
-    textureMode: 1
-    textureScale: {x: 1, y: 1}
+    textureMode: 0
+    textureScale: {x: 5, y: 1}
     shadowBias: 1
     generateLightingData: 0
   m_MinVertexDistance: 0.1

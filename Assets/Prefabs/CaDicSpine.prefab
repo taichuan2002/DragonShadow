@@ -36,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 2622457522968976437}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6229583517374866695
 MonoBehaviour:
@@ -54,21 +54,30 @@ MonoBehaviour:
   hitVFXDead: {fileID: 0}
   level: 0
   hp: 100
-  maxhp: 0
+  maxhp: 100
   mana: 100
-  maxmana: 0
+  maxmana: 100
   listPoint:
   - {x: 6.7, y: 3}
   - {x: 6.6, y: -0.3}
   - {x: 2.5, y: -0.2}
   - {x: 4.5, y: -3.25}
   Listskill:
+  - {fileID: 3937005875768340174, guid: 1ec3bdbf43a91404b9a5b91d99a306a9, type: 3}
   - {fileID: 1672837695096959842, guid: 98edc13993bbe84408a1ba0d89f98dbc, type: 3}
-  - {fileID: 3197628703826453449, guid: 1ec3bdbf43a91404b9a5b91d99a306a9, type: 3}
-  - {fileID: 4438878527630648041, guid: e558273158b577041a7f68459241dfaf, type: 3}
+  - {fileID: 48410394305755608, guid: e558273158b577041a7f68459241dfaf, type: 3}
   - {fileID: 8908773258271208977, guid: 5efc42b1f3e9cbc4fb395f3c72e62749, type: 3}
   attack: {fileID: 2622457522968976437}
-  listEnim: []
+  listEnim:
+  - {fileID: 11400000, guid: c1e4fd9b0b29b5240a591ae4131c66cf, type: 2}
+  - {fileID: 11400000, guid: 5c4e369e13fb60844b2224d37758ae69, type: 2}
+  - {fileID: 11400000, guid: 832af90e4d77db44c9c0e156f7d92691, type: 2}
+  - {fileID: 11400000, guid: 562b7ea62ea1a2d4aa2c9bebf4057201, type: 2}
+  gameOver: {fileID: 0}
+  pointStart:
+  - {x: 13, y: -0.3}
+  - {x: 4.2, y: -10}
+  sceneName: Menu
 --- !u!50 &4303125873064153718
 Rigidbody2D:
   serializedVersion: 4

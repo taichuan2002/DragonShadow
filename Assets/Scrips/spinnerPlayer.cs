@@ -1,23 +1,27 @@
-﻿using System.Collections;
+﻿using AirFishLab.ScrollingList.Demo;
+using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 using UnityEngine.UI;
-using AirFishLab.ScrollingList.Demo;
 
 public class spinnerPlayer : MonoBehaviour
 {
     public Transform[] obj;
     bool isCheck = true;
     private int currentIndex = 0;
-    private int center =0;
+    private int center = 0;
 
     public DataPlayer[] player;
     public Text txtName;
+    public Text txtLevel;
+    public Image _imgPlayer;
+    public Image _imgPlayer2;
+    public Sprite[] _spritePlayerLoad;
 
     private Vector3[] initialPositions;
     private Vector3 scrollViewCenterPosition;
-    private IntListBox intListBox;
+    public static DataPlayer currentPlayerData;
     private void Start()
     {
         OnInit();
@@ -25,7 +29,6 @@ public class spinnerPlayer : MonoBehaviour
         {
             scrollViewCenterPosition = obj[0].parent.position;
         }
-        intListBox = FindObjectOfType<IntListBox>();
     }
 
     public void OnInit()
@@ -37,6 +40,15 @@ public class spinnerPlayer : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        int playerIndex = center;
+        currentPlayerData = player[playerIndex];
+        DisplayCurrentPlayerData();
+        _imgPlayer.sprite = _spritePlayerLoad[center];
+        _imgPlayer2.sprite = _spritePlayerLoad[center];
+    }
+
     public void nextPlayer()
     {
         if (isCheck)
@@ -46,14 +58,15 @@ public class spinnerPlayer : MonoBehaviour
             obj[4].DOMove(obj[3].position, 1);
             obj[3].DOMove(obj[2].position, 1);
             obj[2].DOMove(obj[1].position, 1);
-            obj[1].DOMove(obj[0].position, 1).OnComplete(() => {
+            obj[1].DOMove(obj[0].position, 1).OnComplete(() =>
+            {
                 UpdateTransformOrder();
-                center = (center + 1) % obj.Length; 
+                center = (center + 1) % obj.Length;
                 DisplayCurrentPlayerData();
                 isCheck = true;
             });
         }
-        
+
     }
 
     public void backPlayer()
@@ -65,7 +78,7 @@ public class spinnerPlayer : MonoBehaviour
             obj[1].DOMove(obj[2].position, 1);
             obj[2].DOMove(obj[3].position, 1);
             obj[3].DOMove(obj[4].position, 1);
-            obj[4].DOMove(obj[0].position, 1).OnComplete(() => 
+            obj[4].DOMove(obj[0].position, 1).OnComplete(() =>
             {
                 UpdateTransformOrder();
                 center = (center + obj.Length - 1) % obj.Length;
@@ -98,10 +111,10 @@ public class spinnerPlayer : MonoBehaviour
             }
         }
     }
+
     private void DisplayCurrentPlayerData()
     {
-        int playerIndex = center;
-        DataPlayer currentPlayerData = player[playerIndex];
+
         txtName.text = currentPlayerData.name;
     }
 }

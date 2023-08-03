@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 6290790457717314252}
   - component: {fileID: 7937110190757403894}
   - component: {fileID: 3169545806769937602}
-  - component: {fileID: 5698990154942992272}
+  - component: {fileID: 5091312866199902117}
   m_Layer: 0
   m_Name: picolo
   m_TagString: Bot
@@ -67,7 +67,7 @@ Transform:
   m_Children:
   - {fileID: 7870020035414970248}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8202247029682436352
 MonoBehaviour:
@@ -94,17 +94,15 @@ MonoBehaviour:
   - {x: 2.5, y: -0.2}
   - {x: 4.5, y: -3.25}
   Listskill:
-  - {fileID: 1672837695096959842, guid: 98edc13993bbe84408a1ba0d89f98dbc, type: 3}
   - {fileID: 3937005875768340174, guid: 1ec3bdbf43a91404b9a5b91d99a306a9, type: 3}
   - {fileID: 48410394305755608, guid: e558273158b577041a7f68459241dfaf, type: 3}
   - {fileID: 8908773258271208977, guid: 5efc42b1f3e9cbc4fb395f3c72e62749, type: 3}
   attack: {fileID: 7870020035414970248}
   listEnim:
-  - {fileID: 11400000, guid: cba4596cea3fa9d49a8c4b4925b41cfb, type: 2}
   - {fileID: 11400000, guid: 26ffce43fbbf21942b99fca55daf6383, type: 2}
   - {fileID: 11400000, guid: 85443670e3081dc4b89ba9d871dc288b, type: 2}
   - {fileID: 11400000, guid: e1ea2dc41ef0e744b9cc1d89f42c20ca, type: 2}
-  - {fileID: 11400000, guid: d5269c1c54b57444c83343a2e12b0ce4, type: 2}
+  - {fileID: 11400000, guid: cba4596cea3fa9d49a8c4b4925b41cfb, type: 2}
   gameOver: {fileID: 0}
   pointStart:
   - {x: 13, y: -0.3}
@@ -218,8 +216,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &5698990154942992272
-PolygonCollider2D:
+--- !u!61 &5091312866199902117
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -250,7 +248,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.32424736, y: 0.082799435}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -260,13 +258,6 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.45045784, y: 0.39633632}
-      - {x: 0.116931014, y: 1.324479}
-      - {x: -0.15239298, y: 1.2917014}
-      - {x: -0.523453, y: 0.20114973}
-      - {x: -0.5866306, y: -1.563686}
-      - {x: 0.58233094, y: -1.4383373}
-      - {x: 0.43140924, y: -0.08715135}
-  m_UseDelaunayMesh: 0
+  serializedVersion: 2
+  m_Size: {x: 0.50858307, y: 2.1506243}
+  m_EdgeRadius: 0

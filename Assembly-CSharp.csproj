@@ -90,6 +90,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\Spine Examples\Scripts\Getting Started Scripts\SpineboyBeginnerModel.cs" />
+    <Compile Include="Assets\Scrips\spinnerPlayer.cs" />
     <Compile Include="Assets\Spine\spine-unity\Modules\Timeline\PlayableHandle Component\SkeletonAnimationPlayableHandle.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
@@ -124,7 +125,6 @@
     <Compile Include="Assets\Scrips\Singletol.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\Scrips\SkillPlayer\Skill4.cs" />
-    <Compile Include="Assets\Scrips\MenuGame\spinnerPlayer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Spine\spine-unity\Mesh Generation\Unused\DoubleBufferedMesh.cs" />
     <Compile Include="Assets\Spine\spine-unity\Modules\SkeletonUtility Modules\SkeletonUtilityGroundConstraint.cs" />
@@ -173,6 +173,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Spine\spine-csharp\AnimationStateData.cs" />
     <Compile Include="Assets\Spine\spine-unity\Modules\SkeletonGraphic\SkeletonGraphic.cs" />
+    <Compile Include="Assets\textt.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\Spine Examples\Scripts\SpineGauge.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
@@ -199,6 +200,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\Spine\spine-csharp\IUpdatable.cs" />
     <Compile Include="Assets\Spine\spine-unity\Components\SkeletonRenderer.cs" />
+    <Compile Include="Assets\tesss.cs" />
     <Compile Include="Assets\Spine\spine-csharp\SkeletonBinary.cs" />
     <Compile Include="Assets\Spine\spine-unity\Modules\Timeline\SpineSkeletonFlip\SpineSkeletonFlipMixerBehaviour.cs" />
     <Compile Include="Assets\Spine Examples\Scripts\ReloadSceneOnKeyDown.cs" />
@@ -214,6 +216,7 @@
     <Compile Include="Assets\Scrips\SkillPlayer\Skill2.cs" />
     <Compile Include="Assets\Spine\spine-unity\Modules\SkeletonUtility Modules\SkeletonUtilityEyeConstraint.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
+    <Compile Include="Assets\Scrips\MenuGame\MenuManager.cs" />
     <Compile Include="Assets\Scrips\Background.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\Spine Examples\Scripts\Sample Components\Sample VertexEffects\TwoByTwoTransformEffectExample.cs" />
@@ -243,6 +246,7 @@
     <Compile Include="Assets\Spine\spine-csharp\Attachments\PathAttachment.cs" />
     <Compile Include="Assets\Spine\spine-unity\Components\PointFollower.cs" />
     <Compile Include="Assets\Scrips\Data\PropertiesPlayer.cs" />
+    <Compile Include="Assets\Scrips\MenuGame\HomeUI.cs" />
     <Compile Include="Assets\Spine\spine-unity\Modules\Ghost\SkeletonGhostRenderer.cs" />
     <Compile Include="Assets\Scrips\Spinner.cs" />
     <Compile Include="Assets\Spine Examples\Scripts\Sample Components\Legacy\CustomSkin.cs" />
@@ -265,6 +269,7 @@
     <Compile Include="Assets\Spine\spine-csharp\Attachments\RegionAttachment.cs" />
     <Compile Include="Assets\Spine\spine-unity\SkeletonExtensions.cs" />
     <Compile Include="Assets\Spine\spine-unity\Modules\TK2D\SpriteCollectionAttachmentLoader.cs" />
+    <Compile Include="Assets\Scrips\Data\getDataListPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Spine Examples\Spine\Dragon\dragon.atlas.txt" />

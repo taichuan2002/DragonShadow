@@ -15,13 +15,13 @@ public class Bot : Charactor
     [SerializeField] private Vector2[] pointStart;
     public string sceneName = "Menu";
 
+
     private float speed = 4f;
     private int random;
     SkeletonAnimation skeletonAnimation;
 
     public void Start()
     {
-        maxhp = 100;
         skeletonAnimation = GetComponent<SkeletonAnimation>();
         skeletonAnimation.AnimationState.SetAnimation(1, listEnim[3], false);
         if (skeletonAnimation == null)
@@ -33,7 +33,7 @@ public class Bot : Charactor
     }
     public void Update()
     {
-        isDead();
+        IsCheckDead();
     }
     IEnumerator RunPoint()
     {
@@ -60,12 +60,13 @@ public class Bot : Charactor
         }
     }
 
-    public void isDead()
+    public void IsCheckDead()
     {
-        if(hp == 0)
+        if (hp == 0)
         {
             gameOver.gameObject.SetActive(true);
-            StartCoroutine(nextMap());
+            //Invoke(nameof(nextMap), 2);
+            //SceneManager.LoadScene("Menu");
         }
     }
 
@@ -74,10 +75,10 @@ public class Bot : Charactor
         yield return new WaitForSeconds(1f);
         skeletonAnimation.AnimationState.SetAnimation(1, listEnim[3], false);
     }
-    public IEnumerator nextMap()
+    public void nextMap()
     {
-        yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(sceneName);
+        Debug.Log(1123);
+        SceneManager.LoadScene("Menu");
     }
 
     IEnumerator spamSkill()

@@ -9,14 +9,14 @@ using UnityEngine.UI;
 
 public class PlayerController : Charactor
 {
-    [SerializeField] private GameObject[] Listskill1;
-    [SerializeField] private Transform attack;
-    [SerializeField] private GameObject pointAttack;
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private AnimationReferenceAsset[] ListAnim;
-    [SerializeField] private GameObject Bot;
-    [SerializeField] private DataPlayer playerData;
-    [SerializeField] private Transform gameDead;
+    [SerializeField] GameObject[] Listskill1;
+    [SerializeField] Transform attack;
+    [SerializeField] GameObject pointAttack;
+    [SerializeField] Rigidbody2D rb;
+    [SerializeField] AnimationReferenceAsset[] ListAnim;
+    [SerializeField] GameObject Bot;
+    [SerializeField] DataPlayer playerData;
+    [SerializeField] Transform gameDead;
 
 
     public Animator animator;
@@ -34,7 +34,6 @@ public class PlayerController : Charactor
     private float maxX = 2.2f;
     private float minY = -4.5f;
     private float maxY = 4.5f;
-    private bool isCheck = false;
     private bool isAttack = true;
     private bool isSkillRunning = false;
     private int Coin;
@@ -51,7 +50,7 @@ public class PlayerController : Charactor
         mana = playerData.maxMana;
         maxhp = playerData.maxHp;
         maxmana = playerData.maxMana;
-        
+
         healbar.SetNewHp(maxhp);
         healbar.SetNewMana(maxmana);
         healbar.OnInit(maxhp, maxmana);
@@ -65,7 +64,7 @@ public class PlayerController : Charactor
         mousePos = transform.position;
 
     }
-    
+
 
     private void Update()
     {
@@ -74,7 +73,7 @@ public class PlayerController : Charactor
         {
             Control();
         }
-        if(hp == 0)
+        if (hp == 0)
         {
             gameDead.gameObject.SetActive(true);
             StartCoroutine(nextScene());
@@ -95,9 +94,9 @@ public class PlayerController : Charactor
         Coin = PlayerPrefs.GetInt("Coin", 0);
     }
 
-    public  void Control()
+    public void Control()
     {
-        
+
         if (Input.GetMouseButton(0))
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -106,7 +105,7 @@ public class PlayerController : Charactor
         if (mousePos.x >= minX && mousePos.x <= maxX && mousePos.y >= minY && mousePos.y <= maxY)
         {
             if (!IsMouseOverButton())
-            { 
+            {
                 float clampedX = Mathf.Clamp(mousePos.x, minX, maxX);
                 float clampedY = Mathf.Clamp(mousePos.y, minY, maxY);
                 Vector2 clampedMousePos = new Vector2(clampedX, clampedY);
@@ -117,7 +116,7 @@ public class PlayerController : Charactor
 
     public void OnInit()
     {
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 90;
         UIManager.Instance.SetCoin(Coin);
         PlayerPrefs.SetInt("Coin", Coin);
         PlayerPrefs.Save();
@@ -133,7 +132,7 @@ public class PlayerController : Charactor
         {
             if (mana >= 40 && !isSkillRunning)
             {
-                isAttack=false;
+                isAttack = false;
                 onSkill(40);
                 StartCoroutine(DelaySkill1());
             }
@@ -145,36 +144,44 @@ public class PlayerController : Charactor
     }
     public void Skill2()
     {
-        if (mana >= 25)
+        if (isAttack)
         {
-            isAttack = false;
-            skeletonAnimation.AnimationState.SetAnimation(1, ListAnim[2], false);
-            Instantiate(Listskill1[1], attack.position, attack.rotation);
-            Instantiate(Listskill1[1], attack.position, attack.rotation);
-            Instantiate(Listskill1[1], attack.position, attack.rotation);
-            Instantiate(Listskill1[1], attack.position, attack.rotation);
-            Instantiate(Listskill1[1], attack.position, attack.rotation);
-            onSkill(25);
-            StartCoroutine(DelayIdle());
+
+            if (mana >= 25)
+            {
+                isAttack = false;
+                skeletonAnimation.AnimationState.SetAnimation(1, ListAnim[2], false);
+                Instantiate(Listskill1[1], attack.position, attack.rotation);
+                Instantiate(Listskill1[1], attack.position, attack.rotation);
+                Instantiate(Listskill1[1], attack.position, attack.rotation);
+                Instantiate(Listskill1[1], attack.position, attack.rotation);
+                Instantiate(Listskill1[1], attack.position, attack.rotation);
+                onSkill(25);
+                StartCoroutine(DelayIdle());
+            }
+            else
+            {
+                Debug.Log("Yếu Sinh Lý");
+            }
         }
-        else
-        {
-            Debug.Log("Yếu Sinh Lý");
-        }
+
     }
     public void Skill3()
     {
-        if (mana >= 15)
+        if (isAttack)
         {
-            isAttack=false;
-            skeletonAnimation.AnimationState.SetAnimation(1, ListAnim[3], false);
-            Instantiate(Listskill1[2], attack.position, attack.rotation);
-            onSkill(15);
-            StartCoroutine(DelayIdle());
-        }
-        else
-        {
-            Debug.Log("Yếu Sinh Lý");
+            if (mana >= 15)
+            {
+                isAttack = false;
+                skeletonAnimation.AnimationState.SetAnimation(1, ListAnim[3], false);
+                Instantiate(Listskill1[2], attack.position, attack.rotation);
+                onSkill(15);
+                StartCoroutine(DelayIdle());
+            }
+            else
+            {
+                Debug.Log("Yếu Sinh Lý");
+            }
         }
     }
     public void Skill4()
@@ -257,12 +264,12 @@ public class PlayerController : Charactor
         {
             _btn[1].interactable = false;
         }
-       
-        
+
+
     }
     public void eatBeans()
     {
-        if(hp != maxhp || mana != maxmana)
+        if (hp != maxhp || mana != maxmana)
         {
             if (Coin >= 500)
             {
@@ -274,7 +281,7 @@ public class PlayerController : Charactor
                 healbar.SetNewHp(hp);
                 healbar.SetNewMana(mana);
             }
-            if(Coin < 500)
+            if (Coin < 500)
             {
                 _btn[0].interactable = false;
             }
@@ -301,7 +308,7 @@ public class PlayerController : Charactor
         Destroy(hVFX2);
         GameObject newSkill = Instantiate(Listskill1[0], attack.position, attack.rotation);
         StartCoroutine(DelayIdle());
-        isSkillRunning=false;
+        isSkillRunning = false;
     }
     IEnumerator DelayIdle()
     {
@@ -334,7 +341,7 @@ public class PlayerController : Charactor
         }
         if (collision.CompareTag("Armor"))
         {
-            if(!isImmortal)
+            if (!isImmortal)
             {
                 isImmortal = true;
                 invincibleTimer = invincibleTime;

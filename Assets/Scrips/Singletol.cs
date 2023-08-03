@@ -2,23 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Singletol<T> : MonoBehaviour where T : Component
+public class Singletol<T>  where T : new()
 {
-    private static T _instance;
-    public static T instance
+    private static T instance;
+
+    public static T Instance
     {
         get
         {
-            if(_instance == null)
+            if (instance == null)
             {
-                _instance = FindObjectOfType<T>();
+                instance = new T();
             }
-            if(_instance == null)
-            {
-                GameObject obj = new GameObject();
-                _instance = obj.AddComponent<T>();
-            }
-            return _instance;
+            return instance;
         }
+    }
+
+    public static void ResetKey()
+    {
+        instance = new T();
     }
 }

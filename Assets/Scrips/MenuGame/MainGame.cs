@@ -25,16 +25,10 @@ public class MainGame : MonoBehaviour
     void Start()
     {
         OnInit();
-        if (PlayerPrefs.HasKey("openPanel"))
-        {
-            gameOver.gameObject.SetActive(true);
-            PlayerPrefs.DeleteKey("openPanel");
-        }
     }
     void Update()
     {
         UIManager.Instance.SetCoin(Coin);
-        isCheck = true;
     }
     private void Awake()
     {
@@ -42,7 +36,7 @@ public class MainGame : MonoBehaviour
     }
     public void OnInit()
     {
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 90;
         Camera.main.orthographic = true;
         maingame.gameObject.SetActive(false);
         Coingame.gameObject.SetActive(false);
@@ -146,7 +140,7 @@ public class MainGame : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(sceneName);
     }
-   
+
     IEnumerator loading()
     {
         LoadingMain.gameObject.SetActive(true);

@@ -53,11 +53,10 @@ public class Charactor : MonoBehaviour
 
     public void OnDestroy()
     {
-        if(hp == 0)
+        if (hp == 0)
         {
             GameObject hitvfx = Instantiate(hitVFXDead, transform.position, transform.rotation);
             Destroy(gameObject);
-
         }
     }
 

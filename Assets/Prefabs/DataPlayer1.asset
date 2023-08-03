@@ -13,11 +13,15 @@ MonoBehaviour:
   m_Name: DataPlayer1
   m_EditorClassIdentifier: 
   player: {fileID: 4491502475747672006, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
+  listSprite: []
   name: GOKUZ
   level: 8
   currentLevel: 0
   prime: 10000
   maxHp: 100
   maxMana: 100
-  Damage1: 10
+  DamageAttack1: 30
+  DamageAttack2: 2
+  DamageAttack3: 10
+  DamageAttack4: 15
   active: 0
