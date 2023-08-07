@@ -2,6 +2,7 @@
 using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -17,6 +18,7 @@ public class PlayerController : Charactor
     [SerializeField] GameObject Bot;
     [SerializeField] DataPlayer playerData;
     [SerializeField] Transform gameDead;
+    [SerializeField] TextMeshProUGUI _txtPointCoin;
 
 
     public Animator animator;
@@ -46,29 +48,13 @@ public class PlayerController : Charactor
 
     private void Start()
     {
-        hp = playerData.maxHp;
-        mana = playerData.maxMana;
-        maxhp = playerData.maxHp;
-        maxmana = playerData.maxMana;
-
-        healbar.SetNewHp(maxhp);
-        healbar.SetNewMana(maxmana);
-        healbar.OnInit(maxhp, maxmana);
-
-        rb = GetComponent<Rigidbody2D>();
-        skeletonAnimation = GetComponent<SkeletonAnimation>();
-        if (skeletonAnimation == null)
-        {
-            Debug.LogError("SkeletonAnimation component not found!");
-        }
-        mousePos = transform.position;
-
+        OnInit();
+        OnInitCoin();
     }
 
 
     private void Update()
     {
-        OnInit();
         if (isAttack)
         {
             Control();
@@ -117,9 +103,30 @@ public class PlayerController : Charactor
     public void OnInit()
     {
         Application.targetFrameRate = 90;
+        hp = playerData.maxHp;
+        mana = playerData.maxMana;
+        maxhp = playerData.maxHp;
+        maxmana = playerData.maxMana;
+
+        healbar.SetNewHp(maxhp);
+        healbar.SetNewMana(maxmana);
+        healbar.OnInit(maxhp, maxmana);
+
+        rb = GetComponent<Rigidbody2D>();
+        skeletonAnimation = GetComponent<SkeletonAnimation>();
+        if (skeletonAnimation == null)
+        {
+            Debug.LogError("SkeletonAnimation component not found!");
+        }
+        mousePos = transform.position;
+    }
+
+    public void OnInitCoin()
+    {
         UIManager.Instance.SetCoin(Coin);
         PlayerPrefs.SetInt("Coin", Coin);
         PlayerPrefs.Save();
+        _txtPointCoin.text = Coin.ToString();
     }
 
     private bool IsMouseOverButton()
@@ -275,7 +282,7 @@ public class PlayerController : Charactor
             {
                 _btn[0].interactable = true;
                 Coin -= 500;
-                UIManager.Instance.SetCoin(Coin);
+                OnInitCoin();
                 hp = maxhp;
                 mana = maxmana;
                 healbar.SetNewHp(hp);
@@ -351,9 +358,8 @@ public class PlayerController : Charactor
         }
         if (collision.CompareTag("Coin"))
         {
-            Coin += 100;
-            PlayerPrefs.SetInt("Coin", Coin);
-            UIManager.Instance.SetCoin(Coin);
+            Coin += 1000;
+            OnInitCoin();
             Destroy(collision.gameObject);
         }
     }

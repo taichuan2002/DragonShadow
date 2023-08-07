@@ -1,19 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainGame : MonoBehaviour
 {
 
-    [SerializeField] private Transform maingame;
-    [SerializeField] private Transform Freegame;
-    [SerializeField] private Transform Coingame;
-    [SerializeField] private Transform Herogame;
-    [SerializeField] private Transform Playgame;
-    [SerializeField] private Transform Levelgame;
-    [SerializeField] private Transform LoadingMain;
-    [SerializeField] private Transform gameOver;
+    [SerializeField] Transform maingame;
+    [SerializeField] Transform Freegame;
+    [SerializeField] Transform Coingame;
+    [SerializeField] Transform Herogame;
+    [SerializeField] Transform Playgame;
+    [SerializeField] Transform Levelgame;
+    [SerializeField] Transform LoadingMain;
+    [SerializeField] Transform gameOver;
+    [SerializeField] TextMeshProUGUI[] _txtPointCoins;
 
 
     public string sceneName = "MapBot";
@@ -25,10 +27,10 @@ public class MainGame : MonoBehaviour
     void Start()
     {
         OnInit();
+        OnInitCoin();
     }
     void Update()
     {
-        UIManager.Instance.SetCoin(Coin);
     }
     private void Awake()
     {
@@ -46,6 +48,15 @@ public class MainGame : MonoBehaviour
         Levelgame.gameObject.SetActive(false);
         gameOver.gameObject.SetActive(false);
         StartCoroutine(loading());
+    }
+
+    public void OnInitCoin()
+    {
+        UIManager.Instance.SetCoin(Coin);
+        _txtPointCoins[0].text = Coin.ToString();
+        _txtPointCoins[1].text = Coin.ToString();
+        _txtPointCoins[2].text = Coin.ToString();
+        _txtPointCoins[3].text = Coin.ToString();
     }
 
     public void clickLevelGame()

@@ -1,4 +1,5 @@
 ﻿using AirFishLab.ScrollingList.ContentManagement;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,7 +7,7 @@ namespace AirFishLab.ScrollingList.Demo
 {
     public class IntListBox : ListBox
     {
-        [SerializeField] private Text _contentText;
+        [SerializeField] private TextMeshProUGUI _contentText;
 
         public int Content { get; private set; }
         public Image ImgNV { get; private set; }

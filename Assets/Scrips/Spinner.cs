@@ -1,23 +1,21 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
 
 public class Spinner : MonoBehaviour
 {
     [SerializeField] private Button btnSpiner;
     [SerializeField] private GameObject objGokuMain;
     [SerializeField] private GameObject objCellMain;
-    [SerializeField] private GameObject player;
-    [SerializeField] private GameObject bot;
 
     private float startTime;
     private float pointAB;
     private bool isCheck = true;
     private float duration = 1.5f;
 
-    private Vector2 pointA = new Vector2(-5.1f,0);
+    private Vector2 pointA = new Vector2(-5.1f, 0);
     private Vector2 pointB = new Vector2(-4.3f, -0.6f);
     private Vector2 pointC = new Vector2(5.1f, 0);
     private Vector2 pointD = new Vector2(4.3f, -0.6f);
@@ -74,6 +72,6 @@ public class Spinner : MonoBehaviour
     }
     public void anim()
     {
-       
+
     }
 }

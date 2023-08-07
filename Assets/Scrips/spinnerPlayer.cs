@@ -1,7 +1,9 @@
-﻿using AirFishLab.ScrollingList.Demo;
+﻿using AirFishLab.ScrollingList;
+using AirFishLab.ScrollingList.Demo;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,10 +15,11 @@ public class spinnerPlayer : MonoBehaviour
     private int center = 0;
 
     public DataPlayer[] player;
-    public Text txtName;
-    public Text txtLevel;
+    public TextMeshProUGUI txtName;
+    public TextMeshProUGUI txtLevel;
     public Image _imgPlayer;
     public Image _imgPlayer2;
+    public Image _imgCircolPlayer;
     public Sprite[] _spritePlayerLoad;
 
     private Vector3[] initialPositions;
@@ -87,7 +90,12 @@ public class spinnerPlayer : MonoBehaviour
             });
         }
     }
-
+    public void OnFocusingBoxChanged(
+            ListBox prevFocusingBox, ListBox curFocusingBox)
+    {
+        var focusedContent = ((IntListBox)curFocusingBox).Content;
+        txtLevel.text = focusedContent.ToString();
+    }
     private void UpdateTransformOrder()
     {
         Transform temp = obj[0];
@@ -116,5 +124,7 @@ public class spinnerPlayer : MonoBehaviour
     {
 
         txtName.text = currentPlayerData.name;
+        int txt = int.Parse(txtLevel.text);
+        currentPlayerData.imgPlayer.sprite = currentPlayerData.listSprite[txt];
     }
 }

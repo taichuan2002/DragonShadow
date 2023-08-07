@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,7 @@ public class getDataListPlayer : MonoBehaviour
 {
     public Image _imgLevel;
     //public Image _imgPlayer;
-    public Text txtLevel;
+    public TextMeshProUGUI txtLevel;
     public GameObject _imgActive;
 
 

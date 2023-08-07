@@ -11,6 +11,7 @@ public class DataPlayer : MonoBehaviour
 {
     public SkeletonAnimation player;
     public Sprite[] listSprite;
+    public Image imgPlayer;
     public string name;
     public string level;
     public string currentLevel;
