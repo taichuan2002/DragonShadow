@@ -9,14 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3675697280100749059}
-  - component: {fileID: 6229583517374866695}
+  - component: {fileID: -797232265356141886}
   - component: {fileID: 4303125873064153718}
   - component: {fileID: 4106968795519224849}
   - component: {fileID: 134450489690081498}
   - component: {fileID: 4789902831009972837}
   - component: {fileID: 6147665196100169305}
   m_Layer: 0
-  m_Name: CaDicSpine
+  m_Name: CaDic
   m_TagString: Bot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,9 +36,9 @@ Transform:
   m_Children:
   - {fileID: 2622457522968976437}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6229583517374866695
+--- !u!114 &-797232265356141886
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,36 +47,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 1525263895121890181}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad9ca0173fef942419b6b79090a1484a, type: 3}
+  m_Script: {fileID: 11500000, guid: 570088a779e045d46a749af4ab2b1a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healbar: {fileID: 0}
-  hitVFXDead: {fileID: 0}
+  hitVFXDead: {fileID: 4203629870350764623, guid: 95c7e1dd858bb974696e894011eee16e, type: 3}
   level: 0
   hp: 100
   maxhp: 100
   mana: 100
   maxmana: 100
-  listPoint:
-  - {x: 6.7, y: 3}
-  - {x: 6.6, y: -0.3}
-  - {x: 2.5, y: -0.2}
-  - {x: 4.5, y: -3.25}
-  Listskill:
-  - {fileID: 3937005875768340174, guid: 1ec3bdbf43a91404b9a5b91d99a306a9, type: 3}
-  - {fileID: 1672837695096959842, guid: 98edc13993bbe84408a1ba0d89f98dbc, type: 3}
-  - {fileID: 48410394305755608, guid: e558273158b577041a7f68459241dfaf, type: 3}
-  - {fileID: 8908773258271208977, guid: 5efc42b1f3e9cbc4fb395f3c72e62749, type: 3}
+  Listskill1:
+  - {fileID: 5939223519511088215, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
+  - {fileID: 8550975513353579464, guid: a0eb2981cc72d0841a85e67447497efb, type: 3}
+  - {fileID: 4735220195234345782, guid: b7d7d2f1afe9e1747bc7e1a56f955f2c, type: 3}
+  - {fileID: 5939223519511088215, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
+  - {fileID: 5939223519511088215, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
   attack: {fileID: 2622457522968976437}
-  listEnim:
-  - {fileID: 11400000, guid: c1e4fd9b0b29b5240a591ae4131c66cf, type: 2}
-  - {fileID: 11400000, guid: 5c4e369e13fb60844b2224d37758ae69, type: 2}
-  - {fileID: 11400000, guid: 832af90e4d77db44c9c0e156f7d92691, type: 2}
-  - {fileID: 11400000, guid: 562b7ea62ea1a2d4aa2c9bebf4057201, type: 2}
-  gameOver: {fileID: 0}
-  pointStart:
-  - {x: 13, y: -0.3}
-  - {x: 4.2, y: -10}
+  pointAttack: {fileID: 7040748580422849398}
+  rb: {fileID: 4303125873064153718}
+  ListAnim: []
+  Bot: {fileID: 0}
+  playerData: {fileID: 11400000, guid: 328717bfa2c33ee4b9ce022bd7646261, type: 2}
+  gameDead: {fileID: 0}
+  _txtPointCoin: {fileID: 0}
+  animator: {fileID: 0}
+  hitVFX: []
+  speed: 10
+  skeletonAnimation: {fileID: 4789902831009972837}
+  v3:
+  - {x: -9, y: -0.6, z: 0}
+  - {x: -4, y: -0.6, z: 0}
+  _btn:
+  - {fileID: 0}
+  - {fileID: 0}
   sceneName: Menu
 --- !u!50 &4303125873064153718
 Rigidbody2D:

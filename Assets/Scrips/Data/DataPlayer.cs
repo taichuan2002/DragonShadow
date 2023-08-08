@@ -24,3 +24,10 @@ public class DataPlayer : MonoBehaviour
     public float DamageAttack4;
     public bool active = false;
 }
+
+public class Title
+{
+    public int level;
+    public float price;
+    public float power;
+}

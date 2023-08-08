@@ -8,7 +8,7 @@ public class SkillKame : MonoBehaviour
     [SerializeField] private SkeletonAnimation targetBot;
     public Rigidbody2D rb;
     public GameObject hitVFXDead;
-    public DataPlayer player;
+    public DataGoku player;
 
     void Start()
     {

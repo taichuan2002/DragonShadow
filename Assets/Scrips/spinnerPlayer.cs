@@ -1,48 +1,59 @@
 ﻿using AirFishLab.ScrollingList;
 using AirFishLab.ScrollingList.Demo;
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class spinnerPlayer : MonoBehaviour
 {
+    [SerializeField] GameObject _panelCanel;
+    [SerializeField] GameObject _panelMoney;
+    [SerializeField] ScrollRect scrollRect;
     public Transform[] obj;
-    bool isCheck = true;
-    private int currentIndex = 0;
-    private int center = 0;
-
     public DataPlayer[] player;
     public TextMeshProUGUI txtName;
     public TextMeshProUGUI txtLevel;
+    public TextMeshProUGUI txtBuyLevel;
+    public TextMeshProUGUI txtPointCoin;
+    public TextMeshProUGUI txtPrice;
+    public TextMeshProUGUI txtPower;
     public Image _imgPlayer;
     public Image _imgPlayer2;
-    public Image _imgCircolPlayer;
     public Sprite[] _spritePlayerLoad;
+    public GameObject _btnUnLock;
+    public GameObject _btnActive;
+    public static DataPlayer currentPlayerData;
+    public List<Title> titles = new List<Title>();
+    public int[] customPrices;
+    public int[] customPower;
 
+    private Vector2 ScrollPosition;
+    bool isCheck = true;
+    private int currentIndex = 0;
+    private int center = 0;
     private Vector3[] initialPositions;
     private Vector3 scrollViewCenterPosition;
-    public static DataPlayer currentPlayerData;
+    int txt, Coin, levelValue;
+    private int[] LevelSSJ = new int[5];
+
+
+
     private void Start()
     {
+
         OnInit();
+        OnInitCoin();
+        //TitleLevel();
         if (obj.Length > 0)
         {
             scrollViewCenterPosition = obj[0].parent.position;
         }
     }
-
-    public void OnInit()
-    {
-        initialPositions = new Vector3[obj.Length];
-        for (int i = 0; i < obj.Length; i++)
-        {
-            initialPositions[i] = obj[i].position;
-        }
-    }
-
     private void Update()
     {
         int playerIndex = center;
@@ -50,7 +61,42 @@ public class spinnerPlayer : MonoBehaviour
         DisplayCurrentPlayerData();
         _imgPlayer.sprite = _spritePlayerLoad[center];
         _imgPlayer2.sprite = _spritePlayerLoad[center];
+        isCheckActive();
     }
+    private void Awake()
+    {
+        Coin = PlayerPrefs.GetInt("Coin", 0);
+        LevelSSJ[0] = PlayerPrefs.GetInt("LevelSSJ0", 0);
+        LevelSSJ[1] = PlayerPrefs.GetInt("LevelSSJ1", 0);
+        LevelSSJ[2] = PlayerPrefs.GetInt("LevelSSJ2", 0);
+        LevelSSJ[3] = PlayerPrefs.GetInt("LevelSSJ3", 0);
+        LevelSSJ[4] = PlayerPrefs.GetInt("LevelSSJ4", 0);
+    }
+    public void OnInit()
+    {
+        ScrollPosition = scrollRect.normalizedPosition;
+        initialPositions = new Vector3[obj.Length];
+        for (int i = 0; i < obj.Length; i++)
+        {
+            initialPositions[i] = obj[i].position;
+        }
+    }
+
+    public void OnInitCoin()
+    {
+        UIManager.Instance.SetCoin(Coin);
+        PlayerPrefs.SetInt("Coin", Coin);
+        PlayerPrefs.SetInt("LevelSSJ0", LevelSSJ[0]);
+        PlayerPrefs.SetInt("LevelSSJ1", LevelSSJ[1]);
+        PlayerPrefs.SetInt("LevelSSJ2", LevelSSJ[2]);
+        PlayerPrefs.SetInt("LevelSSJ3", LevelSSJ[3]);
+        PlayerPrefs.SetInt("LevelSSJ4", LevelSSJ[4]);
+        PlayerPrefs.Save();
+        txtPointCoin.text = Coin.ToString();
+    }
+
+
+
 
     public void nextPlayer()
     {
@@ -90,6 +136,26 @@ public class spinnerPlayer : MonoBehaviour
             });
         }
     }
+
+    public void isCheckActive()
+    {
+        txt = int.Parse(txtLevel.text);
+        levelValue = LevelSSJ[center];
+        spinnerPlayer.currentPlayerData.currentLevel = levelValue.ToString();
+        string txtlevel = currentPlayerData.currentLevel;
+        int intlevel = int.Parse(txtlevel.ToString());
+        if (txt <= intlevel)
+        {
+            _btnActive.SetActive(true);
+            _btnUnLock.SetActive(false);
+        }
+        else
+        {
+            _btnUnLock.SetActive(true);
+            _btnActive.SetActive(false);
+        }
+    }
+
     public void OnFocusingBoxChanged(
             ListBox prevFocusingBox, ListBox curFocusingBox)
     {
@@ -119,12 +185,71 @@ public class spinnerPlayer : MonoBehaviour
             }
         }
     }
+    public void UnLockPlayer()
+    {
+        string txtlevel = currentPlayerData.currentLevel;
+        int intlevel = int.Parse(txtlevel.ToString());
+        if (txt == intlevel + 1)
+        {
+            if (Coin >= 1000)
+            {
+                Coin -= 1000;
+                OnInitCoin();
+                levelValue += 1;
+                SaveCharacterData(center, levelValue);
+                LevelSSJ[center] = levelValue;
+                OnInitCoin();
+            }
+            else
+            {
+                _panelMoney.SetActive(true);
+            }
+        }
+        else
+        {
+            _panelCanel.SetActive(true);
+            int a = txt - 1;
+            txtBuyLevel.text = "Yêu Cầu Mở Khóa Level: " + a.ToString();
+        }
+
+
+    }
+
+    public void Canel()
+    {
+        _panelCanel.SetActive(false);
+    }
 
     private void DisplayCurrentPlayerData()
     {
-
         txtName.text = currentPlayerData.name;
         int txt = int.Parse(txtLevel.text);
+        txtPrice.text = customPrices[txt].ToString();
+        txtPower.text = customPower[txt].ToString();
         currentPlayerData.imgPlayer.sprite = currentPlayerData.listSprite[txt];
+    }
+
+    void SaveCharacterData(int playerIndex, int playerData)
+    {
+        string key = "LevelSSJ" + playerIndex.ToString();
+        PlayerPrefs.SetInt(key, playerData);
+        PlayerPrefs.Save();
+    }
+    public void ChangeContents()
+    {
+        scrollRect.normalizedPosition = ScrollPosition;
+    }
+
+
+    public void TitleLevel()
+    {
+        for (int i = 0; i <= 20; i++)
+        {
+            Title newTitle = new Title();
+            newTitle.level = i;
+            newTitle.price = customPrices[i];
+            newTitle.power = customPower[i];
+            titles.Add(newTitle);
+        }
     }
 }

@@ -14,14 +14,14 @@ public class ScrollviewManager : MonoBehaviour
     void Start()
     {
         distances = new float[contentObject.Length];
-        
+
     }
 
     private void CalculateDistances()
     {
         Vector2 centerPosition = new Vector2(scrollRect.viewport.rect.center.x, scrollRect.viewport.rect.center.y);
-    
-        for(int i =0; i < contentObject.Length; i++)
+
+        for (int i = 0; i < contentObject.Length; i++)
         {
             distances[i] = Vector2.Distance(contentObject[i].transform.position, centerPosition);
         }
@@ -39,7 +39,7 @@ public class ScrollviewManager : MonoBehaviour
         CalculateDistances();
 
         int newCenterIndex = GetClosestObjectIndex();
-        if(newCenterIndex != centerIndex)
+        if (newCenterIndex != centerIndex)
         {
             centerIndex = newCenterIndex;
             UpdateDisplayData(centerIndex);
@@ -47,7 +47,7 @@ public class ScrollviewManager : MonoBehaviour
     }
     private void UpdateDisplayData(int index)
     {
-        DataPlayer data = contentObject[index].GetComponent<DataPlayer>();
+        DataGoku data = contentObject[index].GetComponent<DataGoku>();
         prime.text = "" + data.name.ToString();
     }
 

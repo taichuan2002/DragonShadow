@@ -1,94 +1,77 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class HomeUI : MonoBehaviour
 {
-    public static HomeUI Instance { get; private set; }
 
-
-    private void Awake()
-    {
-        Coin = PlayerPrefs.GetInt("Coin", 0);
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    [SerializeField] private GameObject[] mainGame;
-
+    [SerializeField] Transform maingame;
+    [SerializeField] Transform Freegame;
+    [SerializeField] Transform Coingame;
+    [SerializeField] Transform Herogame;
+    [SerializeField] Transform Playgame;
+    [SerializeField] Transform Levelgame;
+    [SerializeField] Transform LoadingMain;
+    [SerializeField] Transform gameOver;
+    [SerializeField] TextMeshProUGUI[] _txtPointCoins;
+    [SerializeField] GameObject _panelCanel;
 
 
     public string sceneName = "MapBot";
+    private bool isCheck = false;
     public Animator animator;
-    bool isCheckMain = true;
+
     private int Coin;
+
     void Start()
     {
         OnInit();
-        if (PlayerPrefs.HasKey("openPanel"))
-        {
-            mainGame[0].gameObject.SetActive(true);
-            PlayerPrefs.DeleteKey("openPanel");
-        }
+        OnInitCoin();
     }
     void Update()
     {
-        UIManager.Instance.SetCoin(Coin);
     }
-    public void WinGame()
+    private void Awake()
     {
-        Debug.LogError(1);
-        mainGame[0].gameObject.SetActive(!isCheckMain);
-        mainGame[1].gameObject.SetActive(false);
-        mainGame[2].gameObject.SetActive(false);
-        mainGame[3].gameObject.SetActive(false);
-        mainGame[4].gameObject.SetActive(false);
-        mainGame[5].gameObject.SetActive(false);
-        mainGame[6].gameObject.SetActive(false);
-        mainGame[7].gameObject.SetActive(false);
-        mainGame[8].gameObject.SetActive(isCheckMain);
+        Coin = PlayerPrefs.GetInt("Coin", 0);
     }
     public void OnInit()
     {
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 90;
         Camera.main.orthographic = true;
-        mainGame[0].gameObject.SetActive(isCheckMain);
-        mainGame[1].gameObject.SetActive(false);
-        mainGame[2].gameObject.SetActive(false);
-        mainGame[3].gameObject.SetActive(false);
-        mainGame[4].gameObject.SetActive(false);
-        mainGame[5].gameObject.SetActive(false);
-        mainGame[6].gameObject.SetActive(false);
-        mainGame[7].gameObject.SetActive(false);
-        mainGame[8].gameObject.SetActive(false);
+        maingame.gameObject.SetActive(false);
+        Coingame.gameObject.SetActive(false);
+        Freegame.gameObject.SetActive(false);
+        Herogame.gameObject.SetActive(false);
+        Playgame.gameObject.SetActive(false);
+        Levelgame.gameObject.SetActive(false);
+        gameOver.gameObject.SetActive(false);
         StartCoroutine(loading());
+    }
+
+    public void OnInitCoin()
+    {
+        UIManager.Instance.SetCoin(Coin);
+        _txtPointCoins[0].text = Coin.ToString();
+        _txtPointCoins[1].text = Coin.ToString();
+        _txtPointCoins[2].text = Coin.ToString();
+        _txtPointCoins[3].text = Coin.ToString();
     }
 
     public void clickLevelGame()
     {
         Camera.main.orthographic = true;
-        mainGame[0].gameObject.SetActive(isCheckMain);
-        mainGame[1].gameObject.SetActive(false);
-        mainGame[2].gameObject.SetActive(false);
-        mainGame[3].gameObject.SetActive(false);
-        mainGame[4].gameObject.SetActive(false);
-        mainGame[5].gameObject.SetActive(false);
-        mainGame[6].gameObject.SetActive(false);
-        mainGame[7].gameObject.SetActive(false);
-        mainGame[8].gameObject.SetActive(false);
+        Levelgame.gameObject.SetActive(true);
+        maingame.gameObject.SetActive(false);
+        Coingame.gameObject.SetActive(false);
+        Freegame.gameObject.SetActive(false);
+        Herogame.gameObject.SetActive(false);
+        Playgame.gameObject.SetActive(false);
+        gameOver.gameObject.SetActive(false);
         StartCoroutine(delayLevel());
     }
-
-
-
     public void clickPlay()
     {
         Camera.main.orthographic = true;
@@ -105,69 +88,60 @@ public class HomeUI : MonoBehaviour
     public void clickFree()
     {
         Camera.main.orthographic = true;
-        mainGame[0].gameObject.SetActive(false);
-        mainGame[1].gameObject.SetActive(false);
-        mainGame[2].gameObject.SetActive(isCheckMain);
-        mainGame[3].gameObject.SetActive(false);
-        mainGame[4].gameObject.SetActive(false);
-        mainGame[5].gameObject.SetActive(false);
-        mainGame[6].gameObject.SetActive(false);
-        mainGame[7].gameObject.SetActive(false);
-        mainGame[8].gameObject.SetActive(false);
+        maingame.gameObject.SetActive(false);
+        Coingame.gameObject.SetActive(false);
+        Freegame.gameObject.SetActive(true);
+        Herogame.gameObject.SetActive(false);
+        Playgame.gameObject.SetActive(false);
+        Levelgame.gameObject.SetActive(false);
+        gameOver.gameObject.SetActive(false);
 
     }
     public void clickHero()
     {
         Camera.main.orthographic = false;
-        mainGame[0].gameObject.SetActive(!isCheckMain);
-        mainGame[1].gameObject.SetActive(false);
-        mainGame[2].gameObject.SetActive(false);
-        mainGame[3].gameObject.SetActive(false);
-        mainGame[4].gameObject.SetActive(isCheckMain);
-        mainGame[5].gameObject.SetActive(false);
-        mainGame[6].gameObject.SetActive(false);
-        mainGame[7].gameObject.SetActive(false);
-        mainGame[8].gameObject.SetActive(false);
+        maingame.gameObject.SetActive(false);
+        Coingame.gameObject.SetActive(false);
+        Freegame.gameObject.SetActive(false);
+        Herogame.gameObject.SetActive(true);
+        Playgame.gameObject.SetActive(false);
+        Levelgame.gameObject.SetActive(false);
+        gameOver.gameObject.SetActive(false);
     }
     public void clickCoin()
     {
         Camera.main.orthographic = true;
-        mainGame[0].gameObject.SetActive(!isCheckMain);
-        mainGame[1].gameObject.SetActive(false);
-        mainGame[2].gameObject.SetActive(false);
-        mainGame[3].gameObject.SetActive(isCheckMain);
-        mainGame[4].gameObject.SetActive(false);
-        mainGame[5].gameObject.SetActive(false);
-        mainGame[6].gameObject.SetActive(false);
-        mainGame[7].gameObject.SetActive(false);
-        mainGame[8].gameObject.SetActive(false);
+        maingame.gameObject.SetActive(false);
+        Coingame.gameObject.SetActive(true);
+        Freegame.gameObject.SetActive(false);
+        Herogame.gameObject.SetActive(false);
+        Playgame.gameObject.SetActive(false);
+        Levelgame.gameObject.SetActive(false);
+        gameOver.gameObject.SetActive(false);
     }
     public void clickBack()
     {
         Camera.main.orthographic = true;
-        mainGame[0].gameObject.SetActive(isCheckMain);
-        mainGame[1].gameObject.SetActive(false);
-        mainGame[2].gameObject.SetActive(false);
-        mainGame[3].gameObject.SetActive(false);
-        mainGame[4].gameObject.SetActive(false);
-        mainGame[5].gameObject.SetActive(false);
-        mainGame[6].gameObject.SetActive(false);
-        mainGame[7].gameObject.SetActive(false);
-        mainGame[8].gameObject.SetActive(false);
+        maingame.gameObject.SetActive(true);
+        Coingame.gameObject.SetActive(false);
+        Freegame.gameObject.SetActive(false);
+        Herogame.gameObject.SetActive(false);
+        Playgame.gameObject.SetActive(false);
+        Levelgame.gameObject.SetActive(false);
+        gameOver.gameObject.SetActive(false);
     }
 
     IEnumerator delayLevel()
     {
         yield return new WaitForSeconds(3);
-        mainGame[0].gameObject.SetActive(isCheckMain);
-        mainGame[1].gameObject.SetActive(false);
-        mainGame[2].gameObject.SetActive(false);
-        mainGame[3].gameObject.SetActive(false);
-        mainGame[4].gameObject.SetActive(false);
-        mainGame[5].gameObject.SetActive(false);
-        mainGame[6].gameObject.SetActive(false);
-        mainGame[7].gameObject.SetActive(false);
-        mainGame[8].gameObject.SetActive(false);
+        Playgame.gameObject.SetActive(true);
+        maingame.gameObject.SetActive(false);
+        Coingame.gameObject.SetActive(false);
+        Freegame.gameObject.SetActive(false);
+        Herogame.gameObject.SetActive(false);
+        LoadingMain.gameObject.SetActive(false);
+        Levelgame.gameObject.SetActive(false);
+        gameOver.gameObject.SetActive(false);
     }
 
     public IEnumerator nextMap()
@@ -181,15 +155,17 @@ public class HomeUI : MonoBehaviour
 
     IEnumerator loading()
     {
-        mainGame[6].gameObject.SetActive(true);
+        LoadingMain.gameObject.SetActive(true);
         yield return new WaitForSeconds(4);
-        mainGame[0].gameObject.SetActive(true);
-        mainGame[1].gameObject.SetActive(false);
-        mainGame[2].gameObject.SetActive(false);
-        mainGame[3].gameObject.SetActive(false);
-        mainGame[4].gameObject.SetActive(false);
-        mainGame[5].gameObject.SetActive(false);
-        mainGame[6].gameObject.SetActive(false);
-        mainGame[7].gameObject.SetActive(false);
+        maingame.gameObject.SetActive(true);
+        Coingame.gameObject.SetActive(false);
+        Freegame.gameObject.SetActive(false);
+        Herogame.gameObject.SetActive(false);
+        Playgame.gameObject.SetActive(false);
+        LoadingMain.gameObject.SetActive(false);
+        Levelgame.gameObject.SetActive(false);
     }
+
+
+
 }

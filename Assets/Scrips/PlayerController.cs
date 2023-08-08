@@ -358,7 +358,7 @@ public class PlayerController : Charactor
         }
         if (collision.CompareTag("Coin"))
         {
-            Coin += 1000;
+            Coin += 99999;
             OnInitCoin();
             Destroy(collision.gameObject);
         }

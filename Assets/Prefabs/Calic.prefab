@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3846129007880064316}
   - component: {fileID: 4491502475747672006}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Calic
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,6 +80,7 @@ MonoBehaviour:
   Bot: {fileID: 0}
   playerData: {fileID: 11400000, guid: 328717bfa2c33ee4b9ce022bd7646261, type: 2}
   gameDead: {fileID: 0}
+  _txtPointCoin: {fileID: 0}
   animator: {fileID: 0}
   hitVFX:
   - {fileID: 534253543124306992, guid: 442e175363065cb4cabb778c7db55142, type: 3}
