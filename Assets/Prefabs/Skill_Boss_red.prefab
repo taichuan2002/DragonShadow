@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1895429142447469672}
   m_Layer: 0
   m_Name: Skill_Boss_red
-  m_TagString: skillBot
+  m_TagString: skill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 112c868016f1b4e4c91f9ae9d81c154e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataEneMy: {fileID: 11400000, guid: 30941fff794822c4a851bae3313bb280, type: 2}
   rb: {fileID: -1839325883716646281}
 --- !u!1001 &1941298973321669878
 PrefabInstance:

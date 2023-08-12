@@ -2,10 +2,11 @@ using Spine;
 using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Bot : Charactor
+public class Bot : CharactorEnemy
 {
     [SerializeField] private Vector2[] listPoint;
     [SerializeField] private GameObject[] Listskill;
@@ -14,7 +15,7 @@ public class Bot : Charactor
     [SerializeField] private Transform gameOver;
     [SerializeField] private Vector2[] pointStart;
     public string sceneName = "Menu";
-
+    public DataEneMy dataEneMy;
 
     private float speed = 4f;
     private int random;
@@ -22,6 +23,12 @@ public class Bot : Charactor
 
     public void Start()
     {
+        maxhp = dataEneMy.maxHp;
+        hp = maxhp;
+        dame1 = dataEneMy.Dame1;
+        dame2 = dataEneMy.Dame2;
+        dame3 = dataEneMy.Dame3;
+        dame4 = dataEneMy.Dame4;
         skeletonAnimation = GetComponent<SkeletonAnimation>();
         skeletonAnimation.AnimationState.SetAnimation(1, listEnim[3], false);
         if (skeletonAnimation == null)
@@ -65,9 +72,9 @@ public class Bot : Charactor
         if (hp == 0)
         {
             gameOver.gameObject.SetActive(true);
-            //Invoke(nameof(nextMap), 2);
-            //SceneManager.LoadScene("Menu");
+            //SceneManager.LoadScene(sceneName);
         }
+
     }
 
     IEnumerator DelayIdle()

@@ -11,7 +11,6 @@ public class Skill2 : MonoBehaviour
 {
     public Rigidbody2D rb;
     public GameObject hitVFXDead;
-    public DataPlayer player;
     public Vector3[] Points;
     public float moveSpeed = 5f;
     public float speed = 5f;
@@ -19,6 +18,7 @@ public class Skill2 : MonoBehaviour
     private int currentWaypointIndex = 0;
     private float t = 0f;
     int randomPoint;
+    float Dame;
     void Start()
     {
         OnInit();
@@ -28,8 +28,6 @@ public class Skill2 : MonoBehaviour
 
     private void Update()
     {
-
-
         if (currentWaypointIndex >= Points.Length - 2)
         {
             return;
@@ -73,6 +71,11 @@ public class Skill2 : MonoBehaviour
 
     }
 
+    public void SetDame(float dame)
+    {
+        Dame = dame;
+    }
+
     Vector2 BezierPoint(float t, Vector2 a, Vector2 b, Vector2 c)
     {
         float u = 1f - t;
@@ -103,7 +106,7 @@ public class Skill2 : MonoBehaviour
     {
         if (collision.CompareTag("Bot"))
         {
-            collision.GetComponent<Charactor>().onHit(player.DamageAttack2);
+            collision.GetComponent<CharactorEnemy>().OnHit(Dame);
             GameObject hitvfx = Instantiate(hitVFXDead, transform.position, transform.rotation);
             OnDead();
             Destroy(hitvfx, 2);

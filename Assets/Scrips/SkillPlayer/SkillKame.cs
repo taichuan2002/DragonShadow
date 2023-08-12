@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class SkillKame : MonoBehaviour
 {
-    [SerializeField] private SkeletonAnimation targetBot;
+    [SerializeField] SkeletonAnimation targetBot;
     public Rigidbody2D rb;
     public GameObject hitVFXDead;
-    public DataGoku player;
-
+    public DataPlayer player;
+    float Damecurren;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -17,21 +17,34 @@ public class SkillKame : MonoBehaviour
     }
     public void OnInit()
     {
-        Vector2 targetPosition = (targetBot.transform.position - transform.position).normalized;
-        rb.velocity = targetPosition * 15f;
-        Invoke(nameof(onDead), 3f);
-    }
+        GameObject targetBotObj = GameObject.FindGameObjectWithTag("Bot");
+        if (targetBotObj != null)
+        {
+            targetBot = targetBotObj.GetComponent<SkeletonAnimation>();
+            if (targetBot != null)
+            {
+                Vector2 targetPosition = (targetBot.transform.position - transform.position).normalized;
+                rb.velocity = targetPosition * 15f;
+                Invoke(nameof(onDead), 3f);
 
+            }
+        }
+    }
     public void onDead()
     {
         Destroy(gameObject);
+    }
+    public void SetDame(float dame)
+    {
+        Damecurren = dame;
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bot"))
         {
-            collision.GetComponent<Charactor>().onHit(player.DamageAttack1);
+            collision.GetComponent<CharactorEnemy>().OnHit(Damecurren);
             GameObject hitvfx = Instantiate(hitVFXDead, transform.position, transform.rotation);
             Destroy(hitvfx, 1);
             onDead();

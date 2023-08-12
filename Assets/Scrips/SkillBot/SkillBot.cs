@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SkillBot : MonoBehaviour
 {
-
+    public DataEneMy dataEneMy;
     public Rigidbody2D rb;
     private void Start()
     {
@@ -27,7 +27,7 @@ public class SkillBot : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<Charactor>().onHit(15);
+            collision.GetComponent<Charactor>().OnHit(dataEneMy.Dame1);
             OnDestroy();
         }
         if (collision.CompareTag("skill"))

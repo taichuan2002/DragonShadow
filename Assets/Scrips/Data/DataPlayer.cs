@@ -7,15 +7,12 @@ using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "DataPlayer", menuName = "DataPlayer/PlayerMovement")]
 
-public class DataPlayer : MonoBehaviour
+public class DataPlayer : ScriptableObject
 {
     public SkeletonAnimation player;
-    public Sprite[] listSprite;
-    public Image imgPlayer;
     public string name;
     public string level;
     public string currentLevel;
-    public int prime;
     public float maxHp;
     public float maxMana;
     public float DamageAttack1;
@@ -23,11 +20,8 @@ public class DataPlayer : MonoBehaviour
     public float DamageAttack3;
     public float DamageAttack4;
     public bool active = false;
-}
 
-public class Title
-{
-    public int level;
-    public float price;
-    public float power;
+    public Sprite[] listSprite;
+    public int[] arrPrice;
+    public int[] arrPower;
 }

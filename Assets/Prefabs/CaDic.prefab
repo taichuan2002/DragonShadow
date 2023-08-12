@@ -51,37 +51,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healbar: {fileID: 0}
+  Player: {fileID: 0}
   hitVFXDead: {fileID: 4203629870350764623, guid: 95c7e1dd858bb974696e894011eee16e, type: 3}
   level: 0
   hp: 100
   maxhp: 100
   mana: 100
   maxmana: 100
+  Damage1: 0
+  Damage2: 0
+  Damage3: 0
+  Damage4: 0
+  attack: {fileID: 2622457522968976437}
+  pointAttack: {fileID: 7040748580422849398}
+  rb: {fileID: 4303125873064153718}
+  Bot: {fileID: 0}
+  gameDead: {fileID: 0}
+  _txtPointCoin: {fileID: 0}
+  speed: 10
+  skillKame: {fileID: 0}
+  skill2: {fileID: 0}
+  skill3: {fileID: 0}
+  skill4: {fileID: 0}
+  skill5: {fileID: 0}
+  sceneName: Menu
+  skeletonAnimation:
+  - {fileID: 0}
+  data: []
+  ListAnim: []
   Listskill1:
   - {fileID: 5939223519511088215, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
   - {fileID: 8550975513353579464, guid: a0eb2981cc72d0841a85e67447497efb, type: 3}
   - {fileID: 4735220195234345782, guid: b7d7d2f1afe9e1747bc7e1a56f955f2c, type: 3}
   - {fileID: 5939223519511088215, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
   - {fileID: 5939223519511088215, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
-  attack: {fileID: 2622457522968976437}
-  pointAttack: {fileID: 7040748580422849398}
-  rb: {fileID: 4303125873064153718}
-  ListAnim: []
-  Bot: {fileID: 0}
-  playerData: {fileID: 11400000, guid: 328717bfa2c33ee4b9ce022bd7646261, type: 2}
-  gameDead: {fileID: 0}
-  _txtPointCoin: {fileID: 0}
-  animator: {fileID: 0}
   hitVFX: []
-  speed: 10
-  skeletonAnimation: {fileID: 4789902831009972837}
   v3:
   - {x: -9, y: -0.6, z: 0}
   - {x: -4, y: -0.6, z: 0}
   _btn:
   - {fileID: 0}
   - {fileID: 0}
-  sceneName: Menu
 --- !u!50 &4303125873064153718
 Rigidbody2D:
   serializedVersion: 4

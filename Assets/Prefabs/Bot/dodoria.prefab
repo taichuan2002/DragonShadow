@@ -136,8 +136,10 @@ MonoBehaviour:
   level: 0
   hp: 100
   maxhp: 100
-  mana: 100
-  maxmana: 100
+  dame1: 0
+  dame2: 0
+  dame3: 0
+  dame4: 0
   listPoint:
   - {x: 6.7, y: 3}
   - {x: 6.6, y: -0.3}
@@ -160,6 +162,7 @@ MonoBehaviour:
   - {x: 13, y: -0.3}
   - {x: 4.2, y: -10}
   sceneName: Menu
+  dataEneMy: {fileID: 0}
 --- !u!50 &4115815238704416669
 Rigidbody2D:
   serializedVersion: 4

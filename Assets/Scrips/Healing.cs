@@ -6,32 +6,41 @@ using UnityEngine.UI;
 
 public class Healing : MonoBehaviour
 {
-    [SerializeField] private Image imgFillhp;
-    [SerializeField] private Image imgFillmana;
-
+    [SerializeField] Image imgFillhp;
+    [SerializeField] Image imgFillmana;
+    [SerializeField] DataPlayer Player;
     public float hp;
     public float mana;
-    private float maxHp;
-    private float maxMana;
+    public float maxHp;
+    public float maxMana;
+    public float Damage1;
+    public float Damage2;
+    public float Damage3;
+    public float Damage4;
 
     private void Start()
     {
-        this.maxHp = 100;
-        this.maxMana = 100;
+        this.maxHp = Player.maxHp;
+        this.maxMana = Player.maxMana;
         this.hp = maxHp;
         this.mana = maxMana;
+        this.Damage1 = Player.DamageAttack1;
+        this.Damage2 = Player.DamageAttack2;
+        this.Damage3 = Player.DamageAttack3;
+        this.Damage4 = Player.DamageAttack4;
+
     }
 
     private void Update()
     {
         imgFillhp.fillAmount = Mathf.Lerp(imgFillhp.fillAmount, hp / maxHp, Time.deltaTime * 3);
-        imgFillmana.fillAmount = Mathf.Lerp(imgFillmana.fillAmount, mana / maxMana,Time.deltaTime *3);
-        healingMana();
+        imgFillmana.fillAmount = Mathf.Lerp(imgFillmana.fillAmount, mana / maxMana, Time.deltaTime * 3);
+        HealingMana();
     }
     public void OnInit(float maxhp, float maxmana)
     {
-        this.maxHp= maxhp;
-        this.maxMana= maxmana;
+        this.maxHp = maxhp;
+        this.maxMana = maxmana;
         hp = maxhp;
         mana = maxmana;
         imgFillhp.fillAmount = 1;
@@ -42,11 +51,16 @@ public class Healing : MonoBehaviour
     {
         this.hp = hp;
     }
+    public void SetNewMaxHp(float maxhp)
+    {
+        this.maxHp = maxhp;
+    }
     public void SetNewMana(float mana)
     {
         this.mana = mana;
     }
-    private void healingMana()
+
+    private void HealingMana()
     {
         if (mana < maxMana)
         {
@@ -59,12 +73,19 @@ public class Healing : MonoBehaviour
         }
     }
 
-    public void onHp(float dame)
+    public void OnHp(float dame)
     {
         hp -= dame;
     }
-    public void onMana(float manax)
+    public void OnMana(float manax)
     {
         mana -= manax;
+    }
+    public void SetNewDame(float dame1, float dame2, float dame3, float dame4)
+    {
+        Damage1 = dame1;
+        Damage2 = dame2;
+        Damage3 = dame3;
+        Damage4 = dame4;
     }
 }

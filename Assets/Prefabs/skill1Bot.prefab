@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 6836622782181477609}
   m_Layer: 0
   m_Name: skill1Bot
-  m_TagString: skillBot
+  m_TagString: skill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 112c868016f1b4e4c91f9ae9d81c154e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataEneMy: {fileID: 0}
   rb: {fileID: 6568202819228853620}
 --- !u!58 &6836622782181477609
 CircleCollider2D:

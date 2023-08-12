@@ -6,8 +6,7 @@ public class Skill3 : MonoBehaviour
 {
     public Rigidbody2D rb;
     public GameObject hitVFXDead;
-    public DataPlayer player;
-
+    float Dame;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -23,12 +22,15 @@ public class Skill3 : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
+    public void SetDame(float dame)
+    {
+        Dame = dame;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bot"))
         {
-            collision.GetComponent<Charactor>().onHit(player.DamageAttack3);
+            collision.GetComponent<CharactorEnemy>().OnHit(Dame);
             GameObject hitvfx = Instantiate(hitVFXDead, transform.position, transform.rotation);
             Destroy(hitvfx, 1);
             onDead();

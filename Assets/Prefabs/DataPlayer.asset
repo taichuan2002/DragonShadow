@@ -13,6 +13,16 @@ MonoBehaviour:
   m_Name: DataPlayer
   m_EditorClassIdentifier: 
   player: {fileID: 4491502475747672006, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
+  name: GOKUZ
+  level: 20
+  currentLevel: 15
+  maxHp: 100
+  maxMana: 100
+  DamageAttack1: 30
+  DamageAttack2: 2
+  DamageAttack3: 10
+  DamageAttack4: 15
+  active: 0
   listSprite:
   - {fileID: 21300000, guid: 00b20f4be41bc4a8894976644eade3a9, type: 3}
   - {fileID: 21300000, guid: 134bd10cdfc054117b6d3d51c3c21411, type: 3}
@@ -35,15 +45,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6c11dbd0e859644eb99a91ae06c4276f, type: 3}
   - {fileID: 21300000, guid: fcce56d759a5e432d933691106d877f8, type: 3}
   - {fileID: 21300000, guid: 78de8c5fb9c374e7199110f3328bfad8, type: 3}
-  imgPlayer: {fileID: 0}
-  name: GOKUZ
-  level: 8
-  currentLevel: 0
-  prime: 10000
-  maxHp: 100
-  maxMana: 100
-  DamageAttack1: 30
-  DamageAttack2: 2
-  DamageAttack3: 10
-  DamageAttack4: 15
-  active: 0
+  arrPrice: 00000000d007000010270000983a00003075000050c30000a0860100400d0300e093040020a10700b0710b0040420f00804f120060e3160040771b0080841e00c0912100a025260080b92a0020402c00c0c62d00
+  arrPower: e8030000a00f0000803e000080bb000000710200a0bb0d0080841e00c0cf6a008096980080c3c901005a620280f0fa02801d2c0400e1f50500c2eb0b0084d7170065cd1d0027b9290008af2f00e9a43500ca9a3b

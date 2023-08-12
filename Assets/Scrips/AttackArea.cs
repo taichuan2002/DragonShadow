@@ -18,7 +18,7 @@ public class AttackArea : MonoBehaviour
 
     public void OnInit()
     {
-        rb.velocity =  transform.right * 10f;
+        rb.velocity = transform.right * 10f;
         Invoke(nameof(onDead), 3f);
     }
 
@@ -31,7 +31,7 @@ public class AttackArea : MonoBehaviour
     {
         if (collision.CompareTag("Bot"))
         {
-            collision.GetComponent<Charactor>().onHit(15);
+            collision.GetComponent<Charactor>().OnHit(15);
             onDead();
         }
         if (collision.CompareTag("skill"))

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{EB7FAC2C-B1BD-4806-86DA-C6761665E3B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coffee.SoftMaskForUGUI_Demo", "Coffee.SoftMaskForUGUI_Demo.csproj", "{7098241E-9F79-6A8E-196F-CC13D0A4068A}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor-firstpass", "Assembly-CSharp-Editor-firstpass.csproj", "{868F572C-9399-0F87-4D52-FF796E51E93F}"
 EndProject
 Global
@@ -27,6 +29,10 @@ Global
 		{EB7FAC2C-B1BD-4806-86DA-C6761665E3B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB7FAC2C-B1BD-4806-86DA-C6761665E3B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB7FAC2C-B1BD-4806-86DA-C6761665E3B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7098241E-9F79-6A8E-196F-CC13D0A4068A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7098241E-9F79-6A8E-196F-CC13D0A4068A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7098241E-9F79-6A8E-196F-CC13D0A4068A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7098241E-9F79-6A8E-196F-CC13D0A4068A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{868F572C-9399-0F87-4D52-FF796E51E93F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{868F572C-9399-0F87-4D52-FF796E51E93F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{868F572C-9399-0F87-4D52-FF796E51E93F}.Release|Any CPU.ActiveCfg = Release|Any CPU

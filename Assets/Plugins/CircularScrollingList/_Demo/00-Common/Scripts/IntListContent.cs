@@ -1,5 +1,5 @@
 ﻿using AirFishLab.ScrollingList.ContentManagement;
-using Microsoft.Unity.VisualStudio.Editor;
+using UnityEngine.UI;
 
 namespace AirFishLab.ScrollingList.Demo
 {

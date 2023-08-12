@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87194c8323b517045b26fe633728dba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetBot: {fileID: 4789902831009972837, guid: 4ca5cc70e5c7f034f999f0df7a4d5687, type: 3}
+  targetBot: {fileID: 0}
   rb: {fileID: 9199289131145326638}
   hitVFXDead: {fileID: 4203629870350764623, guid: 95c7e1dd858bb974696e894011eee16e, type: 3}
   player: {fileID: 11400000, guid: 328717bfa2c33ee4b9ce022bd7646261, type: 2}

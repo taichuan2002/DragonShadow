@@ -17,18 +17,22 @@ public class HomeUI : MonoBehaviour
     [SerializeField] Transform gameOver;
     [SerializeField] TextMeshProUGUI[] _txtPointCoins;
     [SerializeField] GameObject _panelCanel;
+    [SerializeField] GameObject _panelBuycoin;
 
 
     public string sceneName = "MapBot";
-    private bool isCheck = false;
     public Animator animator;
-
     private int Coin;
+    private bool isCheckScene = false;
+    private bool isCheck = false;
 
     void Start()
     {
-        OnInit();
-        OnInitCoin();
+        if (!isCheck)
+        {
+            OnInit();
+            OnInitCoin();
+        }
     }
     void Update()
     {
@@ -48,16 +52,35 @@ public class HomeUI : MonoBehaviour
         Playgame.gameObject.SetActive(false);
         Levelgame.gameObject.SetActive(false);
         gameOver.gameObject.SetActive(false);
+        _panelCanel.gameObject.SetActive(false);
+        _panelBuycoin.gameObject.SetActive(false);
         StartCoroutine(loading());
     }
 
     public void OnInitCoin()
     {
         UIManager.Instance.SetCoin(Coin);
+        PlayerPrefs.SetInt("Coin", Coin);
+        PlayerPrefs.Save();
         _txtPointCoins[0].text = Coin.ToString();
         _txtPointCoins[1].text = Coin.ToString();
         _txtPointCoins[2].text = Coin.ToString();
         _txtPointCoins[3].text = Coin.ToString();
+    }
+
+    public void StartGame()
+    {
+        isCheckScene = true;
+        isCheck = true;
+        maingame.gameObject.SetActive(false);
+        Coingame.gameObject.SetActive(false);
+        Freegame.gameObject.SetActive(false);
+        Herogame.gameObject.SetActive(false);
+        Playgame.gameObject.SetActive(false);
+        Levelgame.gameObject.SetActive(false);
+        gameOver.gameObject.SetActive(true);
+        _panelCanel.gameObject.SetActive(false);
+        _panelBuycoin.gameObject.SetActive(false);
     }
 
     public void clickLevelGame()
@@ -70,6 +93,8 @@ public class HomeUI : MonoBehaviour
         Herogame.gameObject.SetActive(false);
         Playgame.gameObject.SetActive(false);
         gameOver.gameObject.SetActive(false);
+        _panelCanel.gameObject.SetActive(false);
+        _panelBuycoin.gameObject.SetActive(false);
         StartCoroutine(delayLevel());
     }
     public void clickPlay()
@@ -95,6 +120,11 @@ public class HomeUI : MonoBehaviour
         Playgame.gameObject.SetActive(false);
         Levelgame.gameObject.SetActive(false);
         gameOver.gameObject.SetActive(false);
+        _panelCanel.gameObject.SetActive(false);
+        _panelBuycoin.gameObject.SetActive(false);
+        FindObjectOfType<spinnerPlayer>().UpdateCoin(Coin);
+        OnInitCoin();
+
 
     }
     public void clickHero()
@@ -107,6 +137,11 @@ public class HomeUI : MonoBehaviour
         Playgame.gameObject.SetActive(false);
         Levelgame.gameObject.SetActive(false);
         gameOver.gameObject.SetActive(false);
+        _panelCanel.gameObject.SetActive(false);
+        _panelBuycoin.gameObject.SetActive(false);
+        FindObjectOfType<spinnerPlayer>().UpdateCoin(Coin);
+        OnInitCoin();
+
     }
     public void clickCoin()
     {
@@ -118,6 +153,11 @@ public class HomeUI : MonoBehaviour
         Playgame.gameObject.SetActive(false);
         Levelgame.gameObject.SetActive(false);
         gameOver.gameObject.SetActive(false);
+        _panelCanel.gameObject.SetActive(false);
+        _panelBuycoin.gameObject.SetActive(false);
+        FindObjectOfType<spinnerPlayer>().UpdateCoin(Coin);
+        OnInitCoin();
+
     }
     public void clickBack()
     {
@@ -129,6 +169,14 @@ public class HomeUI : MonoBehaviour
         Playgame.gameObject.SetActive(false);
         Levelgame.gameObject.SetActive(false);
         gameOver.gameObject.SetActive(false);
+        _panelCanel.gameObject.SetActive(false);
+        _panelBuycoin.gameObject.SetActive(false);
+    }
+
+    public void ClickFreeCoins()
+    {
+        Coin += 100000;
+        OnInitCoin();
     }
 
     IEnumerator delayLevel()
@@ -142,6 +190,8 @@ public class HomeUI : MonoBehaviour
         LoadingMain.gameObject.SetActive(false);
         Levelgame.gameObject.SetActive(false);
         gameOver.gameObject.SetActive(false);
+        _panelCanel.gameObject.SetActive(false);
+        _panelBuycoin.gameObject.SetActive(false);
     }
 
     public IEnumerator nextMap()
@@ -164,8 +214,14 @@ public class HomeUI : MonoBehaviour
         Playgame.gameObject.SetActive(false);
         LoadingMain.gameObject.SetActive(false);
         Levelgame.gameObject.SetActive(false);
+        _panelCanel.gameObject.SetActive(false);
+        _panelBuycoin.gameObject.SetActive(false);
     }
 
-
+    public void UpdateCoin(int newCoinValue)
+    {
+        Coin = newCoinValue;
+        OnInitCoin();
+    }
 
 }

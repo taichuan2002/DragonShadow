@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 1042994938119302598}
   - component: {fileID: 7181240886769536052}
   - component: {fileID: 8438601365979625594}
-  - component: {fileID: 5161041026923732073}
+  - component: {fileID: 3168951712776817561}
   m_Layer: 0
   m_Name: skill2Bot
-  m_TagString: skillBot
+  m_TagString: skill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,7 +117,7 @@ PolygonCollider2D:
       - {x: 0.52721655, y: 0.02596736}
       - {x: 0.47083217, y: 0.15759498}
   m_UseDelaunayMesh: 0
---- !u!114 &5161041026923732073
+--- !u!114 &3168951712776817561
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,9 +126,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1672837695096959842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 112c868016f1b4e4c91f9ae9d81c154e, type: 3}
+  m_Script: {fileID: 11500000, guid: 34df34d0aa7c1734884f9aa3c95e4786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataEneMy: {fileID: 11400000, guid: 30941fff794822c4a851bae3313bb280, type: 2}
   rb: {fileID: 7181240886769536052}
 --- !u!1 &2444482780161494896
 GameObject:

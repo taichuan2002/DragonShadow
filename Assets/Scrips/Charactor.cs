@@ -6,34 +6,39 @@ using UnityEngine;
 public class Charactor : MonoBehaviour
 {
     [SerializeField] protected Healing healbar;
+    [SerializeField] DataPlayer Player;
     public GameObject hitVFXDead;
-
     public string level;
     public float hp;
     public float maxhp;
     public float mana;
     public float maxmana;
+    public float Damage1;
+    public float Damage2;
+    public float Damage3;
+    public float Damage4;
     public bool isDead => hp <= 0f;
     private void Start()
     {
-        maxhp = 100;
-        maxmana = 100;
-        onInit();
+        OnInit();
     }
     public void FixedUpdate()
     {
-        healingMana();
+        HealingMana();
         OnDestroy();
     }
-
-    public void onInit()
+    public void OnInit()
     {
         hp = maxhp;
         mana = maxmana;
+        Damage1 = Player.DamageAttack1;
+        Damage2 = Player.DamageAttack2;
+        Damage3 = Player.DamageAttack3;
+        Damage4 = Player.DamageAttack4;
         healbar.OnInit(maxhp, maxmana);
     }
 
-    public void onHit(float dame)
+    public void OnHit(float dame)
     {
         if (!isDead)
         {
@@ -43,9 +48,10 @@ public class Charactor : MonoBehaviour
                 hp = 0f;
             }
             healbar.SetNewHp(hp);
+
         }
     }
-    public void onSkill(float manax)
+    public void OnSkill(float manax)
     {
         mana -= manax;
         healbar.SetNewMana(mana);
@@ -60,7 +66,7 @@ public class Charactor : MonoBehaviour
         }
     }
 
-    public void healingMana()
+    public void HealingMana()
     {
         if (mana < maxmana)
         {
@@ -72,4 +78,13 @@ public class Charactor : MonoBehaviour
             healbar.SetNewMana(mana);
         }
     }
+    public void SetDame(float dame1, float dame2, float dame3, float dame4)
+    {
+        Damage1 = dame1;
+        Damage2 = dame2;
+        Damage3 = dame3;
+        Damage4 = dame4;
+        healbar.SetNewDame(Damage1, Damage2, Damage3, Damage4);
+    }
+
 }

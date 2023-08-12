@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5633616074635242407}
   - component: {fileID: 4200470853283578266}
-  - component: {fileID: 1847646496806920278}
   - component: {fileID: 9084000224587447130}
   - component: {fileID: 3832183731814747190}
+  - component: {fileID: 5076676657262716366}
   m_Layer: 0
   m_Name: skill_beerus3
-  m_TagString: skillBot
+  m_TagString: skill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,19 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1847646496806920278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 48410394305755608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 112c868016f1b4e4c91f9ae9d81c154e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 9084000224587447130}
 --- !u!50 &9084000224587447130
 Rigidbody2D:
   serializedVersion: 4
@@ -162,3 +149,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.010305464}
   serializedVersion: 2
   m_Radius: 0.75956374
+--- !u!114 &5076676657262716366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48410394305755608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f11c9047c16f6f545b28f817ad62bc22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataEneMy: {fileID: 11400000, guid: 30941fff794822c4a851bae3313bb280, type: 2}
+  rb: {fileID: 9084000224587447130}

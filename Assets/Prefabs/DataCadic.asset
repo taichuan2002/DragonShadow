@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec273706ef07fb4a9783b5e836917f3, type: 3}
+  m_Name: DataCadic
+  m_EditorClassIdentifier: 
+  player: {fileID: 4491502475747672006, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
+  name: CADIC
+  level: 20
+  currentLevel: 6
+  maxHp: 100
+  maxMana: 100
+  DamageAttack1: 30
+  DamageAttack2: 2
+  DamageAttack3: 10
+  DamageAttack4: 15
+  active: 0
+  listSprite:
+  - {fileID: 21300000, guid: bb172c5602d52482880bd4a661cc31b4, type: 3}
+  - {fileID: 21300000, guid: fd701af47aa02409590535a3bfc26315, type: 3}
+  - {fileID: 21300000, guid: da7b0b6501ce045cb8b078800cbd043b, type: 3}
+  - {fileID: 21300000, guid: ce29fc423226f4bf083b67a086d78b67, type: 3}
+  - {fileID: 21300000, guid: 0f692486139b44c59ba0246c9e61ce2f, type: 3}
+  - {fileID: 21300000, guid: c6a7e6b7827c9477a88b5e6815ff6cd4, type: 3}
+  - {fileID: 21300000, guid: 443e03c0ce8a64effbd25cf8d56b14f6, type: 3}
+  - {fileID: 21300000, guid: 0048cd16068fe4c93b2d75887681a692, type: 3}
+  - {fileID: 21300000, guid: 9198787a79b5f4c72badcd654db3fb51, type: 3}
+  - {fileID: 21300000, guid: cd97f3cdd91244f0ba8a8ec6c7cfeceb, type: 3}
+  - {fileID: 21300000, guid: 5531673425c63439a9d2691839134f3d, type: 3}
+  - {fileID: 21300000, guid: 0fbbd681e098d4556a28f4f3225a6105, type: 3}
+  - {fileID: 21300000, guid: c1ea02931bb294fa19519fd964c770a5, type: 3}
+  - {fileID: 21300000, guid: af7b1f95e640f46ceb3300e6975e5b9a, type: 3}
+  - {fileID: 21300000, guid: e8e003842bc464a82998af4b50efea63, type: 3}
+  - {fileID: 21300000, guid: 655f0f0fe7b914073bf2a04cab9a7784, type: 3}
+  - {fileID: 21300000, guid: 8bb067405cdef4a4ab6676a826e676d2, type: 3}
+  - {fileID: 21300000, guid: ca20bb8c8298e4161a25c66001599e80, type: 3}
+  - {fileID: 21300000, guid: 061bd1e5f1e9c4560b9895bcef3d38fb, type: 3}
+  - {fileID: 21300000, guid: 9af3803163fea43c98cd34a4fa1379f4, type: 3}
+  - {fileID: 21300000, guid: 16116253f737c4de1b24ddc45f0e676f, type: 3}
+  arrPrice: 00000000d007000010270000983a00003075000050c30000a0860100400d0300e093040020a10700b0710b0040420f00804f120060e3160040771b0080841e00c0912100a025260080b92a0020402c00c0c62d00
+  arrPower: e8030000a00f0000803e000080bb000000710200a0bb0d0080841e00c0cf6a008096980080c3c901005a620280f0fa02801d2c0400e1f50500c2eb0b0084d7170065cd1d0027b9290008af2f00e9a43500ca9a3b

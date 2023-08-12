@@ -10,25 +10,28 @@ using UnityEngine.UI;
 
 public class PlayerController : Charactor
 {
-    [SerializeField] GameObject[] Listskill1;
     [SerializeField] Transform attack;
     [SerializeField] GameObject pointAttack;
     [SerializeField] Rigidbody2D rb;
-    [SerializeField] AnimationReferenceAsset[] ListAnim;
     [SerializeField] GameObject Bot;
-    [SerializeField] DataPlayer playerData;
+    public static DataPlayer playerData;
     [SerializeField] Transform gameDead;
     [SerializeField] TextMeshProUGUI _txtPointCoin;
-
-
-    public Animator animator;
-    public GameObject[] hitVFX;
-    public float speed;
-    public Skin sk;
-    public SkeletonAnimation skeletonAnimation;
-    public Vector3[] v3;
-    public Button[] _btn;
-    public string sceneName = "Menu";
+    [SerializeField] float speed;
+    [SerializeField] Skin sk;
+    [SerializeField] SkillKame skillKame;
+    [SerializeField] Skill2 skill2;
+    [SerializeField] Skill3 skill3;
+    [SerializeField] SkillKame skill4;
+    [SerializeField] SkillKame skill5;
+    [SerializeField] string sceneName = "Menu";
+    [SerializeField] SkeletonAnimation[] skeletonAnimation;
+    [SerializeField] DataPlayer[] data;
+    [SerializeField] AnimationReferenceAsset[] ListAnim;
+    [SerializeField] GameObject[] Listskill1;
+    [SerializeField] GameObject[] hitVFX;
+    [SerializeField] Vector3[] v3;
+    [SerializeField] Button[] _btn;
 
 
     private Vector2 mousePos;
@@ -38,16 +41,17 @@ public class PlayerController : Charactor
     private float maxY = 4.5f;
     private bool isAttack = true;
     private bool isSkillRunning = false;
-    private int Coin;
+    private int Coin, levelprefs, levelValue;
     private bool isImmortal = false;
     private float invincibleTime = 5f;
     private float invincibleTimer = 0f;
-
+    int center;
 
 
 
     private void Start()
     {
+        center = PlayerPrefs.GetInt("idPlayer");
         OnInit();
         OnInitCoin();
     }
@@ -55,6 +59,7 @@ public class PlayerController : Charactor
 
     private void Update()
     {
+        playerData = data[center];
         if (isAttack)
         {
             Control();
@@ -78,6 +83,7 @@ public class PlayerController : Charactor
     private void Awake()
     {
         Coin = PlayerPrefs.GetInt("Coin", 0);
+        levelprefs = PlayerPrefs.GetInt("LevelSSJ0");
     }
 
     public void Control()
@@ -102,18 +108,22 @@ public class PlayerController : Charactor
 
     public void OnInit()
     {
+        playerData = data[center];
         Application.targetFrameRate = 90;
-        hp = playerData.maxHp;
-        mana = playerData.maxMana;
         maxhp = playerData.maxHp;
         maxmana = playerData.maxMana;
-
+        hp = playerData.maxHp;
+        mana = playerData.maxMana;
+        Damage1 = playerData.DamageAttack1;
+        Damage2 = playerData.DamageAttack2;
+        Damage3 = playerData.DamageAttack3;
+        Damage4 = playerData.DamageAttack4;
         healbar.SetNewHp(maxhp);
         healbar.SetNewMana(maxmana);
         healbar.OnInit(maxhp, maxmana);
 
         rb = GetComponent<Rigidbody2D>();
-        skeletonAnimation = GetComponent<SkeletonAnimation>();
+        skeletonAnimation[center] = GetComponent<SkeletonAnimation>();
         if (skeletonAnimation == null)
         {
             Debug.LogError("SkeletonAnimation component not found!");
@@ -140,7 +150,7 @@ public class PlayerController : Charactor
             if (mana >= 40 && !isSkillRunning)
             {
                 isAttack = false;
-                onSkill(40);
+                OnSkill(40);
                 StartCoroutine(DelaySkill1());
             }
             else
@@ -156,14 +166,15 @@ public class PlayerController : Charactor
 
             if (mana >= 25)
             {
-                isAttack = false;
-                skeletonAnimation.AnimationState.SetAnimation(1, ListAnim[2], false);
-                Instantiate(Listskill1[1], attack.position, attack.rotation);
-                Instantiate(Listskill1[1], attack.position, attack.rotation);
-                Instantiate(Listskill1[1], attack.position, attack.rotation);
-                Instantiate(Listskill1[1], attack.position, attack.rotation);
-                Instantiate(Listskill1[1], attack.position, attack.rotation);
-                onSkill(25);
+                isAttack = true;
+                skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[2], false);
+                for (int i = 0; i < 5; i++)
+                {
+                    Skill2 skill2Instance = Instantiate(Listskill1[1], attack.position, attack.rotation).GetComponent<Skill2>();
+                    skill2Instance.SetDame(Damage2);
+                    skill2Instance.OnInit();
+                }
+                OnSkill(25);
                 StartCoroutine(DelayIdle());
             }
             else
@@ -180,9 +191,11 @@ public class PlayerController : Charactor
             if (mana >= 15)
             {
                 isAttack = false;
-                skeletonAnimation.AnimationState.SetAnimation(1, ListAnim[3], false);
-                Instantiate(Listskill1[2], attack.position, attack.rotation);
-                onSkill(15);
+                skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[3], false);
+                skill3 = Instantiate(Listskill1[2], attack.position, attack.rotation).GetComponent<Skill3>();
+                skill3.SetDame(Damage3);
+                skill3.OnInit();
+                OnSkill(15);
                 StartCoroutine(DelayIdle());
             }
             else
@@ -198,7 +211,7 @@ public class PlayerController : Charactor
             if (mana >= 40)
             {
                 isAttack = false;
-                skeletonAnimation.AnimationState.SetAnimation(1, ListAnim[8], false);
+                skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[8], false);
                 StartCoroutine(delaySkill4());
             }
             else
@@ -214,9 +227,11 @@ public class PlayerController : Charactor
             if (mana >= 40)
             {
                 isAttack = false;
-                skeletonAnimation.AnimationState.SetAnimation(1, ListAnim[5], false);
-                Instantiate(Listskill1[4], attack.position, attack.rotation);
-                onSkill(40);
+                skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[5], false);
+                skill5 = Instantiate(Listskill1[4], attack.position, attack.rotation).GetComponent<SkillKame>();
+                skill5.SetDame(Damage4);
+                skill5.OnInit();
+                OnSkill(playerData.DamageAttack4);
                 StartCoroutine(DelayIdle());
             }
             else
@@ -242,37 +257,38 @@ public class PlayerController : Charactor
     IEnumerator delaySkill4()
     {
         yield return new WaitForSeconds(1f);
-        skeletonAnimation.AnimationState.SetAnimation(1, ListAnim[4], false);
+        skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[4], false);
         yield return new WaitForSeconds(0.5f);
-        Instantiate(Listskill1[3], attack.position, attack.rotation);
-        onSkill(40);
+        skill4 = Instantiate(Listskill1[3], attack.position, attack.rotation).GetComponent<SkillKame>();
+        skill4.SetDame(Damage4);
+        skill4.OnInit();
+        OnSkill(40);
         StartCoroutine(DelayIdle());
     }
     IEnumerator delayTransform()
     {
-        int levelValue2 = int.Parse(playerData.level);
-        int levelValue = int.Parse(level);
+        levelValue = int.Parse(level);
         yield return new WaitForSeconds(0.4f);
 
-        if (levelValue < levelValue2)
+        if (levelValue < levelprefs)
         {
             _btn[1].interactable = true;
+            LevelUpSSJ();
             hp = maxhp;
             mana = maxmana;
-            healbar.SetNewHp(hp);
+            healbar.SetNewHp(maxhp);
+            healbar.SetNewMaxHp(maxhp);
             healbar.SetNewMana(mana);
-            skeletonAnimation.AnimationState.SetAnimation(1, ListAnim[6], false);
+            skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[6], false);
             levelValue++;
             level = levelValue.ToString();
-            skeletonAnimation.skeleton.SetSkin(level);
+            skeletonAnimation[center].skeleton.SetSkin(level);
             StartCoroutine(DelayIdle());
         }
-        if (levelValue >= levelValue2)
+        if (levelValue >= levelprefs)
         {
             _btn[1].interactable = false;
         }
-
-
     }
     public void eatBeans()
     {
@@ -305,22 +321,24 @@ public class PlayerController : Charactor
     {
         isSkillRunning = true;
         rb.velocity = Vector2.zero;
-        skeletonAnimation.AnimationState.SetAnimation(1, ListAnim[7], false);
+        skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[7], false);
         GameObject hVFX = Instantiate(hitVFX[0], transform.position, transform.rotation);
         GameObject hVFX2 = Instantiate(hitVFX[1], transform.position, transform.rotation);
         yield return new WaitForSeconds(1f);
-        skeletonAnimation.AnimationState.SetAnimation(1, ListAnim[1], false);
+        skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[1], false);
         yield return new WaitForSeconds(0.5f);
         Destroy(hVFX);
         Destroy(hVFX2);
-        GameObject newSkill = Instantiate(Listskill1[0], attack.position, attack.rotation);
+        skillKame = Instantiate(Listskill1[0], attack.position, attack.rotation).GetComponent<SkillKame>();
+        skillKame.SetDame(Damage1);
+        skillKame.OnInit();
         StartCoroutine(DelayIdle());
         isSkillRunning = false;
     }
     IEnumerator DelayIdle()
     {
         yield return new WaitForSeconds(1f);
-        skeletonAnimation.AnimationState.SetAnimation(1, ListAnim[0], false);
+        skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[0], false);
         isAttack = true;
     }
 
@@ -363,5 +381,20 @@ public class PlayerController : Charactor
             Destroy(collision.gameObject);
         }
     }
+    public void LevelUpSSJ()
+    {
+        float hpNew = maxhp + (maxhp * 0.25f);
+        float dame1New = Damage1 + (playerData.arrPower[levelValue] * 0.001f);
+        float dame2New = Damage2 + (playerData.arrPower[levelValue] * 0.001f);
+        float dame3New = Damage3 + (playerData.arrPower[levelValue] * 0.001f);
+        float dame4New = Damage4 + (playerData.arrPower[levelValue] * 0.001f);
+        Damage1 = dame1New;
+        Damage2 = dame2New;
+        Damage3 = dame3New;
+        Damage4 = dame4New;
+        SetDame(dame1New, dame2New, dame3New, dame4New);
+        maxhp = hpNew;
+    }
+
 
 }

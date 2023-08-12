@@ -3,7 +3,11 @@ guid: 87194c8323b517045b26fe633728dba1
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - targetBot: {instanceID: 0}
+  - rb: {instanceID: 0}
+  - hitVFXDead: {instanceID: 0}
+  - player: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

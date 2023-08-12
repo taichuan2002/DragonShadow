@@ -14,8 +14,6 @@ public class spinnerPlayer : MonoBehaviour
     [SerializeField] GameObject _panelCanel;
     [SerializeField] GameObject _panelMoney;
     [SerializeField] ScrollRect scrollRect;
-    public Transform[] obj;
-    public DataPlayer[] player;
     public TextMeshProUGUI txtName;
     public TextMeshProUGUI txtLevel;
     public TextMeshProUGUI txtBuyLevel;
@@ -24,13 +22,14 @@ public class spinnerPlayer : MonoBehaviour
     public TextMeshProUGUI txtPower;
     public Image _imgPlayer;
     public Image _imgPlayer2;
-    public Sprite[] _spritePlayerLoad;
     public GameObject _btnUnLock;
     public GameObject _btnActive;
     public static DataPlayer currentPlayerData;
-    public List<Title> titles = new List<Title>();
-    public int[] customPrices;
-    public int[] customPower;
+    public Image[] _imgPlayerCircol;
+    public Sprite[] _spritePlayerLoad;
+    public Transform[] obj;
+    public DataPlayer[] player;
+    private int[] LevelSSJ = new int[5];
 
     private Vector2 ScrollPosition;
     bool isCheck = true;
@@ -39,16 +38,15 @@ public class spinnerPlayer : MonoBehaviour
     private Vector3[] initialPositions;
     private Vector3 scrollViewCenterPosition;
     int txt, Coin, levelValue;
-    private int[] LevelSSJ = new int[5];
 
 
 
     private void Start()
     {
-
+        center = 0;
         OnInit();
         OnInitCoin();
-        //TitleLevel();
+        OnInitIdPlayer();
         if (obj.Length > 0)
         {
             scrollViewCenterPosition = obj[0].parent.position;
@@ -66,6 +64,7 @@ public class spinnerPlayer : MonoBehaviour
     private void Awake()
     {
         Coin = PlayerPrefs.GetInt("Coin", 0);
+        center = PlayerPrefs.GetInt("idPlayer", 0);
         LevelSSJ[0] = PlayerPrefs.GetInt("LevelSSJ0", 0);
         LevelSSJ[1] = PlayerPrefs.GetInt("LevelSSJ1", 0);
         LevelSSJ[2] = PlayerPrefs.GetInt("LevelSSJ2", 0);
@@ -95,6 +94,10 @@ public class spinnerPlayer : MonoBehaviour
         txtPointCoin.text = Coin.ToString();
     }
 
+    public void OnInitIdPlayer()
+    {
+        PlayerPrefs.SetInt("idPlayer", center);
+    }
 
 
 
@@ -103,6 +106,7 @@ public class spinnerPlayer : MonoBehaviour
         if (isCheck)
         {
             isCheck = false;
+            center = (center + 1) % obj.Length;
             obj[0].DOMove(obj[4].position, 1);
             obj[4].DOMove(obj[3].position, 1);
             obj[3].DOMove(obj[2].position, 1);
@@ -110,9 +114,9 @@ public class spinnerPlayer : MonoBehaviour
             obj[1].DOMove(obj[0].position, 1).OnComplete(() =>
             {
                 UpdateTransformOrder();
-                center = (center + 1) % obj.Length;
                 DisplayCurrentPlayerData();
                 isCheck = true;
+                OnInitIdPlayer();
             });
         }
 
@@ -123,6 +127,7 @@ public class spinnerPlayer : MonoBehaviour
         if (isCheck)
         {
             isCheck = false;
+            center = (center + obj.Length - 1) % obj.Length;
             obj[0].DOMove(obj[1].position, 1);
             obj[1].DOMove(obj[2].position, 1);
             obj[2].DOMove(obj[3].position, 1);
@@ -130,9 +135,9 @@ public class spinnerPlayer : MonoBehaviour
             obj[4].DOMove(obj[0].position, 1).OnComplete(() =>
             {
                 UpdateTransformOrder();
-                center = (center + obj.Length - 1) % obj.Length;
                 DisplayCurrentPlayerData();
                 isCheck = true;
+                OnInitIdPlayer();
             });
         }
     }
@@ -144,10 +149,12 @@ public class spinnerPlayer : MonoBehaviour
         spinnerPlayer.currentPlayerData.currentLevel = levelValue.ToString();
         string txtlevel = currentPlayerData.currentLevel;
         int intlevel = int.Parse(txtlevel.ToString());
+
         if (txt <= intlevel)
         {
             _btnActive.SetActive(true);
             _btnUnLock.SetActive(false);
+            txtPrice.text = "FREE";
         }
         else
         {
@@ -189,16 +196,17 @@ public class spinnerPlayer : MonoBehaviour
     {
         string txtlevel = currentPlayerData.currentLevel;
         int intlevel = int.Parse(txtlevel.ToString());
+        int price = int.Parse(currentPlayerData.arrPrice[txt].ToString());
         if (txt == intlevel + 1)
         {
-            if (Coin >= 1000)
+            if (Coin >= price)
             {
-                Coin -= 1000;
-                OnInitCoin();
+                Coin -= price;
                 levelValue += 1;
                 SaveCharacterData(center, levelValue);
                 LevelSSJ[center] = levelValue;
                 OnInitCoin();
+                FindObjectOfType<HomeUI>().UpdateCoin(Coin);
             }
             else
             {
@@ -223,10 +231,10 @@ public class spinnerPlayer : MonoBehaviour
     private void DisplayCurrentPlayerData()
     {
         txtName.text = currentPlayerData.name;
-        int txt = int.Parse(txtLevel.text);
-        txtPrice.text = customPrices[txt].ToString();
-        txtPower.text = customPower[txt].ToString();
-        currentPlayerData.imgPlayer.sprite = currentPlayerData.listSprite[txt];
+        txt = int.Parse(txtLevel.text);
+        txtPrice.text = currentPlayerData.arrPrice[txt].ToString();
+        txtPower.text = currentPlayerData.arrPower[txt].ToString();
+        _imgPlayerCircol[center].sprite = currentPlayerData.listSprite[txt];
     }
 
     void SaveCharacterData(int playerIndex, int playerData)
@@ -239,17 +247,10 @@ public class spinnerPlayer : MonoBehaviour
     {
         scrollRect.normalizedPosition = ScrollPosition;
     }
-
-
-    public void TitleLevel()
+    public void UpdateCoin(int newCoinValue)
     {
-        for (int i = 0; i <= 20; i++)
-        {
-            Title newTitle = new Title();
-            newTitle.level = i;
-            newTitle.price = customPrices[i];
-            newTitle.power = customPower[i];
-            titles.Add(newTitle);
-        }
+        Coin = newCoinValue;
+        OnInitCoin();
     }
+
 }

@@ -5,13 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bot
-  - skill
   - BeanBlue
   - BeanRed
   - BeanGreen
   - Armor
   - Coin
-  - skillBot
+  - skill
   layers:
   - Default
   - TransparentFX
@@ -51,4 +50,7 @@ TagManager:
     locked: 0
   - name: back
     uniqueID: 2201554635
+    locked: 0
+  - name: cannel
+    uniqueID: 1735344429
     locked: 0
