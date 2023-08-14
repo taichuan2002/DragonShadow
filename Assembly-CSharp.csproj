@@ -238,6 +238,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\Spine Examples\Scripts\SpineboyFacialExpression.cs" />
     <Compile Include="Assets\Spine\spine-csharp\Attachments\MeshAttachment.cs" />
+    <Compile Include="Assets\Scrips\Data\CharacterSelectionDataBase.cs" />
     <Compile Include="Assets\Spine\spine-csharp\Attachments\BoundingBoxAttachment.cs" />
     <Compile Include="Assets\Spine\spine-csharp\TransformConstraint.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />

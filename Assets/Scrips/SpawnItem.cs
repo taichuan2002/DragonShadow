@@ -13,14 +13,14 @@ public class SpawnItem : MonoBehaviour
     }
 
     // Update is called once per frame
-   
+
 
     private void SpawnPointItem()
     {
-        int randomItem = Random.Range(0,5);
+        int randomItem = Random.Range(0, 5);
         float randomY = Random.Range(-3.9f, 3.9f);
         Vector2 spawnItem = new Vector2(10, randomY);
-        GameObject newItem = Instantiate(listItem[randomItem], spawnItem,transform.rotation);
+        GameObject newItem = Instantiate(listItem[randomItem], spawnItem, transform.rotation);
         StartCoroutine(MoveItem(newItem));
 
     }
@@ -35,7 +35,7 @@ public class SpawnItem : MonoBehaviour
     }
     private IEnumerator MoveItem(GameObject item)
     {
-        while(item != null)
+        while (item != null)
         {
             item.transform.Translate(Vector2.left * 5f * Time.deltaTime);
             yield return null;

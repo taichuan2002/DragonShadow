@@ -15,7 +15,7 @@ public class PlayerController : Charactor
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject Bot;
     public static DataPlayer playerData;
-    [SerializeField] Transform gameDead;
+    [SerializeField] GameObject gameDead;
     [SerializeField] TextMeshProUGUI _txtPointCoin;
     [SerializeField] float speed;
     [SerializeField] Skin sk;
@@ -24,6 +24,7 @@ public class PlayerController : Charactor
     [SerializeField] Skill3 skill3;
     [SerializeField] SkillKame skill4;
     [SerializeField] SkillKame skill5;
+    [SerializeField] HomeUI homeUI;
     [SerializeField] string sceneName = "Menu";
     [SerializeField] SkeletonAnimation[] skeletonAnimation;
     [SerializeField] DataPlayer[] data;
@@ -32,7 +33,6 @@ public class PlayerController : Charactor
     [SerializeField] GameObject[] hitVFX;
     [SerializeField] Vector3[] v3;
     [SerializeField] Button[] _btn;
-
 
     private Vector2 mousePos;
     private float minX = -10f;
@@ -45,12 +45,18 @@ public class PlayerController : Charactor
     private bool isImmortal = false;
     private float invincibleTime = 5f;
     private float invincibleTimer = 0f;
-    int center;
+    int center, point;
 
 
 
     private void Start()
     {
+        GameObject heal = GameObject.FindGameObjectWithTag("HealingCharacter");
+        GameObject PointCoin = GameObject.FindGameObjectWithTag("PointCoin");
+        gameDead = GameObject.FindGameObjectWithTag("PanelDeadGame");
+        healbar = heal.GetComponent<Healing>();
+        _txtPointCoin = PointCoin.GetComponent<TextMeshProUGUI>();
+
         center = PlayerPrefs.GetInt("idPlayer");
         OnInit();
         OnInitCoin();
@@ -66,7 +72,7 @@ public class PlayerController : Charactor
         }
         if (hp == 0)
         {
-            gameDead.gameObject.SetActive(true);
+            playerData.isDead = true;
             StartCoroutine(nextScene());
         }
         if (isImmortal)
@@ -108,6 +114,7 @@ public class PlayerController : Charactor
 
     public void OnInit()
     {
+        point = 0;
         playerData = data[center];
         Application.targetFrameRate = 90;
         maxhp = playerData.maxHp;
@@ -133,6 +140,7 @@ public class PlayerController : Charactor
 
     public void OnInitCoin()
     {
+        PlayerPrefs.SetInt("tongCoin", point);
         UIManager.Instance.SetCoin(Coin);
         PlayerPrefs.SetInt("Coin", Coin);
         PlayerPrefs.Save();
@@ -170,9 +178,9 @@ public class PlayerController : Charactor
                 skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[2], false);
                 for (int i = 0; i < 5; i++)
                 {
-                    Skill2 skill2Instance = Instantiate(Listskill1[1], attack.position, attack.rotation).GetComponent<Skill2>();
-                    skill2Instance.SetDame(Damage2);
-                    skill2Instance.OnInit();
+                    skill2 = Instantiate(Listskill1[1], attack.position, attack.rotation).GetComponent<Skill2>();
+                    skill2.SetDame(Damage2);
+                    skill2.OnInit();
                 }
                 OnSkill(25);
                 StartCoroutine(DelayIdle());
@@ -377,6 +385,7 @@ public class PlayerController : Charactor
         if (collision.CompareTag("Coin"))
         {
             Coin += 99999;
+            point += 99999;
             OnInitCoin();
             Destroy(collision.gameObject);
         }

@@ -18,21 +18,39 @@ public class HomeUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] _txtPointCoins;
     [SerializeField] GameObject _panelCanel;
     [SerializeField] GameObject _panelBuycoin;
+    [SerializeField] DataPlayer[] player;
+    [SerializeField] DataEneMy[] Enemy;
+    [SerializeField] GameObject _victoryGame;
+    [SerializeField] GameObject _deadGame;
+
 
 
     public string sceneName = "MapBot";
     public Animator animator;
-    private int Coin;
+    private int Coin, pl;
     private bool isCheckScene = false;
     private bool isCheck = false;
 
     void Start()
     {
-        if (!isCheck)
+        pl = PlayerPrefs.GetInt("idPlayer");
+        if (player[pl].isDead != true)
         {
-            OnInit();
-            OnInitCoin();
+            if (!isCheck)
+            {
+                OnInit();
+                OnInitCoin();
+            }
         }
+        else if (player[pl].isDead == true)
+        {
+            GameOver();
+            OnInitCoin();
+            _deadGame.SetActive(true);
+            player[pl].isDead = false;
+        }
+
+
     }
     void Update()
     {
@@ -40,6 +58,7 @@ public class HomeUI : MonoBehaviour
     private void Awake()
     {
         Coin = PlayerPrefs.GetInt("Coin", 0);
+        PlayerPrefs.SetInt("idPlayer", 0);
     }
     public void OnInit()
     {
@@ -202,6 +221,24 @@ public class HomeUI : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(sceneName);
     }
+    public void GameOver()
+    {
+        Application.targetFrameRate = 90;
+        Camera.main.orthographic = true;
+        maingame.gameObject.SetActive(false);
+        Coingame.gameObject.SetActive(false);
+        Freegame.gameObject.SetActive(false);
+        Herogame.gameObject.SetActive(false);
+        Playgame.gameObject.SetActive(false);
+        Levelgame.gameObject.SetActive(false);
+        gameOver.gameObject.SetActive(true);
+        _panelCanel.gameObject.SetActive(false);
+        _panelBuycoin.gameObject.SetActive(false);
+
+        int coin = PlayerPrefs.GetInt("tongCoin");
+        _txtPointCoins[4].text = coin.ToString();
+        _txtPointCoins[6].text = coin.ToString();
+    }
 
     IEnumerator loading()
     {
@@ -218,6 +255,15 @@ public class HomeUI : MonoBehaviour
         _panelBuycoin.gameObject.SetActive(false);
     }
 
+    /*public void SetPointCoin(int point)
+    {
+        int coin = point;
+         = coin.ToString();
+        if (player[pl] == false)
+        {
+            _txtPointCoins[6].text = coin.ToString();
+        }
+    }*/
     public void UpdateCoin(int newCoinValue)
     {
         Coin = newCoinValue;

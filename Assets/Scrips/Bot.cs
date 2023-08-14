@@ -18,7 +18,7 @@ public class Bot : CharactorEnemy
     public DataEneMy dataEneMy;
 
     private float speed = 4f;
-    private int random;
+    private int random, randomSkill;
     SkeletonAnimation skeletonAnimation;
 
     public void Start()
@@ -55,7 +55,7 @@ public class Bot : CharactorEnemy
         }
         while (true)
         {
-            random = Random.Range(0, 3);
+            random = Random.Range(0, 4);
             Vector2 target = listPoint[random];
             t = 0;
             while (Vector2.Distance(transform.position, target) > 0.001f)
@@ -93,7 +93,7 @@ public class Bot : CharactorEnemy
         while (true)
         {
             yield return new WaitForSeconds(3f);
-            skeletonAnimation.AnimationState.SetAnimation(1, listEnim[random], false);
+            skeletonAnimation.AnimationState.SetAnimation(1, listEnim[randomSkill], false);
             yield return new WaitForSeconds(1);
             Instantiate(Listskill[random], attack.position, attack.rotation);
             StartCoroutine(DelayIdle());

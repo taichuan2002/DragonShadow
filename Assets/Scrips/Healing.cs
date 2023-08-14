@@ -8,7 +8,7 @@ public class Healing : MonoBehaviour
 {
     [SerializeField] Image imgFillhp;
     [SerializeField] Image imgFillmana;
-    [SerializeField] DataPlayer Player;
+    [SerializeField] DataPlayer[] Player;
     public float hp;
     public float mana;
     public float maxHp;
@@ -20,14 +20,15 @@ public class Healing : MonoBehaviour
 
     private void Start()
     {
-        this.maxHp = Player.maxHp;
-        this.maxMana = Player.maxMana;
+        int id = PlayerPrefs.GetInt("idPlayer");
+        this.maxHp = Player[id].maxHp;
+        this.maxMana = Player[id].maxMana;
         this.hp = maxHp;
         this.mana = maxMana;
-        this.Damage1 = Player.DamageAttack1;
-        this.Damage2 = Player.DamageAttack2;
-        this.Damage3 = Player.DamageAttack3;
-        this.Damage4 = Player.DamageAttack4;
+        this.Damage1 = Player[id].DamageAttack1;
+        this.Damage2 = Player[id].DamageAttack2;
+        this.Damage3 = Player[id].DamageAttack3;
+        this.Damage4 = Player[id].DamageAttack4;
 
     }
 

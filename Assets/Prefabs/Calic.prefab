@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570088a779e045d46a749af4ab2b1a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healbar: {fileID: 0}
+  healbar: {fileID: 7943650241770299027, guid: 5c0243bc9d5e10e4a9bb22503f7294b4, type: 3}
   Player: {fileID: 0}
   hitVFXDead: {fileID: 4203629870350764623, guid: 95c7e1dd858bb974696e894011eee16e, type: 3}
   level: 0
@@ -78,14 +78,18 @@ MonoBehaviour:
   sceneName: Menu
   skeletonAnimation:
   - {fileID: 0}
-  data: []
+  data:
+  - {fileID: 11400000, guid: 328717bfa2c33ee4b9ce022bd7646261, type: 2}
+  - {fileID: 11400000, guid: 8aff4e0071d50814b870eb93d9bc9df6, type: 2}
+  - {fileID: 11400000, guid: 3c1ee447e189b964487795a7323a4f92, type: 2}
+  - {fileID: 11400000, guid: 7ecdb2dd4b7a5d44c8bfbc6f027f1c50, type: 2}
+  - {fileID: 11400000, guid: 7ea98b5c456d7634eb54ee523c6d3008, type: 2}
   ListAnim:
   - {fileID: 11400000, guid: 7687cc246b0e6e34da3be9b233a11d24, type: 2}
   - {fileID: 11400000, guid: 2cad2c69dc2ff324b9e1372f98d65a91, type: 2}
-  - {fileID: 11400000, guid: b86260ce7e0090c4ab9d99c63d86ab16, type: 2}
   - {fileID: 11400000, guid: 882c7cc063e53d7418f257c3a00ac8e7, type: 2}
-  - {fileID: 11400000, guid: 59df716fe9b58b5479bf060a14ee9eae, type: 2}
   - {fileID: 11400000, guid: c9eb4e9bb75358e4b9ffbbcbfc679022, type: 2}
+  - {fileID: 11400000, guid: 59df716fe9b58b5479bf060a14ee9eae, type: 2}
   - {fileID: 11400000, guid: 9e5350659a0bc0540870a77067c64302, type: 2}
   - {fileID: 11400000, guid: c5a8cbab1b1ad264590f2d06d0f90f74, type: 2}
   - {fileID: 11400000, guid: 655696941aaf419419a6ff875b518838, type: 2}
@@ -104,6 +108,7 @@ MonoBehaviour:
   _btn:
   - {fileID: 0}
   - {fileID: 0}
+  characterDatabase: {fileID: 0}
 --- !u!50 &907942125218173252
 Rigidbody2D:
   serializedVersion: 4

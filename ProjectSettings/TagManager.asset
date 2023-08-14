@@ -11,6 +11,10 @@ TagManager:
   - Armor
   - Coin
   - skill
+  - HealingCharacter
+  - PointCoin
+  - PanelWinGame
+  - PanelDeadGame
   layers:
   - Default
   - TransparentFX

@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570088a779e045d46a749af4ab2b1a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healbar: {fileID: 0}
+  healbar: {fileID: 7943650241770299027, guid: 5c0243bc9d5e10e4a9bb22503f7294b4, type: 3}
   Player: {fileID: 0}
   hitVFXDead: {fileID: 4203629870350764623, guid: 95c7e1dd858bb974696e894011eee16e, type: 3}
   level: 0
@@ -77,21 +77,37 @@ MonoBehaviour:
   sceneName: Menu
   skeletonAnimation:
   - {fileID: 0}
-  data: []
-  ListAnim: []
+  data:
+  - {fileID: 11400000, guid: 328717bfa2c33ee4b9ce022bd7646261, type: 2}
+  - {fileID: 11400000, guid: 8aff4e0071d50814b870eb93d9bc9df6, type: 2}
+  - {fileID: 11400000, guid: 3c1ee447e189b964487795a7323a4f92, type: 2}
+  - {fileID: 11400000, guid: 7ecdb2dd4b7a5d44c8bfbc6f027f1c50, type: 2}
+  - {fileID: 11400000, guid: 7ea98b5c456d7634eb54ee523c6d3008, type: 2}
+  ListAnim:
+  - {fileID: 11400000, guid: ee3a28f06e9ad1e4cb1f18969368fe46, type: 2}
+  - {fileID: 11400000, guid: c1e4fd9b0b29b5240a591ae4131c66cf, type: 2}
+  - {fileID: 11400000, guid: 5c4e369e13fb60844b2224d37758ae69, type: 2}
+  - {fileID: 11400000, guid: 832af90e4d77db44c9c0e156f7d92691, type: 2}
+  - {fileID: 11400000, guid: 562b7ea62ea1a2d4aa2c9bebf4057201, type: 2}
+  - {fileID: 11400000, guid: c39dcc938b92a2442973e1a9b6e65b91, type: 2}
+  - {fileID: 11400000, guid: 117e795148ea869458375ac6a78dd3c5, type: 2}
+  - {fileID: 11400000, guid: ce8b50ad258c57346bffccbaace92c02, type: 2}
   Listskill1:
   - {fileID: 5939223519511088215, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
   - {fileID: 8550975513353579464, guid: a0eb2981cc72d0841a85e67447497efb, type: 3}
   - {fileID: 4735220195234345782, guid: b7d7d2f1afe9e1747bc7e1a56f955f2c, type: 3}
   - {fileID: 5939223519511088215, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
   - {fileID: 5939223519511088215, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
-  hitVFX: []
+  hitVFX:
+  - {fileID: 534253543124306992, guid: 442e175363065cb4cabb778c7db55142, type: 3}
+  - {fileID: 206865772777619958, guid: 690f5f8f654ff0247be46d26da9dc24c, type: 3}
   v3:
   - {x: -9, y: -0.6, z: 0}
   - {x: -4, y: -0.6, z: 0}
   _btn:
   - {fileID: 0}
   - {fileID: 0}
+  characterDatabase: {fileID: 0}
 --- !u!50 &4303125873064153718
 Rigidbody2D:
   serializedVersion: 4

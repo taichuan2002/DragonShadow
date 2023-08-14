@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spine.Unity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,7 @@ public class Charactor : MonoBehaviour
     public bool isDead => hp <= 0f;
     private void Start()
     {
+
         OnInit();
     }
     public void FixedUpdate()
@@ -29,6 +31,7 @@ public class Charactor : MonoBehaviour
     }
     public void OnInit()
     {
+
         hp = maxhp;
         mana = maxmana;
         Damage1 = Player.DamageAttack1;
