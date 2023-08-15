@@ -20,3 +20,4 @@ MonoBehaviour:
   Dame2: 20
   Dame3: 30
   Dame4: 35
+  isDead: 1

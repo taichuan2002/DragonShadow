@@ -15,6 +15,7 @@ TagManager:
   - PointCoin
   - PanelWinGame
   - PanelDeadGame
+  - btnTags
   layers:
   - Default
   - TransparentFX

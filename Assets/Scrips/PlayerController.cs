@@ -24,7 +24,6 @@ public class PlayerController : Charactor
     [SerializeField] Skill3 skill3;
     [SerializeField] SkillKame skill4;
     [SerializeField] SkillKame skill5;
-    [SerializeField] HomeUI homeUI;
     [SerializeField] string sceneName = "Menu";
     [SerializeField] SkeletonAnimation[] skeletonAnimation;
     [SerializeField] DataPlayer[] data;
@@ -33,6 +32,8 @@ public class PlayerController : Charactor
     [SerializeField] GameObject[] hitVFX;
     [SerializeField] Vector3[] v3;
     [SerializeField] Button[] _btn;
+
+    public string targetBtnTag = "btnTags";
 
     private Vector2 mousePos;
     private float minX = -10f;
@@ -56,12 +57,18 @@ public class PlayerController : Charactor
         gameDead = GameObject.FindGameObjectWithTag("PanelDeadGame");
         healbar = heal.GetComponent<Healing>();
         _txtPointCoin = PointCoin.GetComponent<TextMeshProUGUI>();
-
+        Button[] btns = GameObject.FindObjectsOfType<Button>();
+        foreach (Button btn in btns)
+        {
+            if (btn.CompareTag(targetBtnTag))
+            {
+                btn.onClick.AddListener(() => ButtonClicked(btn.gameObject));
+            }
+        }
         center = PlayerPrefs.GetInt("idPlayer");
         OnInit();
         OnInitCoin();
     }
-
 
     private void Update()
     {
@@ -73,7 +80,7 @@ public class PlayerController : Charactor
         if (hp == 0)
         {
             playerData.isDead = true;
-            StartCoroutine(nextScene());
+            StartCoroutine(NextScene());
         }
         if (isImmortal)
         {
@@ -91,6 +98,87 @@ public class PlayerController : Charactor
         Coin = PlayerPrefs.GetInt("Coin", 0);
         levelprefs = PlayerPrefs.GetInt("LevelSSJ0");
     }
+
+    public void ButtonClicked(GameObject btn)
+    {
+        if (btn.name == "Skill1")
+        {
+            Skill1();
+        }
+        if (btn.name == "Skill2")
+        {
+            Skill2();
+        }
+        if (btn.name == "Skill3")
+        {
+            Skill3();
+        }
+        if (btn.name == "Skill4")
+        {
+            Skill4();
+        }
+        if (btn.name == "Skill5")
+        {
+            Skill5();
+        }
+        if (btn.name == "btn_Bean")
+        {
+            Button btnBean = btn.GetComponent<Button>();
+            if (hp != maxhp || mana != maxmana)
+            {
+                if (Coin >= 500)
+                {
+                    btnBean.interactable = true;
+                    Coin -= 500;
+                    OnInitCoin();
+                    hp = maxhp;
+                    mana = maxmana;
+                    healbar.SetNewHp(hp);
+                    healbar.SetNewMana(mana);
+                }
+                if (Coin < 500)
+                {
+                    btnBean.interactable = false;
+                }
+            }
+        }
+        if (btn.name == "btn_Strengthen")
+        {
+            if (isAttack)
+            {
+                StartCoroutine(DelayTransform());
+                isAttack = false;
+            }
+            IEnumerator DelayTransform()
+            {
+                levelValue = int.Parse(level);
+                yield return new WaitForSeconds(0.4f);
+                Button btnSSJ = btn.GetComponent<Button>();
+                if (levelValue < levelprefs)
+                {
+                    btnSSJ.interactable = true;
+                    LevelUpSSJ();
+                    hp = maxhp;
+                    mana = maxmana;
+                    healbar.SetNewHp(maxhp);
+                    healbar.SetNewMaxHp(maxhp);
+                    healbar.SetNewMana(mana);
+                    skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[6], false);
+                    levelValue++;
+                    level = levelValue.ToString();
+                    skeletonAnimation[center].skeleton.SetSkin(level);
+                    StartCoroutine(DelayIdle());
+                }
+                if (levelValue >= levelprefs)
+                {
+                    btnSSJ.interactable = false;
+                }
+            }
+        }
+
+    }
+
+
 
     public void Control()
     {
@@ -250,11 +338,7 @@ public class PlayerController : Charactor
     }
     public void SieuSayya()
     {
-        if (isAttack)
-        {
-            StartCoroutine(delayTransform());
-            isAttack = false;
-        }
+
     }
 
     IEnumerator Immortal()
@@ -273,57 +357,16 @@ public class PlayerController : Charactor
         OnSkill(40);
         StartCoroutine(DelayIdle());
     }
-    IEnumerator delayTransform()
-    {
-        levelValue = int.Parse(level);
-        yield return new WaitForSeconds(0.4f);
 
-        if (levelValue < levelprefs)
-        {
-            _btn[1].interactable = true;
-            LevelUpSSJ();
-            hp = maxhp;
-            mana = maxmana;
-            healbar.SetNewHp(maxhp);
-            healbar.SetNewMaxHp(maxhp);
-            healbar.SetNewMana(mana);
-            skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[6], false);
-            levelValue++;
-            level = levelValue.ToString();
-            skeletonAnimation[center].skeleton.SetSkin(level);
-            StartCoroutine(DelayIdle());
-        }
-        if (levelValue >= levelprefs)
-        {
-            _btn[1].interactable = false;
-        }
-    }
-    public void eatBeans()
+    public void EatBeans()
     {
-        if (hp != maxhp || mana != maxmana)
-        {
-            if (Coin >= 500)
-            {
-                _btn[0].interactable = true;
-                Coin -= 500;
-                OnInitCoin();
-                hp = maxhp;
-                mana = maxmana;
-                healbar.SetNewHp(hp);
-                healbar.SetNewMana(mana);
-            }
-            if (Coin < 500)
-            {
-                _btn[0].interactable = false;
-            }
-        }
+
     }
 
-    IEnumerator nextScene()
+    IEnumerator NextScene()
     {
         yield return new WaitForSeconds(2);
-        PlayerPrefs.SetInt("openPanel", 1);
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(0);
     }
     IEnumerator DelaySkill1()
     {

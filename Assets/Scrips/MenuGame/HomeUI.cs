@@ -19,7 +19,7 @@ public class HomeUI : MonoBehaviour
     [SerializeField] GameObject _panelCanel;
     [SerializeField] GameObject _panelBuycoin;
     [SerializeField] DataPlayer[] player;
-    [SerializeField] DataEneMy[] Enemy;
+    [SerializeField] DataEneMy Enemy;
     [SerializeField] GameObject _victoryGame;
     [SerializeField] GameObject _deadGame;
 
@@ -34,9 +34,21 @@ public class HomeUI : MonoBehaviour
     void Start()
     {
         pl = PlayerPrefs.GetInt("idPlayer");
+        int coin = PlayerPrefs.GetInt("tongCoin");
+        _txtPointCoins[4].text = coin.ToString();
         if (player[pl].isDead != true)
         {
-            if (!isCheck)
+            if (Enemy.isDead == true)
+            {
+                GameOver();
+                OnInitCoin();
+                _victoryGame.SetActive(true);
+                Enemy.isDead = false;
+                coin += 60;
+                _txtPointCoins[5].text = "60";
+                _txtPointCoins[6].text = coin.ToString();
+            }
+            else
             {
                 OnInit();
                 OnInitCoin();
@@ -48,8 +60,8 @@ public class HomeUI : MonoBehaviour
             OnInitCoin();
             _deadGame.SetActive(true);
             player[pl].isDead = false;
+            _txtPointCoins[6].text = coin.ToString();
         }
-
 
     }
     void Update()
@@ -235,9 +247,7 @@ public class HomeUI : MonoBehaviour
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
 
-        int coin = PlayerPrefs.GetInt("tongCoin");
-        _txtPointCoins[4].text = coin.ToString();
-        _txtPointCoins[6].text = coin.ToString();
+
     }
 
     IEnumerator loading()

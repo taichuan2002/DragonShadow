@@ -109,8 +109,8 @@ MonoBehaviour:
   pointStart:
   - {x: 13, y: -0.3}
   - {x: 4.2, y: -10}
+  Enemy: {fileID: 11400000, guid: 30941fff794822c4a851bae3313bb280, type: 2}
   sceneName: Menu
-  dataEneMy: {fileID: 0}
 --- !u!33 &8070825898983578564
 MeshFilter:
   m_ObjectHideFlags: 0

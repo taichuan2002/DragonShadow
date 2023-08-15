@@ -14,21 +14,21 @@ public class Bot : CharactorEnemy
     [SerializeField] private AnimationReferenceAsset[] listEnim;
     [SerializeField] private Transform gameOver;
     [SerializeField] private Vector2[] pointStart;
+    [SerializeField] DataEneMy Enemy;
     public string sceneName = "Menu";
-    public DataEneMy dataEneMy;
+    public static DataEneMy dataEneMy;
 
-    private float speed = 4f;
     private int random, randomSkill;
     SkeletonAnimation skeletonAnimation;
 
     public void Start()
     {
-        maxhp = dataEneMy.maxHp;
+        maxhp = Enemy.maxHp;
         hp = maxhp;
-        dame1 = dataEneMy.Dame1;
-        dame2 = dataEneMy.Dame2;
-        dame3 = dataEneMy.Dame3;
-        dame4 = dataEneMy.Dame4;
+        dame1 = Enemy.Dame1;
+        dame2 = Enemy.Dame2;
+        dame3 = Enemy.Dame3;
+        dame4 = Enemy.Dame4;
         skeletonAnimation = GetComponent<SkeletonAnimation>();
         skeletonAnimation.AnimationState.SetAnimation(1, listEnim[3], false);
         if (skeletonAnimation == null)
@@ -69,10 +69,15 @@ public class Bot : CharactorEnemy
 
     public void IsCheckDead()
     {
+        dataEneMy = Enemy;
         if (hp == 0)
         {
-            gameOver.gameObject.SetActive(true);
-            //SceneManager.LoadScene(sceneName);
+            Enemy.isDead = true;
+            int Coin = PlayerPrefs.GetInt("Coin");
+            Coin += 60;
+            PlayerPrefs.SetInt("Coin", Coin);
+            PlayerPrefs.Save();
+            //StartCoroutine(nextScene());
         }
 
     }
@@ -82,10 +87,10 @@ public class Bot : CharactorEnemy
         yield return new WaitForSeconds(1f);
         skeletonAnimation.AnimationState.SetAnimation(1, listEnim[3], false);
     }
-    public void nextMap()
+    IEnumerator nextScene()
     {
-        Debug.Log(1123);
-        SceneManager.LoadScene("Menu");
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(0);
     }
 
     IEnumerator spamSkill()

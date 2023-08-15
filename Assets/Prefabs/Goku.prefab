@@ -75,7 +75,6 @@ MonoBehaviour:
   skill3: {fileID: 8319474813761885605, guid: b7d7d2f1afe9e1747bc7e1a56f955f2c, type: 3}
   skill4: {fileID: -3475075212191199340, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
   skill5: {fileID: -3475075212191199340, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
-  homeUI: {fileID: 0}
   sceneName: Menu
   skeletonAnimation:
   - {fileID: 4491502475747672006}
@@ -110,6 +109,7 @@ MonoBehaviour:
   _btn:
   - {fileID: 0}
   - {fileID: 0}
+  targetBtnTag: btnTags
 --- !u!50 &907942125218173252
 Rigidbody2D:
   serializedVersion: 4
