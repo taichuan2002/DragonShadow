@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4200470853283578266}
   - component: {fileID: 9084000224587447130}
   - component: {fileID: 3832183731814747190}
-  - component: {fileID: 5076676657262716366}
+  - component: {fileID: -4288947446181034575}
   m_Layer: 0
   m_Name: skill_beerus3
   m_TagString: skill
@@ -149,7 +149,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.010305464}
   serializedVersion: 2
   m_Radius: 0.75956374
---- !u!114 &5076676657262716366
+--- !u!114 &-4288947446181034575
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 48410394305755608}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f11c9047c16f6f545b28f817ad62bc22, type: 3}
+  m_Script: {fileID: 11500000, guid: 34df34d0aa7c1734884f9aa3c95e4786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dataEneMy: {fileID: 11400000, guid: 30941fff794822c4a851bae3313bb280, type: 2}

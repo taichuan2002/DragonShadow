@@ -9,7 +9,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class spinnerPlayer : MonoBehaviour
+public class SpinnerPlayer : MonoBehaviour
 {
     [SerializeField] GameObject _panelCanel;
     [SerializeField] GameObject _panelMoney;
@@ -146,7 +146,7 @@ public class spinnerPlayer : MonoBehaviour
     {
         txt = int.Parse(txtLevel.text);
         levelValue = LevelSSJ[center];
-        spinnerPlayer.currentPlayerData.currentLevel = levelValue.ToString();
+        SpinnerPlayer.currentPlayerData.currentLevel = levelValue.ToString();
         string txtlevel = currentPlayerData.currentLevel;
         int intlevel = int.Parse(txtlevel.ToString());
 

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HealingEnemy : MonoBehaviour
 {
     [SerializeField] Image imgFillhp;
-    [SerializeField] DataEneMy dataEneMy;
+    [SerializeField] DataEneMy[] dataEneMy;
     public float hp;
     private float maxHp;
     private float Damage1;
@@ -16,12 +16,13 @@ public class HealingEnemy : MonoBehaviour
 
     private void Start()
     {
-        this.maxHp = dataEneMy.maxHp;
+        int idEnemy = PlayerPrefs.GetInt("IdEnemy");
+        this.maxHp = dataEneMy[idEnemy].maxHp;
         this.hp = maxHp;
-        this.Damage1 = dataEneMy.Dame1;
-        this.Damage2 = dataEneMy.Dame2;
-        this.Damage3 = dataEneMy.Dame3;
-        this.Damage4 = dataEneMy.Dame4;
+        this.Damage1 = dataEneMy[idEnemy].Dame1;
+        this.Damage2 = dataEneMy[idEnemy].Dame2;
+        this.Damage3 = dataEneMy[idEnemy].Dame3;
+        this.Damage4 = dataEneMy[idEnemy].Dame4;
 
     }
 
@@ -45,12 +46,11 @@ public class HealingEnemy : MonoBehaviour
         this.maxHp = maxhp;
     }
 
-    public void SetDame(float dame1, float dame2, float dame3, float dame4)
+    public void SetNewDame(float dame1, float dame2, float dame3)
     {
         this.Damage1 = dame1;
         this.Damage2 = dame2;
         this.Damage3 = dame3;
-        this.Damage4 = dame4;
 
     }
 

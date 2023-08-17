@@ -5,9 +5,9 @@ using UnityEngine;
 public class CharactorEnemy : MonoBehaviour
 {
     [SerializeField] protected HealingEnemy healbar;
+    [SerializeField] DataEneMy Enemy;
     public GameObject hitVFXDead;
 
-    public string level;
     public float hp;
     public float maxhp;
     public float dame1;
@@ -26,9 +26,14 @@ public class CharactorEnemy : MonoBehaviour
     }
 
 
+
     public void OnInit()
     {
+        maxhp = Enemy.maxHp;
         hp = maxhp;
+        dame1 = Enemy.Dame1;
+        dame2 = Enemy.Dame2;
+        dame3 = Enemy.Dame3;
         healbar.OnInit(maxhp);
     }
 
@@ -46,6 +51,15 @@ public class CharactorEnemy : MonoBehaviour
 
         }
     }
+    public void SetDame(float Dame1, float Dame2, float Dame3)
+    {
+        dame1 = Dame1;
+        dame2 = Dame2;
+        dame3 = Dame3;
+        healbar.SetNewDame(dame1, dame2, dame3);
+    }
+
+
 
     public void OnDestroy()
     {
@@ -55,7 +69,6 @@ public class CharactorEnemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 
 
 

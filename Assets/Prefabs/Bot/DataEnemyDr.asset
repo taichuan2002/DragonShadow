@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bot: {fileID: 1564796483034692712, guid: a29790feeb55de247b4e8b38b8e46503, type: 3}
   botName: Dr
-  level: 0
   maxHp: 100
   Dame1: 30
   Dame2: 20
   Dame3: 35
   Dame4: 40
+  isDead: 0
+  arrPowerEnemy: e8030000a00f0000803e000080bb000000710200a0bb0d0080841e00c0cf6a008096980080c3c901005a620280f0fa02801d2c0400e1f50500c2eb0b0084d7170065cd1d0027b9290008af2f00e9a43500ca9a3b

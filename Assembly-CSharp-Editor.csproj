@@ -71,6 +71,7 @@
     <Compile Include="Assets\Spine\spine-unity\Editor\SkeletonAnimationInspector.cs" />
     <Compile Include="Assets\Spine\spine-unity\Editor\SkeletonDataAssetInspector.cs" />
     <Compile Include="Assets\Spine\spine-unity\Modules\SkeletonGraphic\Editor\SkeletonGraphicInspector.cs" />
+    <Compile Include="Assets\Unity-Logs-Viewer\Reporter\Editor\ReporterEditor.cs" />
     <Compile Include="Assets\Spine\spine-unity\SkeletonUtility\Editor\SkeletonUtilityInspector.cs" />
     <Compile Include="Assets\Spine\spine-unity\Editor\SkeletonAnimatorInspector.cs" />
     <Compile Include="Assets\Spine\spine-unity\Editor\PointFollowerEditor.cs" />

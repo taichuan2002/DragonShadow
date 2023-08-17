@@ -22,7 +22,6 @@ public class Charactor : MonoBehaviour
     public bool isDead => hp <= 0f;
     private void Start()
     {
-
         OnInit();
     }
     public void FixedUpdate()
@@ -76,7 +75,7 @@ public class Charactor : MonoBehaviour
     {
         if (mana < maxmana)
         {
-            mana += 10f * Time.deltaTime;
+            mana += 5f * Time.deltaTime;
             if (mana > maxmana)
             {
                 mana = maxmana;

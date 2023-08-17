@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: DataPlayer
   m_EditorClassIdentifier: 
   player: {fileID: 4491502475747672006, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
+  healingBar: {fileID: 7943650241770299027, guid: 5c0243bc9d5e10e4a9bb22503f7294b4, type: 3}
   name: GOKUZ
   level: 20
   currentLevel: 15
-  maxHp: 100
+  maxHp: 101
   maxMana: 100
   DamageAttack1: 30
   DamageAttack2: 2

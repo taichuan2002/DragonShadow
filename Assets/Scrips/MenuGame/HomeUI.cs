@@ -18,58 +18,45 @@ public class HomeUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] _txtPointCoins;
     [SerializeField] GameObject _panelCanel;
     [SerializeField] GameObject _panelBuycoin;
-    [SerializeField] DataPlayer[] player;
-    [SerializeField] DataEneMy Enemy;
-    [SerializeField] GameObject _victoryGame;
-    [SerializeField] GameObject _deadGame;
-
-
 
     public string sceneName = "MapBot";
     public Animator animator;
-    private int Coin, pl;
+    private int Coin, pl, levelMap, btn;
     private bool isCheckScene = false;
     private bool isCheck = false;
 
     void Start()
     {
         pl = PlayerPrefs.GetInt("idPlayer");
-        int coin = PlayerPrefs.GetInt("tongCoin");
-        _txtPointCoins[4].text = coin.ToString();
-        if (player[pl].isDead != true)
+        btn = PlayerPrefs.GetInt("btn");
+        if (btn == 0)
         {
-            if (Enemy.isDead == true)
-            {
-                GameOver();
-                OnInitCoin();
-                _victoryGame.SetActive(true);
-                Enemy.isDead = false;
-                coin += 60;
-                _txtPointCoins[5].text = "60";
-                _txtPointCoins[6].text = coin.ToString();
-            }
-            else
-            {
-                OnInit();
-                OnInitCoin();
-            }
-        }
-        else if (player[pl].isDead == true)
-        {
-            GameOver();
+            OnInit();
             OnInitCoin();
-            _deadGame.SetActive(true);
-            player[pl].isDead = false;
-            _txtPointCoins[6].text = coin.ToString();
+        }
+        if (btn == 1)
+        {
+            clickBack();
+            OnInitCoin();
+        }
+        if (btn == 2)
+        {
+            clickHero();
+            OnInitCoin();
+        }
+        if (btn == 3)
+        {
+            clickLevelGame();
+            OnInitCoin();
         }
 
     }
-    void Update()
-    {
-    }
+
+
     private void Awake()
     {
         Coin = PlayerPrefs.GetInt("Coin", 0);
+        levelMap = PlayerPrefs.GetInt("levelMap", 0);
         PlayerPrefs.SetInt("idPlayer", 0);
     }
     public void OnInit()
@@ -92,11 +79,12 @@ public class HomeUI : MonoBehaviour
     {
         UIManager.Instance.SetCoin(Coin);
         PlayerPrefs.SetInt("Coin", Coin);
+        PlayerPrefs.SetInt("levelMap", levelMap);
+        PlayerPrefs.SetInt("btn", 0);
         PlayerPrefs.Save();
         _txtPointCoins[0].text = Coin.ToString();
         _txtPointCoins[1].text = Coin.ToString();
         _txtPointCoins[2].text = Coin.ToString();
-        _txtPointCoins[3].text = Coin.ToString();
     }
 
     public void StartGame()
@@ -153,7 +141,7 @@ public class HomeUI : MonoBehaviour
         gameOver.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
-        FindObjectOfType<spinnerPlayer>().UpdateCoin(Coin);
+        FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
         OnInitCoin();
 
 
@@ -170,7 +158,7 @@ public class HomeUI : MonoBehaviour
         gameOver.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
-        FindObjectOfType<spinnerPlayer>().UpdateCoin(Coin);
+        FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
         OnInitCoin();
 
     }
@@ -186,7 +174,7 @@ public class HomeUI : MonoBehaviour
         gameOver.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
-        FindObjectOfType<spinnerPlayer>().UpdateCoin(Coin);
+        FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
         OnInitCoin();
 
     }
@@ -265,15 +253,7 @@ public class HomeUI : MonoBehaviour
         _panelBuycoin.gameObject.SetActive(false);
     }
 
-    /*public void SetPointCoin(int point)
-    {
-        int coin = point;
-         = coin.ToString();
-        if (player[pl] == false)
-        {
-            _txtPointCoins[6].text = coin.ToString();
-        }
-    }*/
+
     public void UpdateCoin(int newCoinValue)
     {
         Coin = newCoinValue;

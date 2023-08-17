@@ -16,11 +16,12 @@ TagManager:
   - PanelWinGame
   - PanelDeadGame
   - btnTags
+  - HealingEnemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - HealBar
   - Water
   - UI
   - skillNV

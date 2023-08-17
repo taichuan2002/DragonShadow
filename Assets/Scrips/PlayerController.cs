@@ -42,20 +42,20 @@ public class PlayerController : Charactor
     private float maxY = 4.5f;
     private bool isAttack = true;
     private bool isSkillRunning = false;
+    private bool isCheck = false;
     private int Coin, levelprefs, levelValue;
     private bool isImmortal = false;
     private float invincibleTime = 5f;
     private float invincibleTimer = 0f;
-    int center, point;
-
+    int center, point, levelMap;
 
 
     private void Start()
     {
-        GameObject heal = GameObject.FindGameObjectWithTag("HealingCharacter");
+
         GameObject PointCoin = GameObject.FindGameObjectWithTag("PointCoin");
         gameDead = GameObject.FindGameObjectWithTag("PanelDeadGame");
-        healbar = heal.GetComponent<Healing>();
+
         _txtPointCoin = PointCoin.GetComponent<TextMeshProUGUI>();
         Button[] btns = GameObject.FindObjectsOfType<Button>();
         foreach (Button btn in btns)
@@ -66,12 +66,30 @@ public class PlayerController : Charactor
             }
         }
         center = PlayerPrefs.GetInt("idPlayer");
-        OnInit();
         OnInitCoin();
+        OnInit();
+
     }
 
     private void Update()
     {
+        string targetObjectName = "Canvas_Heal";
+        GameObject heal = GameObject.Find(targetObjectName);
+
+        if (!isCheck)
+        {
+            if (heal != null)
+            {
+                healbar = heal.GetComponent<Healing>();
+                Debug.Log("healbar Player" + healbar);
+                if (healbar != null)
+                {
+                    LevelUpSSJ();
+                    isCheck = true;
+                }
+            }
+        }
+
         playerData = data[center];
         if (isAttack)
         {
@@ -80,7 +98,7 @@ public class PlayerController : Charactor
         if (hp == 0)
         {
             playerData.isDead = true;
-            StartCoroutine(NextScene());
+            Destroy(gameObject);
         }
         if (isImmortal)
         {
@@ -90,7 +108,6 @@ public class PlayerController : Charactor
                 isImmortal = false;
             }
         }
-
     }
 
     private void Awake()
@@ -101,6 +118,11 @@ public class PlayerController : Charactor
 
     public void ButtonClicked(GameObject btn)
     {
+        Button btnBean = btn.GetComponent<Button>();
+        if (Coin >= 1000000)
+        {
+            btnBean.interactable = true;
+        }
         if (btn.name == "Skill1")
         {
             Skill1();
@@ -123,20 +145,19 @@ public class PlayerController : Charactor
         }
         if (btn.name == "btn_Bean")
         {
-            Button btnBean = btn.GetComponent<Button>();
             if (hp != maxhp || mana != maxmana)
             {
-                if (Coin >= 500)
+                if (Coin >= 1000000)
                 {
-                    btnBean.interactable = true;
-                    Coin -= 500;
+                    Coin -= 1000000;
                     OnInitCoin();
                     hp = maxhp;
                     mana = maxmana;
                     healbar.SetNewHp(hp);
                     healbar.SetNewMana(mana);
+                    btnBean.interactable = true;
                 }
-                if (Coin < 500)
+                else
                 {
                     btnBean.interactable = false;
                 }
@@ -172,6 +193,7 @@ public class PlayerController : Charactor
                 if (levelValue >= levelprefs)
                 {
                     btnSSJ.interactable = false;
+                    isAttack = true;
                 }
             }
         }
@@ -213,9 +235,9 @@ public class PlayerController : Charactor
         Damage2 = playerData.DamageAttack2;
         Damage3 = playerData.DamageAttack3;
         Damage4 = playerData.DamageAttack4;
-        healbar.SetNewHp(maxhp);
-        healbar.SetNewMana(maxmana);
-        healbar.OnInit(maxhp, maxmana);
+        //healbar.SetNewHp(maxhp);
+        //healbar.SetNewMana(maxmana);
+        //healbar.OnInit(maxhp, maxmana);
 
         rb = GetComponent<Rigidbody2D>();
         skeletonAnimation[center] = GetComponent<SkeletonAnimation>();
@@ -327,7 +349,7 @@ public class PlayerController : Charactor
                 skill5 = Instantiate(Listskill1[4], attack.position, attack.rotation).GetComponent<SkillKame>();
                 skill5.SetDame(Damage4);
                 skill5.OnInit();
-                OnSkill(playerData.DamageAttack4);
+                OnSkill(40);
                 StartCoroutine(DelayIdle());
             }
             else
@@ -335,10 +357,6 @@ public class PlayerController : Charactor
                 Debug.Log("Yếu Sinh Lý");
             }
         }
-    }
-    public void SieuSayya()
-    {
-
     }
 
     IEnumerator Immortal()
@@ -356,11 +374,6 @@ public class PlayerController : Charactor
         skill4.OnInit();
         OnSkill(40);
         StartCoroutine(DelayIdle());
-    }
-
-    public void EatBeans()
-    {
-
     }
 
     IEnumerator NextScene()

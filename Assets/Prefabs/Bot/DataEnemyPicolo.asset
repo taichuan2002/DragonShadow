@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bot: {fileID: 7937110190757403894, guid: 00b078245e0708640a895a721a89abd0, type: 3}
   botName: Picolo
-  level: 0
   maxHp: 100
   Dame1: 25
   Dame2: 20
   Dame3: 30
   Dame4: 35
-  isDead: 1
+  isDead: 0
+  arrPowerEnemy: e8030000a00f0000803e000080bb000000710200a0bb0d0080841e00c0cf6a008096980080c3c901005a620280f0fa02801d2c0400e1f50500c2eb0b0084d7170065cd1d0027b9290008af2f00e9a43500ca9a3b

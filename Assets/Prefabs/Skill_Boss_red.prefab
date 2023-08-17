@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8428700754888293323}
   - component: {fileID: -1839325883716646281}
   - component: {fileID: 2836479153568337083}
-  - component: {fileID: 1895429142447469672}
+  - component: {fileID: 2161388645734667282}
   m_Layer: 0
   m_Name: Skill_Boss_red
   m_TagString: skill
@@ -150,7 +150,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.02140512}
   serializedVersion: 2
   m_Radius: 0.84210265
---- !u!114 &1895429142447469672
+--- !u!114 &2161388645734667282
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8908773258271208977}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 112c868016f1b4e4c91f9ae9d81c154e, type: 3}
+  m_Script: {fileID: 11500000, guid: f11c9047c16f6f545b28f817ad62bc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dataEneMy: {fileID: 11400000, guid: 30941fff794822c4a851bae3313bb280, type: 2}

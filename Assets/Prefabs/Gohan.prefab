@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570088a779e045d46a749af4ab2b1a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healbar: {fileID: 7943650241770299027, guid: 5c0243bc9d5e10e4a9bb22503f7294b4, type: 3}
+  healingbar: {fileID: 0}
   Player: {fileID: 11400000, guid: 7ea98b5c456d7634eb54ee523c6d3008, type: 2}
   hitVFXDead: {fileID: 4203629870350764623, guid: 95c7e1dd858bb974696e894011eee16e, type: 3}
   level: 0
@@ -77,6 +77,10 @@ MonoBehaviour:
   skill5: {fileID: -3475075212191199340, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
   sceneName: Menu
   skeletonAnimation:
+  - {fileID: 4491502475747672006, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
+  - {fileID: 4491502475747672006, guid: a69f3e7560a1d3d4483d0a9c403c11d7, type: 3}
+  - {fileID: 4789902831009972837, guid: 4ca5cc70e5c7f034f999f0df7a4d5687, type: 3}
+  - {fileID: 4491502475747672006, guid: 0e67c9c9b385ae64b97912cf31b2ce1c, type: 3}
   - {fileID: 4491502475747672006}
   data:
   - {fileID: 11400000, guid: 328717bfa2c33ee4b9ce022bd7646261, type: 2}
@@ -109,7 +113,7 @@ MonoBehaviour:
   _btn:
   - {fileID: 0}
   - {fileID: 0}
-  characterDatabase: {fileID: 0}
+  targetBtnTag: btnTags
 --- !u!50 &907942125218173252
 Rigidbody2D:
   serializedVersion: 4

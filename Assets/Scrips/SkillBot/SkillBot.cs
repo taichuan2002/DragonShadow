@@ -24,7 +24,7 @@ public class SkillBot : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void SetDame(float dame)
+    public void SetDame1(float dame)
     {
         damage = dame;
     }
@@ -32,7 +32,7 @@ public class SkillBot : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<Charactor>().OnHit(dataEneMy.Dame1);
+            collision.GetComponent<Charactor>().OnHit(damage);
             OnDestroy();
         }
         if (collision.CompareTag("skill"))

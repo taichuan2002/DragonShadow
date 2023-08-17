@@ -6,6 +6,8 @@ public class SkillBot2 : MonoBehaviour
 {
     public DataEneMy dataEneMy;
     public Rigidbody2D rb;
+    float damage;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -22,12 +24,15 @@ public class SkillBot2 : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
+    public void SetDame2(float dame)
+    {
+        damage = dame;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<Charactor>().OnHit(dataEneMy.Dame2);
+            collision.GetComponent<Charactor>().OnHit(damage);
             OnDestroy();
         }
         if (collision.CompareTag("skill"))
