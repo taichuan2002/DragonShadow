@@ -14,6 +14,7 @@ public class SpinnerPlayer : MonoBehaviour
     [SerializeField] GameObject _panelCanel;
     [SerializeField] GameObject _panelMoney;
     [SerializeField] ScrollRect scrollRect;
+    [SerializeField] CircularScrollingList _list;
     public TextMeshProUGUI txtName;
     public TextMeshProUGUI txtLevel;
     public TextMeshProUGUI txtBuyLevel;
@@ -40,7 +41,6 @@ public class SpinnerPlayer : MonoBehaviour
     int txt, Coin, levelValue;
 
 
-
     private void Start()
     {
         center = 0;
@@ -54,6 +54,10 @@ public class SpinnerPlayer : MonoBehaviour
     }
     private void Update()
     {
+        if (!isCheck)
+        {
+            txtLevel.text = "0";
+        }
         int playerIndex = center;
         currentPlayerData = player[playerIndex];
         DisplayCurrentPlayerData();
@@ -105,6 +109,8 @@ public class SpinnerPlayer : MonoBehaviour
     {
         if (isCheck)
         {
+            _imgPlayerCircol[center].sprite = currentPlayerData.listSprite[0];
+            ResetListPlayer();
             isCheck = false;
             center = (center + 1) % obj.Length;
             obj[0].DOMove(obj[4].position, 1);
@@ -126,6 +132,7 @@ public class SpinnerPlayer : MonoBehaviour
     {
         if (isCheck)
         {
+            _imgPlayerCircol[center].sprite = currentPlayerData.listSprite[0];
             isCheck = false;
             center = (center + obj.Length - 1) % obj.Length;
             obj[0].DOMove(obj[1].position, 1);
@@ -134,6 +141,7 @@ public class SpinnerPlayer : MonoBehaviour
             obj[3].DOMove(obj[4].position, 1);
             obj[4].DOMove(obj[0].position, 1).OnComplete(() =>
             {
+                ResetListPlayer();
                 UpdateTransformOrder();
                 DisplayCurrentPlayerData();
                 isCheck = true;
@@ -228,13 +236,18 @@ public class SpinnerPlayer : MonoBehaviour
         _panelCanel.SetActive(false);
     }
 
+    public void ResetListPlayer()
+    {
+        _list.Refresh(0);
+    }
+
     private void DisplayCurrentPlayerData()
     {
         txtName.text = currentPlayerData.name;
-        txt = int.Parse(txtLevel.text);
         txtPrice.text = currentPlayerData.arrPrice[txt].ToString();
         txtPower.text = currentPlayerData.arrPower[txt].ToString();
         _imgPlayerCircol[center].sprite = currentPlayerData.listSprite[txt];
+
     }
 
     void SaveCharacterData(int playerIndex, int playerData)

@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using AirFishLab.ScrollingList.ContentManagement;
+﻿using AirFishLab.ScrollingList.ContentManagement;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +17,7 @@ namespace AirFishLab.ScrollingList.Demo
         {
             _contents.Add(0);
             for (var i = 0; i < _numOfContents; ++i)
-            _contents.Add(i + 1);
+                _contents.Add(i + 1);
         }
 
         public override IListContent GetListContent(int index)

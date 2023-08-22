@@ -215,10 +215,9 @@ public class HomeUI : MonoBehaviour
 
     public IEnumerator nextMap()
     {
-        yield return new WaitForSeconds(1);
         animator.SetTrigger("nextScene");
+        yield return new WaitForSeconds(1);
         Camera.main.orthographic = true;
-        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(sceneName);
     }
     public void GameOver()

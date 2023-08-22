@@ -36,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 2622457522968976437}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-797232265356141886
 MonoBehaviour:
@@ -67,6 +67,7 @@ MonoBehaviour:
   rb: {fileID: 4303125873064153718}
   Bot: {fileID: 0}
   gameDead: {fileID: 0}
+  player: {fileID: 0}
   _txtPointCoin: {fileID: 0}
   speed: 10
   skillKame: {fileID: -3475075212191199340, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
@@ -74,6 +75,7 @@ MonoBehaviour:
   skill3: {fileID: 8319474813761885605, guid: b7d7d2f1afe9e1747bc7e1a56f955f2c, type: 3}
   skill4: {fileID: -3475075212191199340, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
   skill5: {fileID: -3475075212191199340, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
+  skill2t: {fileID: 0}
   sceneName: Menu
   skeletonAnimation:
   - {fileID: 4491502475747672006, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
@@ -105,6 +107,8 @@ MonoBehaviour:
   hitVFX:
   - {fileID: 534253543124306992, guid: 442e175363065cb4cabb778c7db55142, type: 3}
   - {fileID: 206865772777619958, guid: 690f5f8f654ff0247be46d26da9dc24c, type: 3}
+  - {fileID: 7664562619132655749, guid: 316f72988ece9df4d96cee169899a5d3, type: 3}
+  - {fileID: 793984519355106204, guid: 33f6ae182661a2445887d9b88cf391f9, type: 3}
   v3:
   - {x: -9, y: -0.6, z: 0}
   - {x: -4, y: -0.6, z: 0}
@@ -112,6 +116,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   targetBtnTag: btnTags
+  skill2Prf: {fileID: 8550975513353579464, guid: a0eb2981cc72d0841a85e67447497efb, type: 3}
+  Attack: {fileID: 2622457522968976437}
+  Points: []
 --- !u!50 &4303125873064153718
 Rigidbody2D:
   serializedVersion: 4

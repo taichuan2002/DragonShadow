@@ -53,7 +53,7 @@ public class Bot : CharactorEnemy
             {
                 healbar = heal.GetComponent<HealingEnemy>();
                 Debug.Log("healbar Enemy" + healbar);
-                LevelUpSSJ();
+                LevelMap();
                 isCheck = true;
             }
         }
@@ -106,7 +106,8 @@ public class Bot : CharactorEnemy
             yield return new WaitForSeconds(1);
             if (!isCheckSkill)
             {
-                switch (random)
+                int rd = Random.Range(0, 3);
+                switch (rd)
                 {
                     case 0:
                         skill1 = Instantiate(Listskill[0], attack.position, attack.rotation).GetComponent<SkillBot>();
@@ -133,10 +134,10 @@ public class Bot : CharactorEnemy
             StartCoroutine(DelayIdle());
         }
     }
-    public void LevelUpSSJ()
+    public void LevelMap()
     {
         int level = PlayerPrefs.GetInt("levelMap");
-        float hpNew = maxhp + (maxhp * 0.25f);
+        float hpNew = maxhp + (dataEneMy.arrPowerEnemy[level] * 0.001f);
         float dame1New = dame1 + (dataEneMy.arrPowerEnemy[level] * 0.001f);
         float dame2New = dame2 + (dataEneMy.arrPowerEnemy[level] * 0.001f);
         float dame3New = dame3 + (dataEneMy.arrPowerEnemy[level] * 0.001f);

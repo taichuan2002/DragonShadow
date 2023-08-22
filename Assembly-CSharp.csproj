@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scrips\Data\DataCharacter\DataPlayer.cs" />
     <Compile Include="Assets\Scrips\DeadZone.cs" />
     <Compile Include="Assets\Spine Examples\Scripts\SpineboyPole.cs" />
+    <Compile Include="Assets\Scrips\SkillPlayer\testSkill2.cs" />
     <Compile Include="Assets\Spine\spine-unity\Asset Types\AtlasAsset.cs" />
     <Compile Include="Assets\Scrips\Data\DataEneMy\DataPicolo.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
@@ -318,6 +319,7 @@
     <None Include="Assets\DragonShadow\char\Demo_goku.atlas.txt" />
     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Spine-Skeleton-Fill.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\Material\NewImageEffectShader.shader" />
     <None Include="Assets\CadicSpine\ani_cadic.atlas.txt" />
     <None Include="Assets\Spine\spine-unity\Shaders\Utility\Hidden-Spine-Bones.shader" />
     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Sprite\SpriteUnlit.cginc" />

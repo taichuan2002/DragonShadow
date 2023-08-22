@@ -9,7 +9,6 @@ public class getDataListPlayer : MonoBehaviour
     public Image _imgLevel;
     public TextMeshProUGUI txtLevel;
     public GameObject _imgActive;
-    public SpinnerPlayer _player;
 
     private void Update()
     {

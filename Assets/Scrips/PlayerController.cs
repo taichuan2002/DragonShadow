@@ -16,6 +16,7 @@ public class PlayerController : Charactor
     [SerializeField] GameObject Bot;
     public static DataPlayer playerData;
     [SerializeField] GameObject gameDead;
+    [SerializeField] GameObject player;
     [SerializeField] TextMeshProUGUI _txtPointCoin;
     [SerializeField] float speed;
     [SerializeField] Skin sk;
@@ -24,6 +25,7 @@ public class PlayerController : Charactor
     [SerializeField] Skill3 skill3;
     [SerializeField] SkillKame skill4;
     [SerializeField] SkillKame skill5;
+    [SerializeField] testSkill2 skill2t;
     [SerializeField] string sceneName = "Menu";
     [SerializeField] SkeletonAnimation[] skeletonAnimation;
     [SerializeField] DataPlayer[] data;
@@ -34,6 +36,9 @@ public class PlayerController : Charactor
     [SerializeField] Button[] _btn;
 
     public string targetBtnTag = "btnTags";
+    public GameObject skill2Prf;
+    public Transform Attack;
+    public Vector3[] Points;
 
     private Vector2 mousePos;
     private float minX = -10f;
@@ -48,8 +53,14 @@ public class PlayerController : Charactor
     private float invincibleTime = 5f;
     private float invincibleTimer = 0f;
     int center, point, levelMap;
-
-
+    GameObject hVFX, vfxArmor;
+    private float t = 0f;
+    private int currentWaypointIndex = 0;
+    private int randomPointUp, randomPointDown;
+    private Coroutine effectCoroutine;
+    bool isCheckSkill2 = true;
+    bool vfx = true;
+    bool isCheckCroutine = false;
     private void Start()
     {
 
@@ -75,6 +86,10 @@ public class PlayerController : Charactor
     {
         string targetObjectName = "Canvas_Heal";
         GameObject heal = GameObject.Find(targetObjectName);
+        if (vfxArmor != null && transform.position != null)
+        {
+            vfxArmor.transform.position = transform.position;
+        }
 
         if (!isCheck)
         {
@@ -119,10 +134,6 @@ public class PlayerController : Charactor
     public void ButtonClicked(GameObject btn)
     {
         Button btnBean = btn.GetComponent<Button>();
-        if (Coin >= 1000000)
-        {
-            btnBean.interactable = true;
-        }
         if (btn.name == "Skill1")
         {
             Skill1();
@@ -147,9 +158,9 @@ public class PlayerController : Charactor
         {
             if (hp != maxhp || mana != maxmana)
             {
-                if (Coin >= 1000000)
+                if (Coin >= 500)
                 {
-                    Coin -= 1000000;
+                    Coin -= 500;
                     OnInitCoin();
                     hp = maxhp;
                     mana = maxmana;
@@ -222,6 +233,23 @@ public class PlayerController : Charactor
         }
     }
 
+    public void OnInitSkill2()
+    {
+        Points[0] = skill2Prf.transform.position;
+        Points[1] = new Vector3(skill2Prf.transform.position.x, 5f);
+        Points[2] = new Vector3(skill2Prf.transform.position.x, 3.75f);
+        Points[3] = new Vector3(skill2Prf.transform.position.x, 2.5f);
+        Points[4] = new Vector3(skill2Prf.transform.position.x, 1.25f);
+        Points[5] = new Vector3(skill2Prf.transform.position.x, 0f);
+        Points[6] = new Vector3(skill2Prf.transform.position.x, -1.25f);
+        Points[7] = new Vector3(skill2Prf.transform.position.x, -2.5f);
+        Points[8] = new Vector3(skill2Prf.transform.position.x, -3.75f);
+        Points[9] = new Vector3(skill2Prf.transform.position.x, -5f);
+        Points[10] = new Vector3(skill2Prf.transform.position.x + 15, skill2Prf.transform.position.y);
+
+        randomPointUp = UnityEngine.Random.Range(1, 5);
+        randomPointDown = UnityEngine.Random.Range(6, 10);
+    }
     public void OnInit()
     {
         point = 0;
@@ -235,10 +263,6 @@ public class PlayerController : Charactor
         Damage2 = playerData.DamageAttack2;
         Damage3 = playerData.DamageAttack3;
         Damage4 = playerData.DamageAttack4;
-        //healbar.SetNewHp(maxhp);
-        //healbar.SetNewMana(maxmana);
-        //healbar.OnInit(maxhp, maxmana);
-
         rb = GetComponent<Rigidbody2D>();
         skeletonAnimation[center] = GetComponent<SkeletonAnimation>();
         if (skeletonAnimation == null)
@@ -286,12 +310,13 @@ public class PlayerController : Charactor
             {
                 isAttack = true;
                 skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[2], false);
-                for (int i = 0; i < 5; i++)
-                {
-                    skill2 = Instantiate(Listskill1[1], attack.position, attack.rotation).GetComponent<Skill2>();
-                    skill2.SetDame(Damage2);
-                    skill2.OnInit();
-                }
+                skill2 = Instantiate(Listskill1[1], attack.position, attack.rotation).GetComponent<Skill2>();
+                skill2 = Instantiate(Listskill1[1], attack.position, attack.rotation).GetComponent<Skill2>();
+                skill2 = Instantiate(Listskill1[1], attack.position, attack.rotation).GetComponent<Skill2>();
+                skill2 = Instantiate(Listskill1[1], attack.position, attack.rotation).GetComponent<Skill2>();
+                skill2 = Instantiate(Listskill1[1], attack.position, attack.rotation).GetComponent<Skill2>();
+                skill2.SetDame(Damage2);
+                skill2.OnInit();
                 OnSkill(25);
                 StartCoroutine(DelayIdle());
             }
@@ -359,10 +384,24 @@ public class PlayerController : Charactor
         }
     }
 
+
+
     IEnumerator Immortal()
     {
-        yield return new WaitForSeconds(invincibleTime);
-        isImmortal = false;
+        if (!vfxArmor)
+        {
+            vfxArmor = Instantiate(hitVFX[3], transform.position, transform.rotation);
+        }
+        /* if (vfxArmor && vfx)
+         {
+             Destroy(vfxArmor);
+             isCheckCroutine = true;
+             StopCoroutine(effectCoroutine);
+         }*/
+        PlayerController.playerData.Immortal = true;
+        yield return new WaitForSeconds(9f);
+        PlayerController.playerData.Immortal = false;
+        Destroy(vfxArmor);
     }
     IEnumerator delaySkill4()
     {
@@ -374,12 +413,6 @@ public class PlayerController : Charactor
         skill4.OnInit();
         OnSkill(40);
         StartCoroutine(DelayIdle());
-    }
-
-    IEnumerator NextScene()
-    {
-        yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(0);
     }
     IEnumerator DelaySkill1()
     {
@@ -399,6 +432,17 @@ public class PlayerController : Charactor
         StartCoroutine(DelayIdle());
         isSkillRunning = false;
     }
+
+    IEnumerator CollisionItem()
+    {
+        if (vfx && !hVFX)
+        {
+            hVFX = Instantiate(hitVFX[2], transform.position, transform.rotation);
+            vfx = false;
+        }
+        yield return new WaitForSeconds(2.5f);
+        Destroy(hVFX);
+    }
     IEnumerator DelayIdle()
     {
         yield return new WaitForSeconds(1f);
@@ -411,32 +455,35 @@ public class PlayerController : Charactor
         if (collision.CompareTag("BeanBlue"))
         {
             mana = maxmana;
+            vfx = true;
             healbar.SetNewMana(mana);
+            StartCoroutine(CollisionItem());
             Destroy(collision.gameObject);
         }
         if (collision.CompareTag("BeanRed"))
         {
             hp = maxhp;
+            vfx = true;
             healbar.SetNewHp(hp);
+            StartCoroutine(CollisionItem());
             Destroy(collision.gameObject);
         }
         if (collision.CompareTag("BeanGreen"))
         {
             mana = maxmana;
             hp = maxhp;
+            vfx = true;
             healbar.SetNewHp(hp);
             healbar.SetNewMana(mana);
+            StartCoroutine(CollisionItem());
             Destroy(collision.gameObject);
         }
         if (collision.CompareTag("Armor"))
         {
-            if (!isImmortal)
-            {
-                isImmortal = true;
-                invincibleTimer = invincibleTime;
-                StartCoroutine(Immortal());
-            }
+            vfx = true;
+            effectCoroutine = StartCoroutine(Immortal());
             Destroy(collision.gameObject);
+            isCheckCroutine = true;
         }
         if (collision.CompareTag("Coin"))
         {
@@ -460,6 +507,33 @@ public class PlayerController : Charactor
         SetDame(dame1New, dame2New, dame3New, dame4New);
         maxhp = hpNew;
     }
+    Vector2 BezierPoint(float t, Vector2 a, Vector2 b, Vector2 c)
+    {
+        float u = 1f - t;
+        float tt = t * t;
+        float uu = u * u;
 
+        Vector2 p = uu * a;
+        p += 2f * u * t * b;
+        p += tt * c;
+
+        return p;
+    }
+    private Vector3 GetSkillDirectionUp(float t)
+    {
+        Vector3 point1 = BezierPoint(t, Points[0], Points[randomPointUp], Points[10]);
+        Vector3 point2 = BezierPoint(t + 0.1f, Points[0], Points[randomPointUp], Points[10]);
+        Vector3 direction = point2 - point1;
+        direction.Normalize();
+        return direction;
+    }
+    private Vector3 GetSkillDirectionDown(float t)
+    {
+        Vector3 point1 = BezierPoint(t, Points[0], Points[randomPointDown], Points[10]);
+        Vector3 point2 = BezierPoint(t + 0.1f, Points[0], Points[randomPointDown], Points[10]);
+        Vector3 direction = point2 - point1;
+        direction.Normalize();
+        return direction;
+    }
 
 }

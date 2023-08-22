@@ -33,8 +33,10 @@ public class SkillBot3 : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            int center = PlayerPrefs.GetInt("IdEnemy");
-            collision.GetComponent<Charactor>().OnHit(damage);
+            if (!PlayerController.playerData.Immortal)
+            {
+                collision.GetComponent<Charactor>().OnHit(damage);
+            }
             OnDestroy();
         }
         if (collision.CompareTag("skill"))

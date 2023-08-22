@@ -45,6 +45,7 @@ public class CharacterSelectionDataBase : MonoBehaviour
     public void LevelEnemy()
     {
         level = PlayerPrefs.GetInt("levelMap");
+        Debug.Log(level);
         if (!isCheck)
         {
             switch (level)
@@ -64,7 +65,7 @@ public class CharacterSelectionDataBase : MonoBehaviour
                         Coin += 60;
                         PlayerPrefs.SetInt("Coin", Coin);
                         PlayerPrefs.Save();
-                        level = 1;
+                        level = 10;
                         OnInitLevelMap();
                         IsCheckDeadEnemy();
                     }
@@ -190,19 +191,266 @@ public class CharacterSelectionDataBase : MonoBehaviour
                             Coin += 60;
                             PlayerPrefs.SetInt("Coin", Coin);
                             PlayerPrefs.Save();
-                            level = 4;
+                            level = 6;
                             OnInitLevelMap();
                             IsCheckDeadEnemy();
                         }
                     }
                     break;
+                case 6:
+                    if (!spownEnemy1)
+                    {
+                        PlayerPrefs.SetInt("IdEnemy", 0);
+                        PlayerPrefs.Save();
+
+                        enemy1 = Instantiate(arrEnemys[0], StartPointEnemy.position, Quaternion.identity);
+                        spownEnemy1 = true;
+                    }
+
+                    if (enemy1 == null)
+                    {
+                        int Coin = PlayerPrefs.GetInt("Coin");
+                        Coin += 60;
+                        PlayerPrefs.SetInt("Coin", Coin);
+                        PlayerPrefs.Save();
+                        level = 7;
+                        OnInitLevelMap();
+                        IsCheckDeadEnemy();
+                    }
+                    break;
+                case 7:
+                    if (!spownEnemy1)
+                    {
+                        PlayerPrefs.SetInt("IdEnemy", 0);
+                        PlayerPrefs.Save();
+
+                        enemy1 = Instantiate(arrEnemys[0], StartPointEnemy.position, Quaternion.identity);
+                        spownEnemy1 = true;
+                    }
+                    if (enemy1 == null)
+                    {
+                        if (!spownEnemy2)
+                        {
+                            PlayerPrefs.SetInt("IdEnemy", 2);
+                            PlayerPrefs.Save();
+
+                            enemy2 = Instantiate(arrEnemys[1], StartPointEnemy.position, Quaternion.identity);
+                            enemy2.transform.SetParent(healingEnemy.transform);
+                            spownEnemy2 = true;
+                        }
+                        if (enemy2 == null)
+                        {
+                            if (!spownEnemy3)
+                            {
+                                PlayerPrefs.SetInt("IdEnemy", 3);
+                                PlayerPrefs.Save();
+
+                                enemy3 = Instantiate(arrEnemys[2], StartPointEnemy.position, Quaternion.identity);
+                                enemy3.transform.SetParent(healingEnemy.transform);
+                                spownEnemy3 = true;
+                            }
+                            if (enemy3 == null)
+                            {
+                                int Coin = PlayerPrefs.GetInt("Coin");
+                                Coin += 60;
+                                PlayerPrefs.SetInt("Coin", Coin);
+                                PlayerPrefs.Save();
+                                level = 8;
+                                OnInitLevelMap();
+                                IsCheckDeadEnemy();
+                            }
+                        }
+                    }
+                    break;
+                case 8:
+                    if (!spownEnemy3)
+                    {
+                        PlayerPrefs.SetInt("IdEnemy", 2);
+                        PlayerPrefs.Save();
+
+                        enemy3 = Instantiate(arrEnemys[2], StartPointEnemy.position, Quaternion.identity);
+                        spownEnemy3 = true;
+                    }
+                    if (enemy3 == null)
+                    {
+                        if (!spownEnemy1)
+                        {
+                            PlayerPrefs.SetInt("IdEnemy", 0);
+                            PlayerPrefs.Save();
+
+                            enemy1 = Instantiate(arrEnemys[0], StartPointEnemy.position, Quaternion.identity);
+                            enemy1.transform.SetParent(healingEnemy.transform);
+                            spownEnemy1 = true;
+                        }
+                        if (enemy1 == null)
+                        {
+                            if (!spownEnemy4)
+                            {
+                                PlayerPrefs.SetInt("IdEnemy", 3);
+                                PlayerPrefs.Save();
+
+                                enemy4 = Instantiate(arrEnemys[3], StartPointEnemy.position, Quaternion.identity);
+                                enemy4.transform.SetParent(healingEnemy.transform);
+                                spownEnemy3 = true;
+                            }
+                            if (enemy4 == null)
+                            {
+                                int Coin = PlayerPrefs.GetInt("Coin");
+                                Coin += 60;
+                                PlayerPrefs.SetInt("Coin", Coin);
+                                PlayerPrefs.Save();
+                                level = 9;
+                                OnInitLevelMap();
+                                IsCheckDeadEnemy();
+                            }
+                        }
+                    }
+                    break;
+                case 9:
+                    if (!spownEnemy2)
+                    {
+                        PlayerPrefs.SetInt("IdEnemy", 1);
+                        PlayerPrefs.Save();
+
+                        enemy2 = Instantiate(arrEnemys[1], StartPointEnemy.position, Quaternion.identity);
+                        spownEnemy2 = true;
+                    }
+                    if (enemy2 == null)
+                    {
+                        if (!spownEnemy1)
+                        {
+                            PlayerPrefs.SetInt("IdEnemy", 0);
+                            PlayerPrefs.Save();
+
+                            enemy1 = Instantiate(arrEnemys[1], StartPointEnemy.position, Quaternion.identity);
+                            enemy1.transform.SetParent(healingEnemy.transform);
+                            spownEnemy1 = true;
+                        }
+                        if (enemy1 == null)
+                        {
+                            if (!spownEnemy4)
+                            {
+                                PlayerPrefs.SetInt("IdEnemy", 3);
+                                PlayerPrefs.Save();
+
+                                enemy4 = Instantiate(arrEnemys[3], StartPointEnemy.position, Quaternion.identity);
+                                enemy4.transform.SetParent(healingEnemy.transform);
+                                spownEnemy3 = true;
+                            }
+                            if (enemy4 == null)
+                            {
+                                int Coin = PlayerPrefs.GetInt("Coin");
+                                Coin += 60;
+                                PlayerPrefs.SetInt("Coin", Coin);
+                                PlayerPrefs.Save();
+                                level = 10;
+                                OnInitLevelMap();
+                                IsCheckDeadEnemy();
+                            }
+                        }
+                    }
+                    break;
+                case 10:
+                    if (!spownEnemy4)
+                    {
+                        PlayerPrefs.SetInt("IdEnemy", 3);
+                        PlayerPrefs.Save();
+
+                        enemy4 = Instantiate(arrEnemys[3], StartPointEnemy.position, Quaternion.identity);
+                        spownEnemy4 = true;
+                    }
+                    if (enemy4 == null)
+                    {
+                        int Coin = PlayerPrefs.GetInt("Coin");
+                        Coin += 60;
+                        PlayerPrefs.SetInt("Coin", Coin);
+                        PlayerPrefs.Save();
+                        level = 11;
+                        OnInitLevelMap();
+                        IsCheckDeadEnemy();
+                    }
+                    break;
+                case 11:
+                    if (!spownEnemy1 && !spownEnemy2)
+                    {
+                        PlayerPrefs.SetInt("IdEnemy", 0);
+                        PlayerPrefs.Save();
+                        enemy1 = Instantiate(arrEnemys[0], StartPointEnemy.position, Quaternion.identity);
+                        spownEnemy1 = true;
+                        if (enemy1 != null)
+                        {
+                            PlayerPrefs.SetInt("IdEnemy", 1);
+                            PlayerPrefs.Save();
+                            enemy2 = Instantiate(arrEnemys[1], StartPointEnemy.position, Quaternion.identity);
+                            spownEnemy2 = true;
+                        }
+                    }
+                    if (enemy1 == null & enemy2 == null)
+                    {
+                        int Coin = PlayerPrefs.GetInt("Coin");
+                        Coin += 60;
+                        PlayerPrefs.SetInt("Coin", Coin);
+                        PlayerPrefs.Save();
+                        level = 12;
+                        OnInitLevelMap();
+                        IsCheckDeadEnemy();
+                    }
+                    break;
+                case 12:
+                    if (!spownEnemy2 && !spownEnemy3)
+                    {
+                        PlayerPrefs.SetInt("IdEnemy", 1);
+                        PlayerPrefs.Save();
+                        enemy2 = Instantiate(arrEnemys[1], StartPointEnemy.position, Quaternion.identity);
+                        spownEnemy2 = true;
+                        if (enemy2 != null)
+                        {
+                            PlayerPrefs.SetInt("IdEnemy", 2);
+                            PlayerPrefs.Save();
+                            enemy3 = Instantiate(arrEnemys[2], StartPointEnemy.position, Quaternion.identity);
+                            spownEnemy3 = true;
+                        }
+                    }
+                    if (enemy2 == null & enemy3 == null)
+                    {
+                        int Coin = PlayerPrefs.GetInt("Coin");
+                        Coin += 60;
+                        PlayerPrefs.SetInt("Coin", Coin);
+                        PlayerPrefs.Save();
+                        level = 13;
+                        OnInitLevelMap();
+                        IsCheckDeadEnemy();
+                    }
+                    break;
+                case 13:
+                    if (!spownEnemy3 && !spownEnemy4)
+                    {
+                        PlayerPrefs.SetInt("IdEnemy", 2);
+                        PlayerPrefs.Save();
+                        enemy3 = Instantiate(arrEnemys[2], StartPointEnemy.position, Quaternion.identity);
+                        spownEnemy3 = true;
+                        if (enemy3 != null)
+                        {
+                            PlayerPrefs.SetInt("IdEnemy", 3);
+                            PlayerPrefs.Save();
+                            enemy4 = Instantiate(arrEnemys[3], StartPointEnemy.position, Quaternion.identity);
+                            spownEnemy4 = true;
+                        }
+                    }
+                    if (enemy3 == null & enemy4 == null)
+                    {
+                        int Coin = PlayerPrefs.GetInt("Coin");
+                        Coin += 60;
+                        PlayerPrefs.SetInt("Coin", Coin);
+                        PlayerPrefs.Save();
+                        level = 14;
+                        OnInitLevelMap();
+                        IsCheckDeadEnemy();
+                    }
+                    break;
             }
         }
     }
-
-
-
-
     public void OnInit()
     {
         numberCharacter = PlayerPrefs.GetInt("idPlayer");
@@ -217,16 +465,16 @@ public class CharacterSelectionDataBase : MonoBehaviour
         if (PlayerController.playerData.isDead == true)
         {
             isCheck = true;
-            int levelMap = PlayerPrefs.GetInt("levelMap");
             DeadGame.SetActive(true);
             WinGame.SetActive(false);
-            levelMap -= 2;
-            if (levelMap <= 0)
+            level -= 2;
+            if (level <= 0)
             {
-                levelMap = 0;
+                level = 0;
             }
-            PlayerPrefs.SetInt("levelMap", levelMap);
+            PlayerPrefs.SetInt("levelMap", level);
             PlayerPrefs.Save();
+            PlayerController.playerData.isDead = false;
             StartCoroutine(DelayNextScene());
         }
 

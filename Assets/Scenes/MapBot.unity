@@ -1825,6 +1825,12 @@ MonoBehaviour:
   - {fileID: 585673185960792065, guid: 2837597025bb9894b9eb0aaa88dca5da, type: 3}
   - {fileID: 1947568362065916086, guid: a030b86c1b04813468f6a123c67e13ab, type: 3}
   - {fileID: 2192401913167143691, guid: f82c73f341aaa694cb290c9caaa11ad4, type: 3}
+  HitVFX:
+  - {fileID: 751720734460519210, guid: 186fc861801e9c34b91c31b6b6b5bfa6, type: 3}
+  - {fileID: 4895923057918944857, guid: ca0bc3242bb1036488efa737342fbd11, type: 3}
+  - {fileID: 7026413453092216723, guid: f8f679854a5dedf4295bf0d8d3c980a3, type: 3}
+  - {fileID: 2502924368364021248, guid: 77dd8eb9d5dd09448b61453ae2c62ce5, type: 3}
+  - {fileID: 2502924368364021248, guid: 77dd8eb9d5dd09448b61453ae2c62ce5, type: 3}
 --- !u!50 &1086857416
 Rigidbody2D:
   serializedVersion: 4
@@ -2353,7 +2359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9168828643249269568, guid: 5c0243bc9d5e10e4a9bb22503f7294b4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000061035156
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9168828643249269568, guid: 5c0243bc9d5e10e4a9bb22503f7294b4, type: 3}
       propertyPath: m_AnchoredPosition.y

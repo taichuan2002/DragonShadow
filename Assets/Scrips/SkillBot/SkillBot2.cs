@@ -32,7 +32,10 @@ public class SkillBot2 : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<Charactor>().OnHit(damage);
+            if (!PlayerController.playerData.Immortal)
+            {
+                collision.GetComponent<Charactor>().OnHit(damage);
+            }
             OnDestroy();
         }
         if (collision.CompareTag("skill"))

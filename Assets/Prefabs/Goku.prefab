@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5217646913378359335}
   - component: {fileID: 8765534901761499427}
+  - component: {fileID: 5164561362092061509}
   - component: {fileID: 907942125218173252}
   - component: {fileID: 9076760756330305407}
   - component: {fileID: 8049952860741324501}
@@ -37,7 +38,7 @@ Transform:
   m_Children:
   - {fileID: 3407477187005435147}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8765534901761499427
 MonoBehaviour:
@@ -51,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570088a779e045d46a749af4ab2b1a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healingbar: {fileID: 7943650241770299027, guid: 5c0243bc9d5e10e4a9bb22503f7294b4, type: 3}
+  healbar: {fileID: 0}
   Player: {fileID: 11400000, guid: 328717bfa2c33ee4b9ce022bd7646261, type: 2}
   hitVFXDead: {fileID: 4203629870350764623, guid: 95c7e1dd858bb974696e894011eee16e, type: 3}
   level: 0
@@ -68,6 +69,7 @@ MonoBehaviour:
   rb: {fileID: 907942125218173252}
   Bot: {fileID: 0}
   gameDead: {fileID: 0}
+  player: {fileID: 6217702433326238047}
   _txtPointCoin: {fileID: 0}
   speed: 10
   skillKame: {fileID: -3475075212191199340, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
@@ -75,6 +77,7 @@ MonoBehaviour:
   skill3: {fileID: 8319474813761885605, guid: b7d7d2f1afe9e1747bc7e1a56f955f2c, type: 3}
   skill4: {fileID: -3475075212191199340, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
   skill5: {fileID: -3475075212191199340, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
+  skill2t: {fileID: 0}
   sceneName: Menu
   skeletonAnimation:
   - {fileID: 4491502475747672006}
@@ -107,6 +110,8 @@ MonoBehaviour:
   hitVFX:
   - {fileID: 534253543124306992, guid: 442e175363065cb4cabb778c7db55142, type: 3}
   - {fileID: 206865772777619958, guid: 690f5f8f654ff0247be46d26da9dc24c, type: 3}
+  - {fileID: 7664562619132655749, guid: 316f72988ece9df4d96cee169899a5d3, type: 3}
+  - {fileID: 793984519355106204, guid: 33f6ae182661a2445887d9b88cf391f9, type: 3}
   v3:
   - {x: -9, y: -0.6, z: 0}
   - {x: -4, y: -0.6, z: 0}
@@ -114,6 +119,36 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   targetBtnTag: btnTags
+  skill2Prf: {fileID: 8550975513353579464, guid: a0eb2981cc72d0841a85e67447497efb, type: 3}
+  Attack: {fileID: 3407477187005435147}
+  Points: []
+--- !u!114 &5164561362092061509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6217702433326238047}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b5044373b16f294e83c63f9633a5ad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill2Prf: {fileID: 8550975513353579464, guid: a0eb2981cc72d0841a85e67447497efb, type: 3}
+  Attack: {fileID: 3407477187005435147}
+  Points:
+  - {x: 7.185382e+22, y: 1.1774317e+10, z: 2.6562882e+20}
+  - {x: 2, y: 5, z: 7.360415e+22}
+  - {x: 2, y: 3.75, z: -2289.3125}
+  - {x: 2, y: 2.5, z: 5.93e-43}
+  - {x: 2, y: 1.25, z: 6.9e-44}
+  - {x: 2, y: 0, z: 5.93e-43}
+  - {x: 2, y: -1.25, z: -2289.3281}
+  - {x: 2, y: -2.5, z: -3.3758507e+27}
+  - {x: 2, y: -3.75, z: 9.1e-44}
+  - {x: 2, y: -5, z: 5.93e-43}
+  - {x: 20, y: 0, z: -2289.3281}
+  rb: {fileID: 40998165008746689, guid: a0eb2981cc72d0841a85e67447497efb, type: 3}
 --- !u!50 &907942125218173252
 Rigidbody2D:
   serializedVersion: 4
