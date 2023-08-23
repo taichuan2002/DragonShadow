@@ -25,7 +25,7 @@ public class Bot : CharactorEnemy
 
     bool isCheck = false;
     bool isCheckSkill = false;
-
+    bool isAttack = true;
     public void Start()
     {
         center = PlayerPrefs.GetInt("IdEnemy");
@@ -42,10 +42,17 @@ public class Bot : CharactorEnemy
             Debug.LogError("SkeletonAnimation component not found!");
         }
         StartCoroutine(RunPoint());
-        StartCoroutine(spamSkill());
+        StartCoroutine(SpamSkill());
     }
     public void Update()
     {
+        if (PlayerController.playerData)
+        {
+            if (PlayerController.playerData.isDead == true)
+            {
+                isAttack = false;
+            }
+        }
         GameObject heal = GameObject.FindGameObjectWithTag("HealingEnemy");
         if (!isCheck)
         {
@@ -57,8 +64,6 @@ public class Bot : CharactorEnemy
                 isCheck = true;
             }
         }
-
-
         if (hp == 0)
         {
             Destroy(gameObject);
@@ -75,7 +80,7 @@ public class Bot : CharactorEnemy
             transform.position = Vector2.Lerp(target, listPoint[1], t / 10);
             yield return null;
         }
-        while (true)
+        while (isAttack)
         {
             randomPoint = Random.Range(0, 4);
             isCheckSkill = false;
@@ -97,9 +102,9 @@ public class Bot : CharactorEnemy
         skeletonAnimation.AnimationState.SetAnimation(1, listEnim[3], false);
     }
 
-    IEnumerator spamSkill()
+    IEnumerator SpamSkill()
     {
-        while (true)
+        while (isAttack)
         {
             yield return new WaitForSeconds(2f);
             skeletonAnimation.AnimationState.SetAnimation(1, listEnim[random], false);

@@ -11,6 +11,7 @@ public class DataPlayer : ScriptableObject
 {
     public SkeletonAnimation player;
     public Healing healingBar;
+    public Sprite Image;
     public string name;
     public string level;
     public string currentLevel;

@@ -30,10 +30,12 @@ public class SpinnerPlayer : MonoBehaviour
     public Sprite[] _spritePlayerLoad;
     public Transform[] obj;
     public DataPlayer[] player;
+    public GameObject[] listEffect;
     private int[] LevelSSJ = new int[5];
 
     private Vector2 ScrollPosition;
     bool isCheck = true;
+    bool isCheckAnim = true;
     private int currentIndex = 0;
     private int center = 0;
     private Vector3[] initialPositions;
@@ -43,7 +45,15 @@ public class SpinnerPlayer : MonoBehaviour
 
     private void Start()
     {
+
+        _imgPlayerCircol[0].transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
+        listEffect[0].SetActive(true);
         center = 0;
+        _imgPlayerCircol[0].sprite = _spritePlayerLoad[0];
+        _imgPlayerCircol[1].sprite = _spritePlayerLoad[1];
+        _imgPlayerCircol[2].sprite = _spritePlayerLoad[2];
+        _imgPlayerCircol[3].sprite = _spritePlayerLoad[3];
+        _imgPlayerCircol[4].sprite = _spritePlayerLoad[4];
         OnInit();
         OnInitCoin();
         OnInitIdPlayer();
@@ -54,6 +64,7 @@ public class SpinnerPlayer : MonoBehaviour
     }
     private void Update()
     {
+
         if (!isCheck)
         {
             txtLevel.text = "0";
@@ -104,11 +115,97 @@ public class SpinnerPlayer : MonoBehaviour
     }
 
 
-
+    public void AnimPlayer()
+    {
+        switch (center)
+        {
+            case 0:
+                _imgPlayerCircol[0].transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
+                _imgPlayerCircol[1].transform.localPosition = Vector2.zero;
+                _imgPlayerCircol[2].transform.localPosition = Vector2.zero;
+                _imgPlayerCircol[3].transform.localPosition = Vector2.zero;
+                _imgPlayerCircol[4].transform.localPosition = Vector2.zero;
+                _imgPlayerCircol[1].transform.DOKill();
+                _imgPlayerCircol[2].transform.DOKill();
+                _imgPlayerCircol[3].transform.DOKill();
+                _imgPlayerCircol[4].transform.DOKill();
+                listEffect[0].SetActive(true);
+                listEffect[1].SetActive(false);
+                listEffect[2].SetActive(false);
+                listEffect[3].SetActive(false);
+                listEffect[4].SetActive(false);
+                break;
+            case 1:
+                _imgPlayerCircol[1].transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
+                _imgPlayerCircol[0].transform.localPosition = Vector2.zero;
+                _imgPlayerCircol[2].transform.localPosition = Vector2.zero;
+                _imgPlayerCircol[3].transform.localPosition = Vector2.zero;
+                _imgPlayerCircol[4].transform.localPosition = Vector2.zero;
+                _imgPlayerCircol[0].transform.DOKill();
+                _imgPlayerCircol[2].transform.DOKill();
+                _imgPlayerCircol[3].transform.DOKill();
+                _imgPlayerCircol[4].transform.DOKill();
+                listEffect[0].SetActive(false);
+                listEffect[1].SetActive(true);
+                listEffect[2].SetActive(false);
+                listEffect[3].SetActive(false);
+                listEffect[4].SetActive(false);
+                break;
+            case 2:
+                _imgPlayerCircol[2].transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
+                _imgPlayerCircol[1].transform.localPosition = Vector2.zero;
+                _imgPlayerCircol[0].transform.localPosition = Vector2.zero;
+                _imgPlayerCircol[3].transform.localPosition = Vector2.zero;
+                _imgPlayerCircol[4].transform.localPosition = Vector2.zero;
+                _imgPlayerCircol[1].transform.DOKill();
+                _imgPlayerCircol[0].transform.DOKill();
+                _imgPlayerCircol[3].transform.DOKill();
+                _imgPlayerCircol[4].transform.DOKill();
+                listEffect[0].SetActive(false);
+                listEffect[1].SetActive(false);
+                listEffect[2].SetActive(true);
+                listEffect[3].SetActive(false);
+                listEffect[4].SetActive(false);
+                break;
+            case 3:
+                _imgPlayerCircol[3].transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
+                _imgPlayerCircol[1].transform.localPosition = Vector2.zero;
+                _imgPlayerCircol[2].transform.localPosition = Vector2.zero;
+                _imgPlayerCircol[0].transform.localPosition = Vector2.zero;
+                _imgPlayerCircol[4].transform.localPosition = Vector2.zero;
+                _imgPlayerCircol[1].transform.DOKill();
+                _imgPlayerCircol[2].transform.DOKill();
+                _imgPlayerCircol[0].transform.DOKill();
+                _imgPlayerCircol[4].transform.DOKill();
+                listEffect[0].SetActive(false);
+                listEffect[1].SetActive(false);
+                listEffect[2].SetActive(false);
+                listEffect[3].SetActive(true);
+                listEffect[4].SetActive(false);
+                break;
+            case 4:
+                _imgPlayerCircol[4].transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
+                _imgPlayerCircol[1].transform.localPosition = Vector2.zero;
+                _imgPlayerCircol[2].transform.localPosition = Vector2.zero;
+                _imgPlayerCircol[3].transform.localPosition = Vector2.zero;
+                _imgPlayerCircol[0].transform.localPosition = Vector2.zero;
+                _imgPlayerCircol[0].transform.DOKill();
+                _imgPlayerCircol[1].transform.DOKill();
+                _imgPlayerCircol[2].transform.DOKill();
+                _imgPlayerCircol[3].transform.DOKill();
+                listEffect[0].SetActive(false);
+                listEffect[1].SetActive(false);
+                listEffect[2].SetActive(false);
+                listEffect[3].SetActive(false);
+                listEffect[4].SetActive(true);
+                break;
+        }
+    }
     public void nextPlayer()
     {
         if (isCheck)
         {
+            isCheckAnim = false;
             _imgPlayerCircol[center].sprite = currentPlayerData.listSprite[0];
             ResetListPlayer();
             isCheck = false;
@@ -119,6 +216,7 @@ public class SpinnerPlayer : MonoBehaviour
             obj[2].DOMove(obj[1].position, 1);
             obj[1].DOMove(obj[0].position, 1).OnComplete(() =>
             {
+                AnimPlayer();
                 UpdateTransformOrder();
                 DisplayCurrentPlayerData();
                 isCheck = true;
@@ -132,6 +230,7 @@ public class SpinnerPlayer : MonoBehaviour
     {
         if (isCheck)
         {
+            isCheckAnim = false;
             _imgPlayerCircol[center].sprite = currentPlayerData.listSprite[0];
             isCheck = false;
             center = (center + obj.Length - 1) % obj.Length;
@@ -141,6 +240,7 @@ public class SpinnerPlayer : MonoBehaviour
             obj[3].DOMove(obj[4].position, 1);
             obj[4].DOMove(obj[0].position, 1).OnComplete(() =>
             {
+                AnimPlayer();
                 ResetListPlayer();
                 UpdateTransformOrder();
                 DisplayCurrentPlayerData();

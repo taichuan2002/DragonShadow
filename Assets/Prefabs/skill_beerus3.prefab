@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -4288947446181034575}
   m_Layer: 0
   m_Name: skill_beerus3
-  m_TagString: skill
+  m_TagString: skillEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

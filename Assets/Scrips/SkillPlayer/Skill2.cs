@@ -111,7 +111,7 @@ public class Skill2 : MonoBehaviour
             OnDead();
             Destroy(hitvfx, 2);
         }
-        if (collision.CompareTag("skill"))
+        if (collision.CompareTag("skillEnemy"))
         {
             GameObject hitvfx = Instantiate(hitVFXDead, transform.position, transform.rotation);
             OnDead();

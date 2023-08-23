@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 6836622782181477609}
   m_Layer: 0
   m_Name: skill1Bot
-  m_TagString: skill
+  m_TagString: skillEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

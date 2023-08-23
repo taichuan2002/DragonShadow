@@ -45,7 +45,6 @@ public class CharacterSelectionDataBase : MonoBehaviour
     public void LevelEnemy()
     {
         level = PlayerPrefs.GetInt("levelMap");
-        Debug.Log(level);
         if (!isCheck)
         {
             switch (level)
@@ -448,6 +447,32 @@ public class CharacterSelectionDataBase : MonoBehaviour
                         IsCheckDeadEnemy();
                     }
                     break;
+                case 14:
+                    if (!spownEnemy3 && !spownEnemy4)
+                    {
+                        PlayerPrefs.SetInt("IdEnemy", 2);
+                        PlayerPrefs.Save();
+                        enemy3 = Instantiate(arrEnemys[2], StartPointEnemy.position, Quaternion.identity);
+                        spownEnemy3 = true;
+                        if (enemy3 != null)
+                        {
+                            PlayerPrefs.SetInt("IdEnemy", 3);
+                            PlayerPrefs.Save();
+                            enemy4 = Instantiate(arrEnemys[3], StartPointEnemy.position, Quaternion.identity);
+                            spownEnemy4 = true;
+                        }
+                    }
+                    if (enemy3 == null & enemy4 == null)
+                    {
+                        int Coin = PlayerPrefs.GetInt("Coin");
+                        Coin += 60;
+                        PlayerPrefs.SetInt("Coin", Coin);
+                        PlayerPrefs.Save();
+                        level = 0;
+                        OnInitLevelMap();
+                        IsCheckDeadEnemy();
+                    }
+                    break;
             }
         }
     }
@@ -457,9 +482,6 @@ public class CharacterSelectionDataBase : MonoBehaviour
         prefabs = characters[numberCharacter];
         Instantiate(prefabs, StartPoint.position, Quaternion.identity);
     }
-
-
-
     public void IsCheckDeadPlayer()
     {
         if (PlayerController.playerData.isDead == true)
@@ -477,8 +499,6 @@ public class CharacterSelectionDataBase : MonoBehaviour
             PlayerController.playerData.isDead = false;
             StartCoroutine(DelayNextScene());
         }
-
-
     }
     public void IsCheckDeadEnemy()
     {

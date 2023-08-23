@@ -17,6 +17,7 @@ TagManager:
   - PanelDeadGame
   - btnTags
   - HealingEnemy
+  - skillEnemy
   layers:
   - Default
   - TransparentFX
