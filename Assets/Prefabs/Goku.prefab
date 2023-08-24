@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5217646913378359335}
   - component: {fileID: 8765534901761499427}
-  - component: {fileID: 5164561362092061509}
   - component: {fileID: 907942125218173252}
   - component: {fileID: 9076760756330305407}
   - component: {fileID: 8049952860741324501}
@@ -68,8 +67,6 @@ MonoBehaviour:
   attack: {fileID: 3407477187005435147}
   pointAttack: {fileID: 8167854319240255332}
   rb: {fileID: 907942125218173252}
-  Bot: {fileID: 0}
-  gameDead: {fileID: 0}
   player: {fileID: 6217702433326238047}
   _txtPointCoin: {fileID: 0}
   speed: 10
@@ -122,33 +119,6 @@ MonoBehaviour:
   skill2Prf: {fileID: 8550975513353579464, guid: a0eb2981cc72d0841a85e67447497efb, type: 3}
   Attack: {fileID: 3407477187005435147}
   Points: []
---- !u!114 &5164561362092061509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6217702433326238047}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b5044373b16f294e83c63f9633a5ad8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skill2Prf: {fileID: 8550975513353579464, guid: a0eb2981cc72d0841a85e67447497efb, type: 3}
-  Attack: {fileID: 3407477187005435147}
-  Points:
-  - {x: 7.185382e+22, y: 1.1774317e+10, z: 2.6562882e+20}
-  - {x: 2, y: 5, z: 7.360415e+22}
-  - {x: 2, y: 3.75, z: -2289.3125}
-  - {x: 2, y: 2.5, z: 5.93e-43}
-  - {x: 2, y: 1.25, z: 6.9e-44}
-  - {x: 2, y: 0, z: 5.93e-43}
-  - {x: 2, y: -1.25, z: -2289.3281}
-  - {x: 2, y: -2.5, z: -3.3758507e+27}
-  - {x: 2, y: -3.75, z: 9.1e-44}
-  - {x: 2, y: -5, z: 5.93e-43}
-  - {x: 20, y: 0, z: -2289.3281}
-  rb: {fileID: 40998165008746689, guid: a0eb2981cc72d0841a85e67447497efb, type: 3}
 --- !u!50 &907942125218173252
 Rigidbody2D:
   serializedVersion: 4
@@ -341,6 +311,7 @@ GameObject:
   - component: {fileID: 3407477187005435147}
   - component: {fileID: 5113565257015558207}
   - component: {fileID: 3682313143645670311}
+  - component: {fileID: 4149723579803656467}
   m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
@@ -355,14 +326,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8167854319240255332}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.875, y: 0.35, z: 0}
+  m_LocalRotation: {x: -0.12225192, y: 0.08562568, z: 0.010587093, w: 0.988742}
+  m_LocalPosition: {x: 0.75813556, y: 0.40095288, z: -0.002247631}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5217646913378359335}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -14.097, y: 9.899, z: 0}
 --- !u!61 &5113565257015558207
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -427,6 +398,33 @@ MonoBehaviour:
   followSkeletonFlip: 1
   followLocalScale: 0
   initializeOnAwake: 1
+--- !u!50 &4149723579803656467
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8167854319240255332}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1001 &6881141075175668285
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570088a779e045d46a749af4ab2b1a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healbar: {fileID: 7943650241770299027, guid: 5c0243bc9d5e10e4a9bb22503f7294b4, type: 3}
+  healbar: {fileID: 0}
   Player: {fileID: 11400000, guid: 7ecdb2dd4b7a5d44c8bfbc6f027f1c50, type: 2}
   hitVFXDead: {fileID: 4203629870350764623, guid: 95c7e1dd858bb974696e894011eee16e, type: 3}
   level: 0
@@ -67,9 +67,7 @@ MonoBehaviour:
   attack: {fileID: 3407477187005435147}
   pointAttack: {fileID: 8167854319240255332}
   rb: {fileID: 907942125218173252}
-  Bot: {fileID: 0}
-  gameDead: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 6217702433326238047}
   _txtPointCoin: {fileID: 0}
   speed: 10
   skillKame: {fileID: -3475075212191199340, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
@@ -77,7 +75,6 @@ MonoBehaviour:
   skill3: {fileID: 8319474813761885605, guid: b7d7d2f1afe9e1747bc7e1a56f955f2c, type: 3}
   skill4: {fileID: -3475075212191199340, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
   skill5: {fileID: -3475075212191199340, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
-  skill2t: {fileID: 0}
   sceneName: Menu
   skeletonAnimation:
   - {fileID: 4491502475747672006, guid: 1819180e7b066934db3d79396a7ff884, type: 3}

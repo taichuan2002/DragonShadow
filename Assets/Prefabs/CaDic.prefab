@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6147665196100169305}
   m_Layer: 0
   m_Name: CaDic
-  m_TagString: Bot
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,9 +66,7 @@ MonoBehaviour:
   attack: {fileID: 2622457522968976437}
   pointAttack: {fileID: 7040748580422849398}
   rb: {fileID: 4303125873064153718}
-  Bot: {fileID: 0}
-  gameDead: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 1525263895121890181}
   _txtPointCoin: {fileID: 0}
   speed: 10
   skillKame: {fileID: -3475075212191199340, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
@@ -76,7 +74,6 @@ MonoBehaviour:
   skill3: {fileID: 8319474813761885605, guid: b7d7d2f1afe9e1747bc7e1a56f955f2c, type: 3}
   skill4: {fileID: -3475075212191199340, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
   skill5: {fileID: -3475075212191199340, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
-  skill2t: {fileID: 0}
   sceneName: Menu
   skeletonAnimation:
   - {fileID: 4491502475747672006, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
@@ -92,6 +89,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7ea98b5c456d7634eb54ee523c6d3008, type: 2}
   ListAnim:
   - {fileID: 11400000, guid: ee3a28f06e9ad1e4cb1f18969368fe46, type: 2}
+  - {fileID: 11400000, guid: ebb3755af25bf594899b78a41505b6d5, type: 2}
   - {fileID: 11400000, guid: c1e4fd9b0b29b5240a591ae4131c66cf, type: 2}
   - {fileID: 11400000, guid: 5c4e369e13fb60844b2224d37758ae69, type: 2}
   - {fileID: 11400000, guid: 832af90e4d77db44c9c0e156f7d92691, type: 2}

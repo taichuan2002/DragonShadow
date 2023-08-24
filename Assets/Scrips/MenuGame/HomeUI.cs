@@ -1,3 +1,4 @@
+using DanielLochner.Assets.SimpleScrollSnap;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -18,6 +19,8 @@ public class HomeUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] _txtPointCoins;
     [SerializeField] GameObject _panelCanel;
     [SerializeField] GameObject _panelBuycoin;
+    [SerializeField] SimpleScrollSnap[] slots;
+    [SerializeField] AutoScroll autoScroll;
 
     public string sceneName = "MapBot";
     public Animator animator;
@@ -27,6 +30,7 @@ public class HomeUI : MonoBehaviour
 
     void Start()
     {
+        autoScroll = GetComponent<AutoScroll>();
         pl = PlayerPrefs.GetInt("idPlayer");
         btn = PlayerPrefs.GetInt("btn");
         if (btn == 0)
@@ -49,7 +53,6 @@ public class HomeUI : MonoBehaviour
             clickLevelGame();
             OnInitCoin();
         }
-
     }
 
 
@@ -100,6 +103,7 @@ public class HomeUI : MonoBehaviour
         gameOver.gameObject.SetActive(true);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
+
     }
 
     public void clickLevelGame()
@@ -114,7 +118,7 @@ public class HomeUI : MonoBehaviour
         gameOver.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
-        StartCoroutine(delayLevel());
+        StartCoroutine(DelayScrollLevel());
     }
     public void clickPlay()
     {
@@ -198,9 +202,9 @@ public class HomeUI : MonoBehaviour
         OnInitCoin();
     }
 
-    IEnumerator delayLevel()
+    IEnumerator DelayLevel()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4);
         Playgame.gameObject.SetActive(true);
         maingame.gameObject.SetActive(false);
         Coingame.gameObject.SetActive(false);
@@ -211,6 +215,13 @@ public class HomeUI : MonoBehaviour
         gameOver.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
+    }
+
+    IEnumerator DelayScrollLevel()
+    {
+        yield return new WaitForSeconds(2);
+        FindAnyObjectByType<AutoScroll>().ScrollNextlevel();
+        StartCoroutine(DelayLevel());
     }
 
     public IEnumerator nextMap()
@@ -233,8 +244,6 @@ public class HomeUI : MonoBehaviour
         gameOver.gameObject.SetActive(true);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
-
-
     }
 
     IEnumerator loading()
@@ -252,7 +261,19 @@ public class HomeUI : MonoBehaviour
         _panelBuycoin.gameObject.SetActive(false);
     }
 
+    public void Scrolllevel()
+    {
+        int slotIndex = PlayerPrefs.GetInt("levelMap");
 
+        foreach (SimpleScrollSnap slot in slots)
+        {
+            if (slotIndex - 1 < 0)
+            {
+                slotIndex = 0;
+                slot.GoToPanel(slotIndex);
+            }
+        }
+    }
     public void UpdateCoin(int newCoinValue)
     {
         Coin = newCoinValue;

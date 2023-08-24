@@ -31,7 +31,7 @@ public class SpawnItem : MonoBehaviour
         randomItem = Random.Range(0, 4);
         float randomY = Random.Range(-3.9f, 3.9f);
         Vector2 spawnItem = new Vector2(10, randomY);
-        newItem = Instantiate(listItem[3], spawnItem, transform.rotation);
+        newItem = Instantiate(listItem[randomItem], spawnItem, transform.rotation);
         StartCoroutine(MoveItem(newItem));
     }
     private void SpawnPointItem2()
@@ -39,7 +39,7 @@ public class SpawnItem : MonoBehaviour
         int randomItem2 = Random.Range(0, 4);
         float randomY = Random.Range(-3.9f, 3.9f);
         Vector2 spawnItem2 = new Vector2(10, randomY);
-        newItem2 = Instantiate(listItem[3], spawnItem2, transform.rotation);
+        newItem2 = Instantiate(listItem[randomItem2], spawnItem2, transform.rotation);
         StartCoroutine(MoveItem(newItem2));
     }
     private IEnumerator SpawnListItem()

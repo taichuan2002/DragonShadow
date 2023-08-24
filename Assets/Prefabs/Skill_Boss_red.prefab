@@ -177,8 +177,32 @@ PrefabInstance:
       value: tuSkill
       objectReference: {fileID: 0}
     - target: {fileID: 2040974539243773726, guid: 690f5f8f654ff0247be46d26da9dc24c, type: 3}
+      propertyPath: ShapeModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040974539243773726, guid: 690f5f8f654ff0247be46d26da9dc24c, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040974539243773726, guid: 690f5f8f654ff0247be46d26da9dc24c, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040974539243773726, guid: 690f5f8f654ff0247be46d26da9dc24c, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040974539243773726, guid: 690f5f8f654ff0247be46d26da9dc24c, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040974539243773726, guid: 690f5f8f654ff0247be46d26da9dc24c, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040974539243773726, guid: 690f5f8f654ff0247be46d26da9dc24c, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2040974539243773726, guid: 690f5f8f654ff0247be46d26da9dc24c, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b

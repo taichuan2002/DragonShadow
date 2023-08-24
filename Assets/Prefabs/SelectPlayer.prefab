@@ -136,8 +136,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12.000003, y: -178.428}
-  m_SizeDelta: {x: 350, y: 170.138}
+  m_AnchoredPosition: {x: -16.589, y: -178.428}
+  m_SizeDelta: {x: 383.177, y: 170.138}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5810404341710466100
 CanvasRenderer:
@@ -238,7 +238,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9, y: 0}
+  m_AnchoredPosition: {x: -12, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &5640295212593058676
@@ -441,7 +441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3364475601005000811, guid: fa4d688c9fa043645824c060b6d850cf, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -167
+      value: -155
       objectReference: {fileID: 0}
     - target: {fileID: 3364475601005000811, guid: fa4d688c9fa043645824c060b6d850cf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -480,6 +480,34 @@ PrefabInstance:
     - target: {fileID: 716346048091661808, guid: ca532a83bdfc29343acd8e9dc6c5d25d, type: 3}
       propertyPath: m_Name
       value: Particle System 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4925940444355908053, guid: ca532a83bdfc29343acd8e9dc6c5d25d, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 18.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4925940444355908053, guid: ca532a83bdfc29343acd8e9dc6c5d25d, type: 3}
+      propertyPath: InitialModule.startSizeY.scalar
+      value: 2.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4925940444355908053, guid: ca532a83bdfc29343acd8e9dc6c5d25d, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime1
+      value: 41056
+      objectReference: {fileID: 0}
+    - target: {fileID: 4925940444355908053, guid: ca532a83bdfc29343acd8e9dc6c5d25d, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime2
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 4925940444355908053, guid: ca532a83bdfc29343acd8e9dc6c5d25d, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4925940444355908053, guid: ca532a83bdfc29343acd8e9dc6c5d25d, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_ColorSpace
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4925940444355908053, guid: ca532a83bdfc29343acd8e9dc6c5d25d, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_NumAlphaKeys
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7653301175332284418, guid: ca532a83bdfc29343acd8e9dc6c5d25d, type: 3}
       propertyPath: m_Pivot.x
@@ -551,7 +579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7653301175332284418, guid: ca532a83bdfc29343acd8e9dc6c5d25d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -168.96
+      value: -155
       objectReference: {fileID: 0}
     - target: {fileID: 7653301175332284418, guid: ca532a83bdfc29343acd8e9dc6c5d25d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

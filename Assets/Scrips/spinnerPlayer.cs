@@ -8,6 +8,8 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static AirFishLab.ScrollingList.ListBank;
+using static UnityEditor.Progress;
 
 public class SpinnerPlayer : MonoBehaviour
 {
@@ -31,8 +33,8 @@ public class SpinnerPlayer : MonoBehaviour
     public Transform[] obj;
     public DataPlayer[] player;
     public GameObject[] listEffect;
-    private int[] LevelSSJ = new int[5];
 
+    private int[] LevelSSJ = new int[5];
     private Vector2 ScrollPosition;
     bool isCheck = true;
     bool isCheckAnim = true;
@@ -62,6 +64,7 @@ public class SpinnerPlayer : MonoBehaviour
             scrollViewCenterPosition = obj[0].parent.position;
         }
     }
+
     private void Update()
     {
 

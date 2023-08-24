@@ -422,12 +422,10 @@ public class PlayerController : Charactor
         rb.velocity = Vector2.zero;
         skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[7], false);
         GameObject hVFX = Instantiate(hitVFX[0], transform.position, transform.rotation);
-        GameObject hVFX2 = Instantiate(hitVFX[1], transform.position, transform.rotation);
         yield return new WaitForSeconds(1f);
         skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[1], false);
         yield return new WaitForSeconds(0.5f);
         Destroy(hVFX);
-        Destroy(hVFX2);
         skillKame = Instantiate(Listskill1[0], attack.position, attack.rotation).GetComponent<SkillKame>();
         skillKame.SetDame(Damage1);
         skillKame.OnInit();
@@ -439,7 +437,7 @@ public class PlayerController : Charactor
     {
         if (vfx && !hVFX)
         {
-            hVFX = Instantiate(hitVFX[2], transform.position, transform.rotation);
+            hVFX = Instantiate(hitVFX[2], transform);
             vfx = false;
         }
         yield return new WaitForSeconds(2.5f);

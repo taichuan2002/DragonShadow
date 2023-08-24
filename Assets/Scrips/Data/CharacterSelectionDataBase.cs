@@ -64,7 +64,7 @@ public class CharacterSelectionDataBase : MonoBehaviour
                         Coin += 60;
                         PlayerPrefs.SetInt("Coin", Coin);
                         PlayerPrefs.Save();
-                        level = 10;
+                        level = 1;
                         OnInitLevelMap();
                         IsCheckDeadEnemy();
                     }
