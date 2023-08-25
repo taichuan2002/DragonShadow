@@ -142,10 +142,10 @@ public class Bot : CharactorEnemy
     public void LevelMap()
     {
         int level = PlayerPrefs.GetInt("levelMap");
-        float hpNew = maxhp + (dataEneMy.arrPowerEnemy[level] * 0.001f);
-        float dame1New = dame1 + (dataEneMy.arrPowerEnemy[level] * 0.001f);
-        float dame2New = dame2 + (dataEneMy.arrPowerEnemy[level] * 0.001f);
-        float dame3New = dame3 + (dataEneMy.arrPowerEnemy[level] * 0.001f);
+        float hpNew = maxhp + ((dataEneMy.arrPowerEnemy[level] * 0.005f) * (0.1f * level));
+        float dame1New = dame1 + ((dataEneMy.arrPowerEnemy[level] * 0.001f) * 0.45f);
+        float dame2New = dame2 + ((dataEneMy.arrPowerEnemy[level] * 0.001f) * 0.25f);
+        float dame3New = dame3 + ((dataEneMy.arrPowerEnemy[level] * 0.001f) * 0.65f);
         dame1 = dame1New;
         dame2 = dame2New;
         dame3 = dame3New;

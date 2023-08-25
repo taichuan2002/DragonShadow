@@ -90,6 +90,7 @@
     <Compile Include="Assets\Spine Examples\Scripts\SpineboyPole.cs" />
     <Compile Include="Assets\Scrips\SkillPlayer\testSkill2.cs" />
     <Compile Include="Assets\Spine\spine-unity\Asset Types\AtlasAsset.cs" />
+    <Compile Include="Assets\testScroll.cs" />
     <Compile Include="Assets\Scrips\Data\DataEneMy\DataPicolo.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />

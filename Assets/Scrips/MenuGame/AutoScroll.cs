@@ -4,46 +4,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class AutoScroll : MonoBehaviour
 {
-    [SerializeField] SimpleScrollSnap[] slots;
-    int slotIndex;
-    private void Start()
+    public ScrollRect scrollRect;
+    public RectTransform content;
+    public int itemCount = 10;
+    public float itemHeight = 100f;
+    public float spacing = 10f;
+    bool isCheck = false;
+    void Start()
     {
-        slotIndex = PlayerPrefs.GetInt("levelMap");
-        Scrolllevel();
+        float contentHeight = itemCount * (itemHeight + spacing) - spacing;
+        content.sizeDelta = new Vector2(content.sizeDelta.x, contentHeight);
     }
-    private void Awake()
-    {
-        Scrolllevel();
-    }
-    public void Scrolllevel()
-    {
 
-        foreach (SimpleScrollSnap slot in slots)
+    public IEnumerator ScrollItem(int index, bool dead)
+    {
+        if (!dead)
         {
-            slot.GoToPanel(0);
+            float offsetY = index * (itemHeight + spacing) - content.rect.height / 2 + itemHeight / 2;
+            float offsetY2 = (index + 1) * (itemHeight + spacing) - content.rect.height / 2 + itemHeight / 2;
+            Vector2 targetPosition = new Vector2(content.localPosition.x, -offsetY);
+            content.localPosition = targetPosition;
+            yield return new WaitForSeconds(2);
+            content.DOAnchorPosY(-offsetY2, 2);
+        }
+        else
+        {
+            float offsetY = (index + 2) * (itemHeight + spacing) - content.rect.height / 2 + itemHeight / 2;
+            float offsetY2 = index * (itemHeight + spacing) - content.rect.height / 2 + itemHeight / 2;
+            Vector2 targetPosition = new Vector2(content.localPosition.x, -offsetY);
+            content.localPosition = targetPosition;
+            yield return new WaitForSeconds(2);
+            content.DOAnchorPosY(-offsetY2, 2);
         }
     }
 
-    public void ScrollNextlevel()
+    public void ItemCenter(bool dead)
     {
-        foreach (SimpleScrollSnap slot in slots)
-        {
-            slot.GoToPanel(slotIndex);
-        }
-    }
-    public void ScrollDefault()
-    {
-        foreach (SimpleScrollSnap slot in slots)
-        {
-            slot.GoToPanel(slotIndex - 1);
-        }
-    }
-
-    private void OnEnable()
-    {
-        Scrolllevel();
+        int level = PlayerPrefs.GetInt("levelMap");
+        StartCoroutine(ScrollItem(level, dead));
     }
 }

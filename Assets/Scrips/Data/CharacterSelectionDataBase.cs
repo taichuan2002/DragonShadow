@@ -237,18 +237,17 @@ public class CharacterSelectionDataBase : MonoBehaviour
                             enemy2.transform.SetParent(healingEnemy.transform);
                             spownEnemy2 = true;
                         }
-                        if (enemy2 == null)
+                        if (enemy2 == null && enemy1 == null)
                         {
                             if (!spownEnemy3)
                             {
                                 PlayerPrefs.SetInt("IdEnemy", 3);
                                 PlayerPrefs.Save();
-
                                 enemy3 = Instantiate(arrEnemys[2], StartPointEnemy.position, Quaternion.identity);
                                 enemy3.transform.SetParent(healingEnemy.transform);
                                 spownEnemy3 = true;
                             }
-                            if (enemy3 == null)
+                            if (enemy3 == null && enemy2 == null && enemy1 == null)
                             {
                                 int Coin = PlayerPrefs.GetInt("Coin");
                                 Coin += 60;

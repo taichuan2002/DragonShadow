@@ -506,11 +506,11 @@ public class PlayerController : Charactor
     }
     public void LevelUpSSJ()
     {
-        float hpNew = maxhp + (maxhp * 0.25f);
-        float dame1New = Damage1 + (playerData.arrPower[levelValue] * 0.001f);
-        float dame2New = Damage2 + (playerData.arrPower[levelValue] * 0.001f);
-        float dame3New = Damage3 + (playerData.arrPower[levelValue] * 0.001f);
-        float dame4New = Damage4 + (playerData.arrPower[levelValue] * 0.001f);
+        float hpNew = maxhp + ((playerData.arrPower[levelValue] * 0.001f) * (0.1f * levelValue));
+        float dame1New = Damage1 + (((playerData.arrPower[levelValue] * 0.001f) * 0.35f));
+        float dame2New = Damage2 + (((playerData.arrPower[levelValue] * 0.001f) * 0.10f));
+        float dame3New = Damage3 + (((playerData.arrPower[levelValue] * 0.001f) * 0.55f));
+        float dame4New = Damage4 + (((playerData.arrPower[levelValue] * 0.001f) * 0.35f));
         Damage1 = dame1New;
         Damage2 = dame2New;
         Damage3 = dame3New;

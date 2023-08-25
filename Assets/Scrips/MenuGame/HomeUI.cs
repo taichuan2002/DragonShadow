@@ -30,7 +30,6 @@ public class HomeUI : MonoBehaviour
 
     void Start()
     {
-        autoScroll = GetComponent<AutoScroll>();
         pl = PlayerPrefs.GetInt("idPlayer");
         btn = PlayerPrefs.GetInt("btn");
         if (btn == 0)
@@ -118,7 +117,8 @@ public class HomeUI : MonoBehaviour
         gameOver.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
-        StartCoroutine(DelayScrollLevel());
+        FindObjectOfType<AutoScroll>().ItemCenter(false);
+        //StartCoroutine(DelayScrollLevel());
     }
     public void clickPlay()
     {
@@ -220,7 +220,6 @@ public class HomeUI : MonoBehaviour
     IEnumerator DelayScrollLevel()
     {
         yield return new WaitForSeconds(2);
-        FindAnyObjectByType<AutoScroll>().ScrollNextlevel();
         StartCoroutine(DelayLevel());
     }
 
