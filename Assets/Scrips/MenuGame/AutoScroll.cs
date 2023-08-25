@@ -16,19 +16,24 @@ public class AutoScroll : MonoBehaviour
     bool isCheck = false;
     void Start()
     {
+
+    }
+    private void Update()
+    {
+        //.ItemCenter();
+    }
+    public IEnumerator ScrollItem(int index)
+    {
         float contentHeight = itemCount * (itemHeight + spacing) - spacing;
         content.sizeDelta = new Vector2(content.sizeDelta.x, contentHeight);
-    }
-
-    public IEnumerator ScrollItem(int index, bool dead)
-    {
-        if (!dead)
+        int dead = PlayerPrefs.GetInt("isDead");
+        if (dead == 0)
         {
-            float offsetY = index * (itemHeight + spacing) - content.rect.height / 2 + itemHeight / 2;
-            float offsetY2 = (index + 1) * (itemHeight + spacing) - content.rect.height / 2 + itemHeight / 2;
+            float offsetY = (index - 1) * (itemHeight + spacing) - content.rect.height / 2 + itemHeight / 2;
+            float offsetY2 = index * (itemHeight + spacing) - content.rect.height / 2 + itemHeight / 2;
             Vector2 targetPosition = new Vector2(content.localPosition.x, -offsetY);
             content.localPosition = targetPosition;
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1.5f);
             content.DOAnchorPosY(-offsetY2, 2);
         }
         else
@@ -37,14 +42,21 @@ public class AutoScroll : MonoBehaviour
             float offsetY2 = index * (itemHeight + spacing) - content.rect.height / 2 + itemHeight / 2;
             Vector2 targetPosition = new Vector2(content.localPosition.x, -offsetY);
             content.localPosition = targetPosition;
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1.5f);
             content.DOAnchorPosY(-offsetY2, 2);
+            PlayerPrefs.SetInt("isDead", 0);
         }
     }
 
-    public void ItemCenter(bool dead)
+    public void ItemCenter()
     {
         int level = PlayerPrefs.GetInt("levelMap");
-        StartCoroutine(ScrollItem(level, dead));
+        StartCoroutine(ScrollItem(level));
     }
+
+    private void OnEnable()
+    {
+        ItemCenter();
+    }
+
 }

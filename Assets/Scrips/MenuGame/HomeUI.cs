@@ -16,11 +16,10 @@ public class HomeUI : MonoBehaviour
     [SerializeField] Transform Levelgame;
     [SerializeField] Transform LoadingMain;
     [SerializeField] Transform gameOver;
-    [SerializeField] TextMeshProUGUI[] _txtPointCoins;
     [SerializeField] GameObject _panelCanel;
     [SerializeField] GameObject _panelBuycoin;
-    [SerializeField] SimpleScrollSnap[] slots;
     [SerializeField] AutoScroll autoScroll;
+    [SerializeField] TextMeshProUGUI[] _txtPointCoins;
 
     public string sceneName = "MapBot";
     public Animator animator;
@@ -117,8 +116,7 @@ public class HomeUI : MonoBehaviour
         gameOver.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
-        FindObjectOfType<AutoScroll>().ItemCenter(false);
-        //StartCoroutine(DelayScrollLevel());
+        StartCoroutine(DelayScrollLevel());
     }
     public void clickPlay()
     {
@@ -204,6 +202,8 @@ public class HomeUI : MonoBehaviour
 
     IEnumerator DelayLevel()
     {
+
+        FindObjectOfType<AutoScroll>().ItemCenter();
         yield return new WaitForSeconds(4);
         Playgame.gameObject.SetActive(true);
         maingame.gameObject.SetActive(false);
@@ -260,19 +260,6 @@ public class HomeUI : MonoBehaviour
         _panelBuycoin.gameObject.SetActive(false);
     }
 
-    public void Scrolllevel()
-    {
-        int slotIndex = PlayerPrefs.GetInt("levelMap");
-
-        foreach (SimpleScrollSnap slot in slots)
-        {
-            if (slotIndex - 1 < 0)
-            {
-                slotIndex = 0;
-                slot.GoToPanel(slotIndex);
-            }
-        }
-    }
     public void UpdateCoin(int newCoinValue)
     {
         Coin = newCoinValue;

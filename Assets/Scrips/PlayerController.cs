@@ -116,6 +116,7 @@ public class PlayerController : Charactor
         }
         if (hp == 0)
         {
+            PlayerPrefs.SetInt("isDead", 1);
             playerData.isDead = true;
             Destroy(gameObject);
         }
