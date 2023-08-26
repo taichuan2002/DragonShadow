@@ -14,14 +14,7 @@ public class AutoScroll : MonoBehaviour
     public float itemHeight = 100f;
     public float spacing = 10f;
     bool isCheck = false;
-    void Start()
-    {
 
-    }
-    private void Update()
-    {
-        //.ItemCenter();
-    }
     public IEnumerator ScrollItem(int index)
     {
         float contentHeight = itemCount * (itemHeight + spacing) - spacing;

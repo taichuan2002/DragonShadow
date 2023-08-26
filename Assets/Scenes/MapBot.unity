@@ -348,17 +348,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &162152501 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5643984298466176485, guid: 5c0243bc9d5e10e4a9bb22503f7294b4, type: 3}
-  m_PrefabInstance: {fileID: 1700535662}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &183841325
 GameObject:
   m_ObjectHideFlags: 0
@@ -1943,7 +1932,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -498, y: 0}
+  m_AnchoredPosition: {x: -497.99994, y: 0}
   m_SizeDelta: {x: -1820, y: -978}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1086857414
@@ -2063,7 +2052,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -960.0001, y: 0}
+  m_AnchoredPosition: {x: -960.0002, y: 0}
   m_SizeDelta: {x: -1920, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1154492682
@@ -2435,10 +2424,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 68459656}
-    - target: {fileID: 7943650241770299027, guid: 5c0243bc9d5e10e4a9bb22503f7294b4, type: 3}
-      propertyPath: imgFillmana
-      value: 
-      objectReference: {fileID: 162152501}
     - target: {fileID: 8028794289585617294, guid: 5c0243bc9d5e10e4a9bb22503f7294b4, type: 3}
       propertyPath: m_Name
       value: Canvas_Heal
@@ -2527,8 +2512,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 9163737458010499361, guid: 5c0243bc9d5e10e4a9bb22503f7294b4, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2775,6 +2759,7 @@ MonoBehaviour:
   healingPlayer: {fileID: 1502794443}
   healbarEnemy: {fileID: 1219101943}
   healbarPlayer: {fileID: 1683636089}
+  _txtEnemyDead: {fileID: 0}
   characters:
   - {fileID: 6217702433326238047, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
   - {fileID: 6217702433326238047, guid: a69f3e7560a1d3d4483d0a9c403c11d7, type: 3}

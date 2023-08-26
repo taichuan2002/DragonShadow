@@ -16,18 +16,20 @@ public class PlayerController : Charactor
     public static DataPlayer playerData;
     [SerializeField] GameObject player;
     [SerializeField] TextMeshProUGUI _txtPointCoin;
+    [SerializeField] TextMeshProUGUI _txtLevelSSJ;
     [SerializeField] float speed;
     [SerializeField] Skin sk;
     [SerializeField] SkillKame skillKame;
     [SerializeField] Skill2 skill2;
+    [SerializeField] testSkill2 testskill2;
     [SerializeField] Skill3 skill3;
     [SerializeField] SkillKame skill4;
-    [SerializeField] SkillKame skill5;
+    [SerializeField] Skill5 skill5;
     [SerializeField] string sceneName = "Menu";
     [SerializeField] SkeletonAnimation[] skeletonAnimation;
     [SerializeField] DataPlayer[] data;
     [SerializeField] AnimationReferenceAsset[] ListAnim;
-    [SerializeField] GameObject[] Listskill1;
+    [SerializeField] GameObject[] Listskill;
     [SerializeField] GameObject[] hitVFX;
     [SerializeField] GameObject VfxArmor;
     [SerializeField] Vector3[] v3;
@@ -64,6 +66,8 @@ public class PlayerController : Charactor
     {
 
         GameObject PointCoin = GameObject.FindGameObjectWithTag("PointCoin");
+        GameObject LevelSSj = GameObject.FindGameObjectWithTag("LevelSSJ");
+        _txtLevelSSJ = LevelSSj.GetComponent<TextMeshProUGUI>();
         _txtPointCoin = PointCoin.GetComponent<TextMeshProUGUI>();
         Button[] btns = GameObject.FindObjectsOfType<Button>();
         if (isAttack)
@@ -202,6 +206,7 @@ public class PlayerController : Charactor
                     healbar.SetNewMana(mana);
                     skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[6], false);
                     levelValue++;
+                    _txtLevelSSJ.text = "SSJ ." + levelValue;
                     level = levelValue.ToString();
                     skeletonAnimation[center].skeleton.SetSkin(level);
                     StartCoroutine(DelayIdle());
@@ -299,13 +304,9 @@ public class PlayerController : Charactor
             {
                 isAttack = true;
                 skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[2], false);
-                skill2 = Instantiate(Listskill1[1], attack.position, attack.rotation).GetComponent<Skill2>();
-                skill2 = Instantiate(Listskill1[1], attack.position, attack.rotation).GetComponent<Skill2>();
-                skill2 = Instantiate(Listskill1[1], attack.position, attack.rotation).GetComponent<Skill2>();
-                skill2 = Instantiate(Listskill1[1], attack.position, attack.rotation).GetComponent<Skill2>();
-                skill2 = Instantiate(Listskill1[1], attack.position, attack.rotation).GetComponent<Skill2>();
-                skill2.SetDame(Damage2);
-                skill2.OnInit();
+                skill2 = GetComponent<Skill2>();
+                testskill2 = Instantiate(Listskill[1], attack.position, attack.rotation).GetComponent<testSkill2>();
+                //skill2.SetDame(Damage2);
                 OnSkill(25);
                 StartCoroutine(DelayIdle());
             }
@@ -318,22 +319,20 @@ public class PlayerController : Charactor
     }
     public void Skill3()
     {
-        if (isAttack)
+
+        if (mana >= 15)
         {
-            if (mana >= 15)
-            {
-                isAttack = false;
-                skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[3], false);
-                skill3 = Instantiate(Listskill1[2], attack.position, attack.rotation).GetComponent<Skill3>();
-                skill3.SetDame(Damage3);
-                skill3.OnInit();
-                OnSkill(15);
-                StartCoroutine(DelayIdle());
-            }
-            else
-            {
-                Debug.Log("Yếu Sinh Lý");
-            }
+            isAttack = false;
+            skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[3], false);
+            skill3 = Instantiate(Listskill[2], attack.position, attack.rotation).GetComponent<Skill3>();
+            skill3.SetDame(Damage3);
+            skill3.OnInit();
+            OnSkill(15);
+            StartCoroutine(DelayIdle());
+        }
+        else
+        {
+            Debug.Log("Yếu Sinh Lý");
         }
     }
     public void Skill4()
@@ -360,7 +359,7 @@ public class PlayerController : Charactor
             {
                 isAttack = false;
                 skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[5], false);
-                skill5 = Instantiate(Listskill1[4], attack.position, attack.rotation).GetComponent<SkillKame>();
+                skill5 = Instantiate(Listskill[4], attack.position, attack.rotation).GetComponent<Skill5>();
                 skill5.SetDame(Damage4);
                 skill5.OnInit();
                 OnSkill(40);
@@ -411,7 +410,7 @@ public class PlayerController : Charactor
         yield return new WaitForSeconds(1f);
         skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[4], false);
         yield return new WaitForSeconds(0.5f);
-        skill4 = Instantiate(Listskill1[3], attack.position, attack.rotation).GetComponent<SkillKame>();
+        skill4 = Instantiate(Listskill[3], attack.position, attack.rotation).GetComponent<SkillKame>();
         skill4.SetDame(Damage4);
         skill4.OnInit();
         OnSkill(40);
@@ -427,7 +426,7 @@ public class PlayerController : Charactor
         skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[1], false);
         yield return new WaitForSeconds(0.5f);
         Destroy(hVFX);
-        skillKame = Instantiate(Listskill1[0], attack.position, attack.rotation).GetComponent<SkillKame>();
+        skillKame = Instantiate(Listskill[0], attack.position, attack.rotation).GetComponent<SkillKame>();
         skillKame.SetDame(Damage1);
         skillKame.OnInit();
         StartCoroutine(DelayIdle());

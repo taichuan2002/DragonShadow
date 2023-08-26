@@ -88,9 +88,9 @@
     <Compile Include="Assets\Scrips\Data\DataCharacter\DataPlayer.cs" />
     <Compile Include="Assets\Scrips\DeadZone.cs" />
     <Compile Include="Assets\Spine Examples\Scripts\SpineboyPole.cs" />
+    <Compile Include="Assets\testScroll.cs" />
     <Compile Include="Assets\Scrips\SkillPlayer\testSkill2.cs" />
     <Compile Include="Assets\Spine\spine-unity\Asset Types\AtlasAsset.cs" />
-    <Compile Include="Assets\testScroll.cs" />
     <Compile Include="Assets\Scrips\Data\DataEneMy\DataPicolo.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
@@ -187,7 +187,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Spine\spine-csharp\AnimationStateData.cs" />
     <Compile Include="Assets\Spine\spine-unity\Modules\SkeletonGraphic\SkeletonGraphic.cs" />
-    <Compile Include="Assets\textt.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\Spine Examples\Scripts\SpineGauge.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
@@ -216,7 +215,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\Spine\spine-csharp\IUpdatable.cs" />
     <Compile Include="Assets\Spine\spine-unity\Components\SkeletonRenderer.cs" />
-    <Compile Include="Assets\tesss.cs" />
     <Compile Include="Assets\Spine\spine-csharp\SkeletonBinary.cs" />
     <Compile Include="Assets\Spine\spine-unity\Modules\Timeline\SpineSkeletonFlip\SpineSkeletonFlipMixerBehaviour.cs" />
     <Compile Include="Assets\Scrips\MenuGame\BlurScrollview.cs" />
@@ -260,6 +258,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scrips\Charactor.cs" />
     <Compile Include="Assets\Spine\spine-unity\Asset Types\RegionlessAttachmentLoader.cs" />
+    <Compile Include="Assets\testSkill.cs" />
     <Compile Include="Assets\Scrips\Data\DataEneMy\DataTau77.cs" />
     <Compile Include="Assets\Spine\spine-csharp\Attachments\PathAttachment.cs" />
     <Compile Include="Assets\Scrips\SkillBot\SkillBot2.cs" />

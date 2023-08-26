@@ -71,9 +71,10 @@ MonoBehaviour:
   speed: 10
   skillKame: {fileID: -3475075212191199340, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
   skill2: {fileID: -37256157469624391, guid: a0eb2981cc72d0841a85e67447497efb, type: 3}
+  testskill2: {fileID: 0}
   skill3: {fileID: 8319474813761885605, guid: b7d7d2f1afe9e1747bc7e1a56f955f2c, type: 3}
   skill4: {fileID: -3475075212191199340, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
-  skill5: {fileID: -3475075212191199340, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
+  skill5: {fileID: 2678809213584109010, guid: 8084a41e7dad4c54b954018c46a77ce1, type: 3}
   sceneName: Menu
   skeletonAnimation:
   - {fileID: 4491502475747672006, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
@@ -97,12 +98,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c39dcc938b92a2442973e1a9b6e65b91, type: 2}
   - {fileID: 11400000, guid: 117e795148ea869458375ac6a78dd3c5, type: 2}
   - {fileID: 11400000, guid: ce8b50ad258c57346bffccbaace92c02, type: 2}
-  Listskill1:
+  Listskill:
   - {fileID: 5939223519511088215, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
-  - {fileID: 8550975513353579464, guid: a0eb2981cc72d0841a85e67447497efb, type: 3}
+  - {fileID: 557626459166625674, guid: f5e66d8614e1e66499abbcf5221cae51, type: 3}
   - {fileID: 4735220195234345782, guid: b7d7d2f1afe9e1747bc7e1a56f955f2c, type: 3}
   - {fileID: 5939223519511088215, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
-  - {fileID: 5939223519511088215, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
+  - {fileID: 7478233077901820184, guid: 8084a41e7dad4c54b954018c46a77ce1, type: 3}
   hitVFX:
   - {fileID: 534253543124306992, guid: 442e175363065cb4cabb778c7db55142, type: 3}
   - {fileID: 206865772777619958, guid: 690f5f8f654ff0247be46d26da9dc24c, type: 3}

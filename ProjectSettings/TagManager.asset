@@ -18,6 +18,8 @@ TagManager:
   - btnTags
   - HealingEnemy
   - skillEnemy
+  - LevelSSJ
+  - EnemyDead
   layers:
   - Default
   - TransparentFX

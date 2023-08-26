@@ -25,7 +25,6 @@ public class Skill5 : MonoBehaviour
     public void SetDame(float dame)
     {
         Dame = dame;
-
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
