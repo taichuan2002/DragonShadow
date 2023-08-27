@@ -15,6 +15,7 @@ public class PlayerController : Charactor
     [SerializeField] Rigidbody2D rb;
     public static DataPlayer playerData;
     [SerializeField] GameObject player;
+    [SerializeField] Image ImgPlayer;
     [SerializeField] TextMeshProUGUI _txtPointCoin;
     [SerializeField] TextMeshProUGUI _txtLevelSSJ;
     [SerializeField] float speed;
@@ -67,8 +68,10 @@ public class PlayerController : Charactor
 
         GameObject PointCoin = GameObject.FindGameObjectWithTag("PointCoin");
         GameObject LevelSSj = GameObject.FindGameObjectWithTag("LevelSSJ");
+        GameObject imgPl = GameObject.FindGameObjectWithTag("ImgPlayer");
         _txtLevelSSJ = LevelSSj.GetComponent<TextMeshProUGUI>();
         _txtPointCoin = PointCoin.GetComponent<TextMeshProUGUI>();
+        ImgPlayer = imgPl.GetComponent<Image>();
         Button[] btns = GameObject.FindObjectsOfType<Button>();
         if (isAttack)
         {
@@ -208,6 +211,7 @@ public class PlayerController : Charactor
                     levelValue++;
                     _txtLevelSSJ.text = "SSJ ." + levelValue;
                     level = levelValue.ToString();
+                    ImgPlayer.sprite = playerData.listSprite[levelValue];
                     skeletonAnimation[center].skeleton.SetSkin(level);
                     StartCoroutine(DelayIdle());
                 }
@@ -264,6 +268,8 @@ public class PlayerController : Charactor
             Debug.LogError("SkeletonAnimation component not found!");
         }
         mousePos = transform.position;
+        ImgPlayer.sprite = playerData.listSprite[0];
+
     }
 
     public void OnInitCoin()

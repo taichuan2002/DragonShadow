@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class Bot : CharactorEnemy
 {
@@ -12,7 +14,7 @@ public class Bot : CharactorEnemy
     public string sceneName = "Menu";
     public static DataEneMy dataEneMy;
     [SerializeField] DataEneMy[] data;
-
+    [SerializeField] Image imgEnemy;
     [SerializeField] private Vector2[] listPoint;
     [SerializeField] private GameObject[] Listskill;
     [SerializeField] private AnimationReferenceAsset[] listEnim;
@@ -28,6 +30,8 @@ public class Bot : CharactorEnemy
     bool isAttack = true;
     public void Start()
     {
+        GameObject img = GameObject.FindGameObjectWithTag("ImgEnemy");
+        imgEnemy = img.GetComponent<Image>();
         center = PlayerPrefs.GetInt("IdEnemy");
         dataEneMy = data[center];
         maxhp = dataEneMy.maxHp;
@@ -41,6 +45,7 @@ public class Bot : CharactorEnemy
         {
             Debug.LogError("SkeletonAnimation component not found!");
         }
+        imgEnemy.sprite = dataEneMy.ImgEnemy;
         StartCoroutine(RunPoint());
         StartCoroutine(SpamSkill());
     }

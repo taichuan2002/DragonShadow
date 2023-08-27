@@ -385,7 +385,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.7498169, y: -0.29125977}
+  m_AnchoredPosition: {x: 1.7497559, y: -0.29125977}
   m_SizeDelta: {x: 3.5004, y: 0.58252}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &183841327
@@ -1387,7 +1387,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.7501221, y: 0}
+  m_AnchoredPosition: {x: 1.75, y: 0}
   m_SizeDelta: {x: 3.5, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &743610750
@@ -3240,6 +3240,10 @@ PrefabInstance:
     - target: {fileID: 6951263700799603135, guid: 98db376e60b1b2b4db71ef04db58d24f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7048003981168609021, guid: 98db376e60b1b2b4db71ef04db58d24f, type: 3}
+      propertyPath: m_TagString
+      value: ImgEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
