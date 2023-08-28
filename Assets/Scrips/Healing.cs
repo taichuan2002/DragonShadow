@@ -17,6 +17,7 @@ public class Healing : MonoBehaviour
     public float Damage2;
     public float Damage3;
     public float Damage4;
+    public float Damage5;
 
     private void Start()
     {
@@ -29,6 +30,7 @@ public class Healing : MonoBehaviour
         this.Damage2 = Player[id].DamageAttack2;
         this.Damage3 = Player[id].DamageAttack3;
         this.Damage4 = Player[id].DamageAttack4;
+        this.Damage5 = Player[id].DamageAttack5;
 
     }
 
@@ -82,11 +84,12 @@ public class Healing : MonoBehaviour
     {
         mana -= manax;
     }
-    public void SetNewDame(float dame1, float dame2, float dame3, float dame4)
+    public void SetNewDame(float dame1, float dame2, float dame3, float dame4, float dame5)
     {
         Damage1 = dame1;
         Damage2 = dame2;
         Damage3 = dame3;
         Damage4 = dame4;
+        Damage5 = dame5;
     }
 }

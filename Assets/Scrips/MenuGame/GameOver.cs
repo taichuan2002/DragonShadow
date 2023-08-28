@@ -1,8 +1,10 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour
 {
@@ -11,19 +13,21 @@ public class GameOver : MonoBehaviour
     [SerializeField] DataPlayer[] player;
     [SerializeField] DataEneMy[] Enemy;
     [SerializeField] TextMeshProUGUI[] _txtPointCoins;
-
+    [SerializeField] Image _ImgPlayer;
+    int Number;
     int pl, Coin;
     void Start()
     {
         PlayerPrefs.SetInt("btn", 0);
         PlayerPrefs.Save();
+        _ImgPlayer.transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
         pl = PlayerPrefs.GetInt("idPlayer");
         int tongCoin = PlayerPrefs.GetInt("tongCoin");
         Coin = PlayerPrefs.GetInt("Coin");
         _txtPointCoins[0].text = Coin.ToString();
         _txtPointCoins[1].text = tongCoin.ToString();
-
-
+        Number = PlayerPrefs.GetInt("SSJ");
+        _ImgPlayer.sprite = PlayerController.playerData.listSprite[Number];
         if (PlayerController.playerData.isDead)
         {
             _deadGame.SetActive(true);
@@ -49,6 +53,7 @@ public class GameOver : MonoBehaviour
             _txtPointCoins[3].text = tongCoin.ToString();
         }
     }
+
 
     public void BtnHome()
     {

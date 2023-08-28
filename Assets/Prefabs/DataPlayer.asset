@@ -20,10 +20,11 @@ MonoBehaviour:
   currentLevel: 15
   maxHp: 101
   maxMana: 100
-  DamageAttack1: 30
-  DamageAttack2: 2
+  DamageAttack1: 22
+  DamageAttack2: 3
   DamageAttack3: 10
-  DamageAttack4: 15
+  DamageAttack4: 45
+  DamageAttack5: 30
   isDead: 0
   Immortal: 0
   listSprite:

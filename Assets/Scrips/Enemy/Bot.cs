@@ -120,18 +120,21 @@ public class Bot : CharactorEnemy
                 switch (rd)
                 {
                     case 0:
+                        StartCoroutine(DelaySkill());
                         skill1 = Instantiate(Listskill[0], attack.position, attack.rotation).GetComponent<SkillBot>();
                         skill1.SetDame1(dame1);
                         skill1.OnInit();
                         isCheckSkill = true;
                         break;
                     case 1:
+                        StartCoroutine(DelaySkill());
                         skill2 = Instantiate(Listskill[1], attack.position, attack.rotation).GetComponent<SkillBot2>();
                         skill2.SetDame2(dame2);
                         skill2.OnInit();
                         isCheckSkill = true;
                         break;
                     case 2:
+                        StartCoroutine(DelaySkill());
                         skill3 = Instantiate(Listskill[2], attack.position, attack.rotation).GetComponent<SkillBot3>();
                         skill3.SetDame3(dame3);
                         skill3.OnInit();
@@ -159,5 +162,9 @@ public class Bot : CharactorEnemy
         healbar.OnInit(hpNew);
     }
 
+    IEnumerator DelaySkill()
+    {
+        yield return new WaitForSeconds(1);
+    }
 
 }

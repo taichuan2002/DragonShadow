@@ -92,7 +92,6 @@ public class PlayerController : Charactor
 
     private void Update()
     {
-
         string targetObjectName = "Canvas_Heal";
         GameObject heal = GameObject.Find(targetObjectName);
         if (!isCheck)
@@ -211,6 +210,8 @@ public class PlayerController : Charactor
                     levelValue++;
                     _txtLevelSSJ.text = "SSJ ." + levelValue;
                     level = levelValue.ToString();
+                    PlayerPrefs.SetInt("SSJ", levelValue);
+                    PlayerPrefs.Save();
                     ImgPlayer.sprite = playerData.listSprite[levelValue];
                     skeletonAnimation[center].skeleton.SetSkin(level);
                     StartCoroutine(DelayIdle());
@@ -345,7 +346,7 @@ public class PlayerController : Charactor
     {
         if (isAttack)
         {
-            if (mana >= 40)
+            if (mana >= 70)
             {
                 isAttack = false;
                 skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[8], false);
@@ -361,14 +362,13 @@ public class PlayerController : Charactor
     {
         if (isAttack)
         {
-            if (mana >= 40)
+            if (mana >= 45)
             {
-                isAttack = false;
                 skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[5], false);
                 skill5 = Instantiate(Listskill[4], attack.position, attack.rotation).GetComponent<Skill5>();
-                skill5.SetDame(Damage4);
+                skill5.SetDame(Damage5);
                 skill5.OnInit();
-                OnSkill(40);
+                OnSkill(45);
                 StartCoroutine(DelayIdle());
             }
             else
@@ -419,7 +419,7 @@ public class PlayerController : Charactor
         skill4 = Instantiate(Listskill[3], attack.position, attack.rotation).GetComponent<SkillKame>();
         skill4.SetDame(Damage4);
         skill4.OnInit();
-        OnSkill(40);
+        OnSkill(70);
         StartCoroutine(DelayIdle());
     }
     IEnumerator DelaySkill1()
@@ -513,15 +513,17 @@ public class PlayerController : Charactor
     public void LevelUpSSJ()
     {
         float hpNew = maxhp + ((playerData.arrPower[levelValue] * 0.001f) * (0.1f * levelValue));
-        float dame1New = Damage1 + (((playerData.arrPower[levelValue] * 0.001f) * 0.35f));
+        float dame1New = Damage1 + (((playerData.arrPower[levelValue] * 0.001f) * 0.31f));
         float dame2New = Damage2 + (((playerData.arrPower[levelValue] * 0.001f) * 0.10f));
-        float dame3New = Damage3 + (((playerData.arrPower[levelValue] * 0.001f) * 0.55f));
-        float dame4New = Damage4 + (((playerData.arrPower[levelValue] * 0.001f) * 0.35f));
+        float dame3New = Damage3 + (((playerData.arrPower[levelValue] * 0.001f) * 0.19f));
+        float dame4New = Damage4 + (((playerData.arrPower[levelValue] * 0.001f) * 0.57f));
+        float dame5New = Damage5 + (((playerData.arrPower[levelValue] * 0.001f) * 0.40f));
         Damage1 = dame1New;
         Damage2 = dame2New;
         Damage3 = dame3New;
         Damage4 = dame4New;
-        SetDame(dame1New, dame2New, dame3New, dame4New);
+        Damage5 = dame5New;
+        SetDame(dame1New, dame2New, dame3New, dame4New, dame5New);
         maxhp = hpNew;
     }
 }

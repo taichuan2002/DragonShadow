@@ -19,6 +19,7 @@ public class Charactor : MonoBehaviour
     public float Damage2;
     public float Damage3;
     public float Damage4;
+    public float Damage5;
     public bool isDead => hp <= 0f;
     private void Start()
     {
@@ -38,6 +39,7 @@ public class Charactor : MonoBehaviour
         Damage2 = Player.DamageAttack2;
         Damage3 = Player.DamageAttack3;
         Damage4 = Player.DamageAttack4;
+        Damage5 = Player.DamageAttack5;
         healbar.OnInit(maxhp, maxmana);
     }
 
@@ -83,13 +85,14 @@ public class Charactor : MonoBehaviour
             healbar.SetNewMana(mana);
         }
     }
-    public void SetDame(float dame1, float dame2, float dame3, float dame4)
+    public void SetDame(float dame1, float dame2, float dame3, float dame4, float dame5)
     {
         Damage1 = dame1;
         Damage2 = dame2;
         Damage3 = dame3;
         Damage4 = dame4;
-        healbar.SetNewDame(Damage1, Damage2, Damage3, Damage4);
+        Damage5 = dame5;
+        healbar.SetNewDame(Damage1, Damage2, Damage3, Damage4, Damage5);
     }
 
 }

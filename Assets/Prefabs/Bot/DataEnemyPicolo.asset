@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DataEnemyPicolo
   m_EditorClassIdentifier: 
   bot: {fileID: 7937110190757403894, guid: 00b078245e0708640a895a721a89abd0, type: 3}
-  ImgEnemy: {fileID: 21300000, guid: e5a8e8d861f62472d8f99611cf9d12c5, type: 3}
+  ImgEnemy: {fileID: 21300000, guid: 886dbcb9aa1fa1d449ce20031ff9ba6b, type: 3}
   botName: Picolo
   maxHp: 100
   Dame1: 25

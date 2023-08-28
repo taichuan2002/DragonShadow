@@ -24,6 +24,7 @@ MonoBehaviour:
   DamageAttack2: 2
   DamageAttack3: 10
   DamageAttack4: 15
+  DamageAttack5: 27
   isDead: 0
   Immortal: 0
   listSprite:
