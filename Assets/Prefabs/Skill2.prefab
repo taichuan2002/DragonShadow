@@ -60,6 +60,7 @@ MonoBehaviour:
   - {x: 2, y: -5, z: 5.93e-43}
   - {x: 20, y: 0, z: -2289.3281}
   - {x: 2, y: 0.45, z: -2289.3281}
+  skill2: {fileID: -37256157469624391, guid: a0eb2981cc72d0841a85e67447497efb, type: 3}
 --- !u!50 &-3898113744844309863
 Rigidbody2D:
   serializedVersion: 4

@@ -64,6 +64,7 @@ MonoBehaviour:
   Damage2: 0
   Damage3: 0
   Damage4: 0
+  Damage5: 0
   attack: {fileID: 3407477187005435147}
   pointAttack: {fileID: 8167854319240255332}
   rb: {fileID: 907942125218173252}

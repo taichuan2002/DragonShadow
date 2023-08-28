@@ -21,7 +21,6 @@ public class PlayerController : Charactor
     [SerializeField] float speed;
     [SerializeField] Skin sk;
     [SerializeField] SkillKame skillKame;
-    [SerializeField] Skill2 skill2;
     [SerializeField] testSkill2 testskill2;
     [SerializeField] Skill3 skill3;
     [SerializeField] SkillKame skill4;
@@ -69,6 +68,7 @@ public class PlayerController : Charactor
         GameObject PointCoin = GameObject.FindGameObjectWithTag("PointCoin");
         GameObject LevelSSj = GameObject.FindGameObjectWithTag("LevelSSJ");
         GameObject imgPl = GameObject.FindGameObjectWithTag("ImgPlayer");
+        testskill2 = GetComponent<testSkill2>();
         _txtLevelSSJ = LevelSSj.GetComponent<TextMeshProUGUI>();
         _txtPointCoin = PointCoin.GetComponent<TextMeshProUGUI>();
         ImgPlayer = imgPl.GetComponent<Image>();
@@ -311,9 +311,9 @@ public class PlayerController : Charactor
             {
                 isAttack = true;
                 skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[2], false);
-                skill2 = GetComponent<Skill2>();
                 testskill2 = Instantiate(Listskill[1], attack.position, attack.rotation).GetComponent<testSkill2>();
-                //skill2.SetDame(Damage2);
+                testskill2.SetDame(Damage2);
+                testskill2.OnInit();
                 OnSkill(25);
                 StartCoroutine(DelayIdle());
             }

@@ -165,6 +165,7 @@
     <Compile Include="Assets\Scrips\Enemy\EnemyDodoria.cs" />
     <Compile Include="Assets\Spine Examples\Scripts\Sample Components\Legacy\SpriteAttacher.cs" />
     <Compile Include="Assets\Spine\spine-csharp\MathUtils.cs" />
+    <Compile Include="Assets\NewBehaviourScript.cs" />
     <Compile Include="Assets\Simple Scroll-Snap\Examples\Example 3 (Slot Machine)\Scripts\SlotMachine.cs" />
     <Compile Include="Assets\Scrips\SpinnerPlayer.cs" />
     <Compile Include="Assets\Scrips\AttackArea.cs" />

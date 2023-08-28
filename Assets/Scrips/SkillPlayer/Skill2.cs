@@ -17,7 +17,6 @@ public class Skill2 : MonoBehaviour
 
     private void Update()
     {
-
         rb.velocity = transform.right * 15;
         Invoke(nameof(OnDead), 3);
     }
@@ -35,9 +34,10 @@ public class Skill2 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(Dame);
         if (collision.CompareTag("Bot"))
         {
-            collision.GetComponent<CharactorEnemy>().OnHit(PlayerController.playerData.DamageAttack2);
+            collision.GetComponent<CharactorEnemy>().OnHit(Dame);
             GameObject hitvfx = Instantiate(hitVFXDead, transform.position, transform.rotation);
             OnDead();
             Destroy(hitvfx, 2);
