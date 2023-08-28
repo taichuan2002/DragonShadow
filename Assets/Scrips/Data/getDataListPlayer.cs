@@ -9,16 +9,24 @@ public class getDataListPlayer : MonoBehaviour
     public Image _imgLevel;
     public TextMeshProUGUI txtLevel;
     public GameObject _imgActive;
-
+    int levelValue;
     private void Update()
     {
+
         int txt = int.Parse(txtLevel.text);
         if (txt >= 0 && txt < 21)
         {
-            _imgLevel.sprite = SpinnerPlayer.currentPlayerData.listSprite[txt];
+            if (SpinnerPlayer.currentPlayerData != null)
+            {
+                _imgLevel.sprite = SpinnerPlayer.currentPlayerData.listSprite[txt];
+            }
         }
         string text = txtLevel.text;
-        int levelValue = int.Parse(SpinnerPlayer.currentPlayerData.currentLevel);
+        if (SpinnerPlayer.currentPlayerData != null)
+        {
+            levelValue = int.Parse(SpinnerPlayer.currentPlayerData.currentLevel);
+
+        }
         int levelData = int.Parse(text);
         if (levelData <= levelValue)
         {
@@ -28,8 +36,9 @@ public class getDataListPlayer : MonoBehaviour
         {
             _imgActive.SetActive(true);
         }
-
-
     }
 
+
+
 }
+

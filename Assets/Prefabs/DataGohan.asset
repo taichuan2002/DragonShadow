@@ -27,6 +27,7 @@ MonoBehaviour:
   DamageAttack5: 27
   isDead: 0
   Immortal: 0
+  Active: 1
   listSprite:
   - {fileID: 21300000, guid: e384dee3790e446a7b4fa7ea5e34fc5d, type: 3}
   - {fileID: 21300000, guid: 694b8685599ae4c4bad17e49b2e6c153, type: 3}

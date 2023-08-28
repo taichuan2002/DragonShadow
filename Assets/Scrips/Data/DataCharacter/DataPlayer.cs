@@ -24,6 +24,7 @@ public class DataPlayer : ScriptableObject
     public float DamageAttack5;
     public bool isDead = false;
     public bool Immortal = false;
+    public bool Active = false;
     public Sprite[] listSprite;
     public int[] arrPrice;
     public int[] arrPower;

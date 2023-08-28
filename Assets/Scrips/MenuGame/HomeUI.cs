@@ -15,7 +15,6 @@ public class HomeUI : MonoBehaviour
     [SerializeField] Transform Playgame;
     [SerializeField] Transform Levelgame;
     [SerializeField] Transform LoadingMain;
-    [SerializeField] Transform gameOver;
     [SerializeField] GameObject _panelCanel;
     [SerializeField] GameObject _panelBuycoin;
     [SerializeField] AutoScroll autoScroll;
@@ -70,7 +69,6 @@ public class HomeUI : MonoBehaviour
         Herogame.gameObject.SetActive(false);
         Playgame.gameObject.SetActive(false);
         Levelgame.gameObject.SetActive(false);
-        gameOver.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
         StartCoroutine(loading());
@@ -98,7 +96,6 @@ public class HomeUI : MonoBehaviour
         Herogame.gameObject.SetActive(false);
         Playgame.gameObject.SetActive(false);
         Levelgame.gameObject.SetActive(false);
-        gameOver.gameObject.SetActive(true);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
 
@@ -113,7 +110,6 @@ public class HomeUI : MonoBehaviour
         Freegame.gameObject.SetActive(false);
         Herogame.gameObject.SetActive(false);
         Playgame.gameObject.SetActive(false);
-        gameOver.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
         StartCoroutine(DelayScrollLevel());
@@ -140,7 +136,6 @@ public class HomeUI : MonoBehaviour
         Herogame.gameObject.SetActive(false);
         Playgame.gameObject.SetActive(false);
         Levelgame.gameObject.SetActive(false);
-        gameOver.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
         FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
@@ -157,7 +152,6 @@ public class HomeUI : MonoBehaviour
         Herogame.gameObject.SetActive(true);
         Playgame.gameObject.SetActive(false);
         Levelgame.gameObject.SetActive(false);
-        gameOver.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
         FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
@@ -173,7 +167,6 @@ public class HomeUI : MonoBehaviour
         Herogame.gameObject.SetActive(false);
         Playgame.gameObject.SetActive(false);
         Levelgame.gameObject.SetActive(false);
-        gameOver.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
         FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
@@ -189,7 +182,6 @@ public class HomeUI : MonoBehaviour
         Herogame.gameObject.SetActive(false);
         Playgame.gameObject.SetActive(false);
         Levelgame.gameObject.SetActive(false);
-        gameOver.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
     }
@@ -212,7 +204,6 @@ public class HomeUI : MonoBehaviour
         Herogame.gameObject.SetActive(false);
         LoadingMain.gameObject.SetActive(false);
         Levelgame.gameObject.SetActive(false);
-        gameOver.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
     }
@@ -240,7 +231,6 @@ public class HomeUI : MonoBehaviour
         Herogame.gameObject.SetActive(false);
         Playgame.gameObject.SetActive(false);
         Levelgame.gameObject.SetActive(false);
-        gameOver.gameObject.SetActive(true);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
     }

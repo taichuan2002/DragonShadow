@@ -8,8 +8,6 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using static AirFishLab.ScrollingList.ListBank;
-using static UnityEditor.Progress;
 
 public class SpinnerPlayer : MonoBehaviour
 {
@@ -27,6 +25,9 @@ public class SpinnerPlayer : MonoBehaviour
     public Image _imgPlayer2;
     public GameObject _btnUnLock;
     public GameObject _btnActive;
+    public GameObject _btnCommingSoon;
+    public GameObject title;
+    public GameObject titleCommingSoon;
     public static DataPlayer currentPlayerData;
     public Image[] _imgPlayerCircol;
     public Sprite[] _spritePlayerLoad;
@@ -73,10 +74,11 @@ public class SpinnerPlayer : MonoBehaviour
             txtLevel.text = "0";
         }
         int playerIndex = center;
+        int id = PlayerPrefs.GetInt("idPlayer");
         currentPlayerData = player[playerIndex];
         DisplayCurrentPlayerData();
-        _imgPlayer.sprite = _spritePlayerLoad[center];
-        _imgPlayer2.sprite = _spritePlayerLoad[center];
+        _imgPlayer.sprite = _spritePlayerLoad[id];
+        _imgPlayer2.sprite = _spritePlayerLoad[id];
         isCheckActive();
     }
     private void Awake()
@@ -114,7 +116,18 @@ public class SpinnerPlayer : MonoBehaviour
 
     public void OnInitIdPlayer()
     {
-        PlayerPrefs.SetInt("idPlayer", center);
+        if (currentPlayerData != null)
+        {
+            if (currentPlayerData.Active)
+            {
+                PlayerPrefs.SetInt("idPlayer", 0);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("idPlayer", center);
+            }
+        }
+
     }
 
 
@@ -260,17 +273,30 @@ public class SpinnerPlayer : MonoBehaviour
         SpinnerPlayer.currentPlayerData.currentLevel = levelValue.ToString();
         string txtlevel = currentPlayerData.currentLevel;
         int intlevel = int.Parse(txtlevel.ToString());
-
-        if (txt <= intlevel)
+        if (currentPlayerData.Active == true)
         {
+            title.SetActive(false);
+            titleCommingSoon.SetActive(true);
+            _btnActive.SetActive(false);
+            _btnUnLock.SetActive(false);
+            _btnCommingSoon.SetActive(true);
+        }
+        else if (txt <= intlevel)
+        {
+            title.SetActive(true);
+            titleCommingSoon.SetActive(false);
             _btnActive.SetActive(true);
             _btnUnLock.SetActive(false);
+            _btnCommingSoon.SetActive(false);
             txtPrice.text = "FREE";
         }
         else
         {
+            title.SetActive(true);
+            titleCommingSoon.SetActive(false);
             _btnUnLock.SetActive(true);
             _btnActive.SetActive(false);
+            _btnCommingSoon.SetActive(false);
         }
     }
 

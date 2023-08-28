@@ -85,6 +85,8 @@ public class PlayerController : Charactor
         }
 
         center = PlayerPrefs.GetInt("idPlayer");
+        PlayerPrefs.SetInt("SSJ", 0);
+        PlayerPrefs.Save();
         OnInitCoin();
         OnInit();
 
