@@ -156,6 +156,7 @@
     <Compile Include="Assets\Spine Examples\Scripts\Mix and Match Character Customize\EquipButtonExample.cs" />
     <Compile Include="Assets\Spine Examples\Scripts\Sample Components\SlotTintBlackFollower.cs" />
     <Compile Include="Assets\Scrips\MenuGame\TitleCharacter.cs" />
+    <Compile Include="Assets\Unity-Logs-Viewer\Reporter\MultiKeyDictionary.cs" />
     <Compile Include="Assets\Spine\spine-csharp\IkConstraint.cs" />
     <Compile Include="Assets\Spine\spine-csharp\BoneData.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
@@ -176,6 +177,7 @@
     <Compile Include="Assets\Scrips\Enemy\EnemyTau77.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\Spine\spine-unity\Asset Types\EventDataReferenceAsset.cs" />
+    <Compile Include="Assets\Unity-Logs-Viewer\Reporter\ReporterGUI.cs" />
     <Compile Include="Assets\Spine\spine-csharp\PathConstraintData.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\Scrips\PlayerController.cs" />
@@ -194,6 +196,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\Spine\spine-unity\Mesh Generation\Unused\ArraysSubmeshedMeshGenerator.cs" />
     <Compile Include="Assets\Spine\spine-csharp\SkeletonClipping.cs" />
+    <Compile Include="Assets\Unity-Logs-Viewer\Reporter\ReporterMessageReceiver.cs" />
     <Compile Include="Assets\Spine\spine-csharp\Skeleton.cs" />
     <Compile Include="Assets\Spine Examples\Scripts\Sample Components\Sample VertexEffects\JitterEffectExample.cs" />
     <Compile Include="Assets\Scrips\MenuGame\LoadingCircle.cs" />
@@ -242,6 +245,7 @@
     <Compile Include="Assets\Spine\spine-csharp\ExposedList.cs" />
     <Compile Include="Assets\Scrips\MenuGame\MainHero.cs" />
     <Compile Include="Assets\Spine\spine-unity\Asset Types\SkeletonDataAsset.cs" />
+    <Compile Include="Assets\Unity-Logs-Viewer\Reporter\Reporter.cs" />
     <Compile Include="Assets\Spine Examples\Scripts\Sample Components\BoneLocalOverride.cs" />
     <Compile Include="Assets\Spine\spine-unity\SpineAttributes.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />

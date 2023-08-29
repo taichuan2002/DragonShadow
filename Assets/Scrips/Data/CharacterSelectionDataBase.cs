@@ -12,6 +12,7 @@ public class CharacterSelectionDataBase : MonoBehaviour
     [SerializeField] protected HealingEnemy healbarEnemy;
     [SerializeField] protected Healing healbarPlayer;
     [SerializeField] TextMeshProUGUI _txtEnemyDead;
+    [SerializeField] TextMeshProUGUI _txtBean;
     public GameObject[] characters;
     public GameObject[] arrEnemys;
     public Transform StartPoint;
@@ -22,7 +23,7 @@ public class CharacterSelectionDataBase : MonoBehaviour
     private GameObject prefabs;
     private GameObject enemy1, enemy2, enemy3, enemy4;
 
-    private int level, numberCharacter, EnemyDead;
+    private int level, numberCharacter, EnemyDead, bean;
     private bool spownEnemy1 = false;
     private bool spownEnemy2 = false;
     private bool spownEnemy3 = false;
@@ -39,6 +40,8 @@ public class CharacterSelectionDataBase : MonoBehaviour
         _txtEnemyDead.text = EnemyDead.ToString();
         LevelEnemy();
         IsCheckDeadPlayer();
+        bean = PlayerPrefs.GetInt("Bean");
+        _txtBean.text = bean.ToString();
     }
 
     public void OnInitLevelMap()

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class HomeUI : MonoBehaviour
 {
@@ -19,10 +20,12 @@ public class HomeUI : MonoBehaviour
     [SerializeField] GameObject _panelBuycoin;
     [SerializeField] AutoScroll autoScroll;
     [SerializeField] TextMeshProUGUI[] _txtPointCoins;
+    [SerializeField] Button[] _btnBuyCoin;
+    [SerializeField] Button[] _btnFreeCoin;
 
     public string sceneName = "MapBot";
     public Animator animator;
-    private int Coin, pl, levelMap, btn;
+    private int Coin, pl, levelMap, btn, bean;
     private bool isCheckScene = false;
     private bool isCheck = false;
 
@@ -50,12 +53,24 @@ public class HomeUI : MonoBehaviour
             clickLevelGame();
             OnInitCoin();
         }
+
+        for (int i = 0; i < _btnBuyCoin.Length; i++)
+        {
+            int buttonIndex = i;
+            _btnBuyCoin[i].onClick.AddListener(() => ClickBuyCoins(buttonIndex));
+        }
+        for (int i = 0; i < _btnFreeCoin.Length; i++)
+        {
+            int buttonIndex = i;
+            _btnFreeCoin[i].onClick.AddListener(() => ClickFreeCoins(buttonIndex));
+        }
     }
 
 
     private void Awake()
     {
         Coin = PlayerPrefs.GetInt("Coin", 0);
+        bean = PlayerPrefs.GetInt("Bean", 0);
         levelMap = PlayerPrefs.GetInt("levelMap", 0);
         PlayerPrefs.SetInt("idPlayer", 0);
     }
@@ -78,6 +93,7 @@ public class HomeUI : MonoBehaviour
     {
         UIManager.Instance.SetCoin(Coin);
         PlayerPrefs.SetInt("Coin", Coin);
+        PlayerPrefs.SetInt("Bean", bean);
         PlayerPrefs.SetInt("levelMap", levelMap);
         PlayerPrefs.SetInt("btn", 0);
         PlayerPrefs.Save();
@@ -138,7 +154,11 @@ public class HomeUI : MonoBehaviour
         Levelgame.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
-        FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
+        if (FindObjectOfType<SpinnerPlayer>() != null)
+        {
+            FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
+
+        }
         OnInitCoin();
 
 
@@ -154,7 +174,11 @@ public class HomeUI : MonoBehaviour
         Levelgame.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
-        FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
+        if (FindObjectOfType<SpinnerPlayer>() != null)
+        {
+            FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
+
+        }
         OnInitCoin();
 
     }
@@ -169,7 +193,11 @@ public class HomeUI : MonoBehaviour
         Levelgame.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
-        FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
+        if (FindObjectOfType<SpinnerPlayer>() != null)
+        {
+            FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
+
+        }
         OnInitCoin();
 
     }
@@ -186,9 +214,93 @@ public class HomeUI : MonoBehaviour
         _panelBuycoin.gameObject.SetActive(false);
     }
 
-    public void ClickFreeCoins()
+    public void ClickFreeCoins(int Index)
     {
-        Coin += 100000;
+        switch (Index)
+        {
+            case 0:
+                break;
+            case 1:
+                Coin += 500;
+                break;
+            case 2:
+                Coin += 200;
+                break;
+            case 3:
+                break;
+        }
+        OnInitCoin();
+    }
+    public void ClickBuyCoins(int Index)
+    {
+        switch (Index)
+        {
+            case 0:
+                Coin += 2000;
+                bean += 20;
+                OnInitCoin();
+                break;
+            case 1:
+                Coin += 2500;
+                bean += 65;
+                OnInitCoin();
+                break;
+            case 2:
+                Coin += 10000;
+
+                break;
+            case 3:
+                Coin += 50000;
+
+                break;
+            case 4:
+                Coin += 100000;
+
+                break;
+            case 5:
+                Coin += 300000;
+
+                break;
+            case 6:
+                Coin += 900000;
+
+                break;
+            case 7:
+                Coin += 2700000;
+
+                break;
+            case 8:
+                Coin += 6500000;
+
+                break;
+            case 9:
+                Coin += 9000000;
+
+                break;
+            case 10:
+                Coin += 3000;
+                bean += 110;
+                OnInitCoin();
+                break;
+            case 11:
+                Coin += 4000;
+                bean += 220;
+                OnInitCoin();
+
+                break;
+            case 12:
+                Coin += 5000;
+                bean += 350;
+                OnInitCoin();
+
+                break;
+            case 13:
+                Coin += 6000;
+                bean += 500;
+                OnInitCoin();
+
+                break;
+        }
         OnInitCoin();
     }
 
@@ -248,6 +360,8 @@ public class HomeUI : MonoBehaviour
         Levelgame.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
+
+
     }
 
     public void UpdateCoin(int newCoinValue)

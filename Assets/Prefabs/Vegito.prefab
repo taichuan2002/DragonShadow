@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 6217702433326238047}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.4056616, y: -0.64466864, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3407477187005435147}
@@ -64,14 +64,16 @@ MonoBehaviour:
   Damage2: 0
   Damage3: 0
   Damage4: 0
+  Damage5: 0
   attack: {fileID: 3407477187005435147}
   pointAttack: {fileID: 8167854319240255332}
   rb: {fileID: 907942125218173252}
   player: {fileID: 6217702433326238047}
+  ImgPlayer: {fileID: 0}
   _txtPointCoin: {fileID: 0}
+  _txtLevelSSJ: {fileID: 0}
   speed: 10
   skillKame: {fileID: -3475075212191199340, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
-  skill2: {fileID: -37256157469624391, guid: a0eb2981cc72d0841a85e67447497efb, type: 3}
   testskill2: {fileID: 0}
   skill3: {fileID: 8319474813761885605, guid: b7d7d2f1afe9e1747bc7e1a56f955f2c, type: 3}
   skill4: {fileID: -3475075212191199340, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}

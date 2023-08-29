@@ -23,7 +23,7 @@ public class PlayerController : Charactor
     [SerializeField] SkillKame skillKame;
     [SerializeField] testSkill2 testskill2;
     [SerializeField] Skill3 skill3;
-    [SerializeField] SkillKame skill4;
+    [SerializeField] Skill4 skill4;
     [SerializeField] Skill5 skill5;
     [SerializeField] string sceneName = "Menu";
     [SerializeField] SkeletonAnimation[] skeletonAnimation;
@@ -56,12 +56,15 @@ public class PlayerController : Charactor
     GameObject hVFX, vfxArmor;
     private float t = 0f;
     private int currentWaypointIndex = 0;
-    private int randomPointUp, randomPointDown;
+    private int randomPointUp, randomPointDown, bean;
     private Coroutine effectCoroutine;
     bool isCheckSkill2 = true;
     bool vfx = true;
     bool isArmor = false;
     bool checkArmor = false;
+    bool isMause = false;
+    private bool isTouchPressed = false;
+    private bool hasProcessedTouch = false;
     private void Start()
     {
 
@@ -80,6 +83,21 @@ public class PlayerController : Charactor
                 if (btn.CompareTag(targetBtnTag))
                 {
                     btn.onClick.AddListener(() => ButtonClicked(btn.gameObject));
+                    /* if (levelValue < 3)
+                     {
+                         if (btn.name == "Skill5")
+                         {
+                             btn.interactable = false;
+                         }
+                     }
+                     if (levelValue < 6)
+                     {
+                         if (btn.name == "Skill4")
+                         {
+                             btn.interactable = false;
+                         }
+                     }
+ */
                 }
             }
         }
@@ -109,6 +127,10 @@ public class PlayerController : Charactor
                 }
             }
         }
+        if (isAttack)
+        {
+            Control();
+        }
         if (Bot.dataEneMy != null)
         {
             if (Bot.dataEneMy.isDead == true)
@@ -118,10 +140,7 @@ public class PlayerController : Charactor
         }
 
         playerData = data[center];
-        if (isAttack)
-        {
-            Control();
-        }
+
         if (hp == 0)
         {
             PlayerPrefs.SetInt("isDead", 1);
@@ -141,12 +160,14 @@ public class PlayerController : Charactor
     private void Awake()
     {
         Coin = PlayerPrefs.GetInt("Coin", 0);
+        bean = PlayerPrefs.GetInt("Bean", 0);
         levelprefs = PlayerPrefs.GetInt("LevelSSJ0");
     }
 
     public void ButtonClicked(GameObject btn)
     {
-        Button btnBean = btn.GetComponent<Button>();
+        Button btnClick = btn.GetComponent<Button>();
+
         if (btn.name == "Skill1")
         {
             Skill1();
@@ -169,22 +190,36 @@ public class PlayerController : Charactor
         }
         if (btn.name == "btn_Bean")
         {
+
             if (hp != maxhp || mana != maxmana)
             {
-                if (Coin >= 500)
+                if (bean > 0)
                 {
-                    Coin -= 500;
+                    bean -= 1;
                     OnInitCoin();
                     hp = maxhp;
                     mana = maxmana;
                     healbar.SetNewHp(hp);
                     healbar.SetNewMana(mana);
-                    btnBean.interactable = true;
                 }
                 else
                 {
-                    btnBean.interactable = false;
+                    if (Coin >= 500)
+                    {
+                        Coin -= 500;
+                        OnInitCoin();
+                        hp = maxhp;
+                        mana = maxmana;
+                        healbar.SetNewHp(hp);
+                        healbar.SetNewMana(mana);
+                        btnClick.interactable = true;
+                    }
+                    else
+                    {
+                        btnClick.interactable = false;
+                    }
                 }
+
             }
         }
         if (btn.name == "btn_Strengthen")
@@ -210,6 +245,13 @@ public class PlayerController : Charactor
                     healbar.SetNewMana(mana);
                     skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[6], false);
                     levelValue++;
+                    /* if (levelValue >= 3)
+                     {
+                         if (btn.name == "Skill5")
+                         {
+                             btnClick.interactable = true;
+                         }
+                     }*/
                     _txtLevelSSJ.text = "SSJ ." + levelValue;
                     level = levelValue.ToString();
                     PlayerPrefs.SetInt("SSJ", levelValue);
@@ -229,26 +271,31 @@ public class PlayerController : Charactor
     }
 
 
-
     public void Control()
     {
-
-        if (Input.GetMouseButton(0))
+        if (Input.touchCount == 1)
         {
-            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        }
-
-        if (mousePos.x >= minX && mousePos.x <= maxX && mousePos.y >= minY && mousePos.y <= maxY)
-        {
-            if (!IsMouseOverButton())
+            if (Input.GetMouseButton(0))
             {
-                float clampedX = Mathf.Clamp(mousePos.x, minX, maxX);
-                float clampedY = Mathf.Clamp(mousePos.y, minY, maxY);
-                Vector2 clampedMousePos = new Vector2(clampedX, clampedY);
-                transform.position = Vector2.Lerp(transform.position, clampedMousePos, speed * Time.deltaTime);
+
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+
+                if (hit.collider == null)
+                {
+                    float clampedX = Mathf.Clamp(ray.origin.x, minX, maxX);
+                    float clampedY = Mathf.Clamp(ray.origin.y, minY, maxY);
+                    Vector2 clampedMousePos = new Vector2(clampedX, clampedY);
+                    transform.position = Vector2.Lerp(transform.position, clampedMousePos, speed * Time.deltaTime);
+                }
             }
+
         }
+
     }
+
+
+
 
     public void OnInit()
     {
@@ -280,14 +327,12 @@ public class PlayerController : Charactor
         PlayerPrefs.SetInt("tongCoin", point);
         UIManager.Instance.SetCoin(Coin);
         PlayerPrefs.SetInt("Coin", Coin);
+        PlayerPrefs.SetInt("Bean", bean);
         PlayerPrefs.Save();
         _txtPointCoin.text = Coin.ToString();
     }
 
-    private bool IsMouseOverButton()
-    {
-        return EventSystem.current.IsPointerOverGameObject() && EventSystem.current.currentSelectedGameObject != null;
-    }
+
     public void Skill1()
     {
         if (isAttack)
@@ -348,7 +393,7 @@ public class PlayerController : Charactor
     {
         if (isAttack)
         {
-            if (mana >= 70)
+            if (mana >= 50)
             {
                 isAttack = false;
                 skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[8], false);
@@ -418,10 +463,10 @@ public class PlayerController : Charactor
         yield return new WaitForSeconds(1f);
         skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[4], false);
         yield return new WaitForSeconds(0.5f);
-        skill4 = Instantiate(Listskill[3], attack.position, attack.rotation).GetComponent<SkillKame>();
+        skill4 = Instantiate(Listskill[3], attack.position, attack.rotation).GetComponent<Skill4>();
         skill4.SetDame(Damage4);
         skill4.OnInit();
-        OnSkill(70);
+        OnSkill(50);
         StartCoroutine(DelayIdle());
     }
     IEnumerator DelaySkill1()
