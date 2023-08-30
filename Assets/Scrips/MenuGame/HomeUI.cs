@@ -307,7 +307,6 @@ public class HomeUI : MonoBehaviour
     IEnumerator DelayLevel()
     {
 
-        FindObjectOfType<AutoScroll>().ItemCenter();
         yield return new WaitForSeconds(4);
         Playgame.gameObject.SetActive(true);
         maingame.gameObject.SetActive(false);
@@ -322,6 +321,7 @@ public class HomeUI : MonoBehaviour
 
     IEnumerator DelayScrollLevel()
     {
+        FindObjectOfType<AutoScroll>().ItemCenter();
         yield return new WaitForSeconds(2);
         StartCoroutine(DelayLevel());
     }

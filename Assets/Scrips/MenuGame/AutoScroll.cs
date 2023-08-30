@@ -1,7 +1,11 @@
 using DanielLochner.Assets.SimpleScrollSnap;
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,16 +17,43 @@ public class AutoScroll : MonoBehaviour
     public float itemHeight = 100f;
     public float spacing = 10f;
     bool isCheck = false;
-
-    public IEnumerator ScrollItem(int index)
+    int dead, level;
+    float offsetY, offsetY2, offsetY3, offsetY4;
+    private void Start()
     {
-        float contentHeight = itemCount * (itemHeight + spacing) - spacing;
-        content.sizeDelta = new Vector2(content.sizeDelta.x, contentHeight);
-        int dead = PlayerPrefs.GetInt("isDead");
+        level = PlayerPrefs.GetInt("levelMap");
+        dead = PlayerPrefs.GetInt("isDead");
+        offsetY = (level - 1) * (itemHeight) - content.rect.height / 2 + itemHeight / 2;
+        offsetY2 = level * (itemHeight) - content.rect.height / 2 + itemHeight / 2;
+        offsetY3 = (level + 2) * (itemHeight) - content.rect.height / 2 + itemHeight / 2;
+        offsetY4 = level * (itemHeight) - content.rect.height / 2 + itemHeight / 2;
         if (dead == 0)
         {
-            float offsetY = (index - 1) * (itemHeight + spacing) - content.rect.height / 2 + itemHeight / 2;
-            float offsetY2 = index * (itemHeight + spacing) - content.rect.height / 2 + itemHeight / 2;
+            Vector2 targetPosition = new Vector2(content.localPosition.x, -offsetY);
+            content.localPosition = targetPosition;
+        }
+        else
+        {
+            Vector2 targetPosition = new Vector2(content.localPosition.x, -offsetY3);
+            content.localPosition = targetPosition;
+        }
+    }
+    private void Update()
+    {
+
+    }
+    public IEnumerator ScrollItem(int index)
+    {
+        level = PlayerPrefs.GetInt("levelMap");
+
+
+        Debug.Log(level);
+        Debug.Log(dead);
+        dead = PlayerPrefs.GetInt("isDead");
+        float contentHeight = itemCount * (itemHeight + spacing);
+        content.sizeDelta = new Vector2(content.sizeDelta.x, contentHeight);
+        if (dead == 0)
+        {
             Vector2 targetPosition = new Vector2(content.localPosition.x, -offsetY);
             content.localPosition = targetPosition;
             yield return new WaitForSeconds(1.5f);
@@ -30,25 +61,21 @@ public class AutoScroll : MonoBehaviour
         }
         else
         {
-            float offsetY = (index + 2) * (itemHeight + spacing) - content.rect.height / 2 + itemHeight / 2;
-            float offsetY2 = index * (itemHeight + spacing) - content.rect.height / 2 + itemHeight / 2;
-            Vector2 targetPosition = new Vector2(content.localPosition.x, -offsetY);
-            content.localPosition = targetPosition;
+            //offsetY3 = (level + 2) * (itemHeight + spacing) - content.rect.height / 2 + itemHeight / 2;
+            Vector2 targetPosition2 = new Vector2(content.localPosition.x, -offsetY3);
+
+            content.localPosition = targetPosition2;
             yield return new WaitForSeconds(1.5f);
-            content.DOAnchorPosY(-offsetY2, 2);
+            content.DOAnchorPosY(-offsetY4, 2);
             PlayerPrefs.SetInt("isDead", 0);
+            PlayerPrefs.Save();
         }
     }
 
     public void ItemCenter()
     {
-        int level = PlayerPrefs.GetInt("levelMap");
         StartCoroutine(ScrollItem(level));
     }
 
-    private void OnEnable()
-    {
-        ItemCenter();
-    }
 
 }
