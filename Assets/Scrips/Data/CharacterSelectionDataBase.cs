@@ -13,6 +13,7 @@ public class CharacterSelectionDataBase : MonoBehaviour
     [SerializeField] protected Healing healbarPlayer;
     [SerializeField] TextMeshProUGUI _txtEnemyDead;
     [SerializeField] TextMeshProUGUI _txtBean;
+    [SerializeField] Button[] _txtBtnSkill;
     public GameObject[] characters;
     public GameObject[] arrEnemys;
     public Transform StartPoint;
@@ -29,6 +30,7 @@ public class CharacterSelectionDataBase : MonoBehaviour
     private bool spownEnemy3 = false;
     private bool spownEnemy4 = false;
     private bool isCheck = false;
+    private bool isSSJ = false;
     private void Start()
     {
         OnInit();
@@ -42,12 +44,30 @@ public class CharacterSelectionDataBase : MonoBehaviour
         IsCheckDeadPlayer();
         bean = PlayerPrefs.GetInt("Bean");
         _txtBean.text = bean.ToString();
+        if (!isSSJ)
+        {
+            UnlockSkill();
+        }
     }
 
     public void OnInitLevelMap()
     {
         PlayerPrefs.SetInt("levelMap", level);
         PlayerPrefs.Save();
+    }
+
+    public void UnlockSkill()
+    {
+        int levelSSJ = PlayerPrefs.GetInt("SSJ");
+        if (levelSSJ >= 3)
+        {
+            _txtBtnSkill[1].interactable = true;
+        }
+        if (levelSSJ >= 6)
+        {
+            _txtBtnSkill[0].interactable = true;
+            isSSJ = true;
+        }
     }
 
     public void LevelEnemy()
@@ -544,6 +564,8 @@ public class CharacterSelectionDataBase : MonoBehaviour
     }
     public void OnInit()
     {
+        _txtBtnSkill[0].interactable = false;
+        _txtBtnSkill[1].interactable = false;
         numberCharacter = PlayerPrefs.GetInt("idPlayer");
         prefabs = characters[numberCharacter];
         Instantiate(prefabs, StartPoint.position, Quaternion.identity);

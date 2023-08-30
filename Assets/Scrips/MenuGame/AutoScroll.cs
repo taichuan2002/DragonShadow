@@ -61,9 +61,7 @@ public class AutoScroll : MonoBehaviour
         }
         else
         {
-            //offsetY3 = (level + 2) * (itemHeight + spacing) - content.rect.height / 2 + itemHeight / 2;
             Vector2 targetPosition2 = new Vector2(content.localPosition.x, -offsetY3);
-
             content.localPosition = targetPosition2;
             yield return new WaitForSeconds(1.5f);
             content.DOAnchorPosY(-offsetY4, 2);

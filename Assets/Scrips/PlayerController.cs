@@ -83,21 +83,6 @@ public class PlayerController : Charactor
                 if (btn.CompareTag(targetBtnTag))
                 {
                     btn.onClick.AddListener(() => ButtonClicked(btn.gameObject));
-                    /* if (levelValue < 3)
-                     {
-                         if (btn.name == "Skill5")
-                         {
-                             btn.interactable = false;
-                         }
-                     }
-                     if (levelValue < 6)
-                     {
-                         if (btn.name == "Skill4")
-                         {
-                             btn.interactable = false;
-                         }
-                     }
- */
                 }
             }
         }
@@ -246,13 +231,6 @@ public class PlayerController : Charactor
                     healbar.SetNewMana(mana);
                     skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[6], false);
                     levelValue++;
-                    /* if (levelValue >= 3)
-                     {
-                         if (btn.name == "Skill5")
-                         {
-                             btnClick.interactable = true;
-                         }
-                     }*/
                     _txtLevelSSJ.text = "SSJ ." + levelValue;
                     level = levelValue.ToString();
                     PlayerPrefs.SetInt("SSJ", levelValue);

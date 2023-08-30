@@ -58,18 +58,21 @@ public class GameOver : MonoBehaviour
     public void BtnHome()
     {
         PlayerPrefs.SetInt("btn", 1);
+        PlayerPrefs.SetInt("SSJ", 0);
         PlayerPrefs.Save();
         SceneManager.LoadScene(0);
     }
     public void BtnHero()
     {
         PlayerPrefs.SetInt("btn", 2);
+        PlayerPrefs.SetInt("SSJ", 0);
         PlayerPrefs.Save();
         SceneManager.LoadScene(0);
     }
     public void BtnPlay()
     {
         PlayerPrefs.SetInt("btn", 3);
+        PlayerPrefs.SetInt("SSJ", 0);
         PlayerPrefs.Save();
         SceneManager.LoadScene(0);
     }
