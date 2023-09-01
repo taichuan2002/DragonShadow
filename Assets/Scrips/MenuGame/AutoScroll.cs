@@ -21,6 +21,8 @@ public class AutoScroll : MonoBehaviour
     float offsetY, offsetY2, offsetY3, offsetY4;
     private void Start()
     {
+        float contentHeight = itemCount * (itemHeight + spacing);
+        content.sizeDelta = new Vector2(content.sizeDelta.x, contentHeight);
         level = PlayerPrefs.GetInt("levelMap");
         dead = PlayerPrefs.GetInt("isDead");
         offsetY = (level - 1) * (itemHeight) - content.rect.height / 2 + itemHeight / 2;
@@ -47,11 +49,8 @@ public class AutoScroll : MonoBehaviour
         level = PlayerPrefs.GetInt("levelMap");
 
 
-        Debug.Log(level);
-        Debug.Log(dead);
         dead = PlayerPrefs.GetInt("isDead");
-        float contentHeight = itemCount * (itemHeight + spacing);
-        content.sizeDelta = new Vector2(content.sizeDelta.x, contentHeight);
+
         if (dead == 0)
         {
             Vector2 targetPosition = new Vector2(content.localPosition.x, -offsetY);

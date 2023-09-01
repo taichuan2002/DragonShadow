@@ -8,13 +8,13 @@ public class SkillKame : MonoBehaviour
     [SerializeField] SkeletonAnimation targetBot;
     public Rigidbody2D rb;
     public GameObject hitVFXDead;
-    public DataPlayer player;
     float Damecurren;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         OnInit();
     }
+
     public void OnInit()
     {
         GameObject targetBotObj = GameObject.FindGameObjectWithTag("Bot");
@@ -23,15 +23,15 @@ public class SkillKame : MonoBehaviour
             targetBot = targetBotObj.GetComponent<SkeletonAnimation>();
             if (targetBot != null)
             {
-                Vector2 targetPosition = (targetBot.transform.position - transform.position).normalized;
-                rb.velocity = targetPosition * 15f;
-                Invoke(nameof(onDead), 3f);
-
+                Vector2 targetPosition = (targetBotObj.transform.position - transform.position).normalized;
+                rb.velocity = targetPosition * 15;
+                StartCoroutine(OnDead());
             }
         }
     }
-    public void onDead()
+    IEnumerator OnDead()
     {
+        yield return new WaitForSeconds(3);
         Destroy(gameObject);
     }
     public void SetDame(float dame)
@@ -47,12 +47,12 @@ public class SkillKame : MonoBehaviour
             collision.GetComponent<CharactorEnemy>().OnHit(Damecurren);
             GameObject hitvfx = Instantiate(hitVFXDead, transform.position, transform.rotation);
             Destroy(hitvfx, 1);
-            onDead();
+            Destroy(gameObject);
         }
         if (collision.CompareTag("skillEnemy"))
         {
             GameObject hitvfx = Instantiate(hitVFXDead, transform.position, transform.rotation);
-            onDead();
+            Destroy(gameObject);
             Destroy(hitvfx, 1);
         }
     }

@@ -63,6 +63,8 @@ public class PlayerController : Charactor
     bool isArmor = false;
     bool checkArmor = false;
     bool isMause = false;
+    bool isSSJ = false;
+    bool isTime = false;
     private bool isTouchPressed = false;
     private bool hasProcessedTouch = false;
     private void Start()
@@ -90,6 +92,7 @@ public class PlayerController : Charactor
         center = PlayerPrefs.GetInt("idPlayer");
         PlayerPrefs.SetInt("SSJ", 0);
         PlayerPrefs.Save();
+        StartCoroutine(DelayTimeSkill());
         OnInitCoin();
         OnInit();
 
@@ -156,7 +159,10 @@ public class PlayerController : Charactor
 
         if (btn.name == "Skill1")
         {
-            Skill1();
+            if (isTime)
+            {
+                Skill1();
+            }
         }
         if (btn.name == "Skill2")
         {
@@ -168,7 +174,10 @@ public class PlayerController : Charactor
         }
         if (btn.name == "Skill4")
         {
-            Skill4();
+            if (isTime)
+            {
+                Skill4();
+            }
         }
         if (btn.name == "Skill5")
         {
@@ -210,65 +219,67 @@ public class PlayerController : Charactor
         }
         if (btn.name == "btn_Strengthen")
         {
-            if (isAttack)
-            {
-                StartCoroutine(DelayTransform());
-                isAttack = false;
-            }
+            StartCoroutine(DelayTransform());
             IEnumerator DelayTransform()
             {
+                isAttack = true;
                 levelValue = int.Parse(level);
                 yield return new WaitForSeconds(0.4f);
                 Button btnSSJ = btn.GetComponent<Button>();
                 if (levelValue < levelprefs)
                 {
-                    btnSSJ.interactable = true;
-                    LevelUpSSJ();
-                    hp = maxhp;
-                    mana = maxmana;
-                    healbar.SetNewHp(maxhp);
-                    healbar.SetNewMaxHp(maxhp);
-                    healbar.SetNewMana(mana);
-                    skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[6], false);
-                    levelValue++;
-                    _txtLevelSSJ.text = "SSJ ." + levelValue;
-                    level = levelValue.ToString();
-                    PlayerPrefs.SetInt("SSJ", levelValue);
-                    PlayerPrefs.Save();
-                    ImgPlayer.sprite = playerData.listSprite[levelValue];
-                    skeletonAnimation[center].skeleton.SetSkin(level);
-                    StartCoroutine(DelayIdle());
+                    if (!isSSJ)
+                    {
+                        btnSSJ.interactable = true;
+                        LevelUpSSJ();
+                        hp = maxhp;
+                        mana = maxmana;
+                        healbar.SetNewHp(maxhp);
+                        healbar.SetNewMaxHp(maxhp);
+                        healbar.SetNewMana(mana);
+                        skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[6], false);
+                        levelValue++;
+                        _txtLevelSSJ.text = "SSJ ." + levelValue;
+                        level = levelValue.ToString();
+                        PlayerPrefs.SetInt("SSJ", levelValue);
+                        PlayerPrefs.Save();
+                        ImgPlayer.sprite = playerData.listSprite[levelValue];
+                        skeletonAnimation[center].skeleton.SetSkin(level);
+                        StartCoroutine(DelayIdle());
+                        isSSJ = true;
+                    }
+
                 }
                 if (levelValue >= levelprefs)
                 {
                     btnSSJ.interactable = false;
-                    isAttack = true;
                 }
             }
+
         }
 
     }
 
+    IEnumerator DelayTimeSkill()
+    {
+        yield return new WaitForSeconds(2);
+        isTime = true;
+    }
 
     public void Control()
     {
         if (Input.touchCount == 1)
         {
-            if (Input.GetMouseButton(0))
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+
+            if (hit.collider == null)
             {
-
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-
-                if (hit.collider == null)
-                {
-                    float clampedX = Mathf.Clamp(ray.origin.x, minX, maxX);
-                    float clampedY = Mathf.Clamp(ray.origin.y, minY, maxY);
-                    Vector2 clampedMousePos = new Vector2(clampedX, clampedY);
-                    transform.position = Vector2.Lerp(transform.position, clampedMousePos, speed * Time.deltaTime);
-                }
+                float clampedX = Mathf.Clamp(ray.origin.x, minX, maxX);
+                float clampedY = Mathf.Clamp(ray.origin.y, minY, maxY);
+                Vector2 clampedMousePos = new Vector2(clampedX, clampedY);
+                transform.position = Vector2.Lerp(transform.position, clampedMousePos, speed * Time.deltaTime);
             }
-
         }
 
     }
@@ -330,23 +341,21 @@ public class PlayerController : Charactor
     }
     public void Skill2()
     {
-        if (isAttack)
-        {
 
-            if (mana >= 25)
-            {
-                isAttack = true;
-                skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[2], false);
-                testskill2 = Instantiate(Listskill[1], attack.position, attack.rotation).GetComponent<testSkill2>();
-                testskill2.SetDame(Damage2);
-                testskill2.OnInit();
-                OnSkill(25);
-                StartCoroutine(DelayIdle());
-            }
-            else
-            {
-                Debug.Log("Yếu Sinh Lý");
-            }
+
+        if (mana >= 25)
+        {
+            isAttack = true;
+            skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[2], false);
+            testskill2 = Instantiate(Listskill[1], attack.position, attack.rotation).GetComponent<testSkill2>();
+            testskill2.SetDame(Damage2);
+            testskill2.OnInit();
+            OnSkill(25);
+            StartCoroutine(DelayIdle());
+        }
+        else
+        {
+            Debug.Log("Yếu Sinh Lý");
         }
 
     }
@@ -355,7 +364,6 @@ public class PlayerController : Charactor
 
         if (mana >= 15)
         {
-            isAttack = false;
             skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[3], false);
             skill3 = Instantiate(Listskill[2], attack.position, attack.rotation).GetComponent<Skill3>();
             skill3.SetDame(Damage3);
@@ -479,7 +487,9 @@ public class PlayerController : Charactor
     {
         yield return new WaitForSeconds(1f);
         skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[0], false);
+        isSSJ = false;
         isAttack = true;
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

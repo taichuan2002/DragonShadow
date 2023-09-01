@@ -28,6 +28,7 @@ public class HomeUI : MonoBehaviour
     private int Coin, pl, levelMap, btn, bean;
     private bool isCheckScene = false;
     private bool isCheck = false;
+    private bool isNextPanel = false;
 
     void Start()
     {
@@ -40,17 +41,17 @@ public class HomeUI : MonoBehaviour
         }
         if (btn == 1)
         {
-            clickBack();
+            GameOverPanelBack();
             OnInitCoin();
         }
         if (btn == 2)
         {
-            clickHero();
+            GameOverPanelHero();
             OnInitCoin();
         }
         if (btn == 3)
         {
-            clickLevelGame();
+            GameOverPanelLevel();
             OnInitCoin();
         }
 
@@ -86,7 +87,7 @@ public class HomeUI : MonoBehaviour
         Levelgame.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
-        StartCoroutine(loading());
+        StartCoroutine(Loading());
     }
 
     public void OnInitCoin()
@@ -117,55 +118,68 @@ public class HomeUI : MonoBehaviour
 
     }
 
-    public void clickLevelGame()
+    public void ClickLevelGame()
     {
-        Camera.main.orthographic = true;
-        Levelgame.gameObject.SetActive(true);
-        maingame.gameObject.SetActive(false);
-        Coingame.gameObject.SetActive(false);
-        Freegame.gameObject.SetActive(false);
-        Herogame.gameObject.SetActive(false);
-        Playgame.gameObject.SetActive(false);
-        _panelCanel.gameObject.SetActive(false);
-        _panelBuycoin.gameObject.SetActive(false);
-        StartCoroutine(DelayScrollLevel());
-    }
-    public void clickPlay()
-    {
-        Camera.main.orthographic = true;
-        StartCoroutine(nextMap());
-    }
-    public void clickSetting()
-    {
-        Camera.main.orthographic = true;
-    }
-    public void clickSpinner()
-    {
-        Camera.main.orthographic = true;
-    }
-    public void clickFree()
-    {
-        Camera.main.orthographic = true;
-        maingame.gameObject.SetActive(false);
-        Coingame.gameObject.SetActive(false);
-        Freegame.gameObject.SetActive(true);
-        Herogame.gameObject.SetActive(false);
-        Playgame.gameObject.SetActive(false);
-        Levelgame.gameObject.SetActive(false);
-        _panelCanel.gameObject.SetActive(false);
-        _panelBuycoin.gameObject.SetActive(false);
-        if (FindObjectOfType<SpinnerPlayer>() != null)
+        if (!isNextPanel)
         {
-            FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
-
+            StartCoroutine(NextLevel());
+            isNextPanel = true;
         }
-        OnInitCoin();
+
+    }
+    public void ClickPlay()
+    {
+        Camera.main.orthographic = true;
+        StartCoroutine(NextMap());
+    }
+    public void ClickSetting()
+    {
+        Camera.main.orthographic = true;
+    }
+    public void ClickSpinner()
+    {
+        Camera.main.orthographic = true;
+    }
+    public void ClickFree()
+    {
+        if (!isNextPanel)
+        {
+            StartCoroutine(NextFreeCoin());
+            isNextPanel = true;
+        }
+    }
+    public void ClickHero()
+    {
+        if (!isNextPanel)
+        {
+            StartCoroutine(NextHero());
+            isNextPanel = true;
+        }
 
 
     }
-    public void clickHero()
+    public void ClickCoin()
     {
-        Camera.main.orthographic = false;
+        if (!isNextPanel)
+        {
+            StartCoroutine(NextCoin());
+            isNextPanel = true;
+        }
+
+
+    }
+    public void ClickBack()
+    {
+        if (!isNextPanel)
+        {
+            StartCoroutine(BackMenu());
+            isNextPanel = true;
+        }
+
+    }
+
+    public void GameOverPanelHero()
+    {
         maingame.gameObject.SetActive(false);
         Coingame.gameObject.SetActive(false);
         Freegame.gameObject.SetActive(false);
@@ -180,28 +194,8 @@ public class HomeUI : MonoBehaviour
 
         }
         OnInitCoin();
-
     }
-    public void clickCoin()
-    {
-        Camera.main.orthographic = true;
-        maingame.gameObject.SetActive(false);
-        Coingame.gameObject.SetActive(true);
-        Freegame.gameObject.SetActive(false);
-        Herogame.gameObject.SetActive(false);
-        Playgame.gameObject.SetActive(false);
-        Levelgame.gameObject.SetActive(false);
-        _panelCanel.gameObject.SetActive(false);
-        _panelBuycoin.gameObject.SetActive(false);
-        if (FindObjectOfType<SpinnerPlayer>() != null)
-        {
-            FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
-
-        }
-        OnInitCoin();
-
-    }
-    public void clickBack()
+    public void GameOverPanelBack()
     {
         Camera.main.orthographic = true;
         maingame.gameObject.SetActive(true);
@@ -212,6 +206,20 @@ public class HomeUI : MonoBehaviour
         Levelgame.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
+
+    }
+    public void GameOverPanelLevel()
+    {
+        Camera.main.orthographic = true;
+        Levelgame.gameObject.SetActive(true);
+        maingame.gameObject.SetActive(false);
+        Coingame.gameObject.SetActive(false);
+        Freegame.gameObject.SetActive(false);
+        Herogame.gameObject.SetActive(false);
+        Playgame.gameObject.SetActive(false);
+        _panelCanel.gameObject.SetActive(false);
+        _panelBuycoin.gameObject.SetActive(false);
+        StartCoroutine(DelayScrollLevel());
     }
 
     public void ClickFreeCoins(int Index)
@@ -326,18 +334,105 @@ public class HomeUI : MonoBehaviour
         StartCoroutine(DelayLevel());
     }
 
-    public IEnumerator nextMap()
+    public IEnumerator NextMap()
     {
-        animator.SetTrigger("nextScene");
+        animator.SetTrigger("Start");
         yield return new WaitForSeconds(1);
         Camera.main.orthographic = true;
         SceneManager.LoadScene(sceneName);
     }
-    public void GameOver()
+
+    IEnumerator NextLevel()
     {
-        Application.targetFrameRate = 90;
+        animator.SetTrigger("Start");
+        yield return new WaitForSeconds(1);
+        animator.SetTrigger("End");
+        isNextPanel = false;
+        Camera.main.orthographic = true;
+        Levelgame.gameObject.SetActive(true);
+        maingame.gameObject.SetActive(false);
+        Coingame.gameObject.SetActive(false);
+        Freegame.gameObject.SetActive(false);
+        Herogame.gameObject.SetActive(false);
+        Playgame.gameObject.SetActive(false);
+        _panelCanel.gameObject.SetActive(false);
+        _panelBuycoin.gameObject.SetActive(false);
+        StartCoroutine(DelayScrollLevel());
+    }
+    IEnumerator NextHero()
+    {
+        animator.SetTrigger("Start");
+        yield return new WaitForSeconds(1);
+        animator.SetTrigger("End");
+        isNextPanel = false;
+        Camera.main.orthographic = false;
+        maingame.gameObject.SetActive(false);
+        Coingame.gameObject.SetActive(false);
+        Freegame.gameObject.SetActive(false);
+        Herogame.gameObject.SetActive(true);
+        Playgame.gameObject.SetActive(false);
+        Levelgame.gameObject.SetActive(false);
+        _panelCanel.gameObject.SetActive(false);
+        _panelBuycoin.gameObject.SetActive(false);
+        if (FindObjectOfType<SpinnerPlayer>() != null)
+        {
+            FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
+
+        }
+        OnInitCoin();
+    }
+    IEnumerator NextCoin()
+    {
+        animator.SetTrigger("Start");
+        yield return new WaitForSeconds(1);
+        animator.SetTrigger("End");
+        isNextPanel = false;
         Camera.main.orthographic = true;
         maingame.gameObject.SetActive(false);
+        Coingame.gameObject.SetActive(true);
+        Freegame.gameObject.SetActive(false);
+        Herogame.gameObject.SetActive(false);
+        Playgame.gameObject.SetActive(false);
+        Levelgame.gameObject.SetActive(false);
+        _panelCanel.gameObject.SetActive(false);
+        _panelBuycoin.gameObject.SetActive(false);
+        if (FindObjectOfType<SpinnerPlayer>() != null)
+        {
+            FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
+
+        }
+        OnInitCoin();
+    }
+    IEnumerator NextFreeCoin()
+    {
+        animator.SetTrigger("Start");
+        yield return new WaitForSeconds(1);
+        isNextPanel = false;
+        animator.SetTrigger("End");
+        Camera.main.orthographic = true;
+        maingame.gameObject.SetActive(false);
+        Coingame.gameObject.SetActive(false);
+        Freegame.gameObject.SetActive(true);
+        Herogame.gameObject.SetActive(false);
+        Playgame.gameObject.SetActive(false);
+        Levelgame.gameObject.SetActive(false);
+        _panelCanel.gameObject.SetActive(false);
+        _panelBuycoin.gameObject.SetActive(false);
+        if (FindObjectOfType<SpinnerPlayer>() != null)
+        {
+            FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
+
+        }
+        OnInitCoin();
+    }
+    IEnumerator BackMenu()
+    {
+        animator.SetTrigger("Start");
+        yield return new WaitForSeconds(1);
+        animator.SetTrigger("End");
+        isNextPanel = false;
+        Camera.main.orthographic = true;
+        maingame.gameObject.SetActive(true);
         Coingame.gameObject.SetActive(false);
         Freegame.gameObject.SetActive(false);
         Herogame.gameObject.SetActive(false);
@@ -347,7 +442,8 @@ public class HomeUI : MonoBehaviour
         _panelBuycoin.gameObject.SetActive(false);
     }
 
-    IEnumerator loading()
+
+    IEnumerator Loading()
     {
         LoadingMain.gameObject.SetActive(true);
         yield return new WaitForSeconds(4);
