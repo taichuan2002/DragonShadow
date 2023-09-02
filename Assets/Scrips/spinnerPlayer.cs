@@ -13,6 +13,7 @@ public class SpinnerPlayer : MonoBehaviour
 {
     [SerializeField] GameObject _panelCanel;
     [SerializeField] GameObject _panelMoney;
+    [SerializeField] GameObject _panelUnLockLevel;
     [SerializeField] ScrollRect scrollRect;
     [SerializeField] CircularScrollingList _list;
     public TextMeshProUGUI txtName;
@@ -344,6 +345,7 @@ public class SpinnerPlayer : MonoBehaviour
                 LevelSSJ[center] = levelValue;
                 OnInitCoin();
                 FindObjectOfType<HomeUI>().UpdateCoin(Coin);
+                _panelUnLockLevel.SetActive(true);
             }
             else
             {
@@ -363,6 +365,7 @@ public class SpinnerPlayer : MonoBehaviour
     public void Canel()
     {
         _panelCanel.SetActive(false);
+        _panelUnLockLevel.SetActive(false);
     }
 
     public void ResetListPlayer()
