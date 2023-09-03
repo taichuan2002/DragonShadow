@@ -3463,9 +3463,9 @@ MonoBehaviour:
   - {fileID: 6217702433326238047, guid: 542b5132691cde147bc6cffa582ec0e1, type: 3}
   arrEnemys:
   - {fileID: 6984273546810366950, guid: 00b078245e0708640a895a721a89abd0, type: 3}
-  - {fileID: 3162912894130493898, guid: a29790feeb55de247b4e8b38b8e46503, type: 3}
+  - {fileID: 3162912894130493898, guid: 93e300c6584ca8c49a071894ea3b9170, type: 3}
   - {fileID: 482604960845114855, guid: 47e2084f64f094540af83fd33e90d099, type: 3}
-  - {fileID: 2061713616368844815, guid: 5a915feec38fcf94c94474476b896034, type: 3}
+  - {fileID: 2061713616368844815, guid: 8ad84a3b0cec6c74ba9330f56f51477a, type: 3}
   StartPoint: {fileID: 1080636461}
   StartPointEnemy: {fileID: 1826719726}
   ObjHealingbar: {fileID: 8028794289585617294, guid: 5c0243bc9d5e10e4a9bb22503f7294b4, type: 3}
