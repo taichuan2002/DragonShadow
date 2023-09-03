@@ -116,6 +116,7 @@ public class HomeUI : MonoBehaviour
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
 
+
     }
 
     public void ClickLevelGame()
@@ -205,8 +206,6 @@ public class HomeUI : MonoBehaviour
         Playgame.gameObject.SetActive(false);
         Levelgame.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
-        _panelBuycoin.gameObject.SetActive(false);
-
     }
     public void GameOverPanelLevel()
     {
@@ -312,6 +311,13 @@ public class HomeUI : MonoBehaviour
         OnInitCoin();
     }
 
+
+    IEnumerator DelayScrollLevel()
+    {
+        FindObjectOfType<AutoScroll>().ItemCenter();
+        yield return new WaitForSeconds(2);
+        StartCoroutine(DelayLevel());
+    }
     IEnumerator DelayLevel()
     {
 
@@ -325,13 +331,7 @@ public class HomeUI : MonoBehaviour
         Levelgame.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
-    }
 
-    IEnumerator DelayScrollLevel()
-    {
-        FindObjectOfType<AutoScroll>().ItemCenter();
-        yield return new WaitForSeconds(2);
-        StartCoroutine(DelayLevel());
     }
 
     public IEnumerator NextMap()
@@ -441,8 +441,6 @@ public class HomeUI : MonoBehaviour
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
     }
-
-
     IEnumerator Loading()
     {
         LoadingMain.gameObject.SetActive(true);
@@ -456,8 +454,6 @@ public class HomeUI : MonoBehaviour
         Levelgame.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
-
-
     }
 
     public void UpdateCoin(int newCoinValue)
