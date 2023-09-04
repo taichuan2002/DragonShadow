@@ -435,7 +435,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8579002291278295268
 Transform:
   m_ObjectHideFlags: 0
@@ -845,7 +845,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1279008816558933712
 Transform:
   m_ObjectHideFlags: 0
@@ -1867,7 +1867,7 @@ Transform:
   - {fileID: 4476560933878385992}
   - {fileID: 6590080687908645155}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &46201468015035330
 MonoBehaviour:
@@ -1947,6 +1947,10 @@ MonoBehaviour:
   _btn:
   - {fileID: 0}
   - {fileID: 0}
+  _anim:
+  - {fileID: 4385950944062215829}
+  - {fileID: 3908963242432443859}
+  - {fileID: 2460999290047924800}
   targetBtnTag: btnTags
   skill2Prf: {fileID: 8550975513353579464, guid: a0eb2981cc72d0841a85e67447497efb, type: 3}
   Attack: {fileID: 6345026210193521771}
@@ -2431,6 +2435,22 @@ PrefabInstance:
     - target: {fileID: 2142733067982370238, guid: cf339e54911cb1b4e8eaeaccf6436cb9, type: 3}
       propertyPath: m_Name
       value: SSJ
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084742537058595211, guid: cf339e54911cb1b4e8eaeaccf6436cb9, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084742537058595211, guid: cf339e54911cb1b4e8eaeaccf6436cb9, type: 3}
+      propertyPath: lengthInSec
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084742537058595211, guid: cf339e54911cb1b4e8eaeaccf6436cb9, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1.7927536
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084742537058595211, guid: cf339e54911cb1b4e8eaeaccf6436cb9, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6527545320117352999, guid: cf339e54911cb1b4e8eaeaccf6436cb9, type: 3}
       propertyPath: m_ShadowBias

@@ -34,6 +34,7 @@ public class PlayerController : Charactor
     [SerializeField] GameObject VfxArmor;
     [SerializeField] Vector3[] v3;
     [SerializeField] Button[] _btn;
+    [SerializeField] GameObject[] _anim;
 
     public string targetBtnTag = "btnTags";
     public GameObject skill2Prf;
@@ -230,6 +231,7 @@ public class PlayerController : Charactor
                 {
                     if (!isSSJ)
                     {
+                        _anim[0].SetActive(true);
                         btnSSJ.interactable = true;
                         LevelUpSSJ();
                         hp = maxhp;
@@ -383,6 +385,8 @@ public class PlayerController : Charactor
             if (mana >= 50)
             {
                 isAttack = false;
+                _anim[1].SetActive(true);
+                _anim[2].SetActive(true);
                 skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[8], false);
                 StartCoroutine(delaySkill4());
             }
@@ -448,11 +452,14 @@ public class PlayerController : Charactor
     IEnumerator delaySkill4()
     {
         yield return new WaitForSeconds(1f);
+
         skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[4], false);
         yield return new WaitForSeconds(0.5f);
         skill4 = Instantiate(Listskill[3], attack.position, attack.rotation).GetComponent<Skill4>();
         skill4.SetDame(Damage4);
         skill4.OnInit();
+        _anim[1].SetActive(false);
+        _anim[2].SetActive(false);
         OnSkill(50);
         StartCoroutine(DelayIdle());
     }
@@ -460,6 +467,8 @@ public class PlayerController : Charactor
     {
         isSkillRunning = true;
         rb.velocity = Vector2.zero;
+        _anim[1].SetActive(true);
+        _anim[2].SetActive(true);
         skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[7], false);
         GameObject hVFX = Instantiate(hitVFX[0], transform.position, transform.rotation);
         yield return new WaitForSeconds(1f);
@@ -470,6 +479,8 @@ public class PlayerController : Charactor
         skillKame.SetDame(Damage1);
         skillKame.OnInit();
         StartCoroutine(DelayIdle());
+        _anim[1].SetActive(false);
+        _anim[2].SetActive(false);
         isSkillRunning = false;
     }
 
@@ -486,6 +497,7 @@ public class PlayerController : Charactor
     IEnumerator DelayIdle()
     {
         yield return new WaitForSeconds(1f);
+        _anim[0].SetActive(false);
         skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[0], false);
         isSSJ = false;
         isAttack = true;
