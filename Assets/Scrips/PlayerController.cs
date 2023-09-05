@@ -124,6 +124,7 @@ public class PlayerController : Charactor
         {
             if (Bot.dataEneMy.isDead == true)
             {
+                Debug.Log(center);
                 isAttack = false;
             }
         }
@@ -132,6 +133,7 @@ public class PlayerController : Charactor
 
         if (hp == 0)
         {
+            Debug.Log(center);
             PlayerPrefs.SetInt("isDead", 1);
             PlayerPrefs.Save();
             playerData.isDead = true;
@@ -285,9 +287,6 @@ public class PlayerController : Charactor
         }
 
     }
-
-
-
 
     public void OnInit()
     {
@@ -452,7 +451,6 @@ public class PlayerController : Charactor
     IEnumerator delaySkill4()
     {
         yield return new WaitForSeconds(1f);
-
         skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[4], false);
         yield return new WaitForSeconds(0.5f);
         skill4 = Instantiate(Listskill[3], attack.position, attack.rotation).GetComponent<Skill4>();

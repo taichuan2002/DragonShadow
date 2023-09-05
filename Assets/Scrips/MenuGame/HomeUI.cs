@@ -22,6 +22,9 @@ public class HomeUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] _txtPointCoins;
     [SerializeField] Button[] _btnBuyCoin;
     [SerializeField] Button[] _btnFreeCoin;
+    [SerializeField] Image[] _imgPlayer;
+    public Sprite[] _spritePlayerLoad;
+
 
     public string sceneName = "MapBot";
     public Animator animator;
@@ -32,7 +35,7 @@ public class HomeUI : MonoBehaviour
 
     void Start()
     {
-        pl = PlayerPrefs.GetInt("idPlayer");
+
         btn = PlayerPrefs.GetInt("btn");
         if (btn == 0)
         {
@@ -66,14 +69,18 @@ public class HomeUI : MonoBehaviour
             _btnFreeCoin[i].onClick.AddListener(() => ClickFreeCoins(buttonIndex));
         }
     }
-
+    private void Update()
+    {
+        pl = PlayerPrefs.GetInt("idPlayer");
+        _imgPlayer[0].sprite = _spritePlayerLoad[pl];
+        _imgPlayer[1].sprite = _spritePlayerLoad[pl];
+    }
 
     private void Awake()
     {
         Coin = PlayerPrefs.GetInt("Coin", 0);
         bean = PlayerPrefs.GetInt("Bean", 0);
         levelMap = PlayerPrefs.GetInt("levelMap", 0);
-        PlayerPrefs.SetInt("idPlayer", 0);
     }
     public void OnInit()
     {

@@ -76,7 +76,7 @@ MonoBehaviour:
   skillKame: {fileID: -3475075212191199340, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
   testskill2: {fileID: 0}
   skill3: {fileID: 8319474813761885605, guid: b7d7d2f1afe9e1747bc7e1a56f955f2c, type: 3}
-  skill4: {fileID: -3475075212191199340, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
+  skill4: {fileID: 0}
   skill5: {fileID: 2678809213584109010, guid: 8084a41e7dad4c54b954018c46a77ce1, type: 3}
   sceneName: Menu
   skeletonAnimation:
@@ -117,6 +117,7 @@ MonoBehaviour:
   _btn:
   - {fileID: 0}
   - {fileID: 0}
+  _anim: []
   targetBtnTag: btnTags
   skill2Prf: {fileID: 8550975513353579464, guid: a0eb2981cc72d0841a85e67447497efb, type: 3}
   Attack: {fileID: 3407477187005435147}

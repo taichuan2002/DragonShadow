@@ -263,7 +263,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scrips\Charactor.cs" />
     <Compile Include="Assets\Spine\spine-unity\Asset Types\RegionlessAttachmentLoader.cs" />
-    <Compile Include="Assets\testSkill.cs" />
     <Compile Include="Assets\Scrips\Data\DataEneMy\DataTau77.cs" />
     <Compile Include="Assets\Spine\spine-csharp\Attachments\PathAttachment.cs" />
     <Compile Include="Assets\Scrips\SkillBot\SkillBot2.cs" />

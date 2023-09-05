@@ -35,11 +35,5 @@ public class Skill5 : MonoBehaviour
             onDead();
             Destroy(hitvfx, 1);
         }
-        if (collision.CompareTag("skillEnemy"))
-        {
-            GameObject hitvfx = Instantiate(hitVFXDead, transform.position, transform.rotation);
-            onDead();
-            Destroy(hitvfx, 1);
-        }
     }
 }

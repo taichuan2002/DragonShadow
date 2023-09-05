@@ -4883,20 +4883,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 772169165}
-        m_TargetAssemblyTypeName: spinnerPlayer, Assembly-CSharp
-        m_MethodName: backPlayer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 772169165}
         m_TargetAssemblyTypeName: SpinnerPlayer, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: BackPlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9694,8 +9682,6 @@ MonoBehaviour:
   txtPointCoin: {fileID: 833428048}
   txtPrice: {fileID: 1473899658}
   txtPower: {fileID: 4009726}
-  _imgPlayer: {fileID: 425722931}
-  _imgPlayer2: {fileID: 1363154182}
   _btnUnLock: {fileID: 2015707916}
   _btnActive: {fileID: 717150999}
   _btnCommingSoon: {fileID: 1997014814}
@@ -11122,20 +11108,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 772169165}
-        m_TargetAssemblyTypeName: spinnerPlayer, Assembly-CSharp
-        m_MethodName: nextPlayer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 772169165}
         m_TargetAssemblyTypeName: SpinnerPlayer, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: NextPlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24815,6 +24789,15 @@ MonoBehaviour:
   - {fileID: 962029226}
   - {fileID: 493381378}
   - {fileID: 553253764}
+  _imgPlayer:
+  - {fileID: 425722931}
+  - {fileID: 1363154182}
+  _spritePlayerLoad:
+  - {fileID: 21300000, guid: 00b20f4be41bc4a8894976644eade3a9, type: 3}
+  - {fileID: 21300000, guid: 7f4e08aeb398e4435a1813b71271a95b, type: 3}
+  - {fileID: 21300000, guid: bb172c5602d52482880bd4a661cc31b4, type: 3}
+  - {fileID: 21300000, guid: b5a024b60111030409ccf451005b0a30, type: 3}
+  - {fileID: 21300000, guid: e384dee3790e446a7b4fa7ea5e34fc5d, type: 3}
   sceneName: MapBot
   animator: {fileID: 1482633870}
 --- !u!1 &2047289275

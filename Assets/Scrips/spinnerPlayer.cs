@@ -22,8 +22,6 @@ public class SpinnerPlayer : MonoBehaviour
     public TextMeshProUGUI txtPointCoin;
     public TextMeshProUGUI txtPrice;
     public TextMeshProUGUI txtPower;
-    public Image _imgPlayer;
-    public Image _imgPlayer2;
     public GameObject _btnUnLock;
     public GameObject _btnActive;
     public GameObject _btnCommingSoon;
@@ -49,10 +47,11 @@ public class SpinnerPlayer : MonoBehaviour
 
     private void Start()
     {
-
         _imgPlayerCircol[0].transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
         listEffect[0].SetActive(true);
         center = 0;
+        PlayerPrefs.SetInt("idPlayer", center);
+        PlayerPrefs.Save();
         _imgPlayerCircol[0].sprite = _spritePlayerLoad[0];
         _imgPlayerCircol[1].sprite = _spritePlayerLoad[1];
         _imgPlayerCircol[2].sprite = _spritePlayerLoad[2];
@@ -75,17 +74,13 @@ public class SpinnerPlayer : MonoBehaviour
             txtLevel.text = "0";
         }
         int playerIndex = center;
-        int id = PlayerPrefs.GetInt("idPlayer");
         currentPlayerData = player[playerIndex];
         DisplayCurrentPlayerData();
-        _imgPlayer.sprite = _spritePlayerLoad[id];
-        _imgPlayer2.sprite = _spritePlayerLoad[id];
-        isCheckActive();
+        IsCheckActive();
     }
     private void Awake()
     {
         Coin = PlayerPrefs.GetInt("Coin", 0);
-        center = PlayerPrefs.GetInt("idPlayer", 0);
         LevelSSJ[0] = PlayerPrefs.GetInt("LevelSSJ0", 0);
         LevelSSJ[1] = PlayerPrefs.GetInt("LevelSSJ1", 0);
         LevelSSJ[2] = PlayerPrefs.GetInt("LevelSSJ2", 0);
@@ -122,10 +117,12 @@ public class SpinnerPlayer : MonoBehaviour
             if (currentPlayerData.Active)
             {
                 PlayerPrefs.SetInt("idPlayer", 0);
+                PlayerPrefs.Save();
             }
             else
             {
                 PlayerPrefs.SetInt("idPlayer", center);
+                PlayerPrefs.Save();
             }
         }
 
@@ -218,7 +215,7 @@ public class SpinnerPlayer : MonoBehaviour
                 break;
         }
     }
-    public void nextPlayer()
+    public void NextPlayer()
     {
         if (isCheck)
         {
@@ -238,12 +235,13 @@ public class SpinnerPlayer : MonoBehaviour
                 DisplayCurrentPlayerData();
                 isCheck = true;
                 OnInitIdPlayer();
+
             });
         }
 
     }
 
-    public void backPlayer()
+    public void BackPlayer()
     {
         if (isCheck)
         {
@@ -267,7 +265,7 @@ public class SpinnerPlayer : MonoBehaviour
         }
     }
 
-    public void isCheckActive()
+    public void IsCheckActive()
     {
         txt = int.Parse(txtLevel.text);
         levelValue = LevelSSJ[center];
