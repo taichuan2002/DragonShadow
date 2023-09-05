@@ -19,9 +19,9 @@ public class GameOver : MonoBehaviour
     void Start()
     {
         PlayerPrefs.SetInt("btn", 0);
+        pl = PlayerPrefs.GetInt("idPlayer");
         PlayerPrefs.Save();
         _ImgPlayer.transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
-        pl = PlayerPrefs.GetInt("idPlayer");
         int tongCoin = PlayerPrefs.GetInt("tongCoin");
         Coin = PlayerPrefs.GetInt("Coin");
         _txtPointCoins[0].text = Coin.ToString();
@@ -53,7 +53,6 @@ public class GameOver : MonoBehaviour
             _txtPointCoins[3].text = tongCoin.ToString();
         }
     }
-
 
     public void BtnHome()
     {

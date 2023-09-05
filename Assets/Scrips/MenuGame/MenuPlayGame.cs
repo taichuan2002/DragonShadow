@@ -74,6 +74,10 @@ public class MenuPlayGame : MonoBehaviour
                 break;
             case 6:
                 Enemy[4].sprite = sprite[0];
+                Enemy[0].enabled = false;
+                Enemy[1].enabled = false;
+                Enemy[2].enabled = false;
+                Enemy[3].enabled = false;
                 Enemy[4].transform.DOLocalMove(new Vector2(0, -60), 2).SetLoops(-1, LoopType.Yoyo);
                 break;
             case 7:

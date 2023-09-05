@@ -33,7 +33,7 @@ public class SpinnerPlayer : MonoBehaviour
     public Transform[] obj;
     public DataPlayer[] player;
     public GameObject[] listEffect;
-
+    public GameObject panel;
     private int[] LevelSSJ = new int[5];
     private Vector2 ScrollPosition;
     bool isCheck = true;
@@ -42,7 +42,7 @@ public class SpinnerPlayer : MonoBehaviour
     private int center = 0;
     private Vector3[] initialPositions;
     private Vector3 scrollViewCenterPosition;
-    int txt, Coin, levelValue;
+    int txt, Coin, pl, levelValue;
 
 
     private void Start()
@@ -50,8 +50,7 @@ public class SpinnerPlayer : MonoBehaviour
         _imgPlayerCircol[0].transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
         listEffect[0].SetActive(true);
         center = 0;
-        PlayerPrefs.SetInt("idPlayer", center);
-        PlayerPrefs.Save();
+        pl = PlayerPrefs.GetInt("idPlayer");
         _imgPlayerCircol[0].sprite = _spritePlayerLoad[0];
         _imgPlayerCircol[1].sprite = _spritePlayerLoad[1];
         _imgPlayerCircol[2].sprite = _spritePlayerLoad[2];
@@ -59,16 +58,13 @@ public class SpinnerPlayer : MonoBehaviour
         _imgPlayerCircol[4].sprite = _spritePlayerLoad[4];
         OnInit();
         OnInitCoin();
-        OnInitIdPlayer();
         if (obj.Length > 0)
         {
             scrollViewCenterPosition = obj[0].parent.position;
         }
     }
-
     private void Update()
     {
-
         if (!isCheck)
         {
             txtLevel.text = "0";
@@ -121,6 +117,7 @@ public class SpinnerPlayer : MonoBehaviour
             }
             else
             {
+                Debug.Log(center);
                 PlayerPrefs.SetInt("idPlayer", center);
                 PlayerPrefs.Save();
             }
@@ -390,10 +387,10 @@ public class SpinnerPlayer : MonoBehaviour
     {
         scrollRect.normalizedPosition = ScrollPosition;
     }
-    public void UpdateCoin(int newCoinValue)
-    {
-        Coin = newCoinValue;
-        OnInitCoin();
-    }
+    /* public void UpdateCoin(int newCoinValue)
+     {
+         Coin = newCoinValue;
+         OnInitCoin();
+     }*/
 
 }

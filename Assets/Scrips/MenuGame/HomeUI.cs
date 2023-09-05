@@ -69,12 +69,7 @@ public class HomeUI : MonoBehaviour
             _btnFreeCoin[i].onClick.AddListener(() => ClickFreeCoins(buttonIndex));
         }
     }
-    private void Update()
-    {
-        pl = PlayerPrefs.GetInt("idPlayer");
-        _imgPlayer[0].sprite = _spritePlayerLoad[pl];
-        _imgPlayer[1].sprite = _spritePlayerLoad[pl];
-    }
+
 
     private void Awake()
     {
@@ -158,6 +153,8 @@ public class HomeUI : MonoBehaviour
     }
     public void ClickHero()
     {
+        PlayerPrefs.SetInt("idPlayer", 0);
+        PlayerPrefs.Save();
         if (!isNextPanel)
         {
             StartCoroutine(NextHero());
@@ -196,11 +193,6 @@ public class HomeUI : MonoBehaviour
         Levelgame.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
-        if (FindObjectOfType<SpinnerPlayer>() != null)
-        {
-            FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
-
-        }
         OnInitCoin();
     }
     public void GameOverPanelBack()
@@ -381,11 +373,6 @@ public class HomeUI : MonoBehaviour
         Levelgame.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
-        if (FindObjectOfType<SpinnerPlayer>() != null)
-        {
-            FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
-
-        }
         OnInitCoin();
     }
     IEnumerator NextCoin()
@@ -403,11 +390,6 @@ public class HomeUI : MonoBehaviour
         Levelgame.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
-        if (FindObjectOfType<SpinnerPlayer>() != null)
-        {
-            FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
-
-        }
         OnInitCoin();
     }
     IEnumerator NextFreeCoin()
@@ -425,11 +407,6 @@ public class HomeUI : MonoBehaviour
         Levelgame.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
-        if (FindObjectOfType<SpinnerPlayer>() != null)
-        {
-            FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
-
-        }
         OnInitCoin();
     }
     IEnumerator BackMenu()
