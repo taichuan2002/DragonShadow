@@ -153,8 +153,8 @@ public class HomeUI : MonoBehaviour
     }
     public void ClickHero()
     {
-        PlayerPrefs.SetInt("idPlayer", 0);
-        PlayerPrefs.Save();
+        /*PlayerPrefs.SetInt("idPlayer", 0);
+        PlayerPrefs.Save();*/
         if (!isNextPanel)
         {
             StartCoroutine(NextHero());
@@ -185,6 +185,8 @@ public class HomeUI : MonoBehaviour
 
     public void GameOverPanelHero()
     {
+        /*PlayerPrefs.SetInt("idPlayer", 0);
+        PlayerPrefs.Save();*/
         maingame.gameObject.SetActive(false);
         Coingame.gameObject.SetActive(false);
         Freegame.gameObject.SetActive(false);
@@ -217,6 +219,12 @@ public class HomeUI : MonoBehaviour
         Playgame.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
+        if (FindObjectOfType<SpinnerPlayer>() != null)
+        {
+            FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
+
+        }
+        OnInitCoin();
         StartCoroutine(DelayScrollLevel());
     }
 
@@ -360,6 +368,7 @@ public class HomeUI : MonoBehaviour
     }
     IEnumerator NextHero()
     {
+
         animator.SetTrigger("Start");
         yield return new WaitForSeconds(1);
         animator.SetTrigger("End");
@@ -373,6 +382,11 @@ public class HomeUI : MonoBehaviour
         Levelgame.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
+        if (FindObjectOfType<SpinnerPlayer>() != null)
+        {
+            FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
+
+        }
         OnInitCoin();
     }
     IEnumerator NextCoin()
@@ -390,6 +404,12 @@ public class HomeUI : MonoBehaviour
         Levelgame.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
+        if (FindObjectOfType<SpinnerPlayer>() != null)
+        {
+            FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
+
+        }
+        OnInitCoin();
         OnInitCoin();
     }
     IEnumerator NextFreeCoin()
@@ -407,6 +427,12 @@ public class HomeUI : MonoBehaviour
         Levelgame.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
+        if (FindObjectOfType<SpinnerPlayer>() != null)
+        {
+            FindObjectOfType<SpinnerPlayer>().UpdateCoin(Coin);
+
+        }
+        OnInitCoin();
         OnInitCoin();
     }
     IEnumerator BackMenu()
@@ -438,6 +464,10 @@ public class HomeUI : MonoBehaviour
         Levelgame.gameObject.SetActive(false);
         _panelCanel.gameObject.SetActive(false);
         _panelBuycoin.gameObject.SetActive(false);
+    }
+    public void BtnCanel()
+    {
+        _panelBuycoin.SetActive(false);
     }
 
     public void UpdateCoin(int newCoinValue)

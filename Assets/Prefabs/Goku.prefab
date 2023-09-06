@@ -1901,7 +1901,7 @@ MonoBehaviour:
   ImgPlayer: {fileID: 0}
   _txtPointCoin: {fileID: 0}
   _txtLevelSSJ: {fileID: 0}
-  speed: 10
+  speed: 13
   skillKame: {fileID: -3475075212191199340, guid: 1594636abf365f64f8f5b65920df22bc, type: 3}
   testskill2: {fileID: 6225740852969582611, guid: f5e66d8614e1e66499abbcf5221cae51, type: 3}
   skill3: {fileID: 8319474813761885605, guid: b7d7d2f1afe9e1747bc7e1a56f955f2c, type: 3}

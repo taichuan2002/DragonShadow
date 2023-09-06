@@ -305,7 +305,6 @@ public class CharacterSelectionDataBase : MonoBehaviour
                     {
                         PlayerPrefs.SetInt("IdEnemy", 2);
                         PlayerPrefs.Save();
-
                         enemy3 = Instantiate(arrEnemys[2], StartPointEnemy.position, Quaternion.identity);
                         spownEnemy3 = true;
                     }
@@ -320,19 +319,18 @@ public class CharacterSelectionDataBase : MonoBehaviour
                             enemy1.transform.SetParent(healingEnemy.transform);
                             spownEnemy1 = true;
                         }
-                        if (enemy1 == null)
+                        if (enemy3 == null && enemy1 == null)
                         {
                             EnemyDead = 1;
-
                             if (!spownEnemy4)
                             {
                                 PlayerPrefs.SetInt("IdEnemy", 3);
                                 PlayerPrefs.Save();
                                 enemy4 = Instantiate(arrEnemys[3], StartPointEnemy.position, Quaternion.identity);
                                 enemy4.transform.SetParent(healingEnemy.transform);
-                                spownEnemy3 = true;
+                                spownEnemy4 = true;
                             }
-                            if (enemy4 == null)
+                            if (enemy3 == null && enemy4 == null && enemy1 == null)
                             {
                                 EnemyDead = 0;
                                 int Coin = PlayerPrefs.GetInt("Coin");
@@ -362,11 +360,11 @@ public class CharacterSelectionDataBase : MonoBehaviour
                         {
                             PlayerPrefs.SetInt("IdEnemy", 0);
                             PlayerPrefs.Save();
-                            enemy1 = Instantiate(arrEnemys[1], StartPointEnemy.position, Quaternion.identity);
+                            enemy1 = Instantiate(arrEnemys[0], StartPointEnemy.position, Quaternion.identity);
                             enemy1.transform.SetParent(healingEnemy.transform);
                             spownEnemy1 = true;
                         }
-                        if (enemy1 == null)
+                        if (enemy3 == null && enemy1 == null)
                         {
                             EnemyDead = 1;
                             if (!spownEnemy4)
@@ -375,9 +373,9 @@ public class CharacterSelectionDataBase : MonoBehaviour
                                 PlayerPrefs.Save();
                                 enemy4 = Instantiate(arrEnemys[3], StartPointEnemy.position, Quaternion.identity);
                                 enemy4.transform.SetParent(healingEnemy.transform);
-                                spownEnemy3 = true;
+                                spownEnemy4 = true;
                             }
-                            if (enemy4 == null)
+                            if (enemy3 == null && enemy4 == null && enemy1 == null)
                             {
                                 EnemyDead = 0;
                                 int Coin = PlayerPrefs.GetInt("Coin");
@@ -414,84 +412,69 @@ public class CharacterSelectionDataBase : MonoBehaviour
                     break;
                 case 11:
                     EnemyDead = 2;
-
                     if (!spownEnemy1)
                     {
-                        PlayerPrefs.SetInt("IdEnemy", 2);
+                        PlayerPrefs.SetInt("IdEnemy", 0);
                         PlayerPrefs.Save();
-
-                        enemy1 = Instantiate(arrEnemys[2], StartPointEnemy.position, Quaternion.identity);
+                        enemy1 = Instantiate(arrEnemys[0], StartPointEnemy.position, Quaternion.identity);
                         spownEnemy1 = true;
                     }
                     if (enemy1 == null)
                     {
                         EnemyDead = 1;
-
                         if (!spownEnemy2)
                         {
-                            PlayerPrefs.SetInt("IdEnemy", 0);
+                            PlayerPrefs.SetInt("IdEnemy", 1);
                             PlayerPrefs.Save();
-
-                            enemy2 = Instantiate(arrEnemys[0], StartPointEnemy.position, Quaternion.identity);
+                            enemy2 = Instantiate(arrEnemys[1], StartPointEnemy.position, Quaternion.identity);
                             enemy2.transform.SetParent(healingEnemy.transform);
                             spownEnemy2 = true;
                         }
                         if (enemy2 == null)
                         {
+                            EnemyDead = 0;
+                            int Coin = PlayerPrefs.GetInt("Coin");
+                            Coin += 60;
+                            PlayerPrefs.SetInt("Coin", Coin);
+                            PlayerPrefs.Save();
+                            level = 12;
+                            OnInitLevelMap();
+                            IsCheckDeadEnemy();
 
-                            if (!spownEnemy2)
-                            {
-                                EnemyDead = 0;
-
-                                int Coin = PlayerPrefs.GetInt("Coin");
-                                Coin += 60;
-                                PlayerPrefs.SetInt("Coin", Coin);
-                                PlayerPrefs.Save();
-                                level = 12;
-                                OnInitLevelMap();
-                                IsCheckDeadEnemy();
-                            }
                         }
                     }
                     break;
                 case 12:
                     EnemyDead = 2;
-
                     if (!spownEnemy2)
                     {
-                        PlayerPrefs.SetInt("IdEnemy", 2);
+                        PlayerPrefs.SetInt("IdEnemy", 1);
                         PlayerPrefs.Save();
-
-                        enemy2 = Instantiate(arrEnemys[2], StartPointEnemy.position, Quaternion.identity);
+                        enemy2 = Instantiate(arrEnemys[1], StartPointEnemy.position, Quaternion.identity);
                         spownEnemy2 = true;
                     }
                     if (enemy2 == null)
                     {
                         EnemyDead = 1;
-
                         if (!spownEnemy3)
                         {
-                            PlayerPrefs.SetInt("IdEnemy", 0);
+                            PlayerPrefs.SetInt("IdEnemy", 2);
                             PlayerPrefs.Save();
-
-                            enemy3 = Instantiate(arrEnemys[0], StartPointEnemy.position, Quaternion.identity);
+                            enemy3 = Instantiate(arrEnemys[2], StartPointEnemy.position, Quaternion.identity);
                             enemy3.transform.SetParent(healingEnemy.transform);
                             spownEnemy3 = true;
                         }
                         if (enemy3 == null)
                         {
-                            if (!spownEnemy3)
-                            {
-                                EnemyDead = 0;
+                            EnemyDead = 0;
+                            int Coin = PlayerPrefs.GetInt("Coin");
+                            Coin += 60;
+                            PlayerPrefs.SetInt("Coin", Coin);
+                            PlayerPrefs.Save();
+                            level = 13;
+                            OnInitLevelMap();
+                            IsCheckDeadEnemy();
 
-                                int Coin = PlayerPrefs.GetInt("Coin");
-                                Coin += 60;
-                                PlayerPrefs.SetInt("Coin", Coin);
-                                PlayerPrefs.Save();
-                                level = 13;
-                                OnInitLevelMap();
-                                IsCheckDeadEnemy();
-                            }
                         }
                     }
                     break;
@@ -512,10 +495,10 @@ public class CharacterSelectionDataBase : MonoBehaviour
 
                         if (!spownEnemy4)
                         {
-                            PlayerPrefs.SetInt("IdEnemy", 0);
+                            PlayerPrefs.SetInt("IdEnemy", 3);
                             PlayerPrefs.Save();
 
-                            enemy4 = Instantiate(arrEnemys[0], StartPointEnemy.position, Quaternion.identity);
+                            enemy4 = Instantiate(arrEnemys[3], StartPointEnemy.position, Quaternion.identity);
                             enemy4.transform.SetParent(healingEnemy.transform);
                             spownEnemy4 = true;
                         }
@@ -541,9 +524,9 @@ public class CharacterSelectionDataBase : MonoBehaviour
 
                     if (!spownEnemy4)
                     {
-                        PlayerPrefs.SetInt("IdEnemy", 2);
+                        PlayerPrefs.SetInt("IdEnemy", 3);
                         PlayerPrefs.Save();
-                        enemy4 = Instantiate(arrEnemys[2], StartPointEnemy.position, Quaternion.identity);
+                        enemy4 = Instantiate(arrEnemys[3], StartPointEnemy.position, Quaternion.identity);
                         spownEnemy4 = true;
                         if (enemy4 != null)
                         {

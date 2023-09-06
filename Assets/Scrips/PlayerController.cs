@@ -59,18 +59,17 @@ public class PlayerController : Charactor
     private int currentWaypointIndex = 0;
     private int randomPointUp, randomPointDown, bean;
     private Coroutine effectCoroutine;
-    bool isCheckSkill2 = true;
     bool vfx = true;
     bool isArmor = false;
     bool checkArmor = false;
-    bool isMause = false;
+    bool isSkill = false;
     bool isSSJ = false;
     bool isTime = false;
+    bool ismouse = false;
     private bool isTouchPressed = false;
     private bool hasProcessedTouch = false;
     private void Start()
     {
-
         GameObject PointCoin = GameObject.FindGameObjectWithTag("PointCoin");
         GameObject LevelSSj = GameObject.FindGameObjectWithTag("LevelSSJ");
         GameObject imgPl = GameObject.FindGameObjectWithTag("ImgPlayer");
@@ -89,7 +88,8 @@ public class PlayerController : Charactor
                 }
             }
         }
-
+        int number = PlayerPrefs.GetInt("idPlayer");
+        levelprefs = PlayerPrefs.GetInt("LevelSSJ" + number.ToString());
         center = PlayerPrefs.GetInt("idPlayer");
         PlayerPrefs.SetInt("SSJ", 0);
         PlayerPrefs.Save();
@@ -124,7 +124,6 @@ public class PlayerController : Charactor
         {
             if (Bot.dataEneMy.isDead == true)
             {
-                Debug.Log(center);
                 isAttack = false;
             }
         }
@@ -133,7 +132,6 @@ public class PlayerController : Charactor
 
         if (hp == 0)
         {
-            Debug.Log(center);
             PlayerPrefs.SetInt("isDead", 1);
             PlayerPrefs.Save();
             playerData.isDead = true;
@@ -153,7 +151,7 @@ public class PlayerController : Charactor
     {
         Coin = PlayerPrefs.GetInt("Coin", 0);
         bean = PlayerPrefs.GetInt("Bean", 0);
-        levelprefs = PlayerPrefs.GetInt("LevelSSJ0");
+
     }
 
     public void ButtonClicked(GameObject btn)
@@ -272,18 +270,25 @@ public class PlayerController : Charactor
 
     public void Control()
     {
-        if (Input.touchCount == 1)
+        if (Input.touchCount > 0)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-
-            if (hit.collider == null)
+            Touch touch = Input.GetTouch(0);
+            Ray ray = Camera.main.ScreenPointToRay(touch.position);
+            RaycastHit2D[] hits = Physics2D.RaycastAll(ray.origin, ray.direction);
+            foreach (RaycastHit2D hit in hits)
             {
-                float clampedX = Mathf.Clamp(ray.origin.x, minX, maxX);
-                float clampedY = Mathf.Clamp(ray.origin.y, minY, maxY);
-                Vector2 clampedMousePos = new Vector2(clampedX, clampedY);
-                transform.position = Vector2.Lerp(transform.position, clampedMousePos, speed * Time.deltaTime);
+                if (hit.collider != null)
+                {
+                    if (hit.collider.CompareTag("mouse"))
+                    {
+                        float clampedX = Mathf.Clamp(ray.origin.x, minX, maxX);
+                        float clampedY = Mathf.Clamp(ray.origin.y, minY, maxY);
+                        Vector2 clampedMousePos = new Vector2(clampedX, clampedY);
+                        transform.position = Vector2.MoveTowards(transform.position, clampedMousePos, speed * Time.deltaTime);
+                    }
+                }
             }
+
         }
 
     }
@@ -331,6 +336,7 @@ public class PlayerController : Charactor
             if (mana >= 40 && !isSkillRunning)
             {
                 isAttack = false;
+                isSkill = true;
                 OnSkill(40);
                 StartCoroutine(DelaySkill1());
             }
@@ -342,39 +348,40 @@ public class PlayerController : Charactor
     }
     public void Skill2()
     {
-
-
-        if (mana >= 25)
+        if (!isSkill)
         {
-            isAttack = true;
-            skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[2], false);
-            testskill2 = Instantiate(Listskill[1], attack.position, attack.rotation).GetComponent<testSkill2>();
-            testskill2.SetDame(Damage2);
-            testskill2.OnInit();
-            OnSkill(25);
-            StartCoroutine(DelayIdle());
+            if (mana >= 25)
+            {
+                skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[2], false);
+                testskill2 = Instantiate(Listskill[1], attack.position, attack.rotation).GetComponent<testSkill2>();
+                testskill2.SetDame(Damage2);
+                testskill2.OnInit();
+                OnSkill(25);
+                StartCoroutine(DelayIdle());
+            }
+            else
+            {
+                Debug.Log("Yếu Sinh Lý");
+            }
         }
-        else
-        {
-            Debug.Log("Yếu Sinh Lý");
-        }
-
     }
     public void Skill3()
     {
-
-        if (mana >= 15)
+        if (!isSkill)
         {
-            skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[3], false);
-            skill3 = Instantiate(Listskill[2], attack.position, attack.rotation).GetComponent<Skill3>();
-            skill3.SetDame(Damage3);
-            skill3.OnInit();
-            OnSkill(15);
-            StartCoroutine(DelayIdle());
-        }
-        else
-        {
-            Debug.Log("Yếu Sinh Lý");
+            if (mana >= 15)
+            {
+                skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[3], false);
+                skill3 = Instantiate(Listskill[2], attack.position, attack.rotation).GetComponent<Skill3>();
+                skill3.SetDame(Damage3);
+                skill3.OnInit();
+                OnSkill(15);
+                StartCoroutine(DelayIdle());
+            }
+            else
+            {
+                Debug.Log("Yếu Sinh Lý");
+            }
         }
     }
     public void Skill4()
@@ -383,6 +390,7 @@ public class PlayerController : Charactor
         {
             if (mana >= 50)
             {
+                isSkill = true;
                 isAttack = false;
                 _anim[1].SetActive(true);
                 _anim[2].SetActive(true);
@@ -401,6 +409,7 @@ public class PlayerController : Charactor
         {
             if (mana >= 45)
             {
+                isSkill = true;
                 skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[5], false);
                 skill5 = Instantiate(Listskill[4], attack.position, attack.rotation).GetComponent<Skill5>();
                 skill5.SetDame(Damage5);
@@ -480,6 +489,7 @@ public class PlayerController : Charactor
         _anim[1].SetActive(false);
         _anim[2].SetActive(false);
         isSkillRunning = false;
+
     }
 
     IEnumerator CollisionItem()
@@ -499,6 +509,7 @@ public class PlayerController : Charactor
         skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[0], false);
         isSSJ = false;
         isAttack = true;
+        isSkill = false;
 
     }
 

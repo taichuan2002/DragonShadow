@@ -33,7 +33,6 @@ public class SpinnerPlayer : MonoBehaviour
     public Transform[] obj;
     public DataPlayer[] player;
     public GameObject[] listEffect;
-    public GameObject panel;
     private int[] LevelSSJ = new int[5];
     private Vector2 ScrollPosition;
     bool isCheck = true;
@@ -44,18 +43,36 @@ public class SpinnerPlayer : MonoBehaviour
     private Vector3 scrollViewCenterPosition;
     int txt, Coin, pl, levelValue;
 
-
     private void Start()
     {
-        _imgPlayerCircol[0].transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
-        listEffect[0].SetActive(true);
-        center = 0;
-        pl = PlayerPrefs.GetInt("idPlayer");
         _imgPlayerCircol[0].sprite = _spritePlayerLoad[0];
         _imgPlayerCircol[1].sprite = _spritePlayerLoad[1];
         _imgPlayerCircol[2].sprite = _spritePlayerLoad[2];
         _imgPlayerCircol[3].sprite = _spritePlayerLoad[3];
         _imgPlayerCircol[4].sprite = _spritePlayerLoad[4];
+        center = PlayerPrefs.GetInt("idPlayer");
+        if (center == 0)
+        {
+            _imgPlayerCircol[0].transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
+            listEffect[0].SetActive(true);
+        }
+        if (center == 2)
+        {
+            _imgPlayerCircol[center].transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
+            listEffect[center].SetActive(true);
+            Vector3 StartPoint0 = obj[0].position;
+            Vector3 StartPoint1 = obj[1].position;
+            Vector3 StartPoint2 = obj[2].position;
+            Vector3 StartPoint3 = obj[3].position;
+            Vector3 StartPoint4 = obj[4].position;
+            obj[0].position = Vector3.Lerp(obj[0].position, StartPoint3, 1);
+            obj[1].position = Vector3.Lerp(obj[1].position, StartPoint4, 1);
+            obj[2].position = Vector3.Lerp(obj[2].position, StartPoint0, 1);
+            obj[3].position = Vector3.Lerp(obj[3].position, StartPoint1, 1);
+            obj[4].position = Vector3.Lerp(obj[4].position, StartPoint2, 1);
+        }
+
+
         OnInit();
         OnInitCoin();
         if (obj.Length > 0)
@@ -63,8 +80,18 @@ public class SpinnerPlayer : MonoBehaviour
             scrollViewCenterPosition = obj[0].parent.position;
         }
     }
+    private void Reset()
+    {
+        PlayerPrefs.SetInt("idPlayer", 0);
+        PlayerPrefs.Save();
+    }
+    private void OnEnable()
+    {
+
+    }
     private void Update()
     {
+        Debug.Log(center);
         if (!isCheck)
         {
             txtLevel.text = "0";
@@ -110,7 +137,7 @@ public class SpinnerPlayer : MonoBehaviour
     {
         if (currentPlayerData != null)
         {
-            if (currentPlayerData.Active)
+            if (currentPlayerData.Active == true)
             {
                 PlayerPrefs.SetInt("idPlayer", 0);
                 PlayerPrefs.Save();
@@ -221,6 +248,7 @@ public class SpinnerPlayer : MonoBehaviour
             ResetListPlayer();
             isCheck = false;
             center = (center + 1) % obj.Length;
+
             obj[0].DOMove(obj[4].position, 1);
             obj[4].DOMove(obj[3].position, 1);
             obj[3].DOMove(obj[2].position, 1);
@@ -232,7 +260,8 @@ public class SpinnerPlayer : MonoBehaviour
                 DisplayCurrentPlayerData();
                 isCheck = true;
                 OnInitIdPlayer();
-
+                PlayerPrefs.SetInt("idPlayer", center);
+                PlayerPrefs.Save();
             });
         }
 
@@ -258,6 +287,8 @@ public class SpinnerPlayer : MonoBehaviour
                 DisplayCurrentPlayerData();
                 isCheck = true;
                 OnInitIdPlayer();
+                PlayerPrefs.SetInt("idPlayer", center);
+                PlayerPrefs.Save();
             });
         }
     }
@@ -387,10 +418,10 @@ public class SpinnerPlayer : MonoBehaviour
     {
         scrollRect.normalizedPosition = ScrollPosition;
     }
-    /* public void UpdateCoin(int newCoinValue)
-     {
-         Coin = newCoinValue;
-         OnInitCoin();
-     }*/
+    public void UpdateCoin(int newCoinValue)
+    {
+        Coin = newCoinValue;
+        OnInitCoin();
+    }
 
 }

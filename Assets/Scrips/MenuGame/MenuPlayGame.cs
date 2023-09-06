@@ -13,7 +13,6 @@ public class MenuPlayGame : MonoBehaviour
     void Start()
     {
         Player.transform.DOLocalMove(new Vector2(0, 60), 2).SetLoops(-1, LoopType.Yoyo);
-        //Enemy[4].transform.DOLocalMove(new Vector2(0, -60), 2).SetLoops(-1, LoopType.Yoyo);
         CheckLevel();
     }
 
