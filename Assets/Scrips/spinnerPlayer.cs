@@ -33,6 +33,7 @@ public class SpinnerPlayer : MonoBehaviour
     public Transform[] obj;
     public DataPlayer[] player;
     public GameObject[] listEffect;
+    public Vector3[] listVecter3;
     private int[] LevelSSJ = new int[5];
     private Vector2 ScrollPosition;
     bool isCheck = true;
@@ -45,49 +46,55 @@ public class SpinnerPlayer : MonoBehaviour
 
     private void Start()
     {
+        Vector3 StartPoint0 = obj[0].position;
+        Vector3 StartPoint1 = obj[1].position;
+        Vector3 StartPoint2 = obj[2].position;
+        Vector3 StartPoint3 = obj[3].position;
+        Vector3 StartPoint4 = obj[4].position;
         _imgPlayerCircol[0].sprite = _spritePlayerLoad[0];
         _imgPlayerCircol[1].sprite = _spritePlayerLoad[1];
         _imgPlayerCircol[2].sprite = _spritePlayerLoad[2];
         _imgPlayerCircol[3].sprite = _spritePlayerLoad[3];
         _imgPlayerCircol[4].sprite = _spritePlayerLoad[4];
+        OnInit();
+        OnInitCoin();
+        OnInitIdPlayer();
         center = PlayerPrefs.GetInt("idPlayer");
-        if (center == 0)
-        {
-            _imgPlayerCircol[0].transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
-            listEffect[0].SetActive(true);
-        }
         if (center == 2)
         {
             _imgPlayerCircol[center].transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
             listEffect[center].SetActive(true);
-            Vector3 StartPoint0 = obj[0].position;
-            Vector3 StartPoint1 = obj[1].position;
-            Vector3 StartPoint2 = obj[2].position;
-            Vector3 StartPoint3 = obj[3].position;
-            Vector3 StartPoint4 = obj[4].position;
+
             obj[0].position = Vector3.Lerp(obj[0].position, StartPoint3, 1);
             obj[1].position = Vector3.Lerp(obj[1].position, StartPoint4, 1);
             obj[2].position = Vector3.Lerp(obj[2].position, StartPoint0, 1);
             obj[3].position = Vector3.Lerp(obj[3].position, StartPoint1, 1);
             obj[4].position = Vector3.Lerp(obj[4].position, StartPoint2, 1);
         }
+        else
+        {
+            _imgPlayerCircol[0].transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
+            listEffect[0].SetActive(true);
+            PlayerPrefs.SetInt("idPlayer", 0);
+            PlayerPrefs.Save();
+        }
 
-
-        OnInit();
-        OnInitCoin();
         if (obj.Length > 0)
         {
             scrollViewCenterPosition = obj[0].parent.position;
         }
     }
-    private void Reset()
-    {
-        PlayerPrefs.SetInt("idPlayer", 0);
-        PlayerPrefs.Save();
-    }
     private void OnEnable()
     {
-
+        center = PlayerPrefs.GetInt("idPlayer");
+        if (center != 2)
+        {
+            /*obj[0].position = Vector3.Lerp(obj[0].position, listVecter3[0], 1);
+            obj[1].position = Vector3.Lerp(obj[1].position, listVecter3[1], 1);
+            obj[2].position = Vector3.Lerp(obj[2].position, listVecter3[2], 1);
+            obj[3].position = Vector3.Lerp(obj[3].position, listVecter3[3], 1);
+            obj[4].position = Vector3.Lerp(obj[4].position, listVecter3[4], 1);*/
+        }
     }
     private void Update()
     {
@@ -141,6 +148,7 @@ public class SpinnerPlayer : MonoBehaviour
             {
                 PlayerPrefs.SetInt("idPlayer", 0);
                 PlayerPrefs.Save();
+                Debug.Log(center);
             }
             else
             {
@@ -248,7 +256,6 @@ public class SpinnerPlayer : MonoBehaviour
             ResetListPlayer();
             isCheck = false;
             center = (center + 1) % obj.Length;
-
             obj[0].DOMove(obj[4].position, 1);
             obj[4].DOMove(obj[3].position, 1);
             obj[3].DOMove(obj[2].position, 1);
@@ -260,8 +267,6 @@ public class SpinnerPlayer : MonoBehaviour
                 DisplayCurrentPlayerData();
                 isCheck = true;
                 OnInitIdPlayer();
-                PlayerPrefs.SetInt("idPlayer", center);
-                PlayerPrefs.Save();
             });
         }
 
@@ -287,8 +292,6 @@ public class SpinnerPlayer : MonoBehaviour
                 DisplayCurrentPlayerData();
                 isCheck = true;
                 OnInitIdPlayer();
-                PlayerPrefs.SetInt("idPlayer", center);
-                PlayerPrefs.Save();
             });
         }
     }
