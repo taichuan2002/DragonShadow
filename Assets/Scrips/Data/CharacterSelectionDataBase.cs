@@ -77,8 +77,8 @@ public class CharacterSelectionDataBase : MonoBehaviour
 
     public void BtnPouse()
     {
-        Time.timeScale = 0;
         _imgBtn[0].sprite = _spriteBtn[0];
+        Time.timeScale = 0;
         _panelSetting.SetActive(true);
     }
 

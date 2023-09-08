@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3295770733626041025}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.8, y: 0.43, z: 0}
+  m_LocalPosition: {x: -1.08, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -112,12 +112,22 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 85443670e3081dc4b89ba9d871dc288b, type: 2}
   - {fileID: 11400000, guid: e1ea2dc41ef0e744b9cc1d89f42c20ca, type: 2}
   - {fileID: 11400000, guid: cba4596cea3fa9d49a8c4b4925b41cfb, type: 2}
+  - {fileID: 11400000, guid: d5269c1c54b57444c83343a2e12b0ce4, type: 2}
   pointStart:
   - {x: 13, y: -0.3}
   - {x: 4.2, y: -10}
   skill1: {fileID: 1921928680278909869, guid: 1ec3bdbf43a91404b9a5b91d99a306a9, type: 3}
   skill2: {fileID: -4288947446181034575, guid: e558273158b577041a7f68459241dfaf, type: 3}
   skill3: {fileID: 2161388645734667282, guid: 5efc42b1f3e9cbc4fb395f3c72e62749, type: 3}
+  random: 0
+  randomPoint: 0
+  randomSkill: 0
+  center: 0
+  skeletonAnimation: {fileID: 0}
+  isCheck: 0
+  isCheckSkill: 0
+  isAttack: 1
+  isPoint: 0
 --- !u!33 &8070825898983578564
 MeshFilter:
   m_ObjectHideFlags: 0

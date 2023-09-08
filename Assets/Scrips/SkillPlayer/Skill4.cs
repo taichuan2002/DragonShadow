@@ -49,7 +49,6 @@ public class Skill4 : MonoBehaviour
             GameObject hitvfx2 = Instantiate(hitVFX[1], transform.position, transform.rotation);
             GameObject hitvfx3 = Instantiate(hitVFX[2], transform.position, transform.rotation);
             Vector3 largerScale = new Vector2(3, 3);
-            Vector3 largerScale2 = new Vector2(2, 2);
             hitvfx.transform.localScale = largerScale;
             onDead();
             Destroy(hitvfx, 1);

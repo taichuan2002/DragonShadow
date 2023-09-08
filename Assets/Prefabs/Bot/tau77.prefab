@@ -81,12 +81,22 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c80d1084a134cb94096f1d0f7f210602, type: 2}
   - {fileID: 11400000, guid: 9f00d7a93d5c80e4da01a7616d55a693, type: 2}
   - {fileID: 11400000, guid: fd6e47b8da079a648ade167b71fce67f, type: 2}
+  - {fileID: 11400000, guid: c5de6ad82e482584caab778be1e8bd32, type: 2}
   pointStart:
   - {x: 13, y: -0.3}
   - {x: 4.2, y: -10}
   skill1: {fileID: 1921928680278909869, guid: 1ec3bdbf43a91404b9a5b91d99a306a9, type: 3}
   skill2: {fileID: -4288947446181034575, guid: e558273158b577041a7f68459241dfaf, type: 3}
   skill3: {fileID: 2161388645734667282, guid: 5efc42b1f3e9cbc4fb395f3c72e62749, type: 3}
+  random: 0
+  randomPoint: 0
+  randomSkill: 0
+  center: 0
+  skeletonAnimation: {fileID: 0}
+  isCheck: 0
+  isCheckSkill: 0
+  isAttack: 1
+  isPoint: 0
 --- !u!33 &1299950488736822139
 MeshFilter:
   m_ObjectHideFlags: 0
