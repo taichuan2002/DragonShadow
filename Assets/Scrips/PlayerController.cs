@@ -65,7 +65,9 @@ public class PlayerController : Charactor
     bool isSkill = false;
     bool isSSJ = false;
     bool isTime = false;
-    bool ismouse = false;
+    bool isMouse = false;
+    bool isMouseNull = false;
+    bool isMouseBtn = false;
     private bool isTouchPressed = false;
     private bool hasProcessedTouch = false;
     private void Start()
@@ -279,14 +281,45 @@ public class PlayerController : Charactor
             {
                 if (hit.collider != null)
                 {
+                    isMouseNull = false;
                     if (hit.collider.CompareTag("mouse"))
                     {
-                        float clampedX = Mathf.Clamp(ray.origin.x, minX, maxX);
-                        float clampedY = Mathf.Clamp(ray.origin.y, minY, maxY);
-                        Vector2 clampedMousePos = new Vector2(clampedX, clampedY);
-                        transform.position = Vector2.MoveTowards(transform.position, clampedMousePos, speed * Time.deltaTime);
+                        isMouse = true;
+                        if (isMouse && !isMouseBtn && !isMouseNull)
+                        {
+                            float clampedX = Mathf.Clamp(ray.origin.x, minX, maxX);
+                            float clampedY = Mathf.Clamp(ray.origin.y, minY, maxY);
+                            Vector2 clampedMousePos = new Vector2(clampedX, clampedY);
+                            transform.position = Vector2.MoveTowards(transform.position, clampedMousePos, speed * Time.deltaTime);
+                        }
                     }
+                    if (hit.collider.name == "btnStop")
+                    {
+                        isMouseBtn = true;
+                    }
+                    else if (hit.collider.name == "btn_Bean")
+                    {
+                        isMouseBtn = true;
+                    }
+                    else if (hit.collider.name == "btn_Strengthen")
+                    {
+                        isMouseBtn = true;
+                    }
+                    else if (hit.collider.name == "Image")
+                    {
+                        isMouseBtn = true;
+                    }
+                    else
+                    {
+                        isMouseBtn = false;
+                    }
+
                 }
+                else
+                {
+                    isMouseNull = true;
+                }
+
             }
 
         }

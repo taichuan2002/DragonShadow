@@ -431,7 +431,7 @@ MonoBehaviour:
   - {fileID: 557626459166625674, guid: 7fc543a2ea501cb40a7d8ad661d7362b, type: 3}
   - {fileID: 4735220195234345782, guid: ecb38a9d39285b04fb37a75d5cd978ec, type: 3}
   - {fileID: 1057438855427247364, guid: ec25aa669852ebb4ab1d9991e257e4ef, type: 3}
-  - {fileID: 7478233077901820184, guid: 8084a41e7dad4c54b954018c46a77ce1, type: 3}
+  - {fileID: 7478233077901820184, guid: e923f06754441964fa7e87b798eecc68, type: 3}
   hitVFX:
   - {fileID: 534253543124306992, guid: 442e175363065cb4cabb778c7db55142, type: 3}
   - {fileID: 206865772777619958, guid: 690f5f8f654ff0247be46d26da9dc24c, type: 3}

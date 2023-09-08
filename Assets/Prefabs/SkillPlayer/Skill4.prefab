@@ -50,7 +50,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetBot: {fileID: 0}
   rb: {fileID: 2188596072078406218}
-  hitVFXDead: {fileID: 4203629870350764623, guid: 95c7e1dd858bb974696e894011eee16e, type: 3}
+  hitVFX:
+  - {fileID: 4213296210210121249, guid: 0631ffae8ef869b4b9f9cd0d50d7b343, type: 3}
+  - {fileID: 5256822381872704702, guid: 67f31aa2910313340a020adf253bb6dc, type: 3}
+  - {fileID: 3488493207841719048, guid: 36d80725293407445ad88f297bfb30a6, type: 3}
   player: {fileID: 11400000, guid: 328717bfa2c33ee4b9ce022bd7646261, type: 2}
 --- !u!50 &2188596072078406218
 Rigidbody2D:

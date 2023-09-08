@@ -13,17 +13,22 @@ public class CharacterSelectionDataBase : MonoBehaviour
     [SerializeField] protected Healing healbarPlayer;
     [SerializeField] TextMeshProUGUI _txtEnemyDead;
     [SerializeField] TextMeshProUGUI _txtBean;
-    [SerializeField] Button[] _txtBtnSkill;
-    public GameObject[] characters;
-    public GameObject[] arrEnemys;
+    [SerializeField] GameObject _panelSetting;
     public Transform StartPoint;
     public Transform StartPointEnemy;
     public GameObject ObjHealingbar;
     public GameObject DeadGame;
     public GameObject WinGame;
+    public GameObject[] characters;
+    public GameObject[] arrEnemys;
+    [SerializeField] Button[] _txtBtnSkill;
+    [SerializeField] Button[] _txtBtnSetting;
+    [SerializeField] Image[] _imgBtn;
+    [SerializeField] Sprite[] _spriteBtn;
+
+
     private GameObject prefabs;
     private GameObject enemy1, enemy2, enemy3, enemy4;
-
     private int level, numberCharacter, EnemyDead, bean;
     private bool spownEnemy1 = false;
     private bool spownEnemy2 = false;
@@ -68,6 +73,34 @@ public class CharacterSelectionDataBase : MonoBehaviour
             _txtBtnSkill[0].interactable = true;
             isSSJ = true;
         }
+    }
+
+    public void BtnPouse()
+    {
+        Time.timeScale = 0;
+        _imgBtn[0].sprite = _spriteBtn[0];
+        _panelSetting.SetActive(true);
+    }
+
+    public void BtnStart()
+    {
+        Time.timeScale = 1;
+        _imgBtn[0].sprite = _spriteBtn[1];
+        _panelSetting.SetActive(false);
+    }
+
+    public void BtnHome()
+    {
+        PlayerPrefs.SetInt("btn", 1);
+        PlayerPrefs.SetInt("SSJ", 0);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1;
+    }
+
+    public void BtnMussic()
+    {
+
     }
 
     public void LevelEnemy()

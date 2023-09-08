@@ -52,8 +52,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetBot: {fileID: 0}
   rb: {fileID: 9199289131145326638}
-  hitVFXDead: {fileID: 4203629870350764623, guid: 95c7e1dd858bb974696e894011eee16e, type: 3}
-  player: {fileID: 11400000, guid: 328717bfa2c33ee4b9ce022bd7646261, type: 2}
+  hitVFX:
+  - {fileID: 4213296210210121249, guid: 0631ffae8ef869b4b9f9cd0d50d7b343, type: 3}
+  - {fileID: 5256822381872704702, guid: 67f31aa2910313340a020adf253bb6dc, type: 3}
+  - {fileID: 2698546296902152834, guid: e01bb281204edd24ba2f3aed297e38d1, type: 3}
 --- !u!212 &4712650106057787499
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class SkillKame : MonoBehaviour
 {
     [SerializeField] SkeletonAnimation targetBot;
     public Rigidbody2D rb;
-    public GameObject hitVFXDead;
+    public GameObject[] hitVFX;
     float Damecurren;
     void Start()
     {
@@ -45,15 +45,24 @@ public class SkillKame : MonoBehaviour
         if (collision.CompareTag("Bot"))
         {
             collision.GetComponent<CharactorEnemy>().OnHit(Damecurren);
-            GameObject hitvfx = Instantiate(hitVFXDead, transform.position, transform.rotation);
+            GameObject hitvfx = Instantiate(hitVFX[0], transform.position, transform.rotation);
+            GameObject hitvfx2 = Instantiate(hitVFX[1], transform.position, transform.rotation);
+            GameObject hitvfx3 = Instantiate(hitVFX[2], transform.position, transform.rotation);
+            Vector3 largerScale = new Vector2(2, 2);
+            hitvfx.transform.localScale = largerScale;
             Destroy(hitvfx, 1);
+            Destroy(hitvfx3, 1);
             Destroy(gameObject);
         }
         if (collision.CompareTag("skillEnemy"))
         {
-            GameObject hitvfx = Instantiate(hitVFXDead, transform.position, transform.rotation);
+            GameObject hitvfx = Instantiate(hitVFX[0], transform.position, transform.rotation);
+            GameObject hitvfx2 = Instantiate(hitVFX[2], transform.position, transform.rotation);
+            Vector3 largerScale = new Vector2(2, 2);
+            hitvfx.transform.localScale = largerScale;
             Destroy(gameObject);
             Destroy(hitvfx, 1);
+            Destroy(hitvfx2, 1);
         }
     }
 }

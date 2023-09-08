@@ -164,6 +164,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataEneMy: {fileID: 11400000, guid: 30941fff794822c4a851bae3313bb280, type: 2}
   rb: {fileID: -1839325883716646281}
+  hitVFX:
+  - {fileID: 4213296210210121249, guid: 0631ffae8ef869b4b9f9cd0d50d7b343, type: 3}
+  - {fileID: 5256822381872704702, guid: 67f31aa2910313340a020adf253bb6dc, type: 3}
+  - {fileID: 8904268205059940485, guid: 7da0df71a7019f942ad1e4b00ec20006, type: 3}
 --- !u!1001 &1941298973321669878
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class SkillBot2 : MonoBehaviour
     public DataEneMy dataEneMy;
     public Rigidbody2D rb;
     float damage;
+    public GameObject[] hitVFX;
 
     private void Start()
     {
@@ -32,15 +33,25 @@ public class SkillBot2 : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            GameObject hitvfx = Instantiate(hitVFX[0], transform.position, transform.rotation);
+            GameObject hitvfx2 = Instantiate(hitVFX[1], transform.position, transform.rotation);
+            GameObject hitvfx3 = Instantiate(hitVFX[2], transform.position, transform.rotation);
             if (!PlayerController.playerData.Immortal)
             {
                 collision.GetComponent<Charactor>().OnHit(damage);
             }
             OnDestroy();
+            Destroy(hitvfx, 1);
+            Destroy(hitvfx2, 1);
+            Destroy(hitvfx3, 1);
         }
         if (collision.CompareTag("skill"))
         {
+            GameObject hitvfx = Instantiate(hitVFX[0], transform.position, transform.rotation);
+            GameObject hitvfx2 = Instantiate(hitVFX[2], transform.position, transform.rotation);
             OnDestroy();
+            Destroy(hitvfx, 1);
+            Destroy(hitvfx2, 1);
         }
     }
 }

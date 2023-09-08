@@ -342,7 +342,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 40998165008746689}
-  hitVFXDead: {fileID: 4203629870350764623, guid: 95c7e1dd858bb974696e894011eee16e, type: 3}
+  hitVFX:
+  - {fileID: 4213296210210121249, guid: 0631ffae8ef869b4b9f9cd0d50d7b343, type: 3}
+  - {fileID: 5256822381872704702, guid: 67f31aa2910313340a020adf253bb6dc, type: 3}
+  - {fileID: 2698546296902152834, guid: 595a3cf84b34bf44eb0e22e68a033ab6, type: 3}
 --- !u!50 &40998165008746689
 Rigidbody2D:
   serializedVersion: 4

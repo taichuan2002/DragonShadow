@@ -22,6 +22,8 @@ public class SpinnerPlayer : MonoBehaviour
     public TextMeshProUGUI txtPointCoin;
     public TextMeshProUGUI txtPrice;
     public TextMeshProUGUI txtPower;
+    public TextMeshProUGUI txtPlay;
+    public Button btnPlay;
     public GameObject _btnUnLock;
     public GameObject _btnActive;
     public GameObject _btnCommingSoon;
@@ -62,8 +64,8 @@ public class SpinnerPlayer : MonoBehaviour
         center = PlayerPrefs.GetInt("idPlayer");
         if (center == 2)
         {
-            _imgPlayerCircol[center].transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
-            listEffect[center].SetActive(true);
+            _imgPlayerCircol[2].transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
+            listEffect[2].SetActive(true);
 
             obj[0].position = Vector3.Lerp(obj[0].position, StartPoint3, 1);
             obj[1].position = Vector3.Lerp(obj[1].position, StartPoint4, 1);
@@ -86,15 +88,7 @@ public class SpinnerPlayer : MonoBehaviour
     }
     private void OnEnable()
     {
-        center = PlayerPrefs.GetInt("idPlayer");
-        if (center != 2)
-        {
-            /*obj[0].position = Vector3.Lerp(obj[0].position, listVecter3[0], 1);
-            obj[1].position = Vector3.Lerp(obj[1].position, listVecter3[1], 1);
-            obj[2].position = Vector3.Lerp(obj[2].position, listVecter3[2], 1);
-            obj[3].position = Vector3.Lerp(obj[3].position, listVecter3[3], 1);
-            obj[4].position = Vector3.Lerp(obj[4].position, listVecter3[4], 1);*/
-        }
+
     }
     private void Update()
     {
@@ -146,13 +140,15 @@ public class SpinnerPlayer : MonoBehaviour
         {
             if (currentPlayerData.Active == true)
             {
+                btnPlay.interactable = false;
+                txtPlay.alpha = 0.3f;
                 PlayerPrefs.SetInt("idPlayer", 0);
                 PlayerPrefs.Save();
-                Debug.Log(center);
             }
             else
             {
-                Debug.Log(center);
+                btnPlay.interactable = true;
+                txtPlay.alpha = 1;
                 PlayerPrefs.SetInt("idPlayer", center);
                 PlayerPrefs.Save();
             }

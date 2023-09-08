@@ -5,7 +5,7 @@ using UnityEngine;
 public class Skill5 : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public GameObject hitVFXDead;
+    public GameObject[] hitVFX;
     float Dame;
     void Start()
     {
@@ -31,9 +31,15 @@ public class Skill5 : MonoBehaviour
         if (collision.CompareTag("Bot"))
         {
             collision.GetComponent<CharactorEnemy>().OnHit(Dame);
-            GameObject hitvfx = Instantiate(hitVFXDead, transform.position, transform.rotation);
+            GameObject hitvfx = Instantiate(hitVFX[0], transform.position, transform.rotation);
+            GameObject hitvfx2 = Instantiate(hitVFX[1], transform.position, transform.rotation);
+            GameObject hitvfx3 = Instantiate(hitVFX[2], transform.position, transform.rotation);
+            Vector3 largerScale = new Vector2(2, 2);
+            hitvfx.transform.localScale = largerScale;
             onDead();
             Destroy(hitvfx, 1);
+            Destroy(hitvfx2, 1);
+            Destroy(hitvfx3, 1);
         }
     }
 }

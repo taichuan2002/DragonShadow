@@ -163,3 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataEneMy: {fileID: 11400000, guid: 30941fff794822c4a851bae3313bb280, type: 2}
   rb: {fileID: 9084000224587447130}
+  hitVFX:
+  - {fileID: 4213296210210121249, guid: 0631ffae8ef869b4b9f9cd0d50d7b343, type: 3}
+  - {fileID: 5256822381872704702, guid: 67f31aa2910313340a020adf253bb6dc, type: 3}
+  - {fileID: 2698546296902152834, guid: f7e784fe35fe68b40af399dcdb2580dc, type: 3}

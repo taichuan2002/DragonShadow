@@ -118,6 +118,7 @@ MonoBehaviour:
   _btn:
   - {fileID: 0}
   - {fileID: 0}
+  _anim: []
   targetBtnTag: btnTags
   skill2Prf: {fileID: 8550975513353579464, guid: a0eb2981cc72d0841a85e67447497efb, type: 3}
   Attack: {fileID: 3407477187005435147}
