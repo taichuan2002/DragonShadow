@@ -58,64 +58,14 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.4f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\00-Common\Scripts\IntListBank.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\05-CustomContent\Scripts\SpriteStringListBank.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\IListMovementProcessor.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\IBoxTransformController.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\Linear\Controller\DistanceMovementCurve.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ContentManagement\IListContent.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListBank.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\00-Common\Scripts\IntListContent.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\05-CustomContent\Scripts\StringStarListBank.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleEPOOutline.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\10-SelectionMovement\Scripts\ListIteration.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\Linear\Controller\IMovementCurve.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\InputProcessing\InputProcessor.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\Linear\ListMovementProcessor.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\Linear\FocusingBoxFinder.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\ListStateProcessorManager.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\Util\DeltaTimeCurve.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\08-ListRefreshing\Scripts\AdjustableStringListBank.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\Linear\Controller\IMovementCtrl.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListSetting.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\IListBank.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\00-Common\Scripts\FPSLimiter.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ContentManagement\ContentIDState.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\Linear\Controller\UnitMovementCtrl.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\05-CustomContent\Scripts\ColorStrListBox.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\ListFocusingState.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\07-LateInitialization\Scripts\LateInitialization.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\Util\FactorUtility.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\05-CustomContent\Scripts\StringStarListBox.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\BoxPositionState.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\Util\RangeMappingCurve.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListSetupData.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\Linear\Controller\VelocityMovementCurve.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\05-CustomContent\Scripts\ColorStrListBank.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\05-CustomContent\Scripts\SpriteStringListBox.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\Linear\ListBoxController.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\06-ListEvents\Scripts\ListEventDemo.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\CircularScrollingList.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListBoxSetting.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\IListBox.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\08-ListRefreshing\Scripts\StringListBox.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\IListBoxController.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\InputProcessing\InputInfo.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ContentManagement\ListContentProvider.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\00-Common\Scripts\IntListBox.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\Linear\Controller\MovementUtility.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListBox.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\_Demo\11-InteractingByScript\Scripts\ListInteraction.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\Linear\Controller\FreeMovementCtrl.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListStateProcessing\Linear\Controller\BoxTransformController.cs" />
-    <Compile Include="Assets\Plugins\CircularScrollingList\Scripts\ListEvent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Plugins\Demigiant\DOTween\DOTween.XML" />
@@ -798,11 +748,11 @@
     <Reference Include="Unity.2D.Aseprite.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Aseprite.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
-      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
     </Reference>
     <Reference Include="Unity.MemoryProfiler">
       <HintPath>Library\ScriptAssemblies\Unity.MemoryProfiler.dll</HintPath>
@@ -918,9 +868,9 @@
       <Project>{6E345D14-7384-D086-BEBB-F7144A5EF358}</Project>
       <Name>Utilities</Name>
     </ProjectReference>
-    <ProjectReference Include="UtilitiesEditor.csproj">
-      <Project>{DC9B2F3B-7394-A1A9-A15E-A8A23CEA5F36}</Project>
-      <Name>UtilitiesEditor</Name>
+    <ProjectReference Include="SimpleScrollSnap.csproj">
+      <Project>{0412BBD3-FE64-481E-C111-2F80866B8D4B}</Project>
+      <Name>SimpleScrollSnap</Name>
     </ProjectReference>
     <ProjectReference Include="CopyrightNoticeEditor.csproj">
       <Project>{61DD6A1E-1BF9-7B8F-2B4B-04D85275D7D2}</Project>
@@ -929,6 +879,10 @@
     <ProjectReference Include="Coffee.SoftMaskForUGUI_Demo.csproj">
       <Project>{7098241E-9F79-6A8E-196F-CC13D0A4068A}</Project>
       <Name>Coffee.SoftMaskForUGUI_Demo</Name>
+    </ProjectReference>
+    <ProjectReference Include="UtilitiesEditor.csproj">
+      <Project>{DC9B2F3B-7394-A1A9-A15E-A8A23CEA5F36}</Project>
+      <Name>UtilitiesEditor</Name>
     </ProjectReference>
     <ProjectReference Include="SimpleInspectorAttributes.csproj">
       <Project>{1DFD435D-2BB2-A3DB-A7E8-3DF19AE334C6}</Project>
@@ -941,10 +895,6 @@
     <ProjectReference Include="SimpleScrollSnapEditor.csproj">
       <Project>{F41368C5-2D81-39F8-9F5A-F33CBD1208EA}</Project>
       <Name>SimpleScrollSnapEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="SimpleScrollSnap.csproj">
-      <Project>{0412BBD3-FE64-481E-C111-2F80866B8D4B}</Project>
-      <Name>SimpleScrollSnap</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

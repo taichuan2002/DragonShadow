@@ -54,6 +54,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Users\Tai Chuan\Desktop\DragonShadow\Assets\2_Package\Plugins\Demigiant\DOTween\DOTween.dll" />
+    <Analyzer Include="C:\Users\Tai Chuan\Desktop\DragonShadow\Assets\2_Package\Plugins\Demigiant\DOTween\Editor\DOTweenEditor.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.4f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.4f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
@@ -62,6 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Plugins\Demigiant\DOTween\Editor\DOTweenEditor.dll" />
+    <None Include="Assets\Plugins\Demigiant\DOTween\Editor\DOTweenUpgradeManager.dll" />
+    <None Include="Assets\Plugins\Demigiant\DOTween\Editor\DOTweenUpgradeManager.XML" />
     <None Include="Assets\Plugins\Demigiant\DOTween\Editor\DOTweenEditor.XML" />
   </ItemGroup>
   <ItemGroup>
@@ -358,6 +362,9 @@
     </Reference>
     <Reference Include="unityplastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.0.5\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenUpgradeManager">
+      <HintPath>Assets\Plugins\Demigiant\DOTween\Editor\DOTweenUpgradeManager.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
@@ -927,9 +934,9 @@
       <Project>{6E345D14-7384-D086-BEBB-F7144A5EF358}</Project>
       <Name>Utilities</Name>
     </ProjectReference>
-    <ProjectReference Include="UtilitiesEditor.csproj">
-      <Project>{DC9B2F3B-7394-A1A9-A15E-A8A23CEA5F36}</Project>
-      <Name>UtilitiesEditor</Name>
+    <ProjectReference Include="SimpleScrollSnap.csproj">
+      <Project>{0412BBD3-FE64-481E-C111-2F80866B8D4B}</Project>
+      <Name>SimpleScrollSnap</Name>
     </ProjectReference>
     <ProjectReference Include="CopyrightNoticeEditor.csproj">
       <Project>{61DD6A1E-1BF9-7B8F-2B4B-04D85275D7D2}</Project>
@@ -938,6 +945,10 @@
     <ProjectReference Include="Coffee.SoftMaskForUGUI_Demo.csproj">
       <Project>{7098241E-9F79-6A8E-196F-CC13D0A4068A}</Project>
       <Name>Coffee.SoftMaskForUGUI_Demo</Name>
+    </ProjectReference>
+    <ProjectReference Include="UtilitiesEditor.csproj">
+      <Project>{DC9B2F3B-7394-A1A9-A15E-A8A23CEA5F36}</Project>
+      <Name>UtilitiesEditor</Name>
     </ProjectReference>
     <ProjectReference Include="SimpleInspectorAttributes.csproj">
       <Project>{1DFD435D-2BB2-A3DB-A7E8-3DF19AE334C6}</Project>
@@ -950,10 +961,6 @@
     <ProjectReference Include="SimpleScrollSnapEditor.csproj">
       <Project>{F41368C5-2D81-39F8-9F5A-F33CBD1208EA}</Project>
       <Name>SimpleScrollSnapEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="SimpleScrollSnap.csproj">
-      <Project>{0412BBD3-FE64-481E-C111-2F80866B8D4B}</Project>
-      <Name>SimpleScrollSnap</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

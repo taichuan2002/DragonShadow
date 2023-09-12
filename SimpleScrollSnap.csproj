@@ -58,29 +58,29 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.4f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\Samples\TranslateZ.cs" />
-    <Compile Include="Assets\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\Samples\RotateZ.cs" />
-    <Compile Include="Assets\Simple Scroll-Snap\Scripts\Core\Runtime\Enums\SizeControl.cs" />
-    <Compile Include="Assets\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\Samples\Scale.cs" />
-    <Compile Include="Assets\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\Samples\RotateY.cs" />
-    <Compile Include="Assets\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\Samples\ScaleZ.cs" />
-    <Compile Include="Assets\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\Samples\RecolourGreen.cs" />
-    <Compile Include="Assets\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\SimpleScrollSnap.cs" />
-    <Compile Include="Assets\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\Samples\ScaleY.cs" />
-    <Compile Include="Assets\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\TransitionEffectBase.cs" />
-    <Compile Include="Assets\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\Samples\RecolourBlue.cs" />
-    <Compile Include="Assets\Simple Scroll-Snap\Scripts\Core\Runtime\Enums\Direction.cs" />
-    <Compile Include="Assets\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\Helper\NestedScrollRect.cs" />
-    <Compile Include="Assets\Simple Scroll-Snap\Scripts\Core\Runtime\Enums\SnapTarget.cs" />
-    <Compile Include="Assets\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\Samples\Fade.cs" />
-    <Compile Include="Assets\Simple Scroll-Snap\Scripts\Core\Runtime\Enums\MovementAxis.cs" />
-    <Compile Include="Assets\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\Samples\ScaleX.cs" />
-    <Compile Include="Assets\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\Samples\RecolourRed.cs" />
-    <Compile Include="Assets\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\Samples\RotateX.cs" />
-    <Compile Include="Assets\Simple Scroll-Snap\Scripts\Core\Runtime\Enums\MovementType.cs" />
+    <Compile Include="Assets\2_Package\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\Helper\NestedScrollRect.cs" />
+    <Compile Include="Assets\2_Package\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\Samples\RecolourBlue.cs" />
+    <Compile Include="Assets\2_Package\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\Samples\RecolourGreen.cs" />
+    <Compile Include="Assets\2_Package\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\Samples\RecolourRed.cs" />
+    <Compile Include="Assets\2_Package\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\Samples\TranslateZ.cs" />
+    <Compile Include="Assets\2_Package\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\Samples\RotateY.cs" />
+    <Compile Include="Assets\2_Package\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\Samples\Scale.cs" />
+    <Compile Include="Assets\2_Package\Simple Scroll-Snap\Scripts\Core\Runtime\Enums\SizeControl.cs" />
+    <Compile Include="Assets\2_Package\Simple Scroll-Snap\Scripts\Core\Runtime\Enums\SnapTarget.cs" />
+    <Compile Include="Assets\2_Package\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\Samples\Fade.cs" />
+    <Compile Include="Assets\2_Package\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\Samples\ScaleZ.cs" />
+    <Compile Include="Assets\2_Package\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\SimpleScrollSnap.cs" />
+    <Compile Include="Assets\2_Package\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\Samples\ScaleY.cs" />
+    <Compile Include="Assets\2_Package\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\Samples\RotateZ.cs" />
+    <Compile Include="Assets\2_Package\Simple Scroll-Snap\Scripts\Core\Runtime\Enums\MovementAxis.cs" />
+    <Compile Include="Assets\2_Package\Simple Scroll-Snap\Scripts\Core\Runtime\Enums\MovementType.cs" />
+    <Compile Include="Assets\2_Package\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\Samples\ScaleX.cs" />
+    <Compile Include="Assets\2_Package\Simple Scroll-Snap\Scripts\Core\Runtime\Enums\Direction.cs" />
+    <Compile Include="Assets\2_Package\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\Samples\RotateX.cs" />
+    <Compile Include="Assets\2_Package\Simple Scroll-Snap\Scripts\Core\Runtime\Behaviours\TransitionEffect\TransitionEffectBase.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Simple Scroll-Snap\Scripts\Core\SimpleScrollSnap.asmdef" />
+    <None Include="Assets\2_Package\Simple Scroll-Snap\Scripts\Core\SimpleScrollSnap.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
