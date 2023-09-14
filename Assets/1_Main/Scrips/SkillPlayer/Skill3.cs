@@ -14,7 +14,7 @@ public class Skill3 : MonoBehaviour
     }
     public void OnInit()
     {
-        rb.velocity = transform.right * 15f;
+        rb.velocity = transform.right * 20f;
         Invoke(nameof(onDead), 3f);
     }
 

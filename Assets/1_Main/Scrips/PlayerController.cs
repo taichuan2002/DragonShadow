@@ -26,6 +26,10 @@ public class PlayerController : Charactor
     [SerializeField] Skill4 skill4;
     [SerializeField] Skill5 skill5;
     [SerializeField] string sceneName = "Menu";
+    [SerializeField] AudioSource audios;
+    [SerializeField] AudioClip[] audioClick;
+
+
     [SerializeField] SkeletonAnimation[] skeletonAnimation;
     [SerializeField] DataPlayer[] data;
     [SerializeField] AnimationReferenceAsset[] ListAnim;
@@ -110,7 +114,6 @@ public class PlayerController : Charactor
             if (heal != null)
             {
                 healbar = heal.GetComponent<Healing>();
-                Debug.Log("healbar Player" + healbar);
                 if (healbar != null)
                 {
                     LevelUpSSJ();
@@ -193,6 +196,9 @@ public class PlayerController : Charactor
             {
                 if (bean > 0)
                 {
+                    audios.Stop();
+                    AudioItem();
+                    audios.PlayOneShot(audioClick[8]);
                     bean -= 1;
                     OnInitCoin();
                     hp = maxhp;
@@ -204,6 +210,9 @@ public class PlayerController : Charactor
                 {
                     if (Coin >= 500)
                     {
+                        audios.Stop();
+                        AudioItem();
+                        AudioAddCoin();
                         Coin -= 500;
                         OnInitCoin();
                         hp = maxhp;
@@ -225,6 +234,7 @@ public class PlayerController : Charactor
             StartCoroutine(DelayTransform());
             IEnumerator DelayTransform()
             {
+
                 isAttack = true;
                 levelValue = int.Parse(level);
                 yield return new WaitForSeconds(0.4f);
@@ -233,6 +243,8 @@ public class PlayerController : Charactor
                 {
                     if (!isSSJ)
                     {
+                        audios.Stop();
+                        AudioSSJ();
                         _anim[0].SetActive(true);
                         btnSSJ.interactable = true;
                         LevelUpSSJ();
@@ -387,6 +399,7 @@ public class PlayerController : Charactor
             {
                 skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[2], false);
                 testskill2 = Instantiate(Listskill[1], attack.position, attack.rotation).GetComponent<testSkill2>();
+                AudioSkill2();
                 testskill2.SetDame(Damage2);
                 testskill2.OnInit();
                 OnSkill(25);
@@ -405,6 +418,7 @@ public class PlayerController : Charactor
             if (mana >= 15)
             {
                 skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[3], false);
+                AudioSkill3();
                 skill3 = Instantiate(Listskill[2], attack.position, attack.rotation).GetComponent<Skill3>();
                 skill3.SetDame(Damage3);
                 skill3.OnInit();
@@ -444,6 +458,7 @@ public class PlayerController : Charactor
             {
                 isSkill = true;
                 skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[5], false);
+                audios.PlayOneShot(audioClick[6]);
                 skill5 = Instantiate(Listskill[4], attack.position, attack.rotation).GetComponent<Skill5>();
                 skill5.SetDame(Damage5);
                 skill5.OnInit();
@@ -457,7 +472,6 @@ public class PlayerController : Charactor
         }
     }
 
-    bool isCheckArmor = false;
 
     IEnumerator Immortal()
     {
@@ -492,7 +506,8 @@ public class PlayerController : Charactor
     }
     IEnumerator delaySkill4()
     {
-        yield return new WaitForSeconds(1f);
+        AudioSkill4();
+        yield return new WaitForSeconds(2.3f);
         skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[4], false);
         yield return new WaitForSeconds(0.5f);
         skill4 = Instantiate(Listskill[3], attack.position, attack.rotation).GetComponent<Skill4>();
@@ -510,12 +525,16 @@ public class PlayerController : Charactor
         _anim[1].SetActive(true);
         _anim[2].SetActive(true);
         skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[7], false);
+        AudioSkill1a();
         GameObject hVFX = Instantiate(hitVFX[0], transform.position, transform.rotation);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2.2f);
         skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[1], false);
-        yield return new WaitForSeconds(0.5f);
+        audios.PlayOneShot(audioClick[1]);
+        yield return new WaitForSeconds(0.3f);
         Destroy(hVFX);
+        AudioSkill5();
         skillKame = Instantiate(Listskill[0], attack.position, attack.rotation).GetComponent<SkillKame>();
+        AudioSkill1b();
         skillKame.SetDame(Damage1);
         skillKame.OnInit();
         StartCoroutine(DelayIdle());
@@ -550,6 +569,7 @@ public class PlayerController : Charactor
     {
         if (collision.CompareTag("BeanBlue"))
         {
+            AudioItem();
             mana = maxmana;
             vfx = true;
             healbar.SetNewMana(mana);
@@ -558,6 +578,7 @@ public class PlayerController : Charactor
         }
         if (collision.CompareTag("BeanRed"))
         {
+            AudioItem();
             hp = maxhp;
             vfx = true;
             healbar.SetNewHp(hp);
@@ -566,6 +587,7 @@ public class PlayerController : Charactor
         }
         if (collision.CompareTag("BeanGreen"))
         {
+            AudioItem();
             mana = maxmana;
             hp = maxhp;
             vfx = true;
@@ -576,6 +598,7 @@ public class PlayerController : Charactor
         }
         if (collision.CompareTag("Armor"))
         {
+            AudioItem();
             vfx = true;
             if (!isArmor)
             {
@@ -594,6 +617,7 @@ public class PlayerController : Charactor
         }
         if (collision.CompareTag("Coin"))
         {
+            AudioCoin();
             Coin += 99999;
             point += 99999;
             OnInitCoin();
@@ -615,5 +639,89 @@ public class PlayerController : Charactor
         Damage5 = dame5New;
         SetDame(dame1New, dame2New, dame3New, dame4New, dame5New);
         maxhp = hpNew;
+    }
+    public void AudioSkill1a()
+    {
+        int a = PlayerPrefs.GetInt("audioClick");
+        if (a == 0)
+        {
+            audios.PlayOneShot(audioClick[0]);
+
+        }
+    }
+    public void AudioSkill1b()
+    {
+        int a = PlayerPrefs.GetInt("audioClick");
+        if (a == 0)
+        {
+            audios.PlayOneShot(audioClick[1]);
+        }
+    }
+    public void AudioSkill2()
+    {
+        int a = PlayerPrefs.GetInt("audioClick");
+        if (a == 0)
+        {
+            audios.PlayOneShot(audioClick[2]);
+
+        }
+    }
+    public void AudioSkill3()
+    {
+        int a = PlayerPrefs.GetInt("audioClick");
+        if (a == 0)
+        {
+            audios.PlayOneShot(audioClick[3]);
+            audios.PlayOneShot(audioClick[4]);
+        }
+    }
+    public void AudioSkill4()
+    {
+        int a = PlayerPrefs.GetInt("audioClick");
+        if (a == 0)
+        {
+            audios.PlayOneShot(audioClick[5]);
+        }
+    }
+    public void AudioSkill5()
+    {
+        int a = PlayerPrefs.GetInt("audioClick");
+        if (a == 0)
+        {
+            audios.PlayOneShot(audioClick[6]);
+        }
+    }
+    public void AudioSSJ()
+    {
+        int a = PlayerPrefs.GetInt("audioClick");
+        if (a == 0)
+        {
+            audios.PlayOneShot(audioClick[7]);
+        }
+    }
+
+    public void AudioItem()
+    {
+        int a = PlayerPrefs.GetInt("audioClick");
+        if (a == 0)
+        {
+            audios.PlayOneShot(audioClick[8]);
+        }
+    }
+    public void AudioCoin()
+    {
+        int a = PlayerPrefs.GetInt("audioClick");
+        if (a == 0)
+        {
+            audios.PlayOneShot(audioClick[10]);
+        }
+    }
+    public void AudioAddCoin()
+    {
+        int a = PlayerPrefs.GetInt("audioClick");
+        if (a == 0)
+        {
+            audios.PlayOneShot(audioClick[9]);
+        }
     }
 }

@@ -30,4 +30,5 @@ public class Bot : CharactorEnemy
     public bool isCheckSkill = false;
     public bool isAttack = true;
     public bool isPoint = false;
+
 }

@@ -95,6 +95,7 @@ public class EnemyPicolo : Bot
                         skeletonAnimation.AnimationState.SetAnimation(1, listEnim[0], false);
                         yield return new WaitForSeconds(1.2f);
                         skill1 = Instantiate(Listskill[0], attack.position, attack.rotation).GetComponent<SkillBot>();
+                        AudioSkill();
                         AnimSkill[0].SetActive(false);
                         skill1.SetDame1(dame1);
                         skill1.OnInit();
@@ -109,6 +110,7 @@ public class EnemyPicolo : Bot
                         AnimSkill[1].SetActive(true);
                         yield return new WaitForSeconds(1.5f);
                         skill2 = Instantiate(Listskill[1], attack.position, attack.rotation).GetComponent<SkillBot2>();
+                        AudioSkill();
                         AnimSkill[0].SetActive(false);
                         AnimSkill[1].SetActive(false);
                         skill2.SetDame2(dame2);
@@ -125,6 +127,7 @@ public class EnemyPicolo : Bot
                         skeletonAnimation.AnimationState.SetAnimation(1, listEnim[2], false);
                         yield return new WaitForSeconds(0.5f);
                         skill3 = Instantiate(Listskill[2], attack.position, attack.rotation).GetComponent<SkillBot3>();
+                        AudioSkill();
                         AnimSkill[0].SetActive(false);
                         skill3.SetDame3(dame3);
                         skill3.OnInit();

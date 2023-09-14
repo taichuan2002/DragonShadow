@@ -24,7 +24,7 @@ public class SkillKame : MonoBehaviour
             if (targetBot != null)
             {
                 Vector2 targetPosition = (targetBotObj.transform.position - transform.position).normalized;
-                rb.velocity = targetPosition * 15;
+                rb.velocity = targetPosition * 20;
                 StartCoroutine(OnDead());
             }
         }

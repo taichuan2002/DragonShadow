@@ -40,8 +40,8 @@ public class Background : MonoBehaviour
     private void Update()
     {
         float t = Time.deltaTime;
-        backgrounds[0].transform.position += new Vector3(-10 * t, 0);
-        backgrounds[1].transform.position += new Vector3(-10 * t, 0);
+        backgrounds[0].transform.position += new Vector3(-15 * t, 0);
+        backgrounds[1].transform.position += new Vector3(-15 * t, 0);
         if (backgrounds[0].transform.position.x < -screenWidth)
         {
             backgrounds[0].transform.position = new Vector3(screenWidth - 0.1f, 0);

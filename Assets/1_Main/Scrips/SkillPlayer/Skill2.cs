@@ -18,7 +18,7 @@ public class Skill2 : MonoBehaviour
 
     private void Update()
     {
-        rb.velocity = transform.right * 15;
+        rb.velocity = transform.right * 20;
         Invoke(nameof(OnDead), 3);
     }
 

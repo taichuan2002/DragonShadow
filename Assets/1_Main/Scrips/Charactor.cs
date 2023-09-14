@@ -9,6 +9,8 @@ public class Charactor : MonoBehaviour
 {
     [SerializeField] protected Healing healbar;
     [SerializeField] DataPlayer Player;
+    [SerializeField] AudioSource audio;
+    [SerializeField] AudioClip audioCollider;
     public GameObject hitVFXDead;
     public string level;
     public float hp;
@@ -47,6 +49,8 @@ public class Charactor : MonoBehaviour
     {
         if (!isDead)
         {
+            audio.Stop();
+            audio.PlayOneShot(audioCollider);
             hp -= dame;
             if (isDead)
             {

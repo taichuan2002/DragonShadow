@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DataEnemyDodoria
   m_EditorClassIdentifier: 
   bot: {fileID: 7625706318439025642, guid: 47e2084f64f094540af83fd33e90d099, type: 3}
-  ImgEnemy: {fileID: 21300000, guid: 165bbd811cedf3049b639b10f26277ad, type: 3}
+  ImgEnemy: {fileID: -1542661562, guid: c3237456be0b35d419ea977c184e1f92, type: 3}
   botName: Dodoria
   maxHp: 100
   Dame1: 25

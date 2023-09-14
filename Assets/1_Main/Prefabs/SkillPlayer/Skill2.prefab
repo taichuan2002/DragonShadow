@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b5044373b16f294e83c63f9633a5ad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skill2Prf: {fileID: 8550975513353579464, guid: a0eb2981cc72d0841a85e67447497efb, type: 3}
+  skill2Prf: {fileID: 7253032825763438643, guid: a0eb2981cc72d0841a85e67447497efb, type: 3}
   Attack: {fileID: 5136182787320732754}
   Points:
   - {x: 7.185382e+22, y: 1.1774317e+10, z: 2.6562882e+20}
@@ -60,7 +60,7 @@ MonoBehaviour:
   - {x: 2, y: -5, z: 5.93e-43}
   - {x: 20, y: 0, z: -2289.3281}
   - {x: 2, y: 0.45, z: -2289.3281}
-  skill2: {fileID: -37256157469624391, guid: a0eb2981cc72d0841a85e67447497efb, type: 3}
+  skill2: {fileID: 8197359815343176329, guid: a0eb2981cc72d0841a85e67447497efb, type: 3}
 --- !u!50 &-3898113744844309863
 Rigidbody2D:
   serializedVersion: 4

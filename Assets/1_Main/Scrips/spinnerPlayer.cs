@@ -16,6 +16,8 @@ public class SpinnerPlayer : MonoBehaviour
     [SerializeField] GameObject _panelUnLockLevel;
     [SerializeField] ScrollRect scrollRect;
     [SerializeField] CircularScrollingList _list;
+    [SerializeField] AudioSource _audio;
+    [SerializeField] AudioClip _audioUnlock;
     public TextMeshProUGUI txtName;
     public TextMeshProUGUI txtLevel;
     public TextMeshProUGUI txtBuyLevel;
@@ -60,8 +62,8 @@ public class SpinnerPlayer : MonoBehaviour
         _imgPlayerCircol[4].sprite = _spritePlayerLoad[4];
         OnInit();
         OnInitCoin();
-        OnInitIdPlayer();
         center = PlayerPrefs.GetInt("idPlayer");
+        OnInitIdPlayer();
         if (center == 2)
         {
             _imgPlayerCircol[2].transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
@@ -86,13 +88,8 @@ public class SpinnerPlayer : MonoBehaviour
             scrollViewCenterPosition = obj[0].parent.position;
         }
     }
-    private void OnEnable()
-    {
-
-    }
     private void Update()
     {
-        Debug.Log(center);
         if (!isCheck)
         {
             txtLevel.text = "0";
@@ -371,6 +368,7 @@ public class SpinnerPlayer : MonoBehaviour
                 OnInitCoin();
                 FindObjectOfType<HomeUI>().UpdateCoin(Coin);
                 _panelUnLockLevel.SetActive(true);
+                AudioUnLock();
             }
             else
             {
@@ -421,6 +419,16 @@ public class SpinnerPlayer : MonoBehaviour
     {
         Coin = newCoinValue;
         OnInitCoin();
+    }
+
+    public void AudioUnLock()
+    {
+        int a = PlayerPrefs.GetInt("audioClick");
+        if (a == 0)
+        {
+            _audio.Stop();
+            _audio.PlayOneShot(_audioUnlock);
+        }
     }
 
 }

@@ -54,6 +54,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healbar: {fileID: 0}
   Player: {fileID: 11400000, guid: 7ecdb2dd4b7a5d44c8bfbc6f027f1c50, type: 2}
+  audio: {fileID: 0}
+  audioCollider: {fileID: 0}
   hitVFXDead: {fileID: 4203629870350764623, guid: 95c7e1dd858bb974696e894011eee16e, type: 3}
   level: 0
   hp: 100
@@ -79,6 +81,8 @@ MonoBehaviour:
   skill4: {fileID: 0}
   skill5: {fileID: 2678809213584109010, guid: 8084a41e7dad4c54b954018c46a77ce1, type: 3}
   sceneName: Menu
+  audios: {fileID: 0}
+  audioClick: []
   skeletonAnimation:
   - {fileID: 4491502475747672006, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
   - {fileID: 4491502475747672006, guid: a69f3e7560a1d3d4483d0a9c403c11d7, type: 3}

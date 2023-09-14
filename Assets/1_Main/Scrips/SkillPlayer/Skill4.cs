@@ -24,7 +24,7 @@ public class Skill4 : MonoBehaviour
             if (targetBot != null)
             {
                 Vector2 targetPosition = (targetBot.transform.position - transform.position).normalized;
-                rb.velocity = targetPosition * 15f;
+                rb.velocity = targetPosition * 20f;
                 Invoke(nameof(onDead), 3f);
 
             }

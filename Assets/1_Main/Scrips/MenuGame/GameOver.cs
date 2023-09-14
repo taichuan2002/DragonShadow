@@ -14,18 +14,22 @@ public class GameOver : MonoBehaviour
     [SerializeField] DataEneMy[] Enemy;
     [SerializeField] TextMeshProUGUI[] _txtPointCoins;
     [SerializeField] Image _ImgPlayer;
+    [SerializeField] Image _ImgCamera;
+    [SerializeField] Image _ImgX2;
+    [SerializeField] AudioSource _AudioSource;
+    [SerializeField] AudioClip[] _AudioClip;
     int Number;
-    int pl, Coin;
+    int pl, Coin, tongCoin;
     void Start()
     {
         PlayerPrefs.SetInt("btn", 0);
         pl = PlayerPrefs.GetInt("idPlayer");
+        _ImgCamera.transform.DORotate(new Vector3(0, 0, -30), 3f).SetLoops(-1, LoopType.Yoyo);
+        _ImgX2.transform.DOScale(new Vector3(1f, 1f, 1), 0.6f).SetLoops(-1, LoopType.Yoyo);
         PlayerPrefs.Save();
         _ImgPlayer.transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
-        int tongCoin = PlayerPrefs.GetInt("tongCoin");
+        tongCoin = PlayerPrefs.GetInt("tongCoin");
         Coin = PlayerPrefs.GetInt("Coin");
-        _txtPointCoins[0].text = Coin.ToString();
-        _txtPointCoins[1].text = tongCoin.ToString();
         Number = PlayerPrefs.GetInt("SSJ");
         _ImgPlayer.sprite = PlayerController.playerData.listSprite[Number];
         if (PlayerController.playerData.isDead)
@@ -37,7 +41,7 @@ public class GameOver : MonoBehaviour
             Enemy[1].isDead = false;
             Enemy[2].isDead = false;
             Enemy[3].isDead = false;
-            _txtPointCoins[3].text = tongCoin.ToString();
+
         }
         if (Enemy[0].isDead || Enemy[1].isDead || Enemy[2].isDead || Enemy[3].isDead)
         {
@@ -49,9 +53,8 @@ public class GameOver : MonoBehaviour
             Enemy[2].isDead = false;
             Enemy[3].isDead = false;
             tongCoin += 60;
-            _txtPointCoins[2].text = "60";
-            _txtPointCoins[3].text = tongCoin.ToString();
         }
+        StartCoroutine(Title());
     }
 
     public void BtnHome()
@@ -74,5 +77,44 @@ public class GameOver : MonoBehaviour
         PlayerPrefs.SetInt("SSJ", 0);
         PlayerPrefs.Save();
         SceneManager.LoadScene(0);
+    }
+    IEnumerator Title()
+    {
+        yield return new WaitForSeconds(0.5f);
+        if (Enemy[0].isDead || Enemy[1].isDead || Enemy[2].isDead || Enemy[3].isDead)
+        {
+            AudioCoin();
+            _txtPointCoins[1].text = "60";
+        }
+        else
+        {
+            AudioCoin();
+            _txtPointCoins[1].text = "0";
+        }
+        yield return new WaitForSeconds(0.5f);
+        AudioCoin();
+        _txtPointCoins[2].text = tongCoin.ToString();
+        yield return new WaitForSeconds(0.5f);
+        AudioCoin();
+        _txtPointCoins[3].text = tongCoin.ToString();
+        yield return new WaitForSeconds(0.5f);
+        AudioTongCoin();
+        _txtPointCoins[0].text = Coin.ToString();
+    }
+    public void AudioCoin()
+    {
+        int a = PlayerPrefs.GetInt("audioClick");
+        if (a == 0)
+        {
+            _AudioSource.PlayOneShot(_AudioClip[0]);
+        }
+    }
+    public void AudioTongCoin()
+    {
+        int a = PlayerPrefs.GetInt("audioClick");
+        if (a == 0)
+        {
+            _AudioSource.PlayOneShot(_AudioClip[1]);
+        }
     }
 }

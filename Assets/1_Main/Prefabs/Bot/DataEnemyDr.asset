@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DataEnemyDr
   m_EditorClassIdentifier: 
   bot: {fileID: 1564796483034692712, guid: a29790feeb55de247b4e8b38b8e46503, type: 3}
-  ImgEnemy: {fileID: 21300000, guid: fd42ee8d2fd910440b5560b5173db528, type: 3}
+  ImgEnemy: {fileID: 1768605579, guid: c3237456be0b35d419ea977c184e1f92, type: 3}
   botName: Dr
   maxHp: 100
   Dame1: 30

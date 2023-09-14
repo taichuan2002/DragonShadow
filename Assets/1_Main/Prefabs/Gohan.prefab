@@ -79,6 +79,8 @@ MonoBehaviour:
   skill4: {fileID: 0}
   skill5: {fileID: 2678809213584109010, guid: 8084a41e7dad4c54b954018c46a77ce1, type: 3}
   sceneName: Menu
+  audios: {fileID: 0}
+  audioClick: []
   skeletonAnimation:
   - {fileID: 4491502475747672006, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
   - {fileID: 4491502475747672006, guid: a69f3e7560a1d3d4483d0a9c403c11d7, type: 3}

@@ -25,21 +25,61 @@ public class CharacterSelectionDataBase : MonoBehaviour
     [SerializeField] Button[] _txtBtnSetting;
     [SerializeField] Image[] _imgBtn;
     [SerializeField] Sprite[] _spriteBtn;
-    public Image[] Backgrounds;
-    public Sprite[] sprites;
-
+    [SerializeField] Image[] Backgrounds;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioSource audioBtn;
+    [SerializeField] AudioClip[] _audioClips;
+    [SerializeField] GameObject panelGameController;
+    [SerializeField] GameObject panelGameOver;
     private GameObject prefabs;
     private GameObject enemy1, enemy2, enemy3, enemy4;
-    private int level, numberCharacter, EnemyDead, bean, random;
+    private int level, numberCharacter, EnemyDead, bean, random, mussic, audio;
     private bool spownEnemy1 = false;
     private bool spownEnemy2 = false;
     private bool spownEnemy3 = false;
     private bool spownEnemy4 = false;
     private bool isCheck = false;
     private bool isSSJ = false;
+    private bool isMussic = false;
+    private bool isAudio = false;
+    private bool isDead = false;
     private void Start()
     {
+
         OnInit();
+        OnAudio();
+    }
+
+    public void OnAudio()
+    {
+        mussic = PlayerPrefs.GetInt("mussic");
+        audio = PlayerPrefs.GetInt("audioClick");
+        Color currentColor = _imgBtn[0].color;
+        if (mussic == 0)
+        {
+            currentColor.a = 1f;
+            _imgBtn[1].color = currentColor;
+            isMussic = false;
+        }
+        if (mussic == 1)
+        {
+            currentColor.a = 0.5f;
+            _imgBtn[1].color = currentColor;
+            isMussic = true;
+        }
+        if (audio == 0)
+        {
+            currentColor.a = 1f;
+            _imgBtn[2].color = currentColor;
+            isAudio = false;
+        }
+        if (audio == 1)
+        {
+            currentColor.a = 0.5f;
+            _imgBtn[2].color = currentColor;
+            isAudio = true;
+        }
+        Mussic();
     }
     private void Update()
     {
@@ -78,6 +118,7 @@ public class CharacterSelectionDataBase : MonoBehaviour
 
     public void BtnPouse()
     {
+        BtnSetting();
         _imgBtn[0].sprite = _spriteBtn[0];
         Time.timeScale = 0;
         _panelSetting.SetActive(true);
@@ -85,6 +126,7 @@ public class CharacterSelectionDataBase : MonoBehaviour
 
     public void BtnStart()
     {
+        BtnSetting();
         Time.timeScale = 1;
         _imgBtn[0].sprite = _spriteBtn[1];
         _panelSetting.SetActive(false);
@@ -92,6 +134,7 @@ public class CharacterSelectionDataBase : MonoBehaviour
 
     public void BtnHome()
     {
+        BtnSetting();
         PlayerPrefs.SetInt("btn", 1);
         PlayerPrefs.SetInt("SSJ", 0);
         PlayerPrefs.Save();
@@ -101,7 +144,49 @@ public class CharacterSelectionDataBase : MonoBehaviour
 
     public void BtnMussic()
     {
+        BtnSetting();
+        Color currentColor = _imgBtn[1].color;
+        if (!isMussic)
+        {
+            audioSource.Stop();
+            currentColor.a = 0.5f;
+            _imgBtn[1].color = currentColor;
+            PlayerPrefs.SetInt("mussic", 1);
+            PlayerPrefs.Save();
+            isMussic = true;
+        }
+        else
+        {
+            isMussic = false;
+            audioSource.Play();
+            currentColor.a = 1;
+            _imgBtn[1].color = currentColor;
+            PlayerPrefs.SetInt("mussic", 0);
+            PlayerPrefs.Save();
+            Debug.Log(isMussic);
 
+        }
+    }
+    public void BtnAudio()
+    {
+        BtnSetting();
+        Color currentColor = _imgBtn[0].color;
+        if (!isAudio)
+        {
+            currentColor.a = 0.5f;
+            _imgBtn[2].color = currentColor;
+            PlayerPrefs.SetInt("audioClick", 1);
+            PlayerPrefs.Save();
+            isAudio = true;
+        }
+        else
+        {
+            currentColor.a = 1;
+            _imgBtn[2].color = currentColor;
+            PlayerPrefs.SetInt("audioClick", 0);
+            PlayerPrefs.Save();
+            isAudio = false;
+        }
     }
 
     public void LevelEnemy()
@@ -581,27 +666,6 @@ public class CharacterSelectionDataBase : MonoBehaviour
     }
     public void OnInit()
     {
-        random = Random.Range(0, 4);
-        switch (random)
-        {
-            /*case 0:
-                Backgrounds[0].sprite = sprites[0];
-                Backgrounds[1].sprite = sprites[1];
-                break;
-            case 1:
-                Backgrounds[0].sprite = sprites[2];
-                Backgrounds[1].sprite = sprites[3];
-                break;
-            case 2:
-                Backgrounds[0].sprite = sprites[4];
-                Backgrounds[1].sprite = sprites[5];
-                break;
-            case 3:
-                Backgrounds[0].sprite = sprites[6];
-                Backgrounds[1].sprite = sprites[7];
-                break;*/
-
-        }
         _txtBtnSkill[0].interactable = false;
         _txtBtnSkill[1].interactable = false;
         numberCharacter = PlayerPrefs.GetInt("idPlayer");
@@ -610,26 +674,35 @@ public class CharacterSelectionDataBase : MonoBehaviour
     }
     public void IsCheckDeadPlayer()
     {
-        if (PlayerController.playerData.isDead == true)
+        if (!isDead)
         {
-            isCheck = true;
-            DeadGame.SetActive(true);
-            WinGame.SetActive(false);
-            level -= 2;
-            if (level <= 0)
+            if (PlayerController.playerData)
             {
-                level = 0;
+                if (PlayerController.playerData.isDead == true)
+                {
+                    audioBtn.PlayOneShot(_audioClips[2]);
+                    isCheck = true;
+                    DeadGame.SetActive(true);
+                    WinGame.SetActive(false);
+                    level -= 2;
+                    if (level <= 0)
+                    {
+                        level = 0;
+                    }
+                    PlayerPrefs.SetInt("levelMap", level);
+                    PlayerPrefs.Save();
+                    StartCoroutine(DelayNextScene());
+                    isDead = true;
+                }
             }
-            PlayerPrefs.SetInt("levelMap", level);
-            PlayerPrefs.Save();
-            PlayerController.playerData.isDead = false;
-            StartCoroutine(DelayNextScene());
         }
+
     }
     public void IsCheckDeadEnemy()
     {
         if (enemy1 == null || enemy2 == null || enemy3 == null || enemy4 == null)
         {
+            audioBtn.PlayOneShot(_audioClips[3]);
             DeadGame.SetActive(false);
             WinGame.SetActive(true);
             Bot.dataEneMy.isDead = true;
@@ -640,10 +713,27 @@ public class CharacterSelectionDataBase : MonoBehaviour
     IEnumerator DelayNextScene()
     {
         isCheck = true;
-        yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(1);
+        yield return new WaitForSeconds(4);
+        panelGameOver.SetActive(true);
+        panelGameController.SetActive(false);
+        //SceneManager.LoadScene(1);
     }
 
+    public void Mussic()
+    {
+        if (!isMussic)
+        {
+            audioSource.Play();
+        }
+    }
+
+    public void BtnSetting()
+    {
+        if (!isAudio)
+        {
+            audioBtn.PlayOneShot(_audioClips[1]);
+        }
+    }
 }
 
 

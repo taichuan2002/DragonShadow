@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4491502475747672006, guid: 1819180e7b066934db3d79396a7ff884, type: 3}
   healingBar: {fileID: 7943650241770299027, guid: 5c0243bc9d5e10e4a9bb22503f7294b4, type: 3}
-  Image: {fileID: 21300000, guid: 00b20f4be41bc4a8894976644eade3a9, type: 3}
+  Image: {fileID: 710726847, guid: 84aa2c1bc2764ce4e86382e117176eee, type: 3}
   name: GOKUZ
   level: 20
-  currentLevel: 15
+  currentLevel: 18
   maxHp: 101
   maxMana: 100
   DamageAttack1: 22
@@ -29,26 +29,26 @@ MonoBehaviour:
   Immortal: 0
   Active: 0
   listSprite:
-  - {fileID: 21300000, guid: 5be760240ea79754d8dc77b94a59f039, type: 3}
-  - {fileID: 21300000, guid: a1c92fa25ca19384593539cc1b8a1e7a, type: 3}
-  - {fileID: 21300000, guid: 4548beb6bd82fb54aa2a643b750cac70, type: 3}
-  - {fileID: 21300000, guid: e951c292223672440ad86f5d8e62e3e0, type: 3}
-  - {fileID: 21300000, guid: 31a1c5eabd21fb242bef3df48604851c, type: 3}
-  - {fileID: 21300000, guid: 39d50aad7d8c36e4e925bccb28d82d2f, type: 3}
-  - {fileID: 21300000, guid: a3c0fbd6d79e5a24f9b04dc6933b816a, type: 3}
-  - {fileID: 21300000, guid: c30823cdad9c4a843a7b1d0ed8b203ab, type: 3}
-  - {fileID: 21300000, guid: 89d1a47593da9f04db7325dba08bd2ec, type: 3}
-  - {fileID: 21300000, guid: 8b54072268f22c5489b2f5f17da5a03f, type: 3}
-  - {fileID: 21300000, guid: 8214a92c1792bc94eb192d66167ea32a, type: 3}
-  - {fileID: 21300000, guid: 884773db19f38674b830c4efea0c5d55, type: 3}
-  - {fileID: 21300000, guid: 83698b123b185fd499eb1c72f7c9ab01, type: 3}
-  - {fileID: 21300000, guid: f970e5c425a477d4783014780f23a397, type: 3}
-  - {fileID: 21300000, guid: 1f17fc1e9638a87419aed123b79cf79f, type: 3}
-  - {fileID: 21300000, guid: 591e183e5ae36fc4fa7050a458f3b661, type: 3}
-  - {fileID: 21300000, guid: b76f557c29ac8ad44b2af0a3ceb4a8f4, type: 3}
-  - {fileID: 21300000, guid: b42518f040c13584981223db7d9d8cae, type: 3}
-  - {fileID: 21300000, guid: 0ef3b27d8f01033489286c1c6c3447cf, type: 3}
-  - {fileID: 21300000, guid: c88cd053928fef34e844e97980f6a003, type: 3}
-  - {fileID: 21300000, guid: dedad735381f36a40a65f5d80f77fa9b, type: 3}
+  - {fileID: 899870417, guid: 2a33864212c8891468d856868a4deb18, type: 3}
+  - {fileID: 815991203, guid: 2a33864212c8891468d856868a4deb18, type: 3}
+  - {fileID: 1682708085, guid: 2a33864212c8891468d856868a4deb18, type: 3}
+  - {fileID: -58654980, guid: 2a33864212c8891468d856868a4deb18, type: 3}
+  - {fileID: -2127432154, guid: 2a33864212c8891468d856868a4deb18, type: 3}
+  - {fileID: 1425720529, guid: 2a33864212c8891468d856868a4deb18, type: 3}
+  - {fileID: -2023143698, guid: 2a33864212c8891468d856868a4deb18, type: 3}
+  - {fileID: -868303257, guid: 2a33864212c8891468d856868a4deb18, type: 3}
+  - {fileID: -1307581497, guid: 2a33864212c8891468d856868a4deb18, type: 3}
+  - {fileID: -946785179, guid: 2a33864212c8891468d856868a4deb18, type: 3}
+  - {fileID: -571501547, guid: 2a33864212c8891468d856868a4deb18, type: 3}
+  - {fileID: -1032442878, guid: 2a33864212c8891468d856868a4deb18, type: 3}
+  - {fileID: -1714988772, guid: 2a33864212c8891468d856868a4deb18, type: 3}
+  - {fileID: 346087797, guid: 2a33864212c8891468d856868a4deb18, type: 3}
+  - {fileID: -762485525, guid: 2a33864212c8891468d856868a4deb18, type: 3}
+  - {fileID: -615131951, guid: 2a33864212c8891468d856868a4deb18, type: 3}
+  - {fileID: 487333813, guid: 2a33864212c8891468d856868a4deb18, type: 3}
+  - {fileID: 1943675440, guid: 2a33864212c8891468d856868a4deb18, type: 3}
+  - {fileID: -367591715, guid: 2a33864212c8891468d856868a4deb18, type: 3}
+  - {fileID: -873617558, guid: 2a33864212c8891468d856868a4deb18, type: 3}
+  - {fileID: -347641134, guid: 2a33864212c8891468d856868a4deb18, type: 3}
   arrPrice: 00000000d007000010270000983a00003075000050c30000a0860100400d0300e093040020a10700b0710b0040420f00804f120060e3160040771b0080841e00c0912100a025260080b92a0020402c00c0c62d00
   arrPower: e8030000a00f0000803e000080bb000000710200a0bb0d0080841e00c0cf6a008096980080c3c901005a620280f0fa02801d2c0400e1f50500c2eb0b0084d7170065cd1d0027b9290008af2f00e9a43500ca9a3b

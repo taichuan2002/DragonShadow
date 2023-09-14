@@ -6,7 +6,10 @@ public class CharactorEnemy : MonoBehaviour
 {
     [SerializeField] protected HealingEnemy healbar;
     [SerializeField] DataEneMy Enemy;
+    [SerializeField] AudioSource audio;
+    [SerializeField] AudioClip[] audioCollider;
     public GameObject hitVFXDead;
+    public bool isCheckAudio = false;
 
     public float hp;
     public float maxhp;
@@ -16,6 +19,7 @@ public class CharactorEnemy : MonoBehaviour
     public float dame4;
     public bool isDead => hp <= 0f;
 
+    private int a;
     private void Start()
     {
         OnInit();
@@ -24,8 +28,6 @@ public class CharactorEnemy : MonoBehaviour
     {
         OnDestroy();
     }
-
-
 
     public void OnInit()
     {
@@ -42,6 +44,7 @@ public class CharactorEnemy : MonoBehaviour
     {
         if (!isDead)
         {
+            AudioCollider();
             hp -= dame;
             if (isDead)
             {
@@ -70,6 +73,23 @@ public class CharactorEnemy : MonoBehaviour
         }
     }
 
-
+    public void AudioCollider()
+    {
+        a = PlayerPrefs.GetInt("audioClick");
+        if (a == 0)
+        {
+            audio.Stop();
+            audio.PlayOneShot(audioCollider[0]);
+        }
+    }
+    public void AudioSkill()
+    {
+        a = PlayerPrefs.GetInt("audioClick");
+        if (a == 0)
+        {
+            audio.Stop();
+            audio.PlayOneShot(audioCollider[1]);
+        }
+    }
 
 }

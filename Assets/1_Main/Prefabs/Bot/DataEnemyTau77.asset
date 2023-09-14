@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DataEnemyTau77
   m_EditorClassIdentifier: 
   bot: {fileID: 4069416397364172215, guid: 5a915feec38fcf94c94474476b896034, type: 3}
-  ImgEnemy: {fileID: 21300000, guid: ce2a3e7e8446d1a4abd737b2c5412dc6, type: 3}
+  ImgEnemy: {fileID: 1879105618, guid: c3237456be0b35d419ea977c184e1f92, type: 3}
   botName: "T\u1EA7u77"
   maxHp: 100
   Dame1: 35

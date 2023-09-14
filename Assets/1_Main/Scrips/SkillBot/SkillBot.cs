@@ -17,7 +17,7 @@ public class SkillBot : MonoBehaviour
 
     public void OnInit()
     {
-        rb.velocity = transform.right * 20;
+        rb.velocity = transform.right * 30;
         Invoke(nameof(OnDestroy), 4f);
     }
 
