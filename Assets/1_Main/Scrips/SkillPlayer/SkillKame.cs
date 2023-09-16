@@ -25,14 +25,9 @@ public class SkillKame : MonoBehaviour
             {
                 Vector2 targetPosition = (targetBotObj.transform.position - transform.position).normalized;
                 rb.velocity = targetPosition * 20;
-                StartCoroutine(OnDead());
+                Destroy(gameObject, 3);
             }
         }
-    }
-    IEnumerator OnDead()
-    {
-        yield return new WaitForSeconds(3);
-        Destroy(gameObject);
     }
     public void SetDame(float dame)
     {

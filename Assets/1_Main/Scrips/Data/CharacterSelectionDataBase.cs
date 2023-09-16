@@ -680,7 +680,11 @@ public class CharacterSelectionDataBase : MonoBehaviour
             {
                 if (PlayerController.playerData.isDead == true)
                 {
-                    audioBtn.PlayOneShot(_audioClips[2]);
+                    int a = PlayerPrefs.GetInt("audioClick");
+                    if (a == 0)
+                    {
+                        audioBtn.PlayOneShot(_audioClips[2]);
+                    }
                     isCheck = true;
                     DeadGame.SetActive(true);
                     WinGame.SetActive(false);
@@ -702,7 +706,11 @@ public class CharacterSelectionDataBase : MonoBehaviour
     {
         if (enemy1 == null || enemy2 == null || enemy3 == null || enemy4 == null)
         {
-            audioBtn.PlayOneShot(_audioClips[3]);
+            int a = PlayerPrefs.GetInt("audioClick");
+            if (a == 0)
+            {
+                audioBtn.PlayOneShot(_audioClips[3]);
+            }
             DeadGame.SetActive(false);
             WinGame.SetActive(true);
             Bot.dataEneMy.isDead = true;
@@ -716,7 +724,6 @@ public class CharacterSelectionDataBase : MonoBehaviour
         yield return new WaitForSeconds(4);
         panelGameOver.SetActive(true);
         panelGameController.SetActive(false);
-        //SceneManager.LoadScene(1);
     }
 
     public void Mussic()

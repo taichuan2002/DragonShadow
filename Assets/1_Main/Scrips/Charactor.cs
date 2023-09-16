@@ -49,15 +49,18 @@ public class Charactor : MonoBehaviour
     {
         if (!isDead)
         {
-            audio.Stop();
-            audio.PlayOneShot(audioCollider);
+            int a = PlayerPrefs.GetInt("audioClick");
+            if (a == 0)
+            {
+                audio.Stop();
+                audio.PlayOneShot(audioCollider);
+            }
             hp -= dame;
             if (isDead)
             {
                 hp = 0f;
             }
             healbar.SetNewHp(hp);
-
         }
     }
     public void OnSkill(float manax)
@@ -81,7 +84,7 @@ public class Charactor : MonoBehaviour
     {
         if (mana < maxmana)
         {
-            mana += 5f * Time.deltaTime;
+            mana += 2f * Time.deltaTime;
             if (mana > maxmana)
             {
                 mana = maxmana;

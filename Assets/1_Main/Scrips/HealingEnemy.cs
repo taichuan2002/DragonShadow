@@ -22,7 +22,6 @@ public class HealingEnemy : MonoBehaviour
         this.Damage1 = dataEneMy[idEnemy].Dame1;
         this.Damage2 = dataEneMy[idEnemy].Dame2;
         this.Damage3 = dataEneMy[idEnemy].Dame3;
-        this.Damage4 = dataEneMy[idEnemy].Dame4;
 
     }
 

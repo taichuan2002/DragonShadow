@@ -62,6 +62,10 @@ public class Healing : MonoBehaviour
     {
         this.mana = mana;
     }
+    public void SetNewMaxMana(float maxmana)
+    {
+        this.maxMana = maxmana;
+    }
 
     private void HealingMana()
     {

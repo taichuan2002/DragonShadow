@@ -17,7 +17,7 @@ MonoBehaviour:
   Image: {fileID: 710726847, guid: 84aa2c1bc2764ce4e86382e117176eee, type: 3}
   name: GOKUZ
   level: 20
-  currentLevel: 18
+  currentLevel: 1
   maxHp: 101
   maxMana: 100
   DamageAttack1: 22

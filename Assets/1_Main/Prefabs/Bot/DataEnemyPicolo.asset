@@ -15,10 +15,9 @@ MonoBehaviour:
   bot: {fileID: 7937110190757403894, guid: 00b078245e0708640a895a721a89abd0, type: 3}
   ImgEnemy: {fileID: 1248099592, guid: c3237456be0b35d419ea977c184e1f92, type: 3}
   botName: Picolo
-  maxHp: 100
-  Dame1: 25
-  Dame2: 20
-  Dame3: 30
-  Dame4: 35
+  maxHp: 150
+  Dame1: 18
+  Dame2: 25
+  Dame3: 45
   isDead: 0
   arrPowerEnemy: e8030000a00f0000803e000080bb000000710200a0bb0d0080841e00c0cf6a008096980080c3c901005a620280f0fa02801d2c0400e1f50500c2eb0b0084d7170065cd1d0027b9290008af2f00e9a43500ca9a3b

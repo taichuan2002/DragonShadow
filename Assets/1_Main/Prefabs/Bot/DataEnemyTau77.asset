@@ -12,13 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c6e4ac9c88171a4289a18a432e68fc2, type: 3}
   m_Name: DataEnemyTau77
   m_EditorClassIdentifier: 
-  bot: {fileID: 4069416397364172215, guid: 5a915feec38fcf94c94474476b896034, type: 3}
+  bot: {fileID: 1564796483034692712, guid: 93e300c6584ca8c49a071894ea3b9170, type: 3}
   ImgEnemy: {fileID: 1879105618, guid: c3237456be0b35d419ea977c184e1f92, type: 3}
   botName: "T\u1EA7u77"
-  maxHp: 100
-  Dame1: 35
-  Dame2: 25
-  Dame3: 30
-  Dame4: 40
+  maxHp: 150
+  Dame1: 27
+  Dame2: 35
+  Dame3: 52
   isDead: 0
   arrPowerEnemy: e8030000a00f0000803e000080bb000000710200a0bb0d0080841e00c0cf6a008096980080c3c901005a620280f0fa02801d2c0400e1f50500c2eb0b0084d7170065cd1d0027b9290008af2f00e9a43500ca9a3b

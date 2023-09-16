@@ -116,7 +116,7 @@ public class PlayerController : Charactor
                 healbar = heal.GetComponent<Healing>();
                 if (healbar != null)
                 {
-                    LevelUpSSJ();
+                    //LevelUpSSJ();
                     isCheck = true;
                 }
             }
@@ -198,7 +198,6 @@ public class PlayerController : Charactor
                 {
                     audios.Stop();
                     AudioItem();
-                    audios.PlayOneShot(audioClick[8]);
                     bean -= 1;
                     OnInitCoin();
                     hp = maxhp;
@@ -351,6 +350,7 @@ public class PlayerController : Charactor
         Damage2 = playerData.DamageAttack2;
         Damage3 = playerData.DamageAttack3;
         Damage4 = playerData.DamageAttack4;
+        Damage5 = playerData.DamageAttack5;
         rb = GetComponent<Rigidbody2D>();
         skeletonAnimation[center] = GetComponent<SkeletonAnimation>();
         PlayerController.playerData.Immortal = false;
@@ -378,11 +378,11 @@ public class PlayerController : Charactor
     {
         if (isAttack)
         {
-            if (mana >= 40 && !isSkillRunning)
+            if (mana >= maxmana / 2 && !isSkillRunning)
             {
                 isAttack = false;
                 isSkill = true;
-                OnSkill(40);
+                OnSkill(maxmana / 2);
                 StartCoroutine(DelaySkill1());
             }
             else
@@ -395,14 +395,14 @@ public class PlayerController : Charactor
     {
         if (!isSkill)
         {
-            if (mana >= 25)
+            if (mana >= 20)
             {
                 skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[2], false);
                 testskill2 = Instantiate(Listskill[1], attack.position, attack.rotation).GetComponent<testSkill2>();
                 AudioSkill2();
                 testskill2.SetDame(Damage2);
                 testskill2.OnInit();
-                OnSkill(25);
+                OnSkill(20);
                 StartCoroutine(DelayIdle());
             }
             else
@@ -415,14 +415,14 @@ public class PlayerController : Charactor
     {
         if (!isSkill)
         {
-            if (mana >= 15)
+            if (mana >= 10)
             {
                 skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[3], false);
                 AudioSkill3();
                 skill3 = Instantiate(Listskill[2], attack.position, attack.rotation).GetComponent<Skill3>();
                 skill3.SetDame(Damage3);
                 skill3.OnInit();
-                OnSkill(15);
+                OnSkill(10);
                 StartCoroutine(DelayIdle());
             }
             else
@@ -435,7 +435,7 @@ public class PlayerController : Charactor
     {
         if (isAttack)
         {
-            if (mana >= 50)
+            if (mana >= maxmana / 2)
             {
                 isSkill = true;
                 isAttack = false;
@@ -454,7 +454,7 @@ public class PlayerController : Charactor
     {
         if (isAttack)
         {
-            if (mana >= 45)
+            if (mana >= maxmana / 2)
             {
                 isSkill = true;
                 skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[5], false);
@@ -462,7 +462,7 @@ public class PlayerController : Charactor
                 skill5 = Instantiate(Listskill[4], attack.position, attack.rotation).GetComponent<Skill5>();
                 skill5.SetDame(Damage5);
                 skill5.OnInit();
-                OnSkill(45);
+                OnSkill(maxmana / 2);
                 StartCoroutine(DelayIdle());
             }
             else
@@ -515,13 +515,13 @@ public class PlayerController : Charactor
         skill4.OnInit();
         _anim[1].SetActive(false);
         _anim[2].SetActive(false);
-        OnSkill(50);
+        OnSkill(maxmana / 2);
         StartCoroutine(DelayIdle());
     }
     IEnumerator DelaySkill1()
     {
         isSkillRunning = true;
-        rb.velocity = Vector2.zero;
+        //rb.velocity = Vector2.zero;
         _anim[1].SetActive(true);
         _anim[2].SetActive(true);
         skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[7], false);
@@ -532,9 +532,8 @@ public class PlayerController : Charactor
         audios.PlayOneShot(audioClick[1]);
         yield return new WaitForSeconds(0.3f);
         Destroy(hVFX);
-        AudioSkill5();
-        skillKame = Instantiate(Listskill[0], attack.position, attack.rotation).GetComponent<SkillKame>();
         AudioSkill1b();
+        skillKame = Instantiate(Listskill[0], attack.position, attack.rotation).GetComponent<SkillKame>();
         skillKame.SetDame(Damage1);
         skillKame.OnInit();
         StartCoroutine(DelayIdle());
@@ -626,12 +625,23 @@ public class PlayerController : Charactor
     }
     public void LevelUpSSJ()
     {
-        float hpNew = maxhp + ((playerData.arrPower[levelValue] * 0.001f) * (0.1f * levelValue));
-        float dame1New = Damage1 + (((playerData.arrPower[levelValue] * 0.001f) * 0.31f));
-        float dame2New = Damage2 + (((playerData.arrPower[levelValue] * 0.001f) * 0.10f));
-        float dame3New = Damage3 + (((playerData.arrPower[levelValue] * 0.001f) * 0.19f));
-        float dame4New = Damage4 + (((playerData.arrPower[levelValue] * 0.001f) * 0.57f));
-        float dame5New = Damage5 + (((playerData.arrPower[levelValue] * 0.001f) * 0.40f));
+        float dame4New = Damage4;
+        float dame5New = Damage5;
+        float hpNew = maxhp * 2;
+        float manaNew = maxmana * 1.2f;
+        float dame1New = Damage1 * 2;
+        float dame2New = Damage2 + (Damage2 * 0.6f);
+        float dame3New = Damage3 + (Damage3 * 0.6f); ;
+        if (levelValue >= 3)
+        {
+            dame5New = Damage5 * 2;
+
+        }
+        if (levelValue >= 6)
+        {
+            dame4New = Damage4 * 2;
+        }
+
         Damage1 = dame1New;
         Damage2 = dame2New;
         Damage3 = dame3New;
@@ -639,6 +649,9 @@ public class PlayerController : Charactor
         Damage5 = dame5New;
         SetDame(dame1New, dame2New, dame3New, dame4New, dame5New);
         maxhp = hpNew;
+        maxmana = manaNew;
+        healbar.SetNewMaxHp(maxhp);
+        healbar.SetNewMaxMana(maxmana);
     }
     public void AudioSkill1a()
     {

@@ -14,7 +14,6 @@ public class DataEneMy : ScriptableObject
     public float Dame1;
     public float Dame2;
     public float Dame3;
-    public float Dame4;
     public bool isDead;
     public int[] arrPowerEnemy;
 

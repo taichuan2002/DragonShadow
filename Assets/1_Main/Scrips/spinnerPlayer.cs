@@ -102,11 +102,11 @@ public class SpinnerPlayer : MonoBehaviour
     private void Awake()
     {
         Coin = PlayerPrefs.GetInt("Coin", 0);
-        LevelSSJ[0] = PlayerPrefs.GetInt("LevelSSJ0", 0);
-        LevelSSJ[1] = PlayerPrefs.GetInt("LevelSSJ1", 0);
-        LevelSSJ[2] = PlayerPrefs.GetInt("LevelSSJ2", 0);
-        LevelSSJ[3] = PlayerPrefs.GetInt("LevelSSJ3", 0);
-        LevelSSJ[4] = PlayerPrefs.GetInt("LevelSSJ4", 0);
+        LevelSSJ[0] = PlayerPrefs.GetInt("LevelSSJ0", 1);
+        LevelSSJ[1] = PlayerPrefs.GetInt("LevelSSJ1", 1);
+        LevelSSJ[2] = PlayerPrefs.GetInt("LevelSSJ2", 1);
+        LevelSSJ[3] = PlayerPrefs.GetInt("LevelSSJ3", 1);
+        LevelSSJ[4] = PlayerPrefs.GetInt("LevelSSJ4", 1);
     }
     public void OnInit()
     {

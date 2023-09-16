@@ -142,16 +142,18 @@ public class EnemyPicolo : Bot
     public void LevelMap()
     {
         int level = PlayerPrefs.GetInt("levelMap");
-        float hpNew = maxhp + ((dataEneMy.arrPowerEnemy[level] * 0.005f) * (0.1f * level));
-        float dame1New = dame1 + ((dataEneMy.arrPowerEnemy[level] * 0.001f) * 0.45f);
-        float dame2New = dame2 + ((dataEneMy.arrPowerEnemy[level] * 0.001f) * 0.25f);
-        float dame3New = dame3 + ((dataEneMy.arrPowerEnemy[level] * 0.001f) * 0.65f);
-        dame1 = dame1New;
-        dame2 = dame2New;
-        dame3 = dame3New;
-        SetDame(dame1New, dame2New, dame3New);
-        hp = hpNew;
-        healbar.OnInit(hpNew);
+        if (level > 1)
+        {
+            float hpNew = maxhp * (level * 2);
+            hp = hpNew;
+            healbar.OnInit(hpNew);
+            float dame1New = dame1 + (level * (dame1 * 0.5f));
+            float dame2New = dame2 + (level * (dame2 * 0.5f));
+            float dame3New = dame3 + (level * (dame3 * 0.5f));
+            dame2 = dame2New;
+            dame3 = dame3New;
+            SetDame(dame1New, dame2New, dame3New);
+        }
     }
 
 
