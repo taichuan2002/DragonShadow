@@ -42,7 +42,6 @@ public class EnemyDodoria : Bot
             if (heal != null)
             {
                 healbar = heal.GetComponent<HealingEnemy>();
-                Debug.Log("healbar Enemy" + healbar);
                 LevelMap();
                 isCheck = true;
             }
@@ -152,7 +151,6 @@ public class EnemyDodoria : Bot
             dame2 = dame2New;
             dame3 = dame3New;
             SetDame(dame1New, dame2New, dame3New);
-            Debug.Log(1123);
         }
     }
 }

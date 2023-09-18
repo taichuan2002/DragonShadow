@@ -13,7 +13,11 @@ public class CharacterSelectionDataBase : MonoBehaviour
     [SerializeField] protected Healing healbarPlayer;
     [SerializeField] TextMeshProUGUI _txtEnemyDead;
     [SerializeField] TextMeshProUGUI _txtBean;
+    [SerializeField] GameObject Bean;
     [SerializeField] GameObject _panelSetting;
+    [SerializeField] GameObject panelGameController;
+    [SerializeField] GameObject panelGameOver;
+    [SerializeField] Animator animator;
     public Transform StartPoint;
     public Transform StartPointEnemy;
     public GameObject ObjHealingbar;
@@ -22,15 +26,12 @@ public class CharacterSelectionDataBase : MonoBehaviour
     public GameObject[] characters;
     public GameObject[] arrEnemys;
     [SerializeField] Button[] _txtBtnSkill;
-    [SerializeField] Button[] _txtBtnSetting;
     [SerializeField] Image[] _imgBtn;
     [SerializeField] Sprite[] _spriteBtn;
     [SerializeField] Image[] Backgrounds;
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioSource audioBtn;
     [SerializeField] AudioClip[] _audioClips;
-    [SerializeField] GameObject panelGameController;
-    [SerializeField] GameObject panelGameOver;
     private GameObject prefabs;
     private GameObject enemy1, enemy2, enemy3, enemy4;
     private int level, numberCharacter, EnemyDead, bean, random, mussic, audio;
@@ -48,6 +49,7 @@ public class CharacterSelectionDataBase : MonoBehaviour
 
         OnInit();
         OnAudio();
+        EatBean();
     }
 
     public void OnAudio()
@@ -89,13 +91,46 @@ public class CharacterSelectionDataBase : MonoBehaviour
         LevelEnemy();
         IsCheckDeadPlayer();
         bean = PlayerPrefs.GetInt("Bean");
-        _txtBean.text = bean.ToString();
         if (!isSSJ)
         {
             UnlockSkill();
         }
+        int Coin = PlayerPrefs.GetInt("Coin");
+        if (Coin >= 500)
+        {
+            _txtBtnSkill[2].interactable = true;
+        }
+        else
+        {
+            _txtBtnSkill[2].interactable = false;
+        }
     }
 
+    public void EatBean()
+    {
+        //int Eatbean = PlayerPrefs.GetInt("EatBean");
+        if (bean > 0)
+        {
+            _txtBean.text = bean.ToString();
+        }
+        else
+        {
+            Bean.SetActive(false);
+        }
+        /*if (Eatbean == 1)
+        {
+            StartCoroutine(AnimBean());
+            PlayerPrefs.SetInt("Bean", 0);
+            PlayerPrefs.Save();
+        }*/
+    }
+    IEnumerator AnimBean()
+    {
+        animator.SetBool("BuyBean", false);
+        yield return new WaitForSeconds(1);
+        animator.SetBool("BuyBean", true);
+
+    }
     public void OnInitLevelMap()
     {
         PlayerPrefs.SetInt("levelMap", level);
@@ -186,6 +221,14 @@ public class CharacterSelectionDataBase : MonoBehaviour
             PlayerPrefs.SetInt("audioClick", 0);
             PlayerPrefs.Save();
             isAudio = false;
+        }
+    }
+
+    public void BuyBean(bool check)
+    {
+        if (check)
+        {
+            animator.SetTrigger("BuyBean");
         }
     }
 

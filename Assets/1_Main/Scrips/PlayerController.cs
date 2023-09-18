@@ -28,8 +28,6 @@ public class PlayerController : Charactor
     [SerializeField] string sceneName = "Menu";
     [SerializeField] AudioSource audios;
     [SerializeField] SkeletonAnimation targetBot;
-
-
     [SerializeField] AudioClip[] audioClick;
     [SerializeField] SkeletonAnimation[] skeletonAnimation;
     [SerializeField] DataPlayer[] data;
@@ -196,7 +194,6 @@ public class PlayerController : Charactor
         }
         if (btn.name == "btn_Bean")
         {
-
             if (hp != maxhp || mana != maxmana)
             {
                 if (bean > 0)
@@ -218,6 +215,7 @@ public class PlayerController : Charactor
                         AudioItem();
                         AudioAddCoin();
                         Coin -= 500;
+                        PlayerPrefs.SetInt("EatBean", 1);
                         OnInitCoin();
                         hp = maxhp;
                         mana = maxmana;
@@ -268,7 +266,6 @@ public class PlayerController : Charactor
                         StartCoroutine(DelayIdle());
                         isSSJ = true;
                     }
-
                 }
                 if (levelValue >= levelprefs)
                 {
@@ -577,9 +574,7 @@ public class PlayerController : Charactor
         isSSJ = false;
         isAttack = true;
         isSkill = false;
-
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("BeanBlue"))
@@ -633,8 +628,8 @@ public class PlayerController : Charactor
         if (collision.CompareTag("Coin"))
         {
             AudioCoin();
-            Coin += 99999;
-            point += 99999;
+            Coin += 100;
+            point += 100;
             OnInitCoin();
             Destroy(collision.gameObject);
         }
@@ -728,7 +723,6 @@ public class PlayerController : Charactor
             audios.PlayOneShot(audioClick[7]);
         }
     }
-
     public void AudioItem()
     {
         int a = PlayerPrefs.GetInt("audioClick");

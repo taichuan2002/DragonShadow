@@ -21,6 +21,14 @@ public class AutoScroll : MonoBehaviour
     float offsetY, offsetY2, offsetY3, offsetY4;
     private void Start()
     {
+
+    }
+    private void Update()
+    {
+
+    }
+    private void OnEnable()
+    {
         float contentHeight = itemCount * (itemHeight + spacing);
         content.sizeDelta = new Vector2(content.sizeDelta.x, contentHeight);
         level = PlayerPrefs.GetInt("levelMap");
@@ -39,10 +47,6 @@ public class AutoScroll : MonoBehaviour
             Vector2 targetPosition = new Vector2(content.localPosition.x, -offsetY3);
             content.localPosition = targetPosition;
         }
-    }
-    private void Update()
-    {
-
     }
     public IEnumerator ScrollItem(int index)
     {

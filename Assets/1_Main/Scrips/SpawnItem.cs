@@ -36,7 +36,7 @@ public class SpawnItem : MonoBehaviour
 
     private void SpawnPointItem()
     {
-        randomItem = Random.Range(0, 4);
+        randomItem = Random.Range(0, listItem.Count);
         float randomY = Random.Range(-3.9f, 3.9f);
         Vector2 spawnItem = new Vector2(10, randomY);
         newItem = Instantiate(listItem[randomItem], spawnItem, transform.rotation);
@@ -44,7 +44,7 @@ public class SpawnItem : MonoBehaviour
     }
     private void SpawnPointItem2()
     {
-        int randomItem2 = Random.Range(0, 4);
+        int randomItem2 = Random.Range(0, listItem.Count);
         float randomY = Random.Range(-3.9f, 3.9f);
         Vector2 spawnItem2 = new Vector2(10, randomY);
         newItem2 = Instantiate(listItem[randomItem2], spawnItem2, transform.rotation);
@@ -61,10 +61,11 @@ public class SpawnItem : MonoBehaviour
     }
     private IEnumerator SpawnListItem2()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(20);
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(5f, 25f));
+            SpawnPointItem2();
+            yield return new WaitForSeconds(Random.Range(10f, 25f));
         }
     }
     private IEnumerator MoveItem(GameObject item)

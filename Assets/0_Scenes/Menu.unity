@@ -5685,7 +5685,7 @@ Animator:
   m_GameObject: {fileID: 447848500}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 27c084866a7f4ff43a116786f326ff23, type: 2}
+  m_Controller: {fileID: 9100000, guid: 75b176f6f6083714599fa1c69bab0ead, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6876,7 +6876,7 @@ Animator:
   m_GameObject: {fileID: 519082535}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3c808da3087a2244f8516a3790a35909, type: 2}
+  m_Controller: {fileID: 9100000, guid: d00255b4dbd576d4dafcd6cf5e7cc1a4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -7656,7 +7656,7 @@ Animator:
   m_GameObject: {fileID: 588063754}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 171503c9770248f43b835c03dc80ba51, type: 2}
+  m_Controller: {fileID: 9100000, guid: d987699bfaf9606499492a8f7b247ccd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -19293,7 +19293,7 @@ Animator:
   m_GameObject: {fileID: 1482633866}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d17724bd9a347114c93916d5bda11b3b, type: 2}
+  m_Controller: {fileID: 9100000, guid: f99d86f5716154d418815827f815c2fb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -22005,7 +22005,7 @@ Animator:
   m_GameObject: {fileID: 1698051242}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: acb01ee164fbce0468b7c00450666897, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4436d67800a850e47bd347d65add2252, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -22028,7 +22028,6 @@ GameObject:
   - component: {fileID: 1715754391}
   - component: {fileID: 1715754390}
   - component: {fileID: 1715754389}
-  - component: {fileID: 1715754388}
   m_Layer: 5
   m_Name: Btn_Spiner
   m_TagString: Untagged
@@ -22056,27 +22055,6 @@ RectTransform:
   m_AnchoredPosition: {x: -847.1, y: 347.9}
   m_SizeDelta: {x: 140, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &1715754388
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1715754386}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 61b1c370fb08a2348ba80bf1ebf4c7f2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1715754389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23533,7 +23511,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.8808594, y: -1.0981445}
+  m_AnchoredPosition: {x: 3.7125244, y: 0.6131592}
   m_SizeDelta: {x: -1852.561, y: -1031.701}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1868131610
@@ -23584,7 +23562,7 @@ Animator:
   m_GameObject: {fileID: 1868131608}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fe62d500685671e47835ca1dec96e747, type: 2}
+  m_Controller: {fileID: 9100000, guid: aaf3d5adffd01c942952711cc777d28c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -27428,10 +27406,6 @@ PrefabInstance:
     - target: {fileID: 3381532052408305389, guid: e90eb74293385ed48af85ed53a8ef845, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4698191140051162892, guid: e90eb74293385ed48af85ed53a8ef845, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 5775160494472217528, guid: e90eb74293385ed48af85ed53a8ef845, type: 3}
       propertyPath: m_Name

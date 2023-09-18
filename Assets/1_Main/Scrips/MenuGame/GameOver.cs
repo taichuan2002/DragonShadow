@@ -19,7 +19,7 @@ public class GameOver : MonoBehaviour
     [SerializeField] AudioSource _AudioSource;
     [SerializeField] AudioClip[] _AudioClip;
     int Number;
-    int pl, Coin, tongCoin;
+    int pl, Coin, tongCoin, eatCoin, CoinLevel;
     void Start()
     {
         PlayerPrefs.SetInt("btn", 0);
@@ -28,7 +28,7 @@ public class GameOver : MonoBehaviour
         _ImgX2.transform.DOScale(new Vector3(1f, 1f, 1), 0.6f).SetLoops(-1, LoopType.Yoyo);
         PlayerPrefs.Save();
         _ImgPlayer.transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
-        tongCoin = PlayerPrefs.GetInt("tongCoin");
+        eatCoin = PlayerPrefs.GetInt("tongCoin");
         Coin = PlayerPrefs.GetInt("Coin");
         Number = PlayerPrefs.GetInt("SSJ");
         _ImgPlayer.sprite = PlayerController.playerData.listSprite[Number];
@@ -41,7 +41,7 @@ public class GameOver : MonoBehaviour
             Enemy[1].isDead = false;
             Enemy[2].isDead = false;
             Enemy[3].isDead = false;
-
+            tongCoin = eatCoin;
         }
         if (Enemy[0].isDead || Enemy[1].isDead || Enemy[2].isDead || Enemy[3].isDead)
         {
@@ -52,7 +52,8 @@ public class GameOver : MonoBehaviour
             Enemy[1].isDead = false;
             Enemy[2].isDead = false;
             Enemy[3].isDead = false;
-            tongCoin += 60;
+            tongCoin = eatCoin + 60;
+            CoinLevel = 60;
         }
         StartCoroutine(Title());
     }
@@ -81,19 +82,11 @@ public class GameOver : MonoBehaviour
     IEnumerator Title()
     {
         yield return new WaitForSeconds(0.5f);
-        if (Enemy[0].isDead || Enemy[1].isDead || Enemy[2].isDead || Enemy[3].isDead)
-        {
-            AudioCoin();
-            _txtPointCoins[1].text = "60";
-        }
-        else
-        {
-            AudioCoin();
-            _txtPointCoins[1].text = "0";
-        }
+        AudioCoin();
+        _txtPointCoins[2].text = CoinLevel.ToString();
         yield return new WaitForSeconds(0.5f);
         AudioCoin();
-        _txtPointCoins[2].text = tongCoin.ToString();
+        _txtPointCoins[1].text = eatCoin.ToString();
         yield return new WaitForSeconds(0.5f);
         AudioCoin();
         _txtPointCoins[3].text = tongCoin.ToString();

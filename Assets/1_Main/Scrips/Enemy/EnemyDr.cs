@@ -149,7 +149,6 @@ public class EnemyDr : Bot
             dame2 = dame2New;
             dame3 = dame3New;
             SetDame(dame1New, dame2New, dame3New);
-            Debug.Log(1123);
         }
     }
 }

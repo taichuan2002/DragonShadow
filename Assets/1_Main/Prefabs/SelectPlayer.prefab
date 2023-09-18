@@ -137,7 +137,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -34, y: -267}
-  m_SizeDelta: {x: 600, y: 200}
+  m_SizeDelta: {x: 650, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5810404341710466100
 CanvasRenderer:
@@ -481,34 +481,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Particle System 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4925940444355908053, guid: ca532a83bdfc29343acd8e9dc6c5d25d, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 20.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925940444355908053, guid: ca532a83bdfc29343acd8e9dc6c5d25d, type: 3}
-      propertyPath: InitialModule.startSizeY.scalar
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925940444355908053, guid: ca532a83bdfc29343acd8e9dc6c5d25d, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.atime1
-      value: 41056
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925940444355908053, guid: ca532a83bdfc29343acd8e9dc6c5d25d, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.atime2
-      value: 65535
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925940444355908053, guid: ca532a83bdfc29343acd8e9dc6c5d25d, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key1.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925940444355908053, guid: ca532a83bdfc29343acd8e9dc6c5d25d, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.m_ColorSpace
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925940444355908053, guid: ca532a83bdfc29343acd8e9dc6c5d25d, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.m_NumAlphaKeys
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 7653301175332284418, guid: ca532a83bdfc29343acd8e9dc6c5d25d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -575,11 +547,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7653301175332284418, guid: ca532a83bdfc29343acd8e9dc6c5d25d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 11
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 7653301175332284418, guid: ca532a83bdfc29343acd8e9dc6c5d25d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -198
+      value: -194
       objectReference: {fileID: 0}
     - target: {fileID: 7653301175332284418, guid: ca532a83bdfc29343acd8e9dc6c5d25d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
