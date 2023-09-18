@@ -486,6 +486,24 @@ public class HomeUI : MonoBehaviour
 
     }
 
+    public void ResetTitle()
+    {
+        PlayerPrefs.SetInt("Coin", 0);
+        PlayerPrefs.SetInt("LevelSSJ0", 1);
+        PlayerPrefs.SetInt("LevelSSJ1", 1);
+        PlayerPrefs.SetInt("LevelSSJ2", 1);
+        PlayerPrefs.SetInt("LevelSSJ3", 1);
+        PlayerPrefs.SetInt("LevelSSJ4", 1);
+        PlayerPrefs.SetInt("Bean", 0);
+        PlayerPrefs.SetInt("levelMap", 0);
+        PlayerPrefs.Save();
+        Coin = PlayerPrefs.GetInt("Coin");
+        bean = PlayerPrefs.GetInt("Bean");
+        levelMap = PlayerPrefs.GetInt("levelMap");
+        _txtPointCoins[0].text = Coin.ToString();
+        _txtPointCoins[1].text = Coin.ToString();
+        _txtPointCoins[2].text = Coin.ToString();
+    }
     public IEnumerator NextMap()
     {
         animator.SetTrigger("Start");

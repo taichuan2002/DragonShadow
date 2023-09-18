@@ -12,32 +12,16 @@ public class Skill4 : MonoBehaviour
     float Damecurren;
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         OnInit();
     }
     public void OnInit()
     {
-        GameObject targetBotObj = GameObject.FindGameObjectWithTag("Bot");
-        if (targetBotObj != null)
-        {
-            targetBot = targetBotObj.GetComponent<SkeletonAnimation>();
-            if (targetBot != null)
-            {
-                Vector2 targetPosition = (targetBot.transform.position - transform.position).normalized;
-                rb.velocity = targetPosition * 20f;
-                Invoke(nameof(onDead), 3f);
+        Destroy(gameObject, 3);
+    }
 
-            }
-        }
-    }
-    public void onDead()
-    {
-        Destroy(gameObject);
-    }
     public void SetDame(float dame)
     {
         Damecurren = dame;
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -50,7 +34,7 @@ public class Skill4 : MonoBehaviour
             GameObject hitvfx3 = Instantiate(hitVFX[2], transform.position, transform.rotation);
             Vector3 largerScale = new Vector2(3, 3);
             hitvfx.transform.localScale = largerScale;
-            onDead();
+            Destroy(gameObject);
             Destroy(hitvfx, 1);
             Destroy(hitvfx2, 1);
             Destroy(hitvfx3, 1);

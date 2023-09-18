@@ -107,6 +107,11 @@ public class SpinnerPlayer : MonoBehaviour
         LevelSSJ[2] = PlayerPrefs.GetInt("LevelSSJ2", 1);
         LevelSSJ[3] = PlayerPrefs.GetInt("LevelSSJ3", 1);
         LevelSSJ[4] = PlayerPrefs.GetInt("LevelSSJ4", 1);
+        /*PlayerPrefs.SetInt("LevelSSJ0", 1);
+        PlayerPrefs.SetInt("LevelSSJ1", 1);
+        PlayerPrefs.SetInt("LevelSSJ2", 1);
+        PlayerPrefs.SetInt("LevelSSJ3", 1);
+        PlayerPrefs.SetInt("LevelSSJ4", 1);*/
     }
     public void OnInit()
     {

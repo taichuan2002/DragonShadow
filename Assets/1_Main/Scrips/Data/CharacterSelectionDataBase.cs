@@ -666,11 +666,13 @@ public class CharacterSelectionDataBase : MonoBehaviour
     }
     public void OnInit()
     {
+        Vector3 a = new Vector3(0.1f, 0, 0);
         _txtBtnSkill[0].interactable = false;
         _txtBtnSkill[1].interactable = false;
         numberCharacter = PlayerPrefs.GetInt("idPlayer");
         prefabs = characters[numberCharacter];
-        Instantiate(prefabs, StartPoint.position, Quaternion.identity);
+        Instantiate(prefabs, StartPoint.position + a, Quaternion.identity);
+        //prefabs.transform.position += Vector3.Lerp(prefabs.transform.position, new Vector3(prefabs.transform.position.x + 0.1f, prefabs.transform.position.y), 1);
     }
     public void IsCheckDeadPlayer()
     {

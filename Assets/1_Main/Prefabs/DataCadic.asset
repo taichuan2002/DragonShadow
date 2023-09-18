@@ -23,7 +23,7 @@ MonoBehaviour:
   DamageAttack1: 50
   DamageAttack2: 3
   DamageAttack3: 15
-  DamageAttack4: 42
+  DamageAttack4: 1150
   DamageAttack5: 500
   isDead: 0
   Immortal: 0

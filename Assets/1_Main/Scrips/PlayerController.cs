@@ -27,9 +27,10 @@ public class PlayerController : Charactor
     [SerializeField] Skill5 skill5;
     [SerializeField] string sceneName = "Menu";
     [SerializeField] AudioSource audios;
+    [SerializeField] SkeletonAnimation targetBot;
+
+
     [SerializeField] AudioClip[] audioClick;
-
-
     [SerializeField] SkeletonAnimation[] skeletonAnimation;
     [SerializeField] DataPlayer[] data;
     [SerializeField] AnimationReferenceAsset[] ListAnim;
@@ -149,6 +150,10 @@ public class PlayerController : Charactor
             {
                 isImmortal = false;
             }
+        }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            playerData.Immortal = true;
         }
     }
 
@@ -472,7 +477,24 @@ public class PlayerController : Charactor
         }
     }
 
-
+    private void SetSkillKame()
+    {
+        GameObject targetBotObj = GameObject.FindGameObjectWithTag("Bot");
+        targetBot = targetBotObj.GetComponent<SkeletonAnimation>();
+        Vector2 targetPosition = (targetBotObj.transform.position - transform.position);
+        skillKame = Instantiate(Listskill[0], attack.position, attack.rotation).GetComponent<SkillKame>();
+        skillKame.GetComponent<Rigidbody2D>().velocity = targetPosition.normalized * 20;
+        skillKame.SetDame(Damage1);
+    }
+    private void SetSkillKingki()
+    {
+        GameObject targetBotObj = GameObject.FindGameObjectWithTag("Bot");
+        targetBot = targetBotObj.GetComponent<SkeletonAnimation>();
+        Vector2 targetPosition = (targetBotObj.transform.position - transform.position);
+        skill4 = Instantiate(Listskill[3], attack.position, attack.rotation).GetComponent<Skill4>();
+        skill4.GetComponent<Rigidbody2D>().velocity = targetPosition.normalized * 20;
+        skill4.SetDame(Damage4);
+    }
     IEnumerator Immortal()
     {
         isArmor = true;
@@ -486,8 +508,6 @@ public class PlayerController : Charactor
             VfxArmor.SetActive(false);
             isArmor = false;
         }
-
-
     }
     IEnumerator Immortal2()
     {
@@ -510,9 +530,8 @@ public class PlayerController : Charactor
         yield return new WaitForSeconds(2.3f);
         skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[4], false);
         yield return new WaitForSeconds(0.5f);
-        skill4 = Instantiate(Listskill[3], attack.position, attack.rotation).GetComponent<Skill4>();
-        skill4.SetDame(Damage4);
-        skill4.OnInit();
+        SetSkillKingki();
+
         _anim[1].SetActive(false);
         _anim[2].SetActive(false);
         OnSkill(maxmana / 2);
@@ -521,7 +540,7 @@ public class PlayerController : Charactor
     IEnumerator DelaySkill1()
     {
         isSkillRunning = true;
-        //rb.velocity = Vector2.zero;
+        rb.velocity = Vector2.zero;
         _anim[1].SetActive(true);
         _anim[2].SetActive(true);
         skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[7], false);
@@ -530,19 +549,17 @@ public class PlayerController : Charactor
         yield return new WaitForSeconds(2.2f);
         skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[1], false);
         audios.PlayOneShot(audioClick[1]);
-        yield return new WaitForSeconds(0.3f);
         Destroy(hVFX);
         AudioSkill1b();
-        skillKame = Instantiate(Listskill[0], attack.position, attack.rotation).GetComponent<SkillKame>();
-        skillKame.SetDame(Damage1);
-        skillKame.OnInit();
+        yield return new WaitForSeconds(0.3f);
+        SetSkillKame();
+
         StartCoroutine(DelayIdle());
         _anim[1].SetActive(false);
         _anim[2].SetActive(false);
         isSkillRunning = false;
 
     }
-
     IEnumerator CollisionItem()
     {
         if (vfx && !hVFX)

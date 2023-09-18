@@ -17,14 +17,14 @@ MonoBehaviour:
   Image: {fileID: 710726847, guid: 84aa2c1bc2764ce4e86382e117176eee, type: 3}
   name: GOKUZ
   level: 20
-  currentLevel: 1
+  currentLevel: 6
   maxHp: 101
   maxMana: 100
   DamageAttack1: 22
   DamageAttack2: 3
   DamageAttack3: 10
-  DamageAttack4: 45
-  DamageAttack5: 30
+  DamageAttack4: 1100
+  DamageAttack5: 500
   isDead: 0
   Immortal: 0
   Active: 0
