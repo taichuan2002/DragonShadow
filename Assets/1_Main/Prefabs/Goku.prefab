@@ -2041,6 +2041,7 @@ MonoBehaviour:
   skill5: {fileID: 5609916442114923937, guid: 8084a41e7dad4c54b954018c46a77ce1, type: 3}
   sceneName: Menu
   audios: {fileID: 5609041835307483519}
+  targetBot: {fileID: 0}
   audioClick:
   - {fileID: 8300000, guid: 01e11fc49792f4843ba41e72d4bc6772, type: 3}
   - {fileID: 8300000, guid: 98a0a482e14330347b2a7ecfcf1cb90c, type: 3}
@@ -3001,6 +3002,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9079633436639917934}
     m_Modifications:
+    - target: {fileID: 409910093063171816, guid: 33f6ae182661a2445887d9b88cf391f9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 409910093063171816, guid: 33f6ae182661a2445887d9b88cf391f9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 409910093063171816, guid: 33f6ae182661a2445887d9b88cf391f9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 793984519355106204, guid: 33f6ae182661a2445887d9b88cf391f9, type: 3}
       propertyPath: m_Name
       value: Armor

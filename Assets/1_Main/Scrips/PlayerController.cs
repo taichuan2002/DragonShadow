@@ -548,12 +548,11 @@ public class PlayerController : Charactor
         GameObject hVFX = Instantiate(hitVFX[0], transform.position, transform.rotation);
         yield return new WaitForSeconds(2.2f);
         skeletonAnimation[center].AnimationState.SetAnimation(1, ListAnim[1], false);
-        audios.PlayOneShot(audioClick[1]);
+        AudioSkill1b();
         Destroy(hVFX);
         AudioSkill1b();
         yield return new WaitForSeconds(0.3f);
         SetSkillKame();
-
         StartCoroutine(DelayIdle());
         _anim[1].SetActive(false);
         _anim[2].SetActive(false);
