@@ -343,7 +343,6 @@ public class PlayerController : Charactor
     {
         point = 0;
         playerData = data[center];
-        Application.targetFrameRate = 90;
         maxhp = playerData.maxHp;
         maxmana = playerData.maxMana;
         hp = playerData.maxHp;
@@ -627,11 +626,13 @@ public class PlayerController : Charactor
         }
         if (collision.CompareTag("Coin"))
         {
+            GameObject hVFX = Instantiate(hitVFX[3], transform.position, transform.rotation);
             AudioCoin();
             Coin += 100;
             point += 100;
             OnInitCoin();
             Destroy(collision.gameObject);
+            Destroy(hVFX, 3);
         }
     }
     public void LevelUpSSJ()

@@ -43,7 +43,6 @@ public class EnemyPicolo : Bot
             if (heal != null)
             {
                 healbar = heal.GetComponent<HealingEnemy>();
-                Debug.Log("healbar Enemy" + healbar);
                 LevelMap();
                 isCheck = true;
             }

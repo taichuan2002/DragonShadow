@@ -160,15 +160,6 @@ public class SpinnerPlayer : MonoBehaviour
         switch (center)
         {
             case 0:
-                _imgPlayerCircol[0].transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
-                _imgPlayerCircol[1].transform.localPosition = Vector2.zero;
-                _imgPlayerCircol[2].transform.localPosition = Vector2.zero;
-                _imgPlayerCircol[3].transform.localPosition = Vector2.zero;
-                _imgPlayerCircol[4].transform.localPosition = Vector2.zero;
-                _imgPlayerCircol[1].transform.DOKill();
-                _imgPlayerCircol[2].transform.DOKill();
-                _imgPlayerCircol[3].transform.DOKill();
-                _imgPlayerCircol[4].transform.DOKill();
                 listEffect[0].SetActive(true);
                 listEffect[1].SetActive(false);
                 listEffect[2].SetActive(false);
@@ -176,15 +167,6 @@ public class SpinnerPlayer : MonoBehaviour
                 listEffect[4].SetActive(false);
                 break;
             case 1:
-                _imgPlayerCircol[1].transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
-                _imgPlayerCircol[0].transform.localPosition = Vector2.zero;
-                _imgPlayerCircol[2].transform.localPosition = Vector2.zero;
-                _imgPlayerCircol[3].transform.localPosition = Vector2.zero;
-                _imgPlayerCircol[4].transform.localPosition = Vector2.zero;
-                _imgPlayerCircol[0].transform.DOKill();
-                _imgPlayerCircol[2].transform.DOKill();
-                _imgPlayerCircol[3].transform.DOKill();
-                _imgPlayerCircol[4].transform.DOKill();
                 listEffect[0].SetActive(false);
                 listEffect[1].SetActive(true);
                 listEffect[2].SetActive(false);
@@ -192,15 +174,6 @@ public class SpinnerPlayer : MonoBehaviour
                 listEffect[4].SetActive(false);
                 break;
             case 2:
-                _imgPlayerCircol[2].transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
-                _imgPlayerCircol[1].transform.localPosition = Vector2.zero;
-                _imgPlayerCircol[0].transform.localPosition = Vector2.zero;
-                _imgPlayerCircol[3].transform.localPosition = Vector2.zero;
-                _imgPlayerCircol[4].transform.localPosition = Vector2.zero;
-                _imgPlayerCircol[1].transform.DOKill();
-                _imgPlayerCircol[0].transform.DOKill();
-                _imgPlayerCircol[3].transform.DOKill();
-                _imgPlayerCircol[4].transform.DOKill();
                 listEffect[0].SetActive(false);
                 listEffect[1].SetActive(false);
                 listEffect[2].SetActive(true);
@@ -208,15 +181,6 @@ public class SpinnerPlayer : MonoBehaviour
                 listEffect[4].SetActive(false);
                 break;
             case 3:
-                _imgPlayerCircol[3].transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
-                _imgPlayerCircol[1].transform.localPosition = Vector2.zero;
-                _imgPlayerCircol[2].transform.localPosition = Vector2.zero;
-                _imgPlayerCircol[0].transform.localPosition = Vector2.zero;
-                _imgPlayerCircol[4].transform.localPosition = Vector2.zero;
-                _imgPlayerCircol[1].transform.DOKill();
-                _imgPlayerCircol[2].transform.DOKill();
-                _imgPlayerCircol[0].transform.DOKill();
-                _imgPlayerCircol[4].transform.DOKill();
                 listEffect[0].SetActive(false);
                 listEffect[1].SetActive(false);
                 listEffect[2].SetActive(false);
@@ -224,15 +188,6 @@ public class SpinnerPlayer : MonoBehaviour
                 listEffect[4].SetActive(false);
                 break;
             case 4:
-                _imgPlayerCircol[4].transform.DOLocalMove(new Vector2(0, 30), 3).SetLoops(-1, LoopType.Yoyo);
-                _imgPlayerCircol[1].transform.localPosition = Vector2.zero;
-                _imgPlayerCircol[2].transform.localPosition = Vector2.zero;
-                _imgPlayerCircol[3].transform.localPosition = Vector2.zero;
-                _imgPlayerCircol[0].transform.localPosition = Vector2.zero;
-                _imgPlayerCircol[0].transform.DOKill();
-                _imgPlayerCircol[1].transform.DOKill();
-                _imgPlayerCircol[2].transform.DOKill();
-                _imgPlayerCircol[3].transform.DOKill();
                 listEffect[0].SetActive(false);
                 listEffect[1].SetActive(false);
                 listEffect[2].SetActive(false);
@@ -246,6 +201,7 @@ public class SpinnerPlayer : MonoBehaviour
         if (isCheck)
         {
             isCheckAnim = false;
+            _imgPlayerCircol[center].transform.DOPause();
             _imgPlayerCircol[center].sprite = currentPlayerData.listSprite[0];
             ResetListPlayer();
             isCheck = false;
@@ -256,6 +212,7 @@ public class SpinnerPlayer : MonoBehaviour
             obj[2].DOMove(obj[1].position, 1);
             obj[1].DOMove(obj[0].position, 1).OnComplete(() =>
             {
+                MoveObject();
                 AnimPlayer();
                 UpdateTransformOrder();
                 DisplayCurrentPlayerData();
@@ -266,11 +223,25 @@ public class SpinnerPlayer : MonoBehaviour
 
     }
 
+    private void MoveObject()
+    {
+        _imgPlayerCircol[center].transform.DOMoveY(0, 2).OnComplete(() =>
+        {
+            MoveObjectBack();
+        });
+    }
+
+    private void MoveObjectBack()
+    {
+        _imgPlayerCircol[center].transform.DOLocalMove(new Vector3(0, 30, 0), 2).SetLoops(-1, LoopType.Yoyo);
+    }
+
     public void BackPlayer()
     {
         if (isCheck)
         {
             isCheckAnim = false;
+            _imgPlayerCircol[center].transform.DOPause();
             _imgPlayerCircol[center].sprite = currentPlayerData.listSprite[0];
             isCheck = false;
             center = (center + obj.Length - 1) % obj.Length;
@@ -280,6 +251,7 @@ public class SpinnerPlayer : MonoBehaviour
             obj[3].DOMove(obj[4].position, 1);
             obj[4].DOMove(obj[0].position, 1).OnComplete(() =>
             {
+                MoveObject();
                 AnimPlayer();
                 ResetListPlayer();
                 UpdateTransformOrder();

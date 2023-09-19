@@ -46,7 +46,6 @@ public class CharacterSelectionDataBase : MonoBehaviour
     private bool isDead = false;
     private void Start()
     {
-
         OnInit();
         OnAudio();
         EatBean();

@@ -2085,6 +2085,7 @@ MonoBehaviour:
   - {fileID: 534253543124306992, guid: 442e175363065cb4cabb778c7db55142, type: 3}
   - {fileID: 206865772777619958, guid: 690f5f8f654ff0247be46d26da9dc24c, type: 3}
   - {fileID: 7664562619132655749, guid: 316f72988ece9df4d96cee169899a5d3, type: 3}
+  - {fileID: 687894040435820165, guid: d1f1cd765c2c73644b1c06ed49a1a547, type: 3}
   VfxArmor: {fileID: 7428582930305700378}
   v3:
   - {x: -9, y: -0.6, z: 0}

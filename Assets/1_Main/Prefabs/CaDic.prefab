@@ -365,7 +365,7 @@ Transform:
   - {fileID: 609286976195438697}
   - {fileID: 3874899053516698895}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-797232265356141886
 MonoBehaviour:
@@ -454,6 +454,7 @@ MonoBehaviour:
   - {fileID: 534253543124306992, guid: 1f5bd30b5d4902544b365c3e2ab569ca, type: 3}
   - {fileID: 206865772777619958, guid: 690f5f8f654ff0247be46d26da9dc24c, type: 3}
   - {fileID: 7664562619132655749, guid: 316f72988ece9df4d96cee169899a5d3, type: 3}
+  - {fileID: 687894040435820165, guid: d1f1cd765c2c73644b1c06ed49a1a547, type: 3}
   VfxArmor: {fileID: 3506692630780297407}
   v3:
   - {x: -9, y: -0.6, z: 0}

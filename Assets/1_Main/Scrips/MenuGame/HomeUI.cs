@@ -44,7 +44,7 @@ public class HomeUI : MonoBehaviour
 
     void Start()
     {
-
+        Application.targetFrameRate = 60;
         btn = PlayerPrefs.GetInt("btn");
         if (btn == 0)
         {

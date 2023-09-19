@@ -317,6 +317,7 @@
     <Compile Include="Assets\2_Package\Spine Examples\Scripts\Goblins.cs" />
     <Compile Include="Assets\1_Main\Scrips\Enemy\Bot.cs" />
     <Compile Include="Assets\2_Package\Spine\spine-unity\Components\PointFollower.cs" />
+    <Compile Include="Assets\1_Main\Scrips\MG_FPS.cs" />
     <Compile Include="Assets\2_Package\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\2_Package\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\1_Main\Scrips\CharactorEnemy.cs" />
